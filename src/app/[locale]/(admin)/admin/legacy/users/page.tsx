@@ -74,7 +74,7 @@ export default async function LegacyUsersPage({
     ${email ? sql`WHERE u.email ILIKE ${'%' + email + '%'}` : sql``}
     ORDER BY u.created_at DESC
     LIMIT ${limit} OFFSET ${offset}
-  `) as LegacyUser[];
+  `) as unknown as LegacyUser[];
 
   const crumbs: Crumb[] = [
     { title: 'Admin', url: '/admin' },

@@ -80,15 +80,15 @@ export default async function LegacyImagesPage({
     ${mode ? sql`AND ih.mode = ${mode}` : sql``}
     ORDER BY ih.created_at DESC
     LIMIT ${limit} OFFSET ${offset}
-  `) as LegacyImage[];
+  `) as unknown as LegacyImage[];
 
   // Get mode stats
-  const modeStats = await database.execute(sql`
+  const modeStats = (await database.execute(sql`
     SELECT mode, COUNT(*) as count
     FROM public.image_history
     GROUP BY mode
     ORDER BY count DESC
-  `) as { mode: string; count: number }[];
+  `)) as unknown as { mode: string; count: number }[];
 
   const crumbs: Crumb[] = [
     { title: 'Admin', url: '/admin' },
