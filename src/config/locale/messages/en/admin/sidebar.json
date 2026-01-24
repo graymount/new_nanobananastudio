@@ -89,6 +89,21 @@
           "icon": "MessageCircle"
         }
       ]
+    },
+    {
+      "title": "Legacy Site",
+      "items": [
+        {
+          "title": "Legacy Users",
+          "url": "/admin/legacy/users",
+          "icon": "Users"
+        },
+        {
+          "title": "Legacy Images",
+          "url": "/admin/legacy/images",
+          "icon": "Image"
+        }
+      ]
     }
   ],
   "bottom_nav": {

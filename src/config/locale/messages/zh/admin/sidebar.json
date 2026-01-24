@@ -89,6 +89,21 @@
           "icon": "MessageCircle"
         }
       ]
+    },
+    {
+      "title": "老网站数据",
+      "items": [
+        {
+          "title": "老用户",
+          "url": "/admin/legacy/users",
+          "icon": "Users"
+        },
+        {
+          "title": "生成图片",
+          "url": "/admin/legacy/images",
+          "icon": "Image"
+        }
+      ]
     }
   ],
   "bottom_nav": {
