@@ -32,6 +32,12 @@
           "title": "博客",
           "url": "/blog",
           "icon": "Newspaper"
+        },
+        {
+          "title": "打开应用",
+          "url": "https://nanobananastudio.com",
+          "target": "_blank",
+          "icon": "ExternalLink"
         }
       ]
     },

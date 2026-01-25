@@ -32,6 +32,12 @@
           "title": "Blog",
           "url": "/blog",
           "icon": "Newspaper"
+        },
+        {
+          "title": "Open App",
+          "url": "https://nanobananastudio.com",
+          "target": "_blank",
+          "icon": "ExternalLink"
         }
       ]
     },

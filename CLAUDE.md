@@ -153,10 +153,10 @@ AUTH_SECRET=your-secret
 - [x] Structured data (Organization, WebApplication JSON-LD)
 - [x] SEO keywords in common metadata
 
-### Phase 4: Integration
-- [ ] "Start Creating" button → app.nanobananastudio.com
-- [ ] Unified visual style with old site
-- [ ] Navigation links between sites
+### Phase 4: Integration ✅
+- [x] APP_TOOL_URL env variable for easy domain switching
+- [x] Unified visual style (cyberpunk CSS utilities)
+- [x] Navigation "Open App" link added (EN/ZH)
 
 ### Phase 5: Testing
 - [ ] Google Search Console verification

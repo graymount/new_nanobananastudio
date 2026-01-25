@@ -116,6 +116,18 @@
   --shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.25);
 }
 
+/* Cyberpunk color palette - matching old site */
+:root {
+  --cyber-black: #0a0a0a;
+  --cyber-purple: #a855f7;
+  --cyber-blue: #3b82f6;
+  --cyber-pink: #ec4899;
+  --cyber-cyan: #06b6d4;
+  --cyber-accent: #c084fc;
+  --cyber-card: #151320;
+  --cyber-muted: #9ca3af;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
