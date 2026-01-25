@@ -1,4 +1,9 @@
 {
+  "metadata": {
+    "title": "Nano Banana Studio - AI Image Generator & Editor",
+    "description": "Create stunning AI images from text descriptions or transform existing photos with natural language. Powered by Google Gemini. Try free today!",
+    "keywords": "AI image generator, text to image AI, AI art generator, image editing AI, Google Gemini images, AI photo editor"
+  },
   "page": {
     "show_sections": [
       "hero",

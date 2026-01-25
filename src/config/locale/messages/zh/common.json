@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "ShipAny 模板二",
-    "description": "ShipAny 是用于构建 AI SaaS 创业项目的 NextJS 脚手架。提供丰富模板和组件，助您快速上线产品。",
-    "keywords": "shipany, shipany-boilerplate, shipany-template-two-demo"
+    "title": "Nano Banana Studio - AI 图像生成器和编辑器",
+    "description": "通过文字描述创建令人惊艳的 AI 图像，或转换现有照片。由 Google Gemini 驱动。支持赛博朋克、动漫、水彩等多种艺术风格。",
+    "keywords": "AI图像生成, 文字生成图像, AI艺术, 图像编辑, Google Gemini, AI照片编辑器, 赛博朋克艺术, 动漫生成器, 水彩AI"
   },
   "sign": {
     "sign_in_title": "登录",

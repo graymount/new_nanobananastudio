@@ -1,4 +1,9 @@
 {
+  "metadata": {
+    "title": "Nano Banana Studio - AI 图像生成器和编辑器",
+    "description": "通过文字描述创建令人惊艳的 AI 图像，或用自然语言转换现有照片。由 Google Gemini 驱动。立即免费试用！",
+    "keywords": "AI图像生成器, 文字生成图像, AI艺术生成器, AI图像编辑, Google Gemini图像, AI照片编辑器"
+  },
   "page": {
     "show_sections": [
       "hero",

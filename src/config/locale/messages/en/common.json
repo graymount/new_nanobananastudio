@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "ShipAny Template Two",
-    "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups. Ship Fast with a variety of templates and components.",
-    "keywords": "shipany, shipany-boilerplate, shipany-template-two-demo"
+    "title": "Nano Banana Studio - AI Image Generator & Editor",
+    "description": "Create stunning AI images from text descriptions or transform existing photos. Powered by Google Gemini. Multiple artistic styles including cyberpunk, anime, watercolor and more.",
+    "keywords": "AI image generator, text to image, AI art, image editing, Google Gemini, AI photo editor, cyberpunk art, anime generator, watercolor AI"
   },
   "sign": {
     "sign_in_title": "Sign In",

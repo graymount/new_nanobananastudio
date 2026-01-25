@@ -1,15 +1,16 @@
 {
   "metadata": {
-    "title": "博客",
-    "description": "阅读我们最新的产品功能、解决方案和更新内容。"
+    "title": "博客 - AI 图像生成技巧与教程",
+    "description": "学习 AI 图像生成技术、提示词编写技巧和创意工作流程。探索如何使用 Nano Banana Studio 创建令人惊艳的视觉作品。",
+    "keywords": "AI艺术教程, 提示词工程, 图像生成技巧, AI创意工作流"
   },
   "page": {
-    "title": "ShipAny 博客",
+    "title": "Nano Banana 博客",
     "sections": {
       "blog": {
         "id": "blog",
         "title": "博客",
-        "description": "阅读我们最新的产品功能、解决方案和更新内容。"
+        "description": "AI 图像创作的教程、技巧和灵感。"
       }
     }
   },
