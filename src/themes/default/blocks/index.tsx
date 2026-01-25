@@ -3,6 +3,7 @@ export * from './header';
 export * from './footer';
 
 export * from './hero';
+export * from './hero-generator';
 
 export * from './features';
 export * from './features-list';
@@ -13,6 +14,10 @@ export * from './features-media';
 
 export * from './showcases';
 export * from './showcases-flow';
+export * from './showcases-preview';
+export * from './mycase-gallery';
+export * from './prompt-inspirations';
+export * from './use-cases';
 
 export * from './logos';
 export * from './stats';

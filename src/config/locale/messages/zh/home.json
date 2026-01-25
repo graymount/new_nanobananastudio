@@ -1,0 +1,22 @@
+{
+  "generator": {
+    "placeholder": "描述你想创建的图片... 例如：'夜晚发光蘑菇的魔法森林'",
+    "generate": "生成图片",
+    "generating": "正在创建图片...",
+    "loading": "加载中...",
+    "checking": "检查账户...",
+    "success": "图片生成成功！",
+    "error": "生成失败，请重试",
+    "empty_prompt": "请先输入描述",
+    "prompt_too_long": "描述太长了",
+    "insufficient_credits": "积分不足，请升级套餐",
+    "credits_remaining": "剩余 {credits} 积分",
+    "guest_remaining": "剩余 {remaining}/{total} 次免费体验",
+    "sign_in_for_more": "登录获取更多",
+    "open_full_app": "打开完整应用",
+    "download": "下载",
+    "downloaded": "图片已下载！",
+    "download_error": "下载失败",
+    "generating_message": "AI 正在创作中..."
+  }
+}

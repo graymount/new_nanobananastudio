@@ -1,0 +1,22 @@
+{
+  "generator": {
+    "placeholder": "Describe the image you want to create... e.g., 'A magical forest with glowing mushrooms at night'",
+    "generate": "Generate Image",
+    "generating": "Creating your image...",
+    "loading": "Loading...",
+    "checking": "Checking account...",
+    "success": "Image generated successfully!",
+    "error": "Failed to generate image. Please try again.",
+    "empty_prompt": "Please enter a description first",
+    "prompt_too_long": "Prompt is too long",
+    "insufficient_credits": "Insufficient credits. Please upgrade your plan.",
+    "credits_remaining": "{credits} credits remaining",
+    "guest_remaining": "{remaining}/{total} free tries remaining",
+    "sign_in_for_more": "Sign in for more",
+    "open_full_app": "Open Full App",
+    "download": "Download",
+    "downloaded": "Image downloaded!",
+    "download_error": "Failed to download image",
+    "generating_message": "AI is creating your image..."
+  }
+}

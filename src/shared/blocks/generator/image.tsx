@@ -46,6 +46,8 @@ interface ImageGeneratorProps {
   maxSizeMB?: number;
   srOnlyTitle?: string;
   className?: string;
+  initialRefImage?: string;
+  initialPrompt?: string;
 }
 
 interface GeneratedImage {
@@ -74,79 +76,21 @@ const MAX_PROMPT_LENGTH = 2000;
 
 const MODEL_OPTIONS = [
   {
-    value: 'google/nano-banana-pro',
-    label: 'Nano Banana Pro',
-    provider: 'replicate',
-    scenes: ['text-to-image', 'image-to-image'],
-  },
-  {
-    value: 'bytedance/seedream-4',
-    label: 'Seedream 4',
-    provider: 'replicate',
-    scenes: ['text-to-image', 'image-to-image'],
-  },
-  {
-    value: 'fal-ai/nano-banana-pro',
-    label: 'Nano Banana Pro',
-    provider: 'fal',
-    scenes: ['text-to-image'],
-  },
-  {
-    value: 'fal-ai/nano-banana-pro/edit',
-    label: 'Nano Banana Pro',
-    provider: 'fal',
-    scenes: ['image-to-image'],
-  },
-  {
-    value: 'fal-ai/bytedance/seedream/v4/edit',
-    label: 'Seedream 4',
-    provider: 'fal',
-    scenes: ['image-to-image'],
-  },
-  {
-    value: 'fal-ai/z-image/turbo',
-    label: 'Z-Image Turbo',
-    provider: 'fal',
-    scenes: ['text-to-image'],
-  },
-  {
-    value: 'fal-ai/flux-2-flex',
-    label: 'Flux 2 Flex',
-    provider: 'fal',
-    scenes: ['text-to-image'],
-  },
-  {
-    value: 'gemini-3-pro-image-preview',
-    label: 'Gemini 3 Pro Image Preview',
+    value: 'gemini-2.5-flash-image',
+    label: 'Nano Banana',
     provider: 'gemini',
     scenes: ['text-to-image', 'image-to-image'],
   },
   {
-    value: 'nano-banana-pro',
+    value: 'gemini-3-pro-image-preview',
     label: 'Nano Banana Pro',
-    provider: 'kie',
+    provider: 'gemini',
     scenes: ['text-to-image', 'image-to-image'],
   },
 ];
 
-const PROVIDER_OPTIONS = [
-  {
-    value: 'replicate',
-    label: 'Replicate',
-  },
-  {
-    value: 'fal',
-    label: 'Fal',
-  },
-  {
-    value: 'gemini',
-    label: 'Gemini',
-  },
-  {
-    value: 'kie',
-    label: 'Kie',
-  },
-];
+// Only Gemini provider is supported
+const DEFAULT_PROVIDER = 'gemini';
 
 function parseTaskResult(taskResult: string | null): any {
   if (!taskResult) {
@@ -208,20 +152,31 @@ export function ImageGenerator({
   maxSizeMB = 5,
   srOnlyTitle,
   className,
+  initialRefImage,
+  initialPrompt,
 }: ImageGeneratorProps) {
   const t = useTranslations('ai.image.generator');
 
-  const [activeTab, setActiveTab] =
-    useState<ImageGeneratorTab>('text-to-image');
+  const [activeTab, setActiveTab] = useState<ImageGeneratorTab>(
+    initialRefImage ? 'image-to-image' : 'text-to-image'
+  );
 
-  const [costCredits, setCostCredits] = useState<number>(2);
-  const [provider, setProvider] = useState(PROVIDER_OPTIONS[0]?.value ?? '');
+  const [costCredits, setCostCredits] = useState<number>(
+    initialRefImage ? 4 : 2
+  );
+  const provider = DEFAULT_PROVIDER;
   const [model, setModel] = useState(MODEL_OPTIONS[0]?.value ?? '');
-  const [prompt, setPrompt] = useState('');
+  const [prompt, setPrompt] = useState(initialPrompt || '');
   const [referenceImageItems, setReferenceImageItems] = useState<
     ImageUploaderValue[]
-  >([]);
-  const [referenceImageUrls, setReferenceImageUrls] = useState<string[]>([]);
+  >(
+    initialRefImage
+      ? [{ id: 'initial', preview: initialRefImage, url: initialRefImage, status: 'uploaded' }]
+      : []
+  );
+  const [referenceImageUrls, setReferenceImageUrls] = useState<string[]>(
+    initialRefImage ? [initialRefImage] : []
+  );
   const [generatedImages, setGeneratedImages] = useState<GeneratedImage[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -251,8 +206,8 @@ export function ImageGenerator({
     const tab = value as ImageGeneratorTab;
     setActiveTab(tab);
 
-    const availableModels = MODEL_OPTIONS.filter(
-      (option) => option.scenes.includes(tab) && option.provider === provider
+    const availableModels = MODEL_OPTIONS.filter((option) =>
+      option.scenes.includes(tab)
     );
 
     if (availableModels.length > 0) {
@@ -265,20 +220,6 @@ export function ImageGenerator({
       setCostCredits(2);
     } else {
       setCostCredits(4);
-    }
-  };
-
-  const handleProviderChange = (value: string) => {
-    setProvider(value);
-
-    const availableModels = MODEL_OPTIONS.filter(
-      (option) => option.scenes.includes(activeTab) && option.provider === value
-    );
-
-    if (availableModels.length > 0) {
-      setModel(availableModels[0].value);
-    } else {
-      setModel('');
     }
   };
 
@@ -631,45 +572,22 @@ export function ImageGenerator({
                   </TabsList>
                 </Tabs>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label>{t('form.provider')}</Label>
-                    <Select
-                      value={provider}
-                      onValueChange={handleProviderChange}
-                    >
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder={t('form.select_provider')} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {PROVIDER_OPTIONS.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label>{t('form.model')}</Label>
-                    <Select value={model} onValueChange={setModel}>
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder={t('form.select_model')} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {MODEL_OPTIONS.filter(
-                          (option) =>
-                            option.scenes.includes(activeTab) &&
-                            option.provider === provider
-                        ).map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                <div className="space-y-2">
+                  <Label>{t('form.model')}</Label>
+                  <Select value={model} onValueChange={setModel}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder={t('form.select_model')} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {MODEL_OPTIONS.filter((option) =>
+                        option.scenes.includes(activeTab)
+                      ).map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 {!isTextToImageMode && (
@@ -681,6 +599,7 @@ export function ImageGenerator({
                       maxSizeMB={maxSizeMB}
                       onChange={handleReferenceImagesChange}
                       emptyHint={t('form.reference_image_placeholder')}
+                      defaultPreviews={initialRefImage ? [initialRefImage] : undefined}
                     />
 
                     {hasReferenceUploadError && (

@@ -1,6 +1,6 @@
 import '@/config/style/global.css';
 
-import { JetBrains_Mono, Merriweather, Noto_Sans_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, Noto_Sans_SC } from 'next/font/google';
 import { getLocale, setRequestLocale } from 'next-intl/server';
 import NextTopLoader from 'nextjs-toploader';
 
@@ -13,21 +13,24 @@ import { getAffiliateService } from '@/shared/services/affiliate';
 import { getAnalyticsService } from '@/shared/services/analytics';
 import { getCustomerService } from '@/shared/services/customer_service';
 
-const notoSansMono = Noto_Sans_Mono({
+// Inter - Modern sans-serif font optimized for UI/screens
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
   preload: true,
 });
 
-const merriweather = Merriweather({
+// Noto Sans SC - Chinese font with excellent CJK support
+const notoSansSC = Noto_Sans_SC({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-serif',
+  weight: ['400', '500', '700'],
+  variable: '--font-chinese',
   display: 'swap',
-  preload: true,
+  preload: false, // Lazy load for better performance
 });
 
+// JetBrains Mono - Excellent monospace font for code
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
@@ -104,7 +107,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${notoSansMono.variable} ${merriweather.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${notoSansSC.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <head>

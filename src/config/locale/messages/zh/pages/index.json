@@ -8,38 +8,20 @@
     "show_sections": [
       "hero",
       "features",
-      "usage",
-      "showcases",
+      "prompt_inspirations",
+      "use_cases",
       "pricing_preview",
       "faq",
       "cta"
     ],
     "sections": {
       "hero": {
+        "block": "hero-generator",
         "id": "hero",
         "title": "用 AI 创造惊艳图像",
         "highlight_text": "惊艳图像",
-        "description": "用自然语言将你的想法转化为精美视觉作品。<br/>由 Google Gemini AI 驱动，支持图像生成和编辑。",
-        "tip": "无需设计技能 - 只需描述你想要的",
-        "buttons": [
-          {
-            "title": "免费开始创作",
-            "icon": "Zap",
-            "url": "https://nanobananastudio.com",
-            "target": "_blank",
-            "variant": "default"
-          },
-          {
-            "title": "查看示例",
-            "icon": "Image",
-            "url": "/showcases",
-            "target": "_self",
-            "variant": "outline"
-          }
-        ],
-        "show_avatars": true,
-        "avatars_tip": "加入正在使用 Nano Banana Studio 的创作者",
-        "show_award": false
+        "description": "用自然语言将你的想法转化为精美视觉作品。由 Google Gemini AI 驱动。",
+        "tip": "无需设计技能 - 只需描述你想要的"
       },
       "features": {
         "id": "features",
@@ -101,18 +83,25 @@
         ],
         "className": "bg-muted"
       },
-      "showcases": {
-        "block": "showcases-preview",
-        "id": "showcases",
-        "title": "看看能做什么",
-        "description": "探索用 Nano Banana Studio 创作的精彩作品。",
+      "prompt_inspirations": {
+        "block": "prompt-inspirations",
+        "id": "inspirations",
+        "label": "灵感",
+        "title": "Prompt 灵感库",
+        "description": "一键获取灵感，立即开始创作。试试这些热门提示词，或创建你自己的。",
         "buttons": [
           {
-            "title": "查看全部作品",
-            "url": "/showcases",
+            "title": "查看更多灵感",
+            "url": "/app",
             "variant": "outline"
           }
         ]
+      },
+      "use_cases": {
+        "block": "use-cases",
+        "id": "use-cases",
+        "title": "你能创作什么",
+        "description": "看看 Nano Banana Studio 如何帮助实现你的创意项目。"
       },
       "pricing_preview": {
         "block": "pricing-preview",
@@ -132,7 +121,7 @@
             ],
             "button": {
               "title": "开始使用",
-              "url": "https://nanobananastudio.com",
+              "url": "/app",
               "target": "_blank"
             }
           },
@@ -148,7 +137,7 @@
             ],
             "button": {
               "title": "升级到专业版",
-              "url": "https://nanobananastudio.com",
+              "url": "/app",
               "target": "_blank"
             },
             "featured": true
@@ -165,7 +154,7 @@
             ],
             "button": {
               "title": "升级到旗舰版",
-              "url": "https://nanobananastudio.com",
+              "url": "/app",
               "target": "_blank"
             }
           }
@@ -216,7 +205,7 @@
         "buttons": [
           {
             "title": "立即开始创作",
-            "url": "https://nanobananastudio.com",
+            "url": "/app",
             "target": "_blank",
             "icon": "Zap"
           }

@@ -8,38 +8,20 @@
     "show_sections": [
       "hero",
       "features",
-      "usage",
-      "showcases",
+      "prompt_inspirations",
+      "use_cases",
       "pricing_preview",
       "faq",
       "cta"
     ],
     "sections": {
       "hero": {
+        "block": "hero-generator",
         "id": "hero",
         "title": "Create Stunning Images with AI",
         "highlight_text": "Stunning Images",
-        "description": "Transform your ideas into beautiful visuals using natural language.<br/>Powered by Google Gemini AI for both image generation and editing.",
-        "tip": "No design skills required - just describe what you want",
-        "buttons": [
-          {
-            "title": "Start Creating Free",
-            "icon": "Zap",
-            "url": "https://nanobananastudio.com",
-            "target": "_blank",
-            "variant": "default"
-          },
-          {
-            "title": "View Examples",
-            "icon": "Image",
-            "url": "/showcases",
-            "target": "_self",
-            "variant": "outline"
-          }
-        ],
-        "show_avatars": true,
-        "avatars_tip": "Join creators using Nano Banana Studio",
-        "show_award": false
+        "description": "Transform your ideas into beautiful visuals using natural language. Powered by Google Gemini AI.",
+        "tip": "No design skills required - just describe what you want"
       },
       "features": {
         "id": "features",
@@ -101,18 +83,25 @@
         ],
         "className": "bg-muted"
       },
-      "showcases": {
-        "block": "showcases-preview",
-        "id": "showcases",
-        "title": "See What's Possible",
-        "description": "Explore amazing creations made with Nano Banana Studio.",
+      "prompt_inspirations": {
+        "block": "prompt-inspirations",
+        "id": "inspirations",
+        "label": "Inspiration",
+        "title": "Prompt Inspirations",
+        "description": "Get inspired and start creating with one click. Try these popular prompts or create your own.",
         "buttons": [
           {
-            "title": "View All Showcases",
-            "url": "/showcases",
+            "title": "View More Inspirations",
+            "url": "/app",
             "variant": "outline"
           }
         ]
+      },
+      "use_cases": {
+        "block": "use-cases",
+        "id": "use-cases",
+        "title": "What You Can Create",
+        "description": "See how Nano Banana Studio can help bring your creative projects to life."
       },
       "pricing_preview": {
         "block": "pricing-preview",
@@ -132,7 +121,7 @@
             ],
             "button": {
               "title": "Get Started",
-              "url": "https://nanobananastudio.com",
+              "url": "/app",
               "target": "_blank"
             }
           },
@@ -148,7 +137,7 @@
             ],
             "button": {
               "title": "Upgrade to Pro",
-              "url": "https://nanobananastudio.com",
+              "url": "/app",
               "target": "_blank"
             },
             "featured": true
@@ -165,7 +154,7 @@
             ],
             "button": {
               "title": "Upgrade to Max",
-              "url": "https://nanobananastudio.com",
+              "url": "/app",
               "target": "_blank"
             }
           }
@@ -216,7 +205,7 @@
         "buttons": [
           {
             "title": "Start Creating Now",
-            "url": "https://nanobananastudio.com",
+            "url": "/app",
             "target": "_blank",
             "icon": "Zap"
           }

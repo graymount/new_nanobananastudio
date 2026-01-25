@@ -10,7 +10,16 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    /* Optimize text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  /* Apply Chinese font for zh locale */
+  html[lang="zh"] body {
+    font-family: var(--font-chinese), var(--font-sans);
   }
 }
 

@@ -6,20 +6,28 @@ This file provides guidance to Claude Code when working with code in this reposi
 
 **Nano Banana Studio - New Site** is an SEO-friendly frontend for the AI image generation service. Built with Next.js 16 (SSR/SSG) based on ShipAny Template Two.
 
+### Key Features
+
+- **AI Image Generator** (`/app`) - Text-to-image and image-to-image generation powered by Google Gemini
+- **My Gallery** (`/mycase`) - Personal gallery of user's AI-generated images with lightbox view
+- **Prompt Inspirations** - Homepage section with clickable prompt cards that auto-fill the generator
+- **Use Cases** - Showcase of different AI image use cases (e-commerce, social media, art, photo enhancement)
+- **Bilingual Support** - Full EN/ZH localization
+
 ### Migration Strategy
 
 This project follows a **progressive migration** approach:
 
 | Role | Domain | Responsibility |
 |------|--------|----------------|
-| **New Site** (this repo) | nanobananastudio.com (target) | SEO entry, landing pages, blog, product info |
-| **Old Site** | app.nanobananastudio.com (target) | AI tool functionality, user login, payments |
+| **New Site** (this repo) | nanobananastudio.com (target) | SEO entry, landing pages, blog, product info, AI tools |
+| **Old Site** | app.nanobananastudio.com (target) | Legacy version (deprecated) |
 
 **Current Status:**
 - New site: `new.nanobananastudio.com` (testing)
 - Old site: `nanobananastudio.com` (production)
 
-**Goal:** After validation, swap domains so new site becomes the main entry point while old site becomes the functional app zone.
+**Goal:** After validation, swap domains so new site becomes the main entry point.
 
 ### Old Site Reference
 
@@ -72,11 +80,16 @@ pnpm cf:deploy
 src/
 ├── app/                    # Next.js App Router
 │   ├── [locale]/          # i18n routes
-│   │   ├── (landing)/     # Public pages (home, blog, pricing)
+│   │   ├── (landing)/     # Public pages
+│   │   │   ├── app/       # AI Image Generator page
+│   │   │   ├── mycase/    # User's personal gallery
+│   │   │   ├── pricing/   # Pricing page
+│   │   │   └── blog/      # Blog
 │   │   ├── (auth)/        # Authentication pages
 │   │   ├── (docs)/        # Documentation
 │   │   └── (admin)/       # Admin dashboard
 │   └── api/               # API routes
+│       └── user/images/   # User's AI-generated images API
 ├── core/                   # Core modules
 │   ├── auth/              # Better Auth config
 │   ├── db/                # Drizzle ORM config
@@ -88,9 +101,16 @@ src/
 │   └── db/schema.ts       # Database schema
 ├── shared/                 # Shared code
 │   ├── blocks/            # UI block components
+│   │   ├── generator/     # AI image generator components
+│   │   └── gallery/       # Gallery components
 │   ├── components/ui/     # shadcn components
 │   ├── lib/seo.ts         # SEO utilities
 │   └── services/          # Business logic
+├── themes/default/blocks/ # Theme-specific blocks
+│   ├── prompt-inspirations.tsx  # Clickable prompt cards
+│   ├── use-cases.tsx            # Use case showcase
+│   ├── showcases-gallery.tsx    # User gallery block
+│   └── hero-generator.tsx       # Homepage hero with generator
 └── extensions/            # Optional features (ai, payment, email)
 
 content/                   # MDX content
@@ -98,6 +118,11 @@ content/                   # MDX content
 ├── pages/                 # Legal pages (privacy, terms)
 ├── posts/                 # Blog posts
 └── logs/                  # Changelog
+
+public/imgs/               # Static images
+├── inspirations/          # Prompt inspiration images
+├── use-cases/             # Use case images
+└── showcases/             # Sample showcase images
 ```
 
 ### Key Files
@@ -110,6 +135,24 @@ content/                   # MDX content
 | Auth | `src/core/auth/index.ts` |
 | Environment | `src/config/index.ts` |
 | Robots.txt | `src/app/robots.ts` |
+| AI Image Generator | `src/shared/blocks/generator/image.tsx` |
+| Theme blocks index | `src/themes/default/blocks/index.tsx` |
+| Homepage config (EN) | `src/config/locale/messages/en/pages/index.json` |
+| Homepage config (ZH) | `src/config/locale/messages/zh/pages/index.json` |
+
+### Theme Block System
+
+Theme blocks are registered in `src/themes/default/blocks/index.tsx` and referenced by name in page config JSON files.
+
+**Available Blocks:**
+- `hero-generator` - Homepage hero with embedded prompt input
+- `prompt-inspirations` - Grid of clickable prompt cards
+- `use-cases` - Alternating left/right showcase sections
+- `showcases-gallery` - User's personal image gallery
+- `features` - Feature grid with icons
+- `pricing-preview` - Pricing tier cards
+- `faq` - Accordion FAQ section
+- `cta` - Call-to-action section
 
 ## Environment Variables
 
@@ -168,13 +211,34 @@ AUTH_SECRET=your-secret
 - [ ] Lighthouse audit (requires deployment)
 - [ ] Mobile-friendly test (requires deployment)
 
-### Phase 6: Domain Switch
+### Phase 6: Feature Development ✅
+- [x] AI Image Generator (`/app`) - text-to-image and image-to-image
+- [x] My Gallery (`/mycase`) - user's personal AI image gallery
+- [x] Homepage redesign - Prompt Inspirations + Use Cases sections
+- [x] Prompt auto-fill via URL query parameters
+- [x] Gallery lightbox with "Create with this image" feature
+
+### Phase 7: Domain Switch
 - [ ] Deploy old site to app.nanobananastudio.com
 - [ ] Deploy new site to nanobananastudio.com
 - [ ] Configure 301 redirects
 - [ ] Monitor for 48 hours
 
 ## Common Tasks
+
+### AI Image Generator URL Parameters
+
+The `/app` page accepts query parameters to pre-fill the generator:
+
+```
+/app?prompt=Your%20prompt%20here     # Pre-fill text prompt
+/app?ref_image=https://...           # Pre-load reference image for image-to-image
+```
+
+This is used by:
+- Prompt Inspirations cards ("Try this prompt" → `/app?prompt=...`)
+- Use Cases buttons ("Try it now" → `/app?prompt=...`)
+- My Gallery lightbox ("Create with this image" → `/app?ref_image=...`)
 
 ### Adding a New Page
 
@@ -206,6 +270,33 @@ export const generateMetadata = getMetadata({
 2. Add Chinese version in `src/config/locale/messages/zh/your-namespace.json`
 3. Register path in `src/config/locale/index.ts` if new namespace
 
+### Modifying Homepage Sections
+
+Homepage sections are configured in `src/config/locale/messages/{en,zh}/pages/index.json`:
+
+```json
+{
+  "page": {
+    "show_sections": ["hero", "features", "prompt_inspirations", "use_cases", "pricing_preview", "faq", "cta"],
+    "sections": {
+      "hero": { "block": "hero-generator", "title": "...", ... },
+      "prompt_inspirations": { "block": "prompt-inspirations", ... },
+      "use_cases": { "block": "use-cases", ... }
+    }
+  }
+}
+```
+
+- `show_sections`: Array of section keys to display (order matters)
+- `sections`: Configuration for each section
+- `block`: References a theme block from `src/themes/default/blocks/`
+
+### Adding a New Theme Block
+
+1. Create component in `src/themes/default/blocks/your-block.tsx`
+2. Export from `src/themes/default/blocks/index.tsx`
+3. Reference by name in page config JSON: `"block": "your-block"`
+
 ## Deployment
 
 ### Vercel (Recommended)
@@ -224,3 +315,18 @@ pnpm cf:deploy
 - Always keep old site running until migration is complete
 - Test thoroughly on `new.nanobananastudio.com` before domain switch
 - Preserve Google SEO weight during domain transition with proper 301 redirects
+
+### Image Assets
+
+Images for homepage sections are stored in:
+- `/public/imgs/inspirations/` - Prompt inspiration cards (cyberpunk-city.png, cute-cat.png, fantasy-landscape.png, abstract-art.png)
+- `/public/imgs/use-cases/` - Use case images (ecommerce.png, social-media.png, art-illustration.png, photo-editing.png)
+- `/public/imgs/showcases/` - Sample showcase images
+
+### API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/user/images` | GET | Get user's AI-generated images (requires auth) |
+| `/api/ai/generate` | POST | Generate AI image |
+| `/api/proxy/file` | GET | Proxy for downloading images |

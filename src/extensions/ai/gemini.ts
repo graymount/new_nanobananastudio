@@ -53,7 +53,9 @@ export class GeminiProvider implements AIProvider {
       throw new Error('prompt is required');
     }
 
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${this.configs.apiKey}`;
+    // Use environment variable if available, otherwise use config
+    const apiKey = process.env.GEMINI_API_KEY || this.configs.apiKey;
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     const requestParts: any[] = [
       {

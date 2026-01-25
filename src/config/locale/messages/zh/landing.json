@@ -19,8 +19,8 @@
           "icon": "Sparkles"
         },
         {
-          "title": "作品展示",
-          "url": "/showcases",
+          "title": "我的作品",
+          "url": "/mycase",
           "icon": "Box"
         },
         {
@@ -32,22 +32,16 @@
           "title": "博客",
           "url": "/blog",
           "icon": "Newspaper"
-        },
-        {
-          "title": "打开应用",
-          "url": "https://nanobananastudio.com",
-          "target": "_blank",
-          "icon": "ExternalLink"
         }
       ]
     },
     "buttons": [
       {
-        "title": "开始创作",
-        "url": "https://nanobananastudio.com",
-        "target": "_blank",
+        "title": "打开应用",
+        "url": "/app",
+        "target": "_self",
         "variant": "default",
-        "icon": "Zap"
+        "icon": "Sparkles"
       }
     ],
     "user_nav": {
@@ -95,8 +89,8 @@
               "target": "_self"
             },
             {
-              "title": "作品展示",
-              "url": "/showcases",
+              "title": "我的作品",
+              "url": "/mycase",
               "target": "_self"
             },
             {
@@ -126,6 +120,11 @@
           "children": [
             {
               "title": "打开应用",
+              "url": "/app",
+              "target": "_self"
+            },
+            {
+              "title": "经典版",
               "url": "https://nanobananastudio.com",
               "target": "_blank"
             }
