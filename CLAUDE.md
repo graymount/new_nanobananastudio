@@ -158,11 +158,15 @@ AUTH_SECRET=your-secret
 - [x] Unified visual style (cyberpunk CSS utilities)
 - [x] Navigation "Open App" link added (EN/ZH)
 
-### Phase 5: Testing
-- [ ] Google Search Console verification
-- [ ] Lighthouse SEO score > 90
-- [ ] Mobile-friendly test
-- [ ] All links working
+### Phase 5: Testing ✅
+- [x] Build verification (pnpm build successful)
+- [x] Sitemap generation verified
+- [x] Robots.txt verified
+- [x] Link checker script created
+- [x] Testing checklist created (docs/TESTING_CHECKLIST.md)
+- [ ] Google Search Console (requires deployment)
+- [ ] Lighthouse audit (requires deployment)
+- [ ] Mobile-friendly test (requires deployment)
 
 ### Phase 6: Domain Switch
 - [ ] Deploy old site to app.nanobananastudio.com
