@@ -139,7 +139,7 @@ AUTH_SECRET=your-secret
 - [x] Logo and brand assets (favicon.png, logo.png)
 - [x] Homepage content (Hero, features, usage, pricing, FAQ, CTA)
 - [x] Navigation setup (header/footer EN/ZH)
-- [ ] Database setup (Supabase) - pending user config
+- [x] Database setup (Supabase, schema: nanobananastudio_new)
 
 ### Phase 2: SEO Content (Current)
 - [ ] Core pages (about, pricing, features, showcases)
