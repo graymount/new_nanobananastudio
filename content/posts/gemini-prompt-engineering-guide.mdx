@@ -1,0 +1,158 @@
+---
+title: "Gemini Image Generation: The Complete Prompt Engineering Guide"
+description: "Master AI image generation with Google's official prompting best practices. Learn how to write effective prompts for Gemini 2.5 Flash and Gemini 3 Pro to create stunning visuals."
+created_at: 2026-01-26
+author_name: Nano Banana Team
+author_image: /logo.png
+image: /imgs/blog/prompt-guide.png
+keywords: "Gemini prompt engineering, AI image generation, text to image prompts, Gemini 2.5 Flash, Gemini 3 Pro, AI art prompts"
+---
+
+Want to create stunning AI images? The secret isn't just the model—it's how you write your prompts. This guide distills Google's official best practices for Gemini image generation into actionable tips you can use today.
+
+## The Core Principle: Descriptive Storytelling
+
+According to [Google's official documentation](https://ai.google.dev/gemini-api/docs/image-generation), the most effective approach to image generation is **descriptive storytelling**. Rather than listing disconnected keywords, Gemini excels when given "a narrative, descriptive paragraph" that contextualizes the scene.
+
+**Instead of this:**
+```
+dog, park, sunny, happy, 4k, masterpiece
+```
+
+**Write this:**
+```
+A golden retriever playing fetch in a sun-dappled park on a warm
+autumn afternoon. The dog is mid-leap, catching a red frisbee,
+with fallen leaves swirling around. Warm golden hour lighting.
+```
+
+## The Prompt Framework
+
+Structure your prompts using this framework for consistent results:
+
+```
+[Subject + Adjectives] doing [Action] in [Location].
+[Composition]. [Lighting]. [Style].
+```
+
+**Example:**
+> A stoic robot barista with glowing blue optics serving coffee in a futuristic cafe. Wide shot. Warm morning light. Cinematic style.
+
+## 6 Proven Prompt Strategies
+
+### 1. Photorealistic Scenes
+
+Include photography terminology for realistic images:
+- Camera angles (low angle, bird's eye view)
+- Lens types (85mm portrait lens, wide-angle)
+- Lighting conditions (golden hour, studio lighting)
+- Specific textures and materials
+
+**Example:**
+> Portrait of a jazz musician in a dimly lit club. Captured with an 85mm lens, shallow depth of field with soft bokeh. Dramatic spotlight from above, smoke haze in the air.
+
+### 2. Stylized Illustrations
+
+Be explicit about artistic style and visual characteristics:
+
+**Example:**
+> A cute fox character in Studio Ghibli style, soft watercolors, whimsical forest background. Gentle morning light filtering through the trees.
+
+### 3. Accurate Text Rendering
+
+For logos, posters, or infographics, describe fonts descriptively and include exact text:
+
+**Example:**
+> A vintage concert poster with the text "JAZZ NIGHT" in bold red serif font at the top center. Art deco style geometric patterns, black and gold color scheme.
+
+### 4. Product Photography
+
+Specify studio setups for commercial-quality images:
+
+**Example:**
+> Professional product photo of a luxury watch on a dark marble surface. Three-point studio lighting, soft reflections, 45-degree angle. Clean white background with subtle shadows.
+
+### 5. Minimalist Compositions
+
+Emphasize negative space for designs meant as backdrops:
+
+**Example:**
+> Minimalist landscape with vast empty sky taking up two-thirds of the frame. Single small tree silhouette on the horizon. Soft gradient from pale blue to warm peach.
+
+### 6. Sequential Art
+
+For consistent multi-panel storytelling:
+
+**Example:**
+> Comic book panel showing a superhero landing on a rooftop at night. Bold outlines, vibrant colors, dramatic perspective. Include motion lines and a speech bubble saying "I'm here."
+
+## Lighting: The Mood Setter
+
+Lighting dramatically affects the emotional tone of your images:
+
+| Lighting Type | Mood/Effect |
+|--------------|-------------|
+| Golden hour | Warm, nostalgic, romantic |
+| Blue hour | Mysterious, melancholic |
+| Harsh midday | Dramatic, intense |
+| Candlelight | Intimate, cozy |
+| Neon lights | Cyberpunk, futuristic |
+| Studio softbox | Clean, professional |
+| Backlit/silhouette | Dramatic, ethereal |
+
+**Always specify time of day** to anchor your lighting:
+> Portrait of a woman at a cafe. **Late afternoon golden light** streaming through the window, casting long shadows.
+
+## Common Mistakes to Avoid
+
+### 1. Keyword Spam
+**Don't:** "beautiful, stunning, 4k, masterpiece, best quality, highly detailed"
+**Do:** Describe what makes it beautiful with specific details.
+
+### 2. Negative Framing
+**Don't:** "A street with no cars, no people, no trash"
+**Do:** "An empty, pristine cobblestone street at dawn"
+
+### 3. Vague Descriptions
+**Don't:** "A fantasy character"
+**Do:** "An elven archer in ornate silver plate armor etched with leaf patterns, wielding a recurve bow"
+
+### 4. Ignoring Composition
+**Don't:** Just describe subjects
+**Do:** Include framing: "Close-up portrait," "Wide establishing shot," "Over-the-shoulder view"
+
+## Iterative Refinement
+
+Google's documentation emphasizes: **"Don't expect a perfect image on your first attempt."**
+
+Use multi-turn conversation to refine:
+
+1. **Initial prompt:** "A cozy reading nook by a window"
+2. **Refinement:** "Add more plants and warmer lighting"
+3. **Detail:** "Make the window show a rainy day outside"
+4. **Final touch:** "Add a sleeping cat on the chair"
+
+This iterative approach often yields better results than trying to specify everything upfront.
+
+## Model-Specific Tips
+
+### Gemini 2.5 Flash (Nano Banana)
+- Optimized for speed
+- Best for quick iterations
+- Max resolution: 1024px
+- Single image editing
+
+### Gemini 3 Pro (Nano Banana Pro)
+- Advanced "Thinking" reasoning
+- Best for complex prompts
+- Max resolution: 4096px
+- Supports up to 14 reference images
+- Superior text rendering
+
+## Try It Now
+
+Ready to put these techniques into practice? Visit [Nano Banana Studio](/app) and try these prompt strategies with our Quick Styles feature.
+
+---
+
+*This guide is based on [Google's official Gemini API documentation](https://ai.google.dev/gemini-api/docs/image-generation) and [Vertex AI best practices](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/image-generation).*
