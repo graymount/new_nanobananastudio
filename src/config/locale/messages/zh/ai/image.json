@@ -66,6 +66,10 @@
       "image_added": "图片已添加为参考图",
       "image_already_added": "这张图片已经添加过了",
       "max_images_reached": "最多允许 {max} 张图片"
-    }
+    },
+    "edit": "编辑",
+    "download": "下载",
+    "edit_this_image": "编辑此图片",
+    "edit_image_loaded": "图片已加载，请输入编辑指令"
   }
 }

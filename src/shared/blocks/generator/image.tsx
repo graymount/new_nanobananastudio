@@ -6,6 +6,7 @@ import {
   Download,
   ImageIcon,
   Loader2,
+  Pencil,
   Sparkles,
   User,
   Palette,
@@ -670,6 +671,35 @@ export function ImageGenerator({
     }
   };
 
+  // Handle editing a generated image - switch to image-to-image mode with this image
+  const handleEditImage = useCallback((image: GeneratedImage) => {
+    if (!image.url) {
+      return;
+    }
+
+    // Switch to image-to-image tab
+    setActiveTab('image-to-image');
+    setCostCredits(4);
+
+    // Set the generated image as reference image
+    const newItem: ImageUploaderValue = {
+      id: `edit-${Date.now()}`,
+      preview: image.url,
+      url: image.url,
+      status: 'uploaded',
+    };
+    setReferenceImageItems([newItem]);
+    setReferenceImageUrls([image.url]);
+
+    // Clear the prompt so user can enter new editing instructions
+    setPrompt('');
+
+    // Scroll to top of the form
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    toast.success(t('edit_image_loaded'));
+  }, [t]);
+
   return (
     <section className={cn('', className)}>
       <div className="container">
@@ -992,6 +1022,16 @@ export function ImageGenerator({
                               size="sm"
                               variant="secondary"
                               className="h-9 px-3 bg-white/90 hover:bg-white text-black shadow-lg"
+                              onClick={() => handleEditImage(image)}
+                              title={t('edit_this_image')}
+                            >
+                              <Pencil className="h-4 w-4 mr-1.5" />
+                              <span className="text-xs font-medium">{t('edit')}</span>
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="secondary"
+                              className="h-9 px-3 bg-white/90 hover:bg-white text-black shadow-lg"
                               onClick={() => handleDownloadImage(image)}
                               disabled={downloadingImageId === image.id}
                             >
@@ -1000,7 +1040,7 @@ export function ImageGenerator({
                               ) : (
                                 <>
                                   <Download className="h-4 w-4 mr-1.5" />
-                                  <span className="text-xs font-medium">Download</span>
+                                  <span className="text-xs font-medium">{t('download')}</span>
                                 </>
                               )}
                             </Button>

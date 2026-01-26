@@ -66,6 +66,10 @@
       "image_added": "Image added as reference",
       "image_already_added": "This image is already added",
       "max_images_reached": "Maximum {max} images allowed"
-    }
+    },
+    "edit": "Edit",
+    "download": "Download",
+    "edit_this_image": "Edit this image",
+    "edit_image_loaded": "Image loaded for editing. Enter your editing instructions."
   }
 }
