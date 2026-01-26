@@ -163,7 +163,7 @@ function extractImageUrls(result: any): string[] {
 }
 
 export function ImageGenerator({
-  maxSizeMB = 5,
+  maxSizeMB = 50,
   srOnlyTitle,
   className,
   initialRefImage,
