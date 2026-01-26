@@ -18,8 +18,8 @@
       "hero": {
         "block": "hero-generator",
         "id": "hero",
-        "title": "用 AI 创造惊艳图像",
-        "highlight_text": "惊艳图像",
+        "title": "Nano Banana Studio - 创造惊艳 AI 图像",
+        "highlight_text": "Nano Banana Studio",
         "description": "用自然语言将你的想法转化为精美视觉作品。由 Google Gemini AI 驱动。",
         "tip": "无需设计技能 - 只需描述你想要的"
       },
