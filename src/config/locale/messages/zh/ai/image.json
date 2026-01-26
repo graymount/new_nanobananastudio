@@ -55,6 +55,17 @@
       "anime": "动漫风格",
       "chinese_ink": "中国水墨",
       "pastel": "柔和梦幻"
+    },
+    "gallery": {
+      "title": "从我的作品中选择",
+      "select_from_gallery": "从我的作品中选择",
+      "select": "选择",
+      "no_images": "你的作品集中还没有图片",
+      "create_first": "先生成一些图片吧！",
+      "fetch_error": "加载作品失败",
+      "image_added": "图片已添加为参考图",
+      "image_already_added": "这张图片已经添加过了",
+      "max_images_reached": "最多允许 {max} 张图片"
     }
   }
 }

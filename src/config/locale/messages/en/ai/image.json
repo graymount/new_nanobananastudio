@@ -55,6 +55,17 @@
       "anime": "Anime",
       "chinese_ink": "Chinese Ink",
       "pastel": "Pastel Dream"
+    },
+    "gallery": {
+      "title": "Select from My Gallery",
+      "select_from_gallery": "Select from My Gallery",
+      "select": "Select",
+      "no_images": "No images in your gallery",
+      "create_first": "Generate some images first!",
+      "fetch_error": "Failed to load gallery images",
+      "image_added": "Image added as reference",
+      "image_already_added": "This image is already added",
+      "max_images_reached": "Maximum {max} images allowed"
     }
   }
 }

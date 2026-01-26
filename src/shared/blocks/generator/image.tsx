@@ -10,6 +10,7 @@ import {
   User,
   Palette,
   Wand2,
+  FolderOpen,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
@@ -28,6 +29,13 @@ import {
   CardHeader,
   CardTitle,
 } from '@/shared/components/ui/card';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/shared/components/ui/dialog';
 import { Label } from '@/shared/components/ui/label';
 import { Progress } from '@/shared/components/ui/progress';
 import {
@@ -204,6 +212,15 @@ export function ImageGenerator({
   );
   const [isMounted, setIsMounted] = useState(false);
 
+  // Gallery selection states
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<Array<{
+    id: string;
+    imageUrl: string;
+    prompt: string;
+  }>>([]);
+  const [isLoadingGallery, setIsLoadingGallery] = useState(false);
+
   const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
     useAppContext();
 
@@ -305,6 +322,68 @@ export function ImageGenerator({
     () => referenceImageItems.some((item) => item.status === 'error'),
     [referenceImageItems]
   );
+
+  // Fetch user's gallery images
+  const fetchGalleryImages = useCallback(async () => {
+    if (!user) return;
+
+    setIsLoadingGallery(true);
+    try {
+      const response = await fetch('/api/user/images?limit=50');
+      const data = await response.json();
+      if (data.code === 0 && data.data?.images) {
+        setGalleryImages(data.data.images);
+      }
+    } catch (error) {
+      console.error('Failed to fetch gallery images:', error);
+      toast.error(t('gallery.fetch_error'));
+    } finally {
+      setIsLoadingGallery(false);
+    }
+  }, [user, t]);
+
+  // Handle opening gallery dialog
+  const handleOpenGallery = useCallback(() => {
+    if (!user) {
+      setIsShowSignModal(true);
+      return;
+    }
+    setIsGalleryOpen(true);
+    fetchGalleryImages();
+  }, [user, setIsShowSignModal, fetchGalleryImages]);
+
+  // Handle selecting an image from gallery
+  const handleSelectFromGallery = useCallback((imageUrl: string) => {
+    // Check if we can add more images
+    if (referenceImageItems.length >= maxImages) {
+      toast.error(t('gallery.max_images_reached', { max: maxImages }));
+      return;
+    }
+
+    // Check if image is already added
+    const isAlreadyAdded = referenceImageItems.some(
+      (item) => item.url === imageUrl || item.preview === imageUrl
+    );
+    if (isAlreadyAdded) {
+      toast.info(t('gallery.image_already_added'));
+      return;
+    }
+
+    // Add the selected image
+    const newItem: ImageUploaderValue = {
+      id: `gallery-${Date.now()}`,
+      preview: imageUrl,
+      url: imageUrl,
+      status: 'uploaded',
+    };
+
+    const newItems = [...referenceImageItems, newItem];
+    setReferenceImageItems(newItems);
+    setReferenceImageUrls([...referenceImageUrls, imageUrl]);
+
+    setIsGalleryOpen(false);
+    toast.success(t('gallery.image_added'));
+  }, [referenceImageItems, referenceImageUrls, maxImages, t]);
 
   const resetTaskState = useCallback(() => {
     setIsGenerating(false);
@@ -659,8 +738,71 @@ export function ImageGenerator({
                       maxSizeMB={maxSizeMB}
                       onChange={handleReferenceImagesChange}
                       emptyHint={t('form.reference_image_placeholder')}
-                      defaultPreviews={initialRefImage ? [initialRefImage] : undefined}
+                      defaultPreviews={referenceImageUrls.length > 0 ? referenceImageUrls : undefined}
                     />
+
+                    {/* Select from Gallery Button */}
+                    {referenceImageItems.length < maxImages && (
+                      <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
+                        <DialogTrigger asChild>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full border-dashed border-border/50 hover:border-primary/50 hover:bg-primary/5"
+                            onClick={handleOpenGallery}
+                          >
+                            <FolderOpen className="mr-2 h-4 w-4" />
+                            {t('gallery.select_from_gallery')}
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-2xl max-h-[80vh] overflow-hidden flex flex-col">
+                          <DialogHeader>
+                            <DialogTitle>{t('gallery.title')}</DialogTitle>
+                          </DialogHeader>
+                          <div className="flex-1 overflow-y-auto py-4">
+                            {isLoadingGallery ? (
+                              <div className="flex items-center justify-center py-12">
+                                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                              </div>
+                            ) : galleryImages.length === 0 ? (
+                              <div className="flex flex-col items-center justify-center py-12 text-muted-foreground">
+                                <ImageIcon className="h-12 w-12 mb-4 opacity-50" />
+                                <p>{t('gallery.no_images')}</p>
+                                <p className="text-sm mt-1">{t('gallery.create_first')}</p>
+                              </div>
+                            ) : (
+                              <div className="grid grid-cols-3 gap-3">
+                                {galleryImages.map((image) => (
+                                  <button
+                                    key={image.id}
+                                    className="group relative aspect-square rounded-lg overflow-hidden border border-border/50 hover:border-primary transition-all hover:ring-2 hover:ring-primary/50"
+                                    onClick={() => handleSelectFromGallery(image.imageUrl)}
+                                  >
+                                    <img
+                                      src={image.imageUrl}
+                                      alt={image.prompt || 'AI generated image'}
+                                      className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                      <span className="text-white text-sm font-medium">
+                                        {t('gallery.select')}
+                                      </span>
+                                    </div>
+                                    {image.prompt && (
+                                      <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <p className="text-white text-xs line-clamp-2">
+                                          {image.prompt}
+                                        </p>
+                                      </div>
+                                    )}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    )}
 
                     {/* Dynamic hint based on uploaded images count */}
                     {referenceImageUrls.length > 0 && (
