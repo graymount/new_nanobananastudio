@@ -70,6 +70,13 @@
     "edit": "编辑",
     "download": "下载",
     "edit_this_image": "编辑此图片",
-    "edit_image_loaded": "图片已加载，请输入编辑指令"
+    "edit_image_loaded": "图片已加载，请输入编辑指令",
+    "comparison": {
+      "title": "编辑前后对比",
+      "before": "编辑前",
+      "after": "编辑后",
+      "close": "关闭对比",
+      "hint": "拖动滑块对比编辑前后效果"
+    }
   }
 }

@@ -70,6 +70,13 @@
     "edit": "Edit",
     "download": "Download",
     "edit_this_image": "Edit this image",
-    "edit_image_loaded": "Image loaded for editing. Enter your editing instructions."
+    "edit_image_loaded": "Image loaded for editing. Enter your editing instructions.",
+    "comparison": {
+      "title": "Before / After",
+      "before": "Before",
+      "after": "After",
+      "close": "Close comparison",
+      "hint": "Drag the slider to compare before and after"
+    }
   }
 }

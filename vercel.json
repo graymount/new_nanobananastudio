@@ -9,16 +9,16 @@
     }
   },
   "functions": {
-    "src/app/api/**/*.ts": {
+    "api/**": {
       "maxDuration": 30
     },
-    "src/app/api/ai/**/*.ts": {
+    "api/ai/**": {
+      "maxDuration": 120
+    },
+    "api/payment/**": {
       "maxDuration": 60
     },
-    "src/app/api/payment/**/*.ts": {
-      "maxDuration": 30
-    },
-    "src/app/api/storage/**/*.ts": {
+    "api/storage/**": {
       "maxDuration": 30
     }
   },

@@ -12,6 +12,8 @@ import {
   Palette,
   Wand2,
   FolderOpen,
+  ArrowLeftRight,
+  X,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
@@ -212,6 +214,11 @@ export function ImageGenerator({
     null
   );
   const [isMounted, setIsMounted] = useState(false);
+
+  // Original image for comparison (when editing)
+  const [originalImageForComparison, setOriginalImageForComparison] = useState<string | null>(null);
+  const [comparisonSliderPosition, setComparisonSliderPosition] = useState(50);
+  const [isDraggingSlider, setIsDraggingSlider] = useState(false);
 
   // Gallery selection states
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
@@ -677,6 +684,10 @@ export function ImageGenerator({
       return;
     }
 
+    // Store original image for comparison after editing
+    setOriginalImageForComparison(image.url);
+    setComparisonSliderPosition(50);
+
     // Switch to image-to-image tab
     setActiveTab('image-to-image');
     setCostCredits(4);
@@ -694,11 +705,48 @@ export function ImageGenerator({
     // Clear the prompt so user can enter new editing instructions
     setPrompt('');
 
+    // Clear previous generated images to make room for comparison
+    setGeneratedImages([]);
+
     // Scroll to top of the form
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     toast.success(t('edit_image_loaded'));
   }, [t]);
+
+  // Clear comparison mode
+  const handleClearComparison = useCallback(() => {
+    setOriginalImageForComparison(null);
+    setComparisonSliderPosition(50);
+  }, []);
+
+  // Handle comparison slider drag
+  const handleSliderMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsDraggingSlider(true);
+  }, []);
+
+  const handleSliderMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDraggingSlider) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    setComparisonSliderPosition(percentage);
+  }, [isDraggingSlider]);
+
+  const handleSliderMouseUp = useCallback(() => {
+    setIsDraggingSlider(false);
+  }, []);
+
+  // Handle touch events for mobile
+  const handleSliderTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isDraggingSlider) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const touch = e.touches[0];
+    const x = touch.clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    setComparisonSliderPosition(percentage);
+  }, [isDraggingSlider]);
 
   return (
     <section className={cn('', className)}>
@@ -988,7 +1036,115 @@ export function ImageGenerator({
                 </CardTitle>
               </CardHeader>
               <CardContent className="pb-6">
-                {generatedImages.length > 0 ? (
+                {/* Comparison View - Show when we have original and generated images */}
+                {originalImageForComparison && generatedImages.length > 0 ? (
+                  <div className="space-y-4">
+                    {/* Comparison Header */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="p-1.5 rounded-lg bg-cyan-500/10">
+                          <ArrowLeftRight className="h-4 w-4 text-cyan-500" />
+                        </div>
+                        <span className="text-sm font-medium">{t('comparison.title')}</span>
+                      </div>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="h-8 px-2 text-muted-foreground hover:text-foreground"
+                        onClick={handleClearComparison}
+                        title={t('comparison.close')}
+                      >
+                        <X className="h-4 w-4" />
+                      </Button>
+                    </div>
+
+                    {/* Comparison Slider */}
+                    <div
+                      className="relative aspect-square overflow-hidden rounded-xl border border-border/50 bg-muted/30 cursor-col-resize select-none"
+                      onMouseMove={handleSliderMouseMove}
+                      onMouseUp={handleSliderMouseUp}
+                      onMouseLeave={handleSliderMouseUp}
+                      onTouchMove={handleSliderTouchMove}
+                      onTouchEnd={handleSliderMouseUp}
+                    >
+                      {/* After Image (Full) */}
+                      <img
+                        src={generatedImages[0].url}
+                        alt={t('comparison.after')}
+                        className="absolute inset-0 h-full w-full object-cover"
+                        draggable={false}
+                      />
+
+                      {/* Before Image (Clipped) */}
+                      <div
+                        className="absolute inset-0 overflow-hidden"
+                        style={{ width: `${comparisonSliderPosition}%` }}
+                      >
+                        <img
+                          src={originalImageForComparison}
+                          alt={t('comparison.before')}
+                          className="absolute inset-0 h-full w-full object-cover"
+                          style={{ width: `${100 / (comparisonSliderPosition / 100)}%`, maxWidth: 'none' }}
+                          draggable={false}
+                        />
+                      </div>
+
+                      {/* Slider Handle */}
+                      <div
+                        className="absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-col-resize z-10"
+                        style={{ left: `${comparisonSliderPosition}%`, transform: 'translateX(-50%)' }}
+                        onMouseDown={handleSliderMouseDown}
+                        onTouchStart={() => setIsDraggingSlider(true)}
+                      >
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white shadow-lg flex items-center justify-center">
+                          <ArrowLeftRight className="h-4 w-4 text-gray-600" />
+                        </div>
+                      </div>
+
+                      {/* Labels */}
+                      <div className="absolute top-3 left-3 px-2 py-1 rounded bg-black/60 text-white text-xs font-medium">
+                        {t('comparison.before')}
+                      </div>
+                      <div className="absolute top-3 right-3 px-2 py-1 rounded bg-black/60 text-white text-xs font-medium">
+                        {t('comparison.after')}
+                      </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-2">
+                      <Button
+                        size="sm"
+                        variant="secondary"
+                        className="flex-1 h-9 bg-white/90 hover:bg-white text-black shadow"
+                        onClick={() => handleEditImage(generatedImages[0])}
+                      >
+                        <Pencil className="h-4 w-4 mr-1.5" />
+                        <span className="text-xs font-medium">{t('edit')}</span>
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="secondary"
+                        className="flex-1 h-9 bg-white/90 hover:bg-white text-black shadow"
+                        onClick={() => handleDownloadImage(generatedImages[0])}
+                        disabled={downloadingImageId === generatedImages[0].id}
+                      >
+                        {downloadingImageId === generatedImages[0].id ? (
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                        ) : (
+                          <>
+                            <Download className="h-4 w-4 mr-1.5" />
+                            <span className="text-xs font-medium">{t('download')}</span>
+                          </>
+                        )}
+                      </Button>
+                    </div>
+
+                    {/* Hint */}
+                    <p className="text-xs text-muted-foreground text-center">
+                      {t('comparison.hint')}
+                    </p>
+                  </div>
+                ) : generatedImages.length > 0 ? (
                   <div
                     className={
                       generatedImages.length === 1

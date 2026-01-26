@@ -7,6 +7,10 @@ import { getRemainingCredits } from '@/shared/models/credit';
 import { getUserInfo } from '@/shared/models/user';
 import { getAIService } from '@/shared/services/ai';
 
+// Increase timeout for AI generation (supports multi-image merge operations)
+// Vercel Pro allows up to 300 seconds, Hobby plan allows 60 seconds
+export const maxDuration = 120;
+
 export async function POST(request: Request) {
   try {
     let { provider, mediaType, model, prompt, options, scene } =
