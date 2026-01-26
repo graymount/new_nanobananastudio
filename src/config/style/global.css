@@ -205,3 +205,310 @@ pre {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
 }
+
+/* ============================================
+   COSMIC NEON DESIGN SYSTEM
+   Performance-optimized animations & effects
+   ============================================ */
+
+/* Staggered fade-in animations for page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    filter: blur(40px);
+  }
+  50% {
+    opacity: 0.7;
+    filter: blur(50px);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes border-dance {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Cosmic utility classes */
+@layer utilities {
+  /* Animated gradient text */
+  .text-gradient-cosmic {
+    background: linear-gradient(
+      135deg,
+      var(--cosmic-purple) 0%,
+      var(--cosmic-blue) 25%,
+      var(--cosmic-cyan) 50%,
+      var(--cosmic-pink) 75%,
+      var(--cosmic-purple) 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  /* Static gradient text (for performance) */
+  .text-gradient-cosmic-static {
+    background: linear-gradient(
+      135deg,
+      var(--cosmic-purple),
+      var(--cosmic-blue),
+      var(--cosmic-cyan)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Cosmic glow effect */
+  .cosmic-glow {
+    position: relative;
+  }
+
+  .cosmic-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      135deg,
+      var(--cosmic-purple),
+      var(--cosmic-blue),
+      var(--cosmic-cyan),
+      var(--cosmic-pink)
+    );
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(12px);
+    transition: opacity 0.3s ease;
+  }
+
+  .cosmic-glow:hover::before {
+    opacity: 0.6;
+  }
+
+  /* Animated border gradient */
+  .border-gradient-cosmic {
+    position: relative;
+    background: var(--background);
+    border-radius: var(--radius);
+  }
+
+  .border-gradient-cosmic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      var(--cosmic-purple),
+      var(--cosmic-blue),
+      var(--cosmic-cyan),
+      var(--cosmic-purple)
+    );
+    background-size: 300% 300%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: border-dance 6s ease infinite;
+    pointer-events: none;
+  }
+
+  /* Shimmer loading effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Staggered animation delays */
+  .animate-in-1 { animation: fadeInUp 0.6s ease forwards; animation-delay: 0.1s; opacity: 0; }
+  .animate-in-2 { animation: fadeInUp 0.6s ease forwards; animation-delay: 0.2s; opacity: 0; }
+  .animate-in-3 { animation: fadeInUp 0.6s ease forwards; animation-delay: 0.3s; opacity: 0; }
+  .animate-in-4 { animation: fadeInUp 0.6s ease forwards; animation-delay: 0.4s; opacity: 0; }
+  .animate-in-5 { animation: fadeInUp 0.6s ease forwards; animation-delay: 0.5s; opacity: 0; }
+
+  /* Cosmic card hover effect */
+  .cosmic-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+  }
+
+  .cosmic-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 40px -12px rgba(139, 92, 246, 0.25),
+      0 0 0 1px rgba(139, 92, 246, 0.1);
+  }
+
+  .dark .cosmic-card:hover {
+    box-shadow:
+      0 20px 40px -12px rgba(139, 92, 246, 0.35),
+      0 0 60px -12px rgba(34, 211, 238, 0.2),
+      0 0 0 1px rgba(139, 92, 246, 0.2);
+  }
+
+  /* Cosmic button styles */
+  .btn-cosmic {
+    position: relative;
+    background: linear-gradient(135deg, var(--cosmic-purple), var(--cosmic-blue));
+    border: none;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-cosmic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--cosmic-blue), var(--cosmic-cyan));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-cosmic:hover::before {
+    opacity: 1;
+  }
+
+  .btn-cosmic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(139, 92, 246, 0.5);
+  }
+
+  .btn-cosmic > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Glass morphism enhanced */
+  .glass-cosmic {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .dark .glass-cosmic {
+    background: rgba(12, 12, 29, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+  }
+
+  /* Floating orb background decoration */
+  .cosmic-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    animation: pulse-glow 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .cosmic-orb-purple {
+    background: var(--cosmic-purple);
+  }
+
+  .cosmic-orb-blue {
+    background: var(--cosmic-blue);
+  }
+
+  .cosmic-orb-cyan {
+    background: var(--cosmic-cyan);
+  }
+
+  .cosmic-orb-pink {
+    background: var(--cosmic-pink);
+  }
+
+  /* Grid pattern background */
+  .bg-grid-cosmic {
+    background-image:
+      linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .dark .bg-grid-cosmic {
+    background-image:
+      linear-gradient(rgba(139, 92, 246, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px);
+  }
+
+  /* Icon glow on hover */
+  .icon-glow {
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .icon-glow:hover {
+    filter: drop-shadow(0 0 8px var(--cosmic-purple));
+    transform: scale(1.1);
+  }
+}

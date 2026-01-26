@@ -116,7 +116,7 @@
   --shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.25);
 }
 
-/* Cyberpunk color palette - matching old site */
+/* Cosmic Neon color palette - evolved from cyberpunk */
 :root {
   --cyber-black: #0a0a0a;
   --cyber-purple: #a855f7;
@@ -126,6 +126,22 @@
   --cyber-accent: #c084fc;
   --cyber-card: #151320;
   --cyber-muted: #9ca3af;
+
+  /* Enhanced cosmic colors */
+  --cosmic-void: #050510;
+  --cosmic-deep: #0c0c1d;
+  --cosmic-purple: #7c3aed;
+  --cosmic-violet: #8b5cf6;
+  --cosmic-blue: #2563eb;
+  --cosmic-cyan: #22d3ee;
+  --cosmic-pink: #f472b6;
+  --cosmic-gold: #fbbf24;
+  --cosmic-glow: rgba(139, 92, 246, 0.5);
+
+  /* Gradient stops */
+  --gradient-start: #7c3aed;
+  --gradient-mid: #2563eb;
+  --gradient-end: #06b6d4;
 }
 
 @theme inline {
