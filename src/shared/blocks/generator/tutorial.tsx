@@ -44,13 +44,13 @@ export function Tutorial({ className }: TutorialProps) {
       icon: Sparkles,
       title: t('features.text_to_image.title'),
       description: t('features.text_to_image.description'),
-      image: '/imgs/tutorial/text-to-image.png',
+      image: '/imgs/tutorial/text-to-image.jpg',
     },
     {
       icon: Images,
       title: t('features.edit_merge.title'),
       description: t('features.edit_merge.description'),
-      image: '/imgs/tutorial/edit-merge.png',
+      image: '/imgs/tutorial/edit-merge.jpg',
     },
   ];
 
@@ -92,40 +92,42 @@ export function Tutorial({ className }: TutorialProps) {
   ];
 
   return (
-    <section className={cn('py-16', className)}>
+    <section className={cn('py-12 md:py-16', className)}>
       <div className="container max-w-5xl">
         {/* Section Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold mb-2">{t('title')}</h2>
-          <p className="text-muted-foreground">{t('subtitle')}</p>
+        <div className="text-center mb-10 md:mb-14">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-gradient-cosmic-static">{t('title')}</h2>
+          <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto">{t('subtitle')}</p>
         </div>
 
         {/* Quick Start Steps */}
-        <div className="mb-16">
-          <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-            <Lightbulb className="h-5 w-5 text-primary" />
+        <div className="mb-12 md:mb-16">
+          <h3 className="text-lg md:text-xl font-semibold mb-6 flex items-center gap-2">
+            <div className="p-1.5 rounded-lg bg-primary/10">
+              <Lightbulb className="h-4 w-4 text-primary" />
+            </div>
             {t('quick_start')}
           </h3>
 
           {/* Flow Diagram */}
-          <div className="mb-8 rounded-xl overflow-hidden border bg-muted/30">
+          <div className="mb-8 rounded-xl overflow-hidden border border-border/50 bg-muted/20 shadow-lg shadow-primary/5">
             <LazyImage
-              src="/imgs/tutorial/workflow.png"
+              src="/imgs/tutorial/workflow.jpg"
               alt={t('workflow_alt')}
-              className="w-full h-auto"
+              className="w-full h-auto diagram-image-blend"
             />
           </div>
 
           {/* Steps Grid */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {steps.map((step) => (
-              <Card key={step.number} className="relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-12 h-12 bg-primary/10 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-primary">{step.number}</span>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+            {steps.map((step, index) => (
+              <Card key={step.number} className="relative overflow-hidden glass-cosmic border-border/50 cosmic-card group">
+                <div className="absolute top-0 left-0 w-14 h-14 bg-gradient-to-br from-primary/20 to-cyan-500/10 flex items-center justify-center rounded-br-2xl">
+                  <span className="text-2xl font-bold text-gradient-cosmic-static">{step.number}</span>
                 </div>
-                <CardContent className="pt-16 pb-6 px-6">
-                  <h4 className="font-semibold mb-2">{step.title}</h4>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
+                <CardContent className="pt-16 pb-5 px-5">
+                  <h4 className="font-semibold mb-2 text-sm md:text-base">{step.title}</h4>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -133,28 +135,39 @@ export function Tutorial({ className }: TutorialProps) {
         </div>
 
         {/* Features */}
-        <div className="mb-16">
-          <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-primary" />
+        <div className="mb-12 md:mb-16">
+          <h3 className="text-lg md:text-xl font-semibold mb-6 flex items-center gap-2">
+            <div className="p-1.5 rounded-lg bg-primary/10">
+              <Sparkles className="h-4 w-4 text-primary" />
+            </div>
             {t('features_title')}
           </h3>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             {features.map((feature, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="aspect-video bg-muted/30 overflow-hidden">
+              <Card key={index} className="overflow-hidden glass-cosmic border-border/50 cosmic-card group">
+                <div className="aspect-video bg-muted/20 overflow-hidden relative">
                   <LazyImage
                     src={feature.image}
                     alt={feature.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 diagram-image-blend"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <CardContent className="p-6">
+                <CardContent className="p-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <feature.icon className="h-5 w-5 text-primary" />
-                    <h4 className="font-semibold">{feature.title}</h4>
+                    <div className={cn(
+                      "p-1.5 rounded-lg",
+                      index === 0 ? "bg-primary/10" : "bg-cyan-500/10"
+                    )}>
+                      <feature.icon className={cn(
+                        "h-4 w-4",
+                        index === 0 ? "text-primary" : "text-cyan-500"
+                      )} />
+                    </div>
+                    <h4 className="font-semibold text-sm md:text-base">{feature.title}</h4>
                   </div>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -162,29 +175,31 @@ export function Tutorial({ className }: TutorialProps) {
         </div>
 
         {/* Prompt Tips */}
-        <div className="mb-16">
-          <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-            <Lightbulb className="h-5 w-5 text-primary" />
+        <div className="mb-12 md:mb-16">
+          <h3 className="text-lg md:text-xl font-semibold mb-6 flex items-center gap-2">
+            <div className="p-1.5 rounded-lg bg-yellow-500/10">
+              <Lightbulb className="h-4 w-4 text-yellow-500" />
+            </div>
             {t('prompt_tips_title')}
           </h3>
 
           {/* Tips Image */}
-          <div className="mb-8 rounded-xl overflow-hidden border bg-muted/30">
+          <div className="mb-8 rounded-xl overflow-hidden border border-border/50 bg-muted/20 shadow-lg shadow-primary/5">
             <LazyImage
-              src="/imgs/tutorial/prompt-tips.png"
+              src="/imgs/tutorial/prompt-tips.jpg"
               alt={t('prompt_tips_alt')}
-              className="w-full h-auto"
+              className="w-full h-auto diagram-image-blend"
             />
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             {promptTips.map((tip, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <h4 className="font-semibold mb-2">{tip.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-3">{tip.description}</p>
-                  <div className="bg-muted/50 rounded-lg p-3">
-                    <p className="text-xs font-mono text-primary">{tip.example}</p>
+              <Card key={index} className="glass-cosmic border-border/50 cosmic-card">
+                <CardContent className="p-5">
+                  <h4 className="font-semibold mb-2 text-sm md:text-base">{tip.title}</h4>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-3 leading-relaxed">{tip.description}</p>
+                  <div className="bg-gradient-to-br from-primary/5 to-cyan-500/5 border border-primary/10 rounded-lg p-3">
+                    <p className="text-xs font-mono text-primary/90 leading-relaxed">{tip.example}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -194,23 +209,27 @@ export function Tutorial({ className }: TutorialProps) {
 
         {/* FAQ */}
         <div>
-          <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-            <HelpCircle className="h-5 w-5 text-primary" />
+          <h3 className="text-lg md:text-xl font-semibold mb-6 flex items-center gap-2">
+            <div className="p-1.5 rounded-lg bg-cyan-500/10">
+              <HelpCircle className="h-4 w-4 text-cyan-500" />
+            </div>
             {t('faq_title')}
           </h3>
 
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`faq-${index}`}>
-                <AccordionTrigger className="text-left">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <div className="glass-cosmic border-border/50 rounded-xl overflow-hidden">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`faq-${index}`} className="border-border/50 px-1">
+                  <AccordionTrigger className="text-left text-sm md:text-base hover:text-primary transition-colors py-4 px-4">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-xs md:text-sm leading-relaxed px-4 pb-4">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
     </section>

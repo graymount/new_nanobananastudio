@@ -254,6 +254,57 @@ pre {
   }
 }
 
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Diagram image dark mode treatment - softens white backgrounds */
+.diagram-image {
+  transition: filter 0.3s ease;
+}
+
+.dark .diagram-image {
+  filter: brightness(0.92) contrast(0.95) saturate(1.1);
+}
+
+/* Alternative: invert diagram images in dark mode */
+.diagram-image-invert {
+  transition: filter 0.3s ease;
+}
+
+.dark .diagram-image-invert {
+  filter: invert(0.88) hue-rotate(180deg);
+}
+
+/* Remove white background using blend mode - works in both light and dark mode */
+.diagram-image-blend {
+  mix-blend-mode: multiply;
+}
+
+.dark .diagram-image-blend {
+  mix-blend-mode: screen;
+  filter: invert(1) hue-rotate(180deg);
+}
+
 @keyframes gradient-shift {
   0%, 100% {
     background-position: 0% 50%;

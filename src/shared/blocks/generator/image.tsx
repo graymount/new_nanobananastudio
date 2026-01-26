@@ -576,41 +576,58 @@ export function ImageGenerator({
   };
 
   return (
-    <section className={cn('py-16 md:py-24', className)}>
+    <section className={cn('', className)}>
       <div className="container">
         <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <Card>
-              <CardHeader>
+          <div className="grid grid-cols-1 gap-6 lg:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+            {/* Input Card */}
+            <Card className="glass-cosmic border-border/50 shadow-xl shadow-primary/5 animate-in-2">
+              <CardHeader className="pb-4">
                 {srOnlyTitle && <h2 className="sr-only">{srOnlyTitle}</h2>}
-                <CardTitle className="flex items-center gap-2 text-xl font-semibold">
+                <CardTitle className="flex items-center gap-2 text-lg font-semibold">
+                  <div className="p-1.5 rounded-lg bg-primary/10">
+                    <Sparkles className="h-4 w-4 text-primary" />
+                  </div>
                   {t('title')}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 pb-8">
+              <CardContent className="space-y-5 pb-6">
                 <Tabs value={activeTab} onValueChange={handleTabChange}>
-                  <TabsList className="bg-primary/10 grid w-full grid-cols-2">
-                    <TabsTrigger value="text-to-image">
+                  <TabsList className="bg-muted/50 border border-border/50 grid w-full grid-cols-2 p-1 h-11">
+                    <TabsTrigger
+                      value="text-to-image"
+                      className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all"
+                    >
                       {t('tabs.text-to-image')}
                     </TabsTrigger>
-                    <TabsTrigger value="image-to-image">
+                    <TabsTrigger
+                      value="image-to-image"
+                      className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all"
+                    >
                       {t('tabs.image-to-image')}
                     </TabsTrigger>
                   </TabsList>
                 </Tabs>
 
                 <div className="space-y-2">
-                  <Label>{t('form.model')}</Label>
+                  <Label className="text-sm font-medium">{t('form.model')}</Label>
                   <Select value={model} onValueChange={handleModelChange}>
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full h-11 bg-background/50 border-border/50 hover:border-primary/50 transition-colors">
                       <SelectValue placeholder={t('form.select_model')} />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="glass-cosmic">
                       {MODEL_OPTIONS.filter((option) =>
                         option.scenes.includes(activeTab)
                       ).map((option) => (
                         <SelectItem key={option.value} value={option.value}>
-                          {option.label}
+                          <span className="flex items-center gap-2">
+                            {option.label}
+                            {option.value.includes('pro') && (
+                              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-gradient-to-r from-primary/20 to-cyan-500/20 text-primary">
+                                PRO
+                              </span>
+                            )}
+                          </span>
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -654,20 +671,20 @@ export function ImageGenerator({
                 )}
 
                 <div className="space-y-2">
-                  <Label htmlFor="image-prompt">{t('form.prompt')}</Label>
+                  <Label htmlFor="image-prompt" className="text-sm font-medium">{t('form.prompt')}</Label>
                   <Textarea
                     id="image-prompt"
                     value={prompt}
                     onChange={(e) => setPrompt(e.target.value)}
                     placeholder={t('form.prompt_placeholder')}
-                    className="min-h-32"
+                    className="min-h-28 bg-background/50 border-border/50 focus:border-primary/50 resize-none transition-colors"
                   />
                   <div className="text-muted-foreground flex items-center justify-between text-xs">
-                    <span>
+                    <span className={promptLength > MAX_PROMPT_LENGTH * 0.8 ? 'text-yellow-500' : ''}>
                       {promptLength} / {MAX_PROMPT_LENGTH}
                     </span>
                     {isPromptTooLong && (
-                      <span className="text-destructive">
+                      <span className="text-destructive font-medium">
                         {t('form.prompt_too_long')}
                       </span>
                     )}
@@ -687,7 +704,7 @@ export function ImageGenerator({
                 ) : user ? (
                   <Button
                     size="lg"
-                    className="w-full"
+                    className="w-full h-12 btn-cosmic text-white font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"
                     onClick={handleGenerate}
                     disabled={
                       isGenerating ||
@@ -756,14 +773,14 @@ export function ImageGenerator({
                 )}
 
                 {isGenerating && (
-                  <div className="space-y-2 rounded-lg border p-4">
-                    <div className="flex items-center justify-between text-sm">
-                      <span>{t('progress')}</span>
-                      <span>{progress}%</span>
+                  <div className="space-y-3 rounded-xl border border-primary/20 bg-primary/5 p-4">
+                    <div className="flex items-center justify-between text-sm font-medium">
+                      <span className="text-primary">{t('progress')}</span>
+                      <span className="text-primary">{progress}%</span>
                     </div>
-                    <Progress value={progress} />
+                    <Progress value={progress} className="h-2" />
                     {taskStatusLabel && (
-                      <p className="text-muted-foreground text-center text-xs">
+                      <p className="text-muted-foreground text-center text-xs animate-pulse">
                         {taskStatusLabel}
                       </p>
                     )}
@@ -772,30 +789,32 @@ export function ImageGenerator({
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl font-semibold">
-                  <ImageIcon className="h-5 w-5" />
+            {/* Output Card */}
+            <Card className="glass-cosmic border-border/50 shadow-xl shadow-primary/5 animate-in-3">
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-2 text-lg font-semibold">
+                  <div className="p-1.5 rounded-lg bg-cyan-500/10">
+                    <ImageIcon className="h-4 w-4 text-cyan-500" />
+                  </div>
                   {t('generated_images')}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="pb-8">
+              <CardContent className="pb-6">
                 {generatedImages.length > 0 ? (
                   <div
                     className={
                       generatedImages.length === 1
-                        ? 'grid grid-cols-1 gap-6'
-                        : 'grid gap-6 sm:grid-cols-2'
+                        ? 'grid grid-cols-1 gap-4'
+                        : 'grid gap-4 sm:grid-cols-2'
                     }
                   >
                     {generatedImages.map((image) => (
-                      <div key={image.id} className="space-y-3">
+                      <div key={image.id} className="group relative">
                         <div
-                          className={
-                            generatedImages.length === 1
-                              ? 'relative overflow-hidden rounded-lg border'
-                              : 'relative aspect-square overflow-hidden rounded-lg border'
-                          }
+                          className={cn(
+                            'relative overflow-hidden rounded-xl border border-border/50 bg-muted/30 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10',
+                            generatedImages.length === 1 ? '' : 'aspect-square'
+                          )}
                         >
                           <LazyImage
                             src={image.url}
@@ -807,21 +826,23 @@ export function ImageGenerator({
                             }
                           />
 
-                          <div className="absolute right-2 bottom-2 flex justify-end text-sm">
+                          {/* Hover overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                          <div className="absolute right-2 bottom-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <Button
                               size="sm"
-                              variant="ghost"
-                              className="ml-auto"
+                              variant="secondary"
+                              className="h-9 px-3 bg-white/90 hover:bg-white text-black shadow-lg"
                               onClick={() => handleDownloadImage(image)}
                               disabled={downloadingImageId === image.id}
                             >
                               {downloadingImageId === image.id ? (
-                                <>
-                                  <Loader2 className="h-4 w-4 animate-spin" />
-                                </>
+                                <Loader2 className="h-4 w-4 animate-spin" />
                               ) : (
                                 <>
-                                  <Download className="h-4 w-4" />
+                                  <Download className="h-4 w-4 mr-1.5" />
+                                  <span className="text-xs font-medium">Download</span>
                                 </>
                               )}
                             </Button>
@@ -831,15 +852,23 @@ export function ImageGenerator({
                     ))}
                   </div>
                 ) : (
-                  <div className="flex flex-col items-center justify-center py-16 text-center">
-                    <div className="bg-muted mb-4 flex h-16 w-16 items-center justify-center rounded-full">
-                      <ImageIcon className="text-muted-foreground h-10 w-10" />
+                  <div className="flex flex-col items-center justify-center py-12 text-center">
+                    <div className="relative mb-6">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-full blur-xl" />
+                      <div className="relative bg-muted/50 border border-border/50 flex h-20 w-20 items-center justify-center rounded-full">
+                        <ImageIcon className="text-muted-foreground h-10 w-10" />
+                      </div>
                     </div>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {isGenerating
                         ? t('ready_to_generate')
                         : t('no_images_generated')}
                     </p>
+                    {!isGenerating && (
+                      <p className="text-muted-foreground/60 text-xs mt-1">
+                        Enter a prompt and click generate to create
+                      </p>
+                    )}
                   </div>
                 )}
               </CardContent>
