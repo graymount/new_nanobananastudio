@@ -152,7 +152,13 @@ export class GeminiProvider implements AIProvider {
     });
 
     if (!uploadResult || !uploadResult.url) {
-      throw new Error('upload image failed');
+      const errorMsg = uploadResult?.error || 'unknown error';
+      console.error('Upload failed:', {
+        success: uploadResult?.success,
+        error: errorMsg,
+        provider: uploadResult?.provider,
+      });
+      throw new Error(`upload image failed: ${errorMsg}`);
     }
 
     // replace base64 data with url to save db space

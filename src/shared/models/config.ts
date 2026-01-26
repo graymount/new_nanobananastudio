@@ -83,7 +83,8 @@ export async function getAllConfigs(): Promise<Configs> {
     try {
       dbConfigs = await getConfigs();
     } catch (e) {
-      console.log(`get configs from db failed:`, e);
+      console.error(`[Config] Failed to get configs from database:`, e);
+      console.error(`[Config] This may cause storage providers to not be configured.`);
       dbConfigs = {};
     }
   }

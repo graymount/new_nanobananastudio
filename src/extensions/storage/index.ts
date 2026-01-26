@@ -102,6 +102,11 @@ export class StorageManager {
     return this.providers.find((p) => p.name === name);
   }
 
+  // check if any provider is configured
+  hasProvider(): boolean {
+    return this.providers.length > 0;
+  }
+
   // upload file using default provider
   async uploadFile(
     options: StorageUploadOptions
