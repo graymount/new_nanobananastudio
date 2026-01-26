@@ -41,6 +41,20 @@
     "generated_images": "图片预览",
     "ready_to_generate": "准备生成",
     "no_images_generated": "没有生成图片",
-    "ready_for_generating": "准备生成"
+    "ready_for_generating": "准备生成",
+    "style_suggestions": "快速风格",
+    "style_tip": "点击风格标签添加到提示词中。可以组合多种风格获得独特效果。",
+    "styles": {
+      "cyberpunk": "赛博朋克",
+      "ghibli": "吉卜力风格",
+      "realistic": "写实照片",
+      "watercolor": "水彩画",
+      "oil_painting": "油画",
+      "comic": "漫画风格",
+      "pixel_art": "像素艺术",
+      "anime": "动漫风格",
+      "chinese_ink": "中国水墨",
+      "pastel": "柔和梦幻"
+    }
   }
 }

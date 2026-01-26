@@ -8,6 +8,8 @@ import {
   Loader2,
   Sparkles,
   User,
+  Palette,
+  Wand2,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
@@ -91,6 +93,20 @@ const MODEL_OPTIONS = [
 
 // Only Gemini provider is supported
 const DEFAULT_PROVIDER = 'gemini';
+
+// Style prompt suggestions for the empty preview area
+const STYLE_SUGGESTIONS = [
+  { emoji: '🌃', labelKey: 'cyberpunk', promptSuffix: 'cyberpunk style, neon lights, futuristic city, high contrast' },
+  { emoji: '🎨', labelKey: 'ghibli', promptSuffix: 'Studio Ghibli style, soft watercolors, whimsical, anime' },
+  { emoji: '📷', labelKey: 'realistic', promptSuffix: 'photorealistic, high detail, professional photography' },
+  { emoji: '🖌️', labelKey: 'watercolor', promptSuffix: 'watercolor painting style, soft edges, fluid colors' },
+  { emoji: '🎨', labelKey: 'oil_painting', promptSuffix: 'oil painting style, rich textures, bold brush strokes' },
+  { emoji: '💥', labelKey: 'comic', promptSuffix: 'comic book style, bold outlines, vibrant colors, halftone dots' },
+  { emoji: '👾', labelKey: 'pixel_art', promptSuffix: '8-bit pixel art style, retro gaming aesthetic' },
+  { emoji: '✨', labelKey: 'anime', promptSuffix: 'anime style, Japanese animation, detailed eyes, dynamic pose' },
+  { emoji: '🏮', labelKey: 'chinese_ink', promptSuffix: 'Chinese ink wash painting style, minimalist, elegant brushwork' },
+  { emoji: '🌸', labelKey: 'pastel', promptSuffix: 'soft pastel colors, dreamy atmosphere, gentle lighting' },
+];
 
 function parseTaskResult(taskResult: string | null): any {
   if (!taskResult) {
@@ -852,23 +868,44 @@ export function ImageGenerator({
                     ))}
                   </div>
                 ) : (
-                  <div className="flex flex-col items-center justify-center py-12 text-center">
-                    <div className="relative mb-6">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-full blur-xl" />
-                      <div className="relative bg-muted/50 border border-border/50 flex h-20 w-20 items-center justify-center rounded-full">
-                        <ImageIcon className="text-muted-foreground h-10 w-10" />
+                  <div className="flex flex-col h-full">
+                    {/* Header */}
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="p-1.5 rounded-lg bg-primary/10">
+                        <Palette className="h-4 w-4 text-primary" />
+                      </div>
+                      <span className="text-sm font-medium">{t('style_suggestions')}</span>
+                    </div>
+
+                    {/* Style chips grid */}
+                    <div className="grid grid-cols-2 gap-2 mb-6">
+                      {STYLE_SUGGESTIONS.map((style) => (
+                        <button
+                          key={style.labelKey}
+                          onClick={() => {
+                            const currentPrompt = prompt.trim();
+                            const newPrompt = currentPrompt
+                              ? `${currentPrompt}, ${style.promptSuffix}`
+                              : style.promptSuffix;
+                            setPrompt(newPrompt);
+                          }}
+                          className="group flex items-center gap-2 p-2.5 rounded-lg border border-border/50 bg-muted/30 hover:border-primary/50 hover:bg-primary/5 transition-all text-left"
+                        >
+                          <span className="text-base shrink-0">{style.emoji}</span>
+                          <span className="text-xs font-medium text-foreground/80 group-hover:text-foreground truncate">
+                            {t(`styles.${style.labelKey}`)}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Tip section */}
+                    <div className="mt-auto pt-4 border-t border-border/30">
+                      <div className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <Wand2 className="h-3.5 w-3.5 mt-0.5 shrink-0 text-primary/60" />
+                        <p>{t('style_tip')}</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground text-sm">
-                      {isGenerating
-                        ? t('ready_to_generate')
-                        : t('no_images_generated')}
-                    </p>
-                    {!isGenerating && (
-                      <p className="text-muted-foreground/60 text-xs mt-1">
-                        Enter a prompt and click generate to create
-                      </p>
-                    )}
                   </div>
                 )}
               </CardContent>

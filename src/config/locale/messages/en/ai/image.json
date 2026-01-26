@@ -41,6 +41,20 @@
     "generated_images": "Image Preview",
     "ready_to_generate": "Ready to Generate",
     "ready_for_generating": "Ready for Generating",
-    "no_images_generated": "No Images Generated"
+    "no_images_generated": "No Images Generated",
+    "style_suggestions": "Quick Styles",
+    "style_tip": "Click a style to add it to your prompt. Combine multiple styles for unique results.",
+    "styles": {
+      "cyberpunk": "Cyberpunk",
+      "ghibli": "Studio Ghibli",
+      "realistic": "Realistic",
+      "watercolor": "Watercolor",
+      "oil_painting": "Oil Painting",
+      "comic": "Comic Book",
+      "pixel_art": "Pixel Art",
+      "anime": "Anime",
+      "chinese_ink": "Chinese Ink",
+      "pastel": "Pastel Dream"
+    }
   }
 }
