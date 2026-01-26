@@ -1,8 +1,77 @@
 {
   "metadata": {
     "title": "AI 图像工作室 - Nano Banana Studio",
-    "description": "全功能 AI 图像生成器和编辑器。用文字创建令人惊艳的图像，或用自然语言转换现有照片。"
+    "description": "全功能 AI 图像生成器和编辑器。用文字创建令人惊艳的图像，或用自然语言转换现有照片。由 Google Gemini 驱动。"
   },
   "title": "AI 图像工作室",
-  "description": "用 AI 的力量创建和编辑图像"
+  "description": "用 AI 的力量创建和编辑图像",
+  "tutorial": {
+    "title": "使用教程",
+    "subtitle": "掌握 Google 官方推荐的 AI 图像生成技巧",
+    "quick_start": "快速入门",
+    "workflow_alt": "AI 图像生成流程图",
+    "steps": {
+      "step1": {
+        "title": "选择模式",
+        "description": "选择「文生图」从零创作，或选择「编辑与合成」转换现有照片或合成多张图片。"
+      },
+      "step2": {
+        "title": "编写提示词",
+        "description": "用自然语言描述你想要的画面。具体说明主体、风格、光线和构图。不需要堆砌「4k、杰作」等关键词。"
+      },
+      "step3": {
+        "title": "生成与迭代",
+        "description": "点击生成并查看结果。如果效果达到80%，用对话方式微调而不是重新开始。迭代是获得专业效果的关键。"
+      }
+    },
+    "features_title": "功能介绍",
+    "features": {
+      "text_to_image": {
+        "title": "文字生成图像",
+        "description": "通过文字描述创建图像。Nano Banana Pro 使用「深度思考」推理来理解你的意图、物理规律和构图。适合生成艺术作品、产品效果图和创意视觉。"
+      },
+      "edit_merge": {
+        "title": "编辑与合成",
+        "description": "编辑单张图片或将最多14张照片合成为一个连贯的场景。支持局部重绘（添加/移除对象）、风格转换、上色和修复。非常适合保持品牌一致性和角色设计。"
+      }
+    },
+    "prompt_tips_title": "Google 官方提示词技巧",
+    "prompt_tips_alt": "提示词编写技巧图示",
+    "prompt_tips": {
+      "tip1": {
+        "title": "使用框架结构",
+        "description": "构建提示词：[主体+形容词] 在 [地点] 做 [动作]。[构图]。[光线]。[风格]。",
+        "example": "一个发着蓝色光芒眼睛的沉稳机器人咖啡师，在未来风格咖啡馆里冲咖啡。广角镜头。温暖的晨光。电影风格。"
+      },
+      "tip2": {
+        "title": "指定光线和时间",
+        "description": "光线决定氛围。「烛光」感觉亲密，「医院日光灯」感觉冰冷。务必设定一天中的时间。",
+        "example": "爵士酒吧里音乐家的肖像。来自上方的戏剧性聚光灯。午夜氛围，烟雾缭绕。"
+      },
+      "tip3": {
+        "title": "精确描述文字",
+        "description": "不要只说「加文字」。指定确切的文字内容、字体风格、颜色和位置，以获得准确的文字渲染。",
+        "example": "一张复古海报，顶部中央用粗体红色衬线字体写着「JAZZ NIGHT」。"
+      }
+    },
+    "faq_title": "常见问题",
+    "faq": {
+      "q1": {
+        "question": "Nano Banana 和 Nano Banana Pro 有什么区别？",
+        "answer": "Nano Banana（Gemini 2.5 Flash）速度更快，支持单图编辑。Nano Banana Pro（Gemini 3 Pro Image）具有「深度思考」推理能力，支持最多14张参考图，能精准渲染文字，并可连接 Google 搜索生成准确的图表。"
+      },
+      "q2": {
+        "question": "一次可以合成多少张图片？",
+        "answer": "使用 Nano Banana Pro，你可以上传最多14张参考图片，将它们合成为一个连贯的场景，同时保持最多5个人物的一致性。"
+      },
+      "q3": {
+        "question": "需要多少积分？",
+        "answer": "文生图每次消耗2积分。编辑与合成每次消耗4积分。免费版每月包含5积分。"
+      },
+      "q4": {
+        "question": "AI 能准确渲染文字吗？",
+        "answer": "可以！Nano Banana Pro 擅长渲染清晰、拼写正确的文字。为获得最佳效果，请在提示词中指定确切的文字内容、字体风格、颜色和位置。"
+      }
+    }
+  }
 }

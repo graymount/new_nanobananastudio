@@ -41,8 +41,6 @@ import { useAppContext } from '@/shared/contexts/app';
 import { cn } from '@/shared/lib/utils';
 
 interface ImageGeneratorProps {
-  allowMultipleImages?: boolean;
-  maxImages?: number;
   maxSizeMB?: number;
   srOnlyTitle?: string;
   className?: string;
@@ -80,12 +78,14 @@ const MODEL_OPTIONS = [
     label: 'Nano Banana',
     provider: 'gemini',
     scenes: ['text-to-image', 'image-to-image'],
+    maxImages: 1,
   },
   {
     value: 'gemini-3-pro-image-preview',
     label: 'Nano Banana Pro',
     provider: 'gemini',
     scenes: ['text-to-image', 'image-to-image'],
+    maxImages: 14,
   },
 ];
 
@@ -147,8 +147,6 @@ function extractImageUrls(result: any): string[] {
 }
 
 export function ImageGenerator({
-  allowMultipleImages = true,
-  maxImages = 9,
   maxSizeMB = 5,
   srOnlyTitle,
   className,
@@ -202,6 +200,14 @@ export function ImageGenerator({
   const isPromptTooLong = promptLength > MAX_PROMPT_LENGTH;
   const isTextToImageMode = activeTab === 'text-to-image';
 
+  // Get current model's max images limit
+  const currentModelConfig = useMemo(
+    () => MODEL_OPTIONS.find((opt) => opt.value === model),
+    [model]
+  );
+  const maxImages = currentModelConfig?.maxImages ?? 1;
+  const allowMultipleImages = maxImages > 1;
+
   const handleTabChange = (value: string) => {
     const tab = value as ImageGeneratorTab;
     setActiveTab(tab);
@@ -222,6 +228,27 @@ export function ImageGenerator({
       setCostCredits(4);
     }
   };
+
+  const handleModelChange = useCallback(
+    (newModel: string) => {
+      const newModelConfig = MODEL_OPTIONS.find((opt) => opt.value === newModel);
+      const newMaxImages = newModelConfig?.maxImages ?? 1;
+
+      // If switching to a model with lower maxImages, clear excess images
+      if (referenceImageItems.length > newMaxImages) {
+        const trimmedItems = referenceImageItems.slice(0, newMaxImages);
+        setReferenceImageItems(trimmedItems);
+        const trimmedUrls = trimmedItems
+          .filter((item) => item.status === 'uploaded' && item.url)
+          .map((item) => item.url as string);
+        setReferenceImageUrls(trimmedUrls);
+        toast.info(`Switched to ${newModelConfig?.label}. Only ${newMaxImages} image${newMaxImages > 1 ? 's' : ''} allowed.`);
+      }
+
+      setModel(newModel);
+    },
+    [referenceImageItems]
+  );
 
   const taskStatusLabel = useMemo(() => {
     if (!taskStatus) {
@@ -574,7 +601,7 @@ export function ImageGenerator({
 
                 <div className="space-y-2">
                   <Label>{t('form.model')}</Label>
-                  <Select value={model} onValueChange={setModel}>
+                  <Select value={model} onValueChange={handleModelChange}>
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder={t('form.select_model')} />
                     </SelectTrigger>
@@ -595,12 +622,28 @@ export function ImageGenerator({
                     <ImageUploader
                       title={t('form.reference_image')}
                       allowMultiple={allowMultipleImages}
-                      maxImages={allowMultipleImages ? maxImages : 1}
+                      maxImages={maxImages}
                       maxSizeMB={maxSizeMB}
                       onChange={handleReferenceImagesChange}
                       emptyHint={t('form.reference_image_placeholder')}
                       defaultPreviews={initialRefImage ? [initialRefImage] : undefined}
                     />
+
+                    {/* Dynamic hint based on uploaded images count */}
+                    {referenceImageUrls.length > 0 && (
+                      <p className="text-muted-foreground text-xs">
+                        {referenceImageUrls.length === 1
+                          ? t('form.reference_image_hint_single')
+                          : t('form.reference_image_hint_merge', { count: referenceImageUrls.length })}
+                      </p>
+                    )}
+
+                    {/* Show hint when model doesn't support multi-image */}
+                    {!allowMultipleImages && referenceImageUrls.length === 1 && (
+                      <p className="text-muted-foreground text-xs">
+                        {t('form.reference_image_hint_pro_only')}
+                      </p>
+                    )}
 
                     {hasReferenceUploadError && (
                       <p className="text-destructive text-xs">

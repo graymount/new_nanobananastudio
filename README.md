@@ -1,19 +1,29 @@
-# ShipAny Template Two
+# Nano Banana Studio
+
+AI Image Generator & Editor - Create stunning images with natural language.
+
+## Features
+
+- **Text-to-Image**: Generate images from text descriptions
+- **Image-to-Image**: Transform existing images with AI
+- **Multiple Styles**: Cyberpunk, Miyazaki, Realistic, and more
+- **Powered by Google Gemini AI**
 
 ## Getting Started
 
-read [ShipAny Document](https://shipany.ai/docs/quick-start) to start your AI SaaS project.
+```bash
+pnpm install
+pnpm dev
+```
 
-## Buy Templates
+## Tech Stack
 
-check [ShipAny Templates](https://shipany.ai/templates) to buy Business Templates.
+- Next.js 16 + React 19
+- Tailwind CSS v4
+- Drizzle ORM + PostgreSQL
+- Better Auth
+- next-intl (EN/ZH)
 
-## Feedback
+## License
 
-submit your feedbacks on [Github Issues](https://github.com/shipanyai/shipany-template-two/issues)
-
-## LICENSE
-
-!!! Please do not publicly release ShipAny's Code. Illegal use will be prosecuted
-
-[ShipAny LICENSE](./LICENSE)
+Private repository. All rights reserved.

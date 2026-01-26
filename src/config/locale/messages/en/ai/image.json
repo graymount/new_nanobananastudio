@@ -12,7 +12,7 @@
     "description": "Generate images with AI models, support text-to-image and image-to-image.",
     "tabs": {
       "text-to-image": "Text to Image",
-      "image-to-image": "Image to Image"
+      "image-to-image": "Edit & Merge"
     },
     "form": {
       "provider": "Provider",
@@ -21,8 +21,11 @@
       "select_model": "Select Model",
       "prompt": "Prompt",
       "prompt_placeholder": "Describe the details of the image, such as color, shape, texture, etc.",
-      "reference_image": "Reference Image",
-      "reference_image_placeholder": "Upload reference images, support multiple images",
+      "reference_image": "Reference Images",
+      "reference_image_placeholder": "Upload reference images for editing or merging",
+      "reference_image_hint_single": "Upload 1 image for editing",
+      "reference_image_hint_merge": "{count} images uploaded - will be merged into one",
+      "reference_image_hint_pro_only": "Multi-image merge requires Nano Banana Pro",
       "some_images_failed_to_upload": "Some images failed to upload, please delete them and re-upload",
       "prompt_too_long": "Prompt is too long, please delete some content"
     },

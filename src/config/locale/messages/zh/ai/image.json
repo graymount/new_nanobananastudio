@@ -12,7 +12,7 @@
     "description": "使用 AI 模型生成图片，支持文本到图片和图片到图片。",
     "tabs": {
       "text-to-image": "文生图",
-      "image-to-image": "图生图"
+      "image-to-image": "编辑与合成"
     },
     "form": {
       "provider": "服务商",
@@ -22,7 +22,10 @@
       "prompt": "提示词",
       "prompt_placeholder": "描述图片的细节，如颜色、形状、纹理等",
       "reference_image": "参考图片",
-      "reference_image_placeholder": "上传参考图片，支持多张",
+      "reference_image_placeholder": "上传参考图片进行编辑或合成",
+      "reference_image_hint_single": "上传 1 张图片进行编辑",
+      "reference_image_hint_merge": "已上传 {count} 张图片 - 将合成为一张新图",
+      "reference_image_hint_pro_only": "多图合成需要使用 Nano Banana Pro",
       "some_images_failed_to_upload": "一些图片上传失败，请删除它们并重新上传",
       "prompt_too_long": "提示词太长，请删除一些内容"
     },

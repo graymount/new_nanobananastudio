@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { ImageGenerator } from '@/shared/blocks/generator/image';
+import { Tutorial } from '@/shared/blocks/generator/tutorial';
 import { getMetadata } from '@/shared/lib/seo';
 
 export const generateMetadata = getMetadata({
@@ -35,6 +36,9 @@ export default async function AppPage({
           initialRefImage={ref_image}
           initialPrompt={prompt}
         />
+
+        {/* Tutorial Section for SEO and User Guidance */}
+        <Tutorial className="mt-16 border-t pt-16" />
       </div>
     </div>
   );
