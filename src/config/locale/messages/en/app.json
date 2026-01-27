@@ -1,4 +1,9 @@
 {
+  "classic_banner": {
+    "text": "Looking for your old images?",
+    "link": "Visit Classic Version",
+    "dismiss": "Dismiss"
+  },
   "metadata": {
     "title": "AI Image Studio - Nano Banana Studio",
     "description": "Full-featured AI image generator and editor. Create stunning images from text or transform existing photos with natural language. Powered by Google Gemini."
