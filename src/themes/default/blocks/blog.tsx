@@ -73,15 +73,6 @@ export function Blog({
                 className="w-full p-4 md:w-1/3"
               >
                 <div className="border-border flex flex-col overflow-clip rounded-xl border">
-                  {item.image && (
-                    <div>
-                      <img
-                        src={item.image}
-                        alt={item.title || ''}
-                        className="aspect-16/9 h-full w-full object-cover object-center"
-                      />
-                    </div>
-                  )}
                   <div className="px-4 py-4 md:px-4 md:py-4 lg:px-4 lg:py-4">
                     <h3 className="mb-3 text-lg font-semibold md:mb-4 md:text-xl lg:mb-6">
                       {item.title}
