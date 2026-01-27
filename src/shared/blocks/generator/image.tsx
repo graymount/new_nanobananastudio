@@ -186,9 +186,7 @@ export function ImageGenerator({
     initialRefImage ? 'image-to-image' : 'text-to-image'
   );
 
-  const [costCredits, setCostCredits] = useState<number>(
-    initialRefImage ? 4 : 2
-  );
+  const [costCredits, setCostCredits] = useState<number>(1);
   const provider = DEFAULT_PROVIDER;
   const [model, setModel] = useState(MODEL_OPTIONS[0]?.value ?? '');
   const [prompt, setPrompt] = useState(initialPrompt || '');
@@ -263,11 +261,8 @@ export function ImageGenerator({
       setModel('');
     }
 
-    if (tab === 'text-to-image') {
-      setCostCredits(2);
-    } else {
-      setCostCredits(4);
-    }
+    // Cost is 1 credit per generation (consistent with old site)
+    setCostCredits(1);
   };
 
   const handleModelChange = useCallback(
@@ -473,6 +468,11 @@ export function ImageGenerator({
                 prompt: task.prompt ?? undefined,
               }))
             );
+            // Auto-set comparison when in image-to-image mode with reference image
+            if (activeTab === 'image-to-image' && referenceImageUrls.length > 0 && !originalImageForComparison) {
+              setOriginalImageForComparison(referenceImageUrls[0]);
+              setComparisonSliderPosition(50);
+            }
             toast.success('Image generated successfully');
           }
 
@@ -504,7 +504,7 @@ export function ImageGenerator({
         return true;
       }
     },
-    [generationStartTime, resetTaskState]
+    [generationStartTime, resetTaskState, activeTab, referenceImageUrls, originalImageForComparison]
   );
 
   useEffect(() => {
@@ -626,6 +626,11 @@ export function ImageGenerator({
               prompt: trimmedPrompt,
             }))
           );
+          // Auto-set comparison when in image-to-image mode with reference image
+          if (activeTab === 'image-to-image' && referenceImageUrls.length > 0 && !originalImageForComparison) {
+            setOriginalImageForComparison(referenceImageUrls[0]);
+            setComparisonSliderPosition(50);
+          }
           toast.success('Image generated successfully');
           setProgress(100);
           resetTaskState();
@@ -1204,6 +1209,31 @@ export function ImageGenerator({
                         </div>
                       </div>
                     ))}
+                  </div>
+                ) : activeTab === 'image-to-image' && referenceImageUrls.length > 0 ? (
+                  /* Reference Image Preview - show when editing an image */
+                  <div className="space-y-4">
+                    {/* Preview Header */}
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 rounded-lg bg-cyan-500/10">
+                        <ImageIcon className="h-4 w-4 text-cyan-500" />
+                      </div>
+                      <span className="text-sm font-medium">{t('reference_preview')}</span>
+                    </div>
+
+                    {/* Reference Image Display - only show the first image */}
+                    <div className="relative overflow-hidden rounded-xl border border-border/50 bg-muted/30">
+                      <LazyImage
+                        src={referenceImageUrls[0]}
+                        alt="Reference image for editing"
+                        className="h-auto w-full"
+                      />
+                    </div>
+
+                    {/* Hint */}
+                    <p className="text-xs text-muted-foreground text-center">
+                      {t('reference_preview_hint')}
+                    </p>
                   </div>
                 ) : (
                   <div className="flex flex-col h-full">

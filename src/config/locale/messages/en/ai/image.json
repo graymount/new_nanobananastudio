@@ -77,6 +77,8 @@
       "after": "After",
       "close": "Close comparison",
       "hint": "Drag the slider to compare before and after"
-    }
+    },
+    "reference_preview": "Image to Edit",
+    "reference_preview_hint": "Enter your editing instructions and click Generate"
   }
 }
