@@ -43,15 +43,15 @@ export async function POST(request: Request) {
       throw new Error('no auth, please sign in');
     }
 
-    // todo: get cost credits from settings
-    let costCredits = 2;
+    // Cost credits per operation (consistent with old site: 1 credit = 1 generation)
+    let costCredits = 1;
 
     if (mediaType === AIMediaType.IMAGE) {
-      // generate image
+      // generate image - 1 credit per generation (same as old site)
       if (scene === 'image-to-image') {
-        costCredits = 4;
+        costCredits = 1;
       } else if (scene === 'text-to-image') {
-        costCredits = 2;
+        costCredits = 1;
       } else {
         throw new Error('invalid scene');
       }

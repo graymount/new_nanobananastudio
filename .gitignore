@@ -64,3 +64,6 @@ src/config/db/migrations*
 
 .chats
 .playwright-mcp/
+
+# Migration local config (contains credentials)
+scripts/migration/config.local.ts

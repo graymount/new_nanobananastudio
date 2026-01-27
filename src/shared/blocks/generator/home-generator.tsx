@@ -78,7 +78,7 @@ export function HomeGenerator({ className }: HomeGeneratorProps) {
       return;
     }
 
-    if (user && remainingCredits < 2) {
+    if (user && remainingCredits < 1) {
       toast.error(t('insufficient_credits'));
       return;
     }
