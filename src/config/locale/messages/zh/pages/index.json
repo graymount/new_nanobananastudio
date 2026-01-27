@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "Nano Banana Studio - 免费 Nano Banana AI 图像生成器和编辑器",
-    "description": "Nano Banana AI 图像生成器和编辑器。通过文字描述创建图像，或用自然语言编辑照片。由 Google Gemini 驱动。免费试用 - 无需设计技能！",
-    "keywords": "Nano Banana, Nano Banana AI, 免费AI图像生成器, Nano Banana 图像编辑, Nano Banana Pro, Google Gemini 图像生成器, 文字生成图像, 如何使用Nano Banana, AI艺术生成器, Nano Banana免费"
+    "description": "Nano Banana AI 图像生成器和编辑器。通过文字描述创建图像，或用自然语言编辑照片。免费试用 - 无需设计技能！",
+    "keywords": "Nano Banana, Nano Banana AI, 免费AI图像生成器, Nano Banana 图像编辑, Nano Banana Pro, Nano Banana Studio, 文字生成图像, 如何使用Nano Banana, AI艺术生成器, Nano Banana免费"
   },
   "page": {
     "show_sections": [
@@ -20,7 +20,7 @@
         "id": "hero",
         "title": "Nano Banana Studio - 创造惊艳 AI 图像",
         "highlight_text": "Nano Banana Studio",
-        "description": "用自然语言将你的想法转化为精美视觉作品。由 Google Gemini AI 驱动。",
+        "description": "用自然语言将你的想法转化为精美视觉作品。由先进 AI 技术驱动。",
         "tip": "无需设计技能 - 只需描述你想要的"
       },
       "features": {
@@ -45,7 +45,7 @@
           },
           {
             "title": "即时结果",
-            "description": "借助 Google Gemini 强大的 AI，几秒内获得高质量图像。",
+            "description": "借助 Nano Banana 强大的 AI，几秒内获得高质量图像。",
             "icon": "RiFlashlightLine"
           },
           {
@@ -178,7 +178,7 @@
           },
           {
             "question": "你们使用什么 AI 模型？",
-            "answer": "我们使用 Google Gemini 2.5 Flash Image Preview API，为图像生成和编辑任务提供出色的质量。"
+            "answer": "Nano Banana Studio 使用先进的多模态 AI 技术，为图像生成和编辑任务提供出色的质量。"
           },
           {
             "question": "我需要设计技能吗？",

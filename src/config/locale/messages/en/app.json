@@ -6,13 +6,13 @@
   },
   "metadata": {
     "title": "AI Image Studio - Nano Banana Studio",
-    "description": "Full-featured AI image generator and editor. Create stunning images from text or transform existing photos with natural language. Powered by Google Gemini."
+    "description": "Full-featured AI image generator and editor. Create stunning images from text or transform existing photos with natural language."
   },
   "title": "AI Image Studio",
   "description": "Create and edit images with the power of AI",
   "tutorial": {
     "title": "How to Use",
-    "subtitle": "Master AI image generation with these tips from Google",
+    "subtitle": "Master AI image generation with these professional tips",
     "quick_start": "Quick Start",
     "workflow_alt": "AI Image Generation Workflow Diagram",
     "steps": {
@@ -40,7 +40,7 @@
         "description": "Edit single images or merge up to 14 photos into one cohesive scene. Supports in-painting (add/remove objects), style swapping, colorization, and restoration. Great for brand consistency and character sheets."
       }
     },
-    "prompt_tips_title": "Prompt Tips from Google",
+    "prompt_tips_title": "Professional Prompt Tips",
     "prompt_tips_alt": "Prompt Writing Tips Diagram",
     "prompt_tips": {
       "tip1": {
@@ -63,7 +63,7 @@
     "faq": {
       "q1": {
         "question": "What's the difference between Nano Banana and Nano Banana Pro?",
-        "answer": "Nano Banana (Gemini 2.5 Flash) is faster and supports single image editing. Nano Banana Pro (Gemini 3 Pro Image) has 'Deep Think' reasoning, supports up to 14 reference images, renders perfect text, and connects to Google Search for factual diagrams."
+        "answer": "Nano Banana is faster and supports single image editing. Nano Banana Pro has 'Deep Think' reasoning, supports up to 14 reference images, renders perfect text, and can generate factual diagrams."
       },
       "q2": {
         "question": "How many images can I merge at once?",

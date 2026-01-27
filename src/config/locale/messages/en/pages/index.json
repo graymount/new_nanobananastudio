@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "Nano Banana Studio - Free Nano Banana AI Image Generator & Editor",
-    "description": "Nano Banana AI image generator and editor. Create stunning images from text or edit photos with natural language. Powered by Google Gemini. Free to try - no design skills needed!",
-    "keywords": "Nano Banana, Nano Banana AI, free AI image generator, Nano Banana image editing, Nano Banana Pro, Google Gemini image generator, text to image AI, how to use Nano Banana, AI art generator, is Nano Banana free"
+    "description": "Nano Banana AI image generator and editor. Create stunning images from text or edit photos with natural language. Free to try - no design skills needed!",
+    "keywords": "Nano Banana, Nano Banana AI, free AI image generator, Nano Banana image editing, Nano Banana Pro, Nano Banana Studio, text to image AI, how to use Nano Banana, AI art generator, is Nano Banana free"
   },
   "page": {
     "show_sections": [
@@ -20,7 +20,7 @@
         "id": "hero",
         "title": "Nano Banana Studio - Create Stunning AI Images",
         "highlight_text": "Nano Banana Studio",
-        "description": "Transform your ideas into beautiful visuals using natural language. Powered by Google Gemini AI.",
+        "description": "Transform your ideas into beautiful visuals using natural language. Powered by advanced AI technology.",
         "tip": "No design skills required - just describe what you want"
       },
       "features": {
@@ -45,7 +45,7 @@
           },
           {
             "title": "Instant Results",
-            "description": "Get high-quality images in seconds with Google Gemini's powerful AI.",
+            "description": "Get high-quality images in seconds with Nano Banana's powerful AI.",
             "icon": "RiFlashlightLine"
           },
           {
@@ -178,7 +178,7 @@
           },
           {
             "question": "What AI model do you use?",
-            "answer": "We use Google Gemini 2.5 Flash Image Preview API, which provides excellent quality for both image generation and editing tasks."
+            "answer": "Nano Banana Studio uses advanced multimodal AI technology, which provides excellent quality for both image generation and editing tasks."
           },
           {
             "question": "Do I need design skills?",
