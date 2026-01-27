@@ -25,7 +25,8 @@
       "view": "View User",
       "delete": "Delete User",
       "edit_roles": "Edit Roles",
-      "grant_credits": "Grant Credits"
+      "grant_credits": "Grant Credits",
+      "view_creations": "View Creations"
     },
     "search": {
       "email": {

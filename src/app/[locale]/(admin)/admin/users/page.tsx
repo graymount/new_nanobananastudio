@@ -110,6 +110,12 @@ export default async function AdminUsersPage({
         type: 'dropdown',
         callback: (item: User) => [
           {
+            name: 'view-creations',
+            title: t('list.buttons.view_creations'),
+            icon: 'Image',
+            url: `/admin/users/${item.id}/creations`,
+          },
+          {
             name: 'edit',
             title: t('list.buttons.edit'),
             icon: 'RiEditLine',
