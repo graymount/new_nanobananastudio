@@ -10,9 +10,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages that should be indexed
   const staticPages = [
     '', // Homepage
+    '/app', // AI Image Generator
+    '/mycase', // My Creations gallery
     '/pricing',
     '/blog',
-    '/showcases',
     '/updates',
   ];
 
