@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "title": "我的 AI 画廊 - Nano Banana Studio",
+    "title": "我的作品 - Nano Banana Studio",
     "description": "查看和管理您的 AI 生成图像。您在 Nano Banana Studio 创作的个人作品集。"
   },
   "page": {
-    "title": "我的 AI 画廊",
+    "title": "我的作品",
     "sections": {
       "gallery": {
         "id": "gallery",
@@ -16,7 +16,7 @@
   "gallery": {
     "title": "我的作品",
     "description": "您的 AI 生成图像个人收藏",
-    "sign_in_title": "登录查看您的画廊",
+    "sign_in_title": "登录查看您的作品",
     "sign_in_desc": "登录后可在此处查看您所有的 AI 生成图像。",
     "sign_in_button": "登录",
     "empty_title": "还没有图像",

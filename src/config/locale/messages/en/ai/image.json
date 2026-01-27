@@ -57,8 +57,8 @@
       "pastel": "Pastel Dream"
     },
     "gallery": {
-      "title": "Select from My Gallery",
-      "select_from_gallery": "Select from My Gallery",
+      "title": "Select from My Creations",
+      "select_from_gallery": "Select from My Creations",
       "select": "Select",
       "no_images": "No images in your gallery",
       "create_first": "Generate some images first!",

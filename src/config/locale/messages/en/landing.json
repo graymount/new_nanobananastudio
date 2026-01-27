@@ -19,7 +19,7 @@
           "icon": "Sparkles"
         },
         {
-          "title": "My Gallery",
+          "title": "My Creations",
           "url": "/mycase",
           "icon": "Box"
         },
@@ -89,7 +89,7 @@
               "target": "_self"
             },
             {
-              "title": "My Gallery",
+              "title": "My Creations",
               "url": "/mycase",
               "target": "_self"
             },

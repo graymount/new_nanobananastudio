@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "title": "My AI Gallery - Nano Banana Studio",
+    "title": "My Creations - Nano Banana Studio",
     "description": "View and manage your AI-generated images. Your personal collection of creations made with Nano Banana Studio."
   },
   "page": {
-    "title": "My AI Gallery",
+    "title": "My Creations",
     "sections": {
       "gallery": {
         "id": "gallery",
