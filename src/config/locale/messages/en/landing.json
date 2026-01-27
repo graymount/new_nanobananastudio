@@ -48,22 +48,18 @@
       "show_name": true,
       "show_credits": true,
       "show_sign_out": true,
-      "items": [
-        {
-          "title": "Billing",
-          "url": "/settings/billing",
-          "icon": "CreditCard"
-        },
-        {
-          "title": "Activity",
-          "url": "/activity",
-          "icon": "Activity"
-        }
-      ]
+      "items": []
     },
     "show_sign": true,
     "show_theme": true,
-    "show_locale": true
+    "show_locale": true,
+    "topbanner": {
+      "text": "🎉 <b>New site launched!</b> Your data has been migrated. Now with <b>Nano Banana Pro</b> features — same price!",
+      "buttonText": "Visit Classic Version",
+      "href": "https://nanobananastudio.com",
+      "target": "_blank",
+      "dismissedExpiryDays": 7
+    }
   },
   "footer": {
     "id": "footer",
