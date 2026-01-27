@@ -9,9 +9,11 @@ This file provides guidance to Claude Code when working with code in this reposi
 ### Key Features
 
 - **AI Image Generator** (`/app`) - Text-to-image and image-to-image generation powered by Google Gemini
-- **My Gallery** (`/mycase`) - Personal gallery of user's AI-generated images with lightbox view
+- **My Gallery** (`/mycase`) - Personal gallery with lightbox view, delete functionality, and "Create with this image" feature
 - **Prompt Inspirations** - Homepage section with clickable prompt cards that auto-fill the generator
 - **Use Cases** - Showcase of different AI image use cases (e-commerce, social media, art, photo enhancement)
+- **Activity Dashboard** (`/activity`) - View AI task history
+- **Settings** (`/settings`) - Profile, billing, and credits management
 - **Bilingual Support** - Full EN/ZH localization
 
 ### Migration Strategy
@@ -21,21 +23,34 @@ This project follows a **progressive migration** approach:
 | Role | Domain | Responsibility |
 |------|--------|----------------|
 | **New Site** (this repo) | nanobananastudio.com (target) | SEO entry, landing pages, blog, product info, AI tools |
-| **Old Site** | app.nanobananastudio.com (target) | Legacy version (deprecated) |
+| **Classic Site** | classic.nanobananastudio.com | Legacy version for reference |
 
 **Current Status:**
 - New site: `new.nanobananastudio.com` (testing)
-- Old site: `nanobananastudio.com` (production)
+- Classic site: `classic.nanobananastudio.com` (available)
 
-**Goal:** After validation, swap domains so new site becomes the main entry point.
+**Data Migration:** ✅ Completed
+- Users, subscriptions, credits migrated from old site
+- Both sites share the same Supabase database (different schemas)
+- Old schema: `public`, New schema: `nanobananastudio_new`
+- Migration scripts: `scripts/migration/`
 
-### Old Site Reference
+**Goal:** After validation, deploy new site to nanobananastudio.com.
+
+### Classic Site Reference
 
 Located at: `/Users/liuwnfng/dev/web100/nanobananastuidio.com`
 - React + Vite SPA (not SEO-friendly)
 - Cloudflare Pages deployment
 - Google Gemini API for AI image generation
 - Creem.io payment integration
+
+### Payment Integration
+
+- **Provider:** Creem.io
+- **Webhook:** `/api/payment/notify/creem`
+- **Plans:** Free (8 credits), Pro ($29.90/mo, 300 credits), Max ($99.90/mo, 1000 credits)
+- **Status:** ✅ Verified working
 
 ## Development Commands
 
@@ -217,11 +232,19 @@ AUTH_SECRET=your-secret
 - [x] Homepage redesign - Prompt Inspirations + Use Cases sections
 - [x] Prompt auto-fill via URL query parameters
 - [x] Gallery lightbox with "Create with this image" feature
+- [x] Gallery delete functionality
 
-### Phase 7: Domain Switch
-- [ ] Deploy old site to app.nanobananastudio.com
+### Phase 7: Payment & Settings ✅
+- [x] Creem.io payment webhook verified working
+- [x] Settings page simplified (removed API Keys, Payments)
+- [x] Billing page simplified (hidden cancel options)
+- [x] Activity page simplified (removed AI Chats)
+- [x] User dropdown menu updated (added Settings entry)
+- [x] Data migration from old site completed
+
+### Phase 8: Domain Switch
 - [ ] Deploy new site to nanobananastudio.com
-- [ ] Configure 301 redirects
+- [ ] Configure 301 redirects from classic site
 - [ ] Monitor for 48 hours
 
 ## Common Tasks
@@ -328,5 +351,33 @@ Images for homepage sections are stored in:
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/api/user/images` | GET | Get user's AI-generated images (requires auth) |
+| `/api/user/images` | DELETE | Delete an AI-generated image (requires auth) |
 | `/api/ai/generate` | POST | Generate AI image |
 | `/api/proxy/file` | GET | Proxy for downloading images |
+| `/api/payment/notify/creem` | POST | Creem.io payment webhook |
+
+### Configuration Files
+
+| Purpose | File |
+|---------|------|
+| Landing header/footer | `src/config/locale/messages/{en,zh}/landing.json` |
+| Settings sidebar | `src/config/locale/messages/{en,zh}/settings/sidebar.json` |
+| Activity sidebar | `src/config/locale/messages/{en,zh}/activity/sidebar.json` |
+| Pricing plans | `src/config/locale/messages/{en,zh}/pages/pricing.json` |
+
+### Data Migration
+
+Migration scripts are in `scripts/migration/`:
+- `migrate-users.ts` - Migrate users and OAuth accounts
+- `migrate-usage.ts` - Migrate subscriptions and credits
+- `migrate-images.ts` - Migrate AI-generated images
+- `run-all.ts` - Run all migrations
+- `check-balance.ts` - Verify user balance after migration
+
+```bash
+# Run migration (dry run first)
+DRY_RUN=true pnpm migrate
+
+# Run actual migration
+DRY_RUN=false pnpm migrate
+```
