@@ -2,7 +2,6 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { ImageGenerator } from '@/shared/blocks/generator/image';
 import { Tutorial } from '@/shared/blocks/generator/tutorial';
-import { ClassicVersionBanner } from '@/shared/blocks/generator/classic-banner';
 import { getMetadata } from '@/shared/lib/seo';
 
 export const generateMetadata = getMetadata({
@@ -25,9 +24,6 @@ export default async function AppPage({
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Classic Version Banner */}
-      <ClassicVersionBanner />
-
       {/* Ambient Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
