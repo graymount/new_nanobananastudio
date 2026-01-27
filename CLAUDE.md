@@ -25,17 +25,15 @@ This project follows a **progressive migration** approach:
 | **New Site** (this repo) | nanobananastudio.com (target) | SEO entry, landing pages, blog, product info, AI tools |
 | **Classic Site** | classic.nanobananastudio.com | Legacy version for reference |
 
-**Current Status:**
-- New site: `new.nanobananastudio.com` (testing)
-- Classic site: `classic.nanobananastudio.com` (available)
+**Current Status:** ✅ Domain Switch Completed
+- Production site: `nanobananastudio.com` (live)
+- Classic site: `classic.nanobananastudio.com` (legacy reference)
 
 **Data Migration:** ✅ Completed
 - Users, subscriptions, credits migrated from old site
 - Both sites share the same Supabase database (different schemas)
 - Old schema: `public`, New schema: `nanobananastudio_new`
 - Migration scripts: `scripts/migration/`
-
-**Goal:** After validation, deploy new site to nanobananastudio.com.
 
 ### Classic Site Reference
 
@@ -175,7 +173,7 @@ Copy `.env.example` to `.env` and configure:
 
 ```bash
 # App
-NEXT_PUBLIC_APP_URL=https://new.nanobananastudio.com
+NEXT_PUBLIC_APP_URL=https://nanobananastudio.com
 NEXT_PUBLIC_APP_NAME=Nano Banana Studio
 NEXT_PUBLIC_APP_LOGO=/logo.png
 NEXT_PUBLIC_DEFAULT_LOCALE=en
@@ -242,10 +240,10 @@ AUTH_SECRET=your-secret
 - [x] User dropdown menu updated (added Settings entry)
 - [x] Data migration from old site completed
 
-### Phase 8: Domain Switch
-- [ ] Deploy new site to nanobananastudio.com
-- [ ] Configure 301 redirects from classic site
-- [ ] Monitor for 48 hours
+### Phase 8: Domain Switch ✅
+- [x] Deploy new site to nanobananastudio.com
+- [x] Configure 301 redirects from classic site
+- [x] Domain switch completed (2025-01)
 
 ## Common Tasks
 
@@ -335,9 +333,9 @@ pnpm cf:deploy
 
 ## Notes
 
-- Always keep old site running until migration is complete
-- Test thoroughly on `new.nanobananastudio.com` before domain switch
-- Preserve Google SEO weight during domain transition with proper 301 redirects
+- Classic site remains available at `classic.nanobananastudio.com` for reference
+- Production URL: `https://nanobananastudio.com`
+- Sitemap URL: `https://nanobananastudio.com/sitemap.xml`
 
 ### Image Assets
 
@@ -345,6 +343,25 @@ Images for homepage sections are stored in:
 - `/public/imgs/inspirations/` - Prompt inspiration cards (cyberpunk-city.png, cute-cat.png, fantasy-landscape.png, abstract-art.png)
 - `/public/imgs/use-cases/` - Use case images (ecommerce.png, social-media.png, art-illustration.png, photo-editing.png)
 - `/public/imgs/showcases/` - Sample showcase images
+
+### Admin Panel
+
+Admin dashboard at `/admin` with role-based access control:
+
+| Page | Path | Description |
+|------|------|-------------|
+| Users | `/admin/users` | User management with search |
+| User Creations | `/admin/users/[id]/creations` | View user's AI-generated images |
+| AI Tasks | `/admin/ai-tasks` | All AI tasks with filtering |
+| Subscriptions | `/admin/subscriptions` | Subscription management |
+| Credits | `/admin/credits` | Credit transactions |
+| Payments | `/admin/payments` | Payment records |
+
+**User Actions (dropdown):**
+- View Creations - See user's AI-generated content
+- Edit User - Modify user info
+- Edit Roles - Assign roles
+- Grant Credits - Add credits to user
 
 ### API Endpoints
 
