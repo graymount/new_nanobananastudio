@@ -13,19 +13,9 @@
         "icon": "CreditCard"
       },
       {
-        "title": "Payments",
-        "url": "/settings/payments",
-        "icon": "DollarSign"
-      },
-      {
         "title": "Credits",
         "url": "/settings/credits",
         "icon": "Coins"
-      },
-      {
-        "title": "API Keys",
-        "url": "/settings/apikeys",
-        "icon": "RiKeyLine"
       }
     ]
   },

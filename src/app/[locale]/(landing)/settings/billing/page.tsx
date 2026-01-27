@@ -119,28 +119,6 @@ export default async function BillingPage({
           return '-';
         },
       },
-      {
-        title: t('fields.action'),
-        type: 'dropdown',
-        callback: function (item) {
-          if (
-            item.status !== SubscriptionStatus.ACTIVE &&
-            item.status !== SubscriptionStatus.TRIALING
-          ) {
-            return null;
-          }
-
-          return [
-            {
-              title: t('view.buttons.cancel'),
-              url: `/settings/billing/cancel?subscription_no=${item.subscriptionNo}`,
-              icon: 'Ban',
-              size: 'sm',
-              variant: 'outline',
-            },
-          ];
-        },
-      },
     ],
     data: subscriptions,
     pagination: {
@@ -206,16 +184,6 @@ export default async function BillingPage({
         size: 'sm',
       },
     ];
-    if (currentSubscription.paymentUserId) {
-      buttons.push({
-        title: t('view.buttons.manage'),
-        url: `/settings/billing/retrieve?subscription_no=${currentSubscription.subscriptionNo}`,
-        target: '_blank',
-        icon: 'Settings',
-        size: 'sm',
-        variant: 'outline',
-      });
-    }
   } else {
     buttons = [
       {
