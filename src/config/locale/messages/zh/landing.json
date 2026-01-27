@@ -109,11 +109,6 @@
               "title": "博客",
               "url": "/blog",
               "target": "_self"
-            },
-            {
-              "title": "更新日志",
-              "url": "/updates",
-              "target": "_self"
             }
           ]
         },

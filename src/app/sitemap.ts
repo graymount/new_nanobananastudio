@@ -13,7 +13,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/app', // AI Image Generator
     '/pricing',
     '/blog',
-    '/updates',
   ];
 
   // Generate entries for static pages (all locales)
