@@ -23,7 +23,7 @@
             "description": "适合体验 AI 图像生成。",
             "features_title": "包含",
             "features": [
-              "每月 5 次图像生成",
+              "每月 8 次图像生成",
               "所有艺术风格",
               "文字生成图像",
               "AI 图像编辑",
@@ -45,7 +45,7 @@
             },
             "product_id": "free",
             "product_name": "Nano Banana 免费版",
-            "credits": 5,
+            "credits": 8,
             "valid_days": 30,
             "group": "monthly"
           },
@@ -55,7 +55,7 @@
             "label": "最受欢迎",
             "features_title": "包含免费版所有功能，此外",
             "features": [
-              "每月 200 次图像生成",
+              "每月 300 次图像生成",
               "优先处理速度",
               "更高分辨率输出",
               "商业使用权",
@@ -76,7 +76,7 @@
             },
             "product_id": "pro",
             "product_name": "Nano Banana 专业版",
-            "credits": 200,
+            "credits": 300,
             "valid_days": 30,
             "group": "monthly",
             "plan_name": "专业版"

@@ -23,7 +23,7 @@
             "description": "Perfect for trying out AI image generation.",
             "features_title": "Includes",
             "features": [
-              "5 image generations per month",
+              "8 image generations per month",
               "All artistic styles",
               "Text-to-image generation",
               "AI image editing",
@@ -45,7 +45,7 @@
             },
             "product_id": "free",
             "product_name": "Nano Banana Free",
-            "credits": 5,
+            "credits": 8,
             "valid_days": 30,
             "group": "monthly"
           },
@@ -55,7 +55,7 @@
             "label": "Most Popular",
             "features_title": "Everything in Free, plus",
             "features": [
-              "200 image generations per month",
+              "300 image generations per month",
               "Priority processing speed",
               "Higher resolution outputs",
               "Commercial usage rights",
@@ -76,7 +76,7 @@
             },
             "product_id": "pro",
             "product_name": "Nano Banana Pro",
-            "credits": 200,
+            "credits": 300,
             "valid_days": 30,
             "group": "monthly",
             "plan_name": "Pro"
