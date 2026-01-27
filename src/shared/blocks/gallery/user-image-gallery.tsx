@@ -9,6 +9,7 @@ import {
   ImageIcon,
   Loader2,
   Pencil,
+  Trash2,
   X,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -133,6 +134,35 @@ export function UserImageGallery({
       toast.success(t('downloaded'));
     } catch (error) {
       toast.error(t('download_error'));
+    }
+  };
+
+  // Delete image
+  const [isDeleting, setIsDeleting] = useState(false);
+  const handleDelete = async (image: UserImage) => {
+    if (!confirm(t('delete_confirm'))) return;
+
+    setIsDeleting(true);
+    try {
+      const resp = await fetch('/api/user/images', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ taskId: image.taskId }),
+      });
+
+      if (!resp.ok) throw new Error('Failed to delete image');
+
+      const { code } = await resp.json();
+      if (code !== 0) throw new Error('Failed to delete image');
+
+      toast.success(t('deleted'));
+      setSelectedIndex(null);
+      // Refresh images
+      fetchImages();
+    } catch (error) {
+      toast.error(t('delete_error'));
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -383,8 +413,6 @@ export function UserImageGallery({
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="text-sm text-white/70">
-                      <span>{images[selectedIndex].model}</span>
-                      <span className="mx-2">·</span>
                       <span>{formatDate(images[selectedIndex].createdAt)}</span>
                     </div>
                     <div className="flex gap-2">
@@ -411,6 +439,22 @@ export function UserImageGallery({
                       >
                         <Download className="mr-1 h-4 w-4" />
                         {t('download')}
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="destructive"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDelete(images[selectedIndex]);
+                        }}
+                        disabled={isDeleting}
+                      >
+                        {isDeleting ? (
+                          <Loader2 className="mr-1 h-4 w-4 animate-spin" />
+                        ) : (
+                          <Trash2 className="mr-1 h-4 w-4" />
+                        )}
+                        {t('delete')}
                       </Button>
                     </div>
                   </div>

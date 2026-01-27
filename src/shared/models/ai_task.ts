@@ -169,3 +169,13 @@ export async function getAITasks({
 
   return result;
 }
+
+export async function deleteAITask(id: string, userId: string) {
+  // Only delete if the task belongs to the user
+  const [result] = await db()
+    .delete(aiTask)
+    .where(and(eq(aiTask.id, id), eq(aiTask.userId, userId)))
+    .returning();
+
+  return result;
+}

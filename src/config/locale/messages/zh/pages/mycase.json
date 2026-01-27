@@ -32,6 +32,10 @@
     "downloaded": "图像已下载",
     "download_error": "下载图像失败",
     "edit": "编辑",
-    "edit_with_this": "用此图创作"
+    "edit_with_this": "用此图创作",
+    "delete": "删除",
+    "delete_confirm": "确定要删除这张图像吗？此操作无法撤销。",
+    "deleted": "图像已删除",
+    "delete_error": "删除图像失败"
   }
 }

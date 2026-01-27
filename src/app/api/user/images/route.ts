@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import { AITaskStatus } from '@/extensions/ai';
-import { getAITasks, getAITasksCount } from '@/shared/models/ai_task';
+import { deleteAITask, getAITasks, getAITasksCount } from '@/shared/models/ai_task';
 import { getUserInfo } from '@/shared/models/user';
 
 export interface UserImage {
@@ -97,6 +97,46 @@ export async function GET(request: NextRequest) {
     });
   } catch (error: any) {
     console.error('Error fetching user images:', error);
+    return NextResponse.json(
+      { code: 500, message: error.message || 'Internal server error', data: null },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const user = await getUserInfo();
+    if (!user) {
+      return NextResponse.json(
+        { code: 401, message: 'Unauthorized', data: null },
+        { status: 401 }
+      );
+    }
+
+    const { taskId } = await request.json();
+    if (!taskId) {
+      return NextResponse.json(
+        { code: 400, message: 'Task ID is required', data: null },
+        { status: 400 }
+      );
+    }
+
+    const deleted = await deleteAITask(taskId, user.id);
+    if (!deleted) {
+      return NextResponse.json(
+        { code: 404, message: 'Image not found or not authorized', data: null },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({
+      code: 0,
+      message: 'success',
+      data: { deleted: true },
+    });
+  } catch (error: any) {
+    console.error('Error deleting user image:', error);
     return NextResponse.json(
       { code: 500, message: error.message || 'Internal server error', data: null },
       { status: 500 }
