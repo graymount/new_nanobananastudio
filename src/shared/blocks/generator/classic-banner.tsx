@@ -34,7 +34,7 @@ export function ClassicVersionBanner() {
         <div className="flex items-center justify-center gap-2 text-sm">
           <span className="text-muted-foreground">{t('text')}</span>
           <a
-            href="https://nanobananastudio.com"
+            href="https://classic.nanobananastudio.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 font-medium text-yellow-600 dark:text-yellow-400 hover:text-yellow-700 dark:hover:text-yellow-300 transition-colors"
