@@ -17,45 +17,45 @@
       "hero": {
         "block": "hero-generator",
         "id": "hero",
-        "title": "Nano Banana Studio - 创造惊艳 AI 图像",
-        "highlight_text": "Nano Banana Studio",
-        "description": "用自然语言将你的想法转化为精美视觉作品。由先进 AI 技术驱动。",
-        "tip": "无需设计技能 - 只需描述你想要的"
+        "title": "比 Gemini 更简单的 AI 图像创作",
+        "highlight_text": "比 Gemini 更简单",
+        "description": "专为图像生成设计。一键灵感、风格预设、个人图库 — 无需复杂 prompt。",
+        "tip": "同样强大的 AI，更好的创作体验"
       },
       "features": {
         "id": "features",
-        "title": "强大的 AI 图像工具",
-        "description": "创建和编辑精美视觉作品所需的一切。",
+        "title": "为什么比 Gemini 更好？",
+        "description": "同样的 AI 能力，专为图像创作打造的体验。",
         "items": [
           {
-            "title": "文字生成图像",
-            "description": "用文字描述你的愿景，看 AI 将其变为现实，细节惊人。",
-            "icon": "RiMagicLine"
+            "title": "Prompt 灵感库",
+            "description": "无需学习 prompt 工程。点击灵感卡片，立即开始创作。",
+            "icon": "RiLightbulbLine"
           },
           {
-            "title": "AI 图像编辑",
-            "description": "用自然语言指令转换现有图像 - 无需 Photoshop。",
-            "icon": "RiImageEditLine"
-          },
-          {
-            "title": "多种风格",
-            "description": "可选择赛博朋克、宫崎骏、写实等多种艺术风格。",
+            "title": "风格预设",
+            "description": "一键切换风格：赛博朋克、宫崎骏、写实等。无需复杂提示词。",
             "icon": "RiPaletteLine"
           },
           {
-            "title": "即时结果",
-            "description": "借助 Nano Banana 强大的 AI，几秒内获得高质量图像。",
-            "icon": "RiFlashlightLine"
+            "title": "个人图库",
+            "description": "作品自动保存。告别在聊天记录里翻找的烦恼。",
+            "icon": "RiGalleryLine"
+          },
+          {
+            "title": "图生图",
+            "description": "上传参考图，描述想要的变化。流畅的工作流，不用在菜单里找功能。",
+            "icon": "RiImageEditLine"
           },
           {
             "title": "前后对比",
-            "description": "使用我们的滑块工具轻松对比原图和编辑后的图像。",
+            "description": "内置滑块对比工具。一眼看清编辑效果。",
             "icon": "RiSplitCellsHorizontal"
           },
           {
-            "title": "简单定价",
-            "description": "免费开始，每月 5 张图像。升级获得更多生成次数。",
-            "icon": "RiPriceTag3Line"
+            "title": "完整中文支持",
+            "description": "全中文界面。用母语写 prompt 创作。",
+            "icon": "RiTranslate2"
           }
         ]
       },
@@ -177,7 +177,11 @@
           },
           {
             "question": "你们使用什么 AI 模型？",
-            "answer": "Nano Banana Studio 使用先进的多模态 AI 技术，为图像生成和编辑任务提供出色的质量。"
+            "answer": "Nano Banana Studio 由 Google Gemini 驱动，与 Google 官方工具使用相同的 AI。你获得同样的 AI 能力，但有更好的创作体验。"
+          },
+          {
+            "question": "和 Gemini 官网有什么区别？",
+            "answer": "Gemini 是通用 AI 助手，而我们专为图像创作设计。提供 prompt 灵感库、风格预设、个人图库、流畅的图生图工作流。同样的 AI 能力，更好的创作体验。"
           },
           {
             "question": "我需要设计技能吗？",

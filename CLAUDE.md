@@ -37,7 +37,7 @@ This project follows a **progressive migration** approach:
 
 ### Classic Site Reference
 
-Located at: `/Users/liuwnfng/dev/web100/nanobananastuidio.com`
+Located at: `/Users/liuwnfng/dev/web100/classic.nanobananastudio.com`
 - React + Vite SPA (not SEO-friendly)
 - Cloudflare Pages deployment
 - Google Gemini API for AI image generation
