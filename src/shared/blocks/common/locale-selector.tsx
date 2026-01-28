@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Check, Globe, Languages } from 'lucide-react';
+import { Check, Globe } from 'lucide-react';
 import { useLocale } from 'next-intl';
 
 import { usePathname, useRouter } from '@/core/i18n/navigation';
@@ -51,7 +51,7 @@ export function LocaleSelector({
         disabled
       >
         {type === 'icon' ? (
-          <Languages size={18} />
+          <Globe size={18} />
         ) : (
           <>
             <Globe size={16} />
@@ -67,7 +67,7 @@ export function LocaleSelector({
       <DropdownMenuTrigger asChild>
         {type === 'icon' ? (
           <Button variant="ghost" size="icon" className="h-auto w-auto p-0">
-            <Languages size={18} />
+            <Globe size={18} />
           </Button>
         ) : (
           <Button variant="outline" size="sm" className="hover:bg-primary/10">
