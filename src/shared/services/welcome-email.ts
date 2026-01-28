@@ -326,3 +326,104 @@ export async function sendWelcomeEmail(data: WelcomeEmailData): Promise<boolean>
     return false;
   }
 }
+
+/**
+ * Founder personal email - sent after welcome email to increase conversion
+ * This is a more personal touch from the founder
+ */
+
+const FOUNDER_CONTENT = {
+  en: {
+    subject: 'Quick hello from Alex 👋',
+  },
+  zh: {
+    subject: 'Alex 的一封简短问候 👋',
+  },
+};
+
+function generateFounderEmailText(data: WelcomeEmailData): string {
+  const locale = data.locale === 'zh' ? 'zh' : 'en';
+  const name = data.name || (locale === 'zh' ? '朋友' : 'there');
+
+  if (locale === 'zh') {
+    return `
+${name} 你好，
+
+看到你刚注册了 Nano Banana Studio，欢迎！
+
+我是 Alex，这个产品的创始人。做这个工具是因为我觉得其他 AI 图片生成器太复杂了，我想做一个简单好用的。
+
+你现在有 8 个免费额度，可以试试：
+• 输入「赛博朋克风格的可爱猫咪」
+• 上传一张照片，把它变成艺术画
+• 尝试不同的风格
+
+👉 开始创作: https://nanobananastudio.com/app
+
+有任何问题或建议，直接回复这封邮件就行，我会亲自看每一封。
+
+祝创作愉快！
+
+Alex King
+Founder, Nano Banana Studio
+    `.trim();
+  }
+
+  return `
+Hi ${name},
+
+I saw you just signed up for Nano Banana Studio - welcome!
+
+I'm Alex, the founder. I built this tool because I was frustrated with how complicated other AI image generators are. I wanted something simple that just works.
+
+You've got 8 free credits to play with. Here are some ideas to get started:
+• Try "a cute cat in cyberpunk style"
+• Upload a photo and transform it into artwork
+• Experiment with different styles
+
+👉 Start creating: https://nanobananastudio.com/app
+
+If you run into any issues or have feedback, just reply to this email. I read every message personally.
+
+Happy creating!
+
+Alex King
+Founder, Nano Banana Studio
+  `.trim();
+}
+
+/**
+ * Send founder personal email to new user
+ */
+export async function sendFounderEmail(data: WelcomeEmailData): Promise<boolean> {
+  try {
+    const emailService = await getEmailService();
+
+    if (!emailService.hasProviders()) {
+      console.log('Founder email skipped: No email provider configured');
+      return false;
+    }
+
+    const locale = data.locale === 'zh' ? 'zh' : 'en';
+    const subject = FOUNDER_CONTENT[locale].subject;
+
+    const result = await emailService.sendEmail({
+      to: data.email,
+      from: 'Alex King <alex.king@nanobananastudio.com>',
+      subject,
+      text: generateFounderEmailText(data),
+      replyTo: 'alex.king@nanobananastudio.com',
+    });
+
+    if (result.success) {
+      console.log(`Founder email sent to ${data.email}`);
+      return true;
+    } else {
+      console.error(`Failed to send founder email to ${data.email}:`, result.error);
+      return false;
+    }
+  } catch (error) {
+    console.error('Error sending founder email:', error);
+    return false;
+  }
+}

@@ -14,7 +14,7 @@ import { getUuid } from '@/shared/lib/hash';
 import { getClientIp } from '@/shared/lib/ip';
 import { grantCreditsForNewUser } from '@/shared/models/credit';
 import { grantRoleForNewUser } from '@/shared/services/rbac';
-import { sendWelcomeEmail } from '@/shared/services/welcome-email';
+import { sendWelcomeEmail, sendFounderEmail } from '@/shared/services/welcome-email';
 
 // Static auth options - NO database connection
 // This ensures zero database calls during build time
@@ -140,6 +140,18 @@ export async function getAuthOptions(configs: Record<string, string>) {
               }).catch((e) => {
                 console.log('send welcome email failed', e);
               });
+
+              // send founder personal email (for conversion)
+              // slight delay to not arrive at the same time as welcome email
+              setTimeout(() => {
+                sendFounderEmail({
+                  email: user.email,
+                  name: user.name,
+                  locale: user.locale,
+                }).catch((e) => {
+                  console.log('send founder email failed', e);
+                });
+              }, 5000); // 5 second delay
             } catch (e) {
               console.log('grant credits or role for new user failed', e);
             }
