@@ -57,7 +57,7 @@ export function BroadcastForm({ totalUsers }: BroadcastFormProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          fromEmail: 'ceo@nanobananastudio.com',
+          fromEmail: 'alex.king@nanobananastudio.com',
           subject,
           textContent: content,
         }),

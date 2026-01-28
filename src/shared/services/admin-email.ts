@@ -92,9 +92,9 @@ export const EMAIL_SENDERS = {
     from: 'Nano Banana Studio <support@nanobananastudio.com>',
   },
   ceo: {
-    email: 'ceo@nanobananastudio.com',
+    email: 'alex.king@nanobananastudio.com',
     name: 'Alex King - CEO',
-    from: 'Alex King, CEO of Nano Banana Studio <ceo@nanobananastudio.com>',
+    from: 'Alex King, CEO of Nano Banana Studio <alex.king@nanobananastudio.com>',
   },
 } as const;
 

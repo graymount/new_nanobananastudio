@@ -71,7 +71,7 @@ export default async function AdminEmailBroadcastPage({
             <CardContent>
               <div className="text-lg font-bold">Alex King, CEO</div>
               <p className="text-xs text-muted-foreground">
-                ceo@nanobananastudio.com
+                alex.king@nanobananastudio.com
               </p>
             </CardContent>
           </Card>
