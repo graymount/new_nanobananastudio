@@ -110,6 +110,11 @@ export class EmailManager {
   getProviderNames(): string[] {
     return this.providers.map((p) => p.name);
   }
+
+  // check if any providers are configured
+  hasProviders(): boolean {
+    return this.providers.length > 0;
+  }
 }
 
 // Global email manager instance
