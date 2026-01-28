@@ -53,8 +53,8 @@
             "icon": "RiSplitCellsHorizontal"
           },
           {
-            "title": "完整中文支持",
-            "description": "全中文界面。用母语写 prompt 创作。",
+            "title": "多语言支持",
+            "description": "完整中英双语界面，用母语写 prompt 创作。",
             "icon": "RiTranslate2"
           }
         ]

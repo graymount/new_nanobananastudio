@@ -53,8 +53,8 @@
             "icon": "RiSplitCellsHorizontal"
           },
           {
-            "title": "Full Chinese Support",
-            "description": "Complete bilingual interface. Create with prompts in your native language.",
+            "title": "Multilingual Support",
+            "description": "Full English & Chinese interface. Create with prompts in your native language.",
             "icon": "RiTranslate2"
           }
         ]
