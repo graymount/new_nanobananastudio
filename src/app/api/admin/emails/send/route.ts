@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json();
-    const { toEmail, toName, subject, textContent, htmlContent } = body;
+    const { fromEmail, toEmail, toName, subject, textContent, htmlContent } = body;
 
     if (!toEmail) {
       return NextResponse.json(
@@ -50,6 +50,7 @@ export async function POST(req: Request) {
     }
 
     const result = await sendNewEmail({
+      fromEmail,
       toEmail,
       toName,
       subject,

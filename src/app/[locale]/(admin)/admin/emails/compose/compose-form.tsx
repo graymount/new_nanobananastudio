@@ -7,9 +7,22 @@ import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { Textarea } from '@/shared/components/ui/textarea';
 import { Label } from '@/shared/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/shared/components/ui/select';
 import { Send, Loader2 } from 'lucide-react';
 
+// Available sender emails
+const SENDER_OPTIONS = [
+  { value: 'support@nanobananastudio.com', label: 'Support <support@nanobananastudio.com>' },
+];
+
 export function ComposeForm() {
+  const [fromEmail, setFromEmail] = useState('support@nanobananastudio.com');
   const [toEmail, setToEmail] = useState('');
   const [toName, setToName] = useState('');
   const [subject, setSubject] = useState('');
@@ -44,6 +57,7 @@ export function ComposeForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          fromEmail,
           toEmail,
           toName: toName || undefined,
           subject,
@@ -68,6 +82,22 @@ export function ComposeForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="fromEmail">From</Label>
+        <Select value={fromEmail} onValueChange={setFromEmail} disabled={isLoading}>
+          <SelectTrigger>
+            <SelectValue placeholder="Select sender email" />
+          </SelectTrigger>
+          <SelectContent>
+            {SENDER_OPTIONS.map((option) => (
+              <SelectItem key={option.value} value={option.value}>
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
       <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="toEmail">Recipient Email *</Label>
