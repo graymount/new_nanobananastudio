@@ -22,9 +22,30 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     qualities: [60, 70, 75],
     remotePatterns: [
+      // Supabase storage
       {
         protocol: 'https',
-        hostname: '*',
+        hostname: '*.supabase.co',
+      },
+      // Cloudflare R2 (nanobananastudio images)
+      {
+        protocol: 'https',
+        hostname: 'images.nanobananastudio.com',
+      },
+      // Google user avatars
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
+      // GitHub avatars
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+      // Google Gemini generated images (generativelanguage API)
+      {
+        protocol: 'https',
+        hostname: 'generativelanguage.googleapis.com',
       },
     ],
   },

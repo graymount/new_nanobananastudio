@@ -5,7 +5,7 @@ import { getThemePage } from '@/core/theme';
 import { envConfigs } from '@/config';
 import { getLocalPage } from '@/shared/models/post';
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 hours
 
 // dynamic page metadata
 export async function generateMetadata({

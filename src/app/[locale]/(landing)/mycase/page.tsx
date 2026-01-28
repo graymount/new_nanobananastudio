@@ -1,9 +1,15 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getThemeBlock } from '@/core/theme';
+import { locales } from '@/config/locale';
 import { getMetadata } from '@/shared/lib/seo';
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const generateMetadata = getMetadata({
   metadataKey: 'pages.mycase.metadata',

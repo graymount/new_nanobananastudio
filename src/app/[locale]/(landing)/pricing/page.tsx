@@ -6,7 +6,7 @@ import { getCurrentSubscription } from '@/shared/models/subscription';
 import { getUserInfo } from '@/shared/models/user';
 import { DynamicPage } from '@/shared/types/blocks/landing';
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 hours
 
 export const generateMetadata = getMetadata({
   metadataKey: 'pages.pricing.metadata',

@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getThemePage } from '@/core/theme';
+import { locales } from '@/config/locale';
 import { getMetadata } from '@/shared/lib/seo';
 import {
   getLocalPostsAndCategories,
@@ -9,7 +10,12 @@ import {
 import { Post as PostType } from '@/shared/types/blocks/blog';
 import { DynamicPage } from '@/shared/types/blocks/landing';
 
-export const revalidate = 3600;
+export const dynamic = 'force-static';
+export const revalidate = false;
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export const generateMetadata = getMetadata({
   metadataKey: 'pages.updates.metadata',
