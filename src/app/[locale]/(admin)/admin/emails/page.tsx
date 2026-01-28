@@ -183,42 +183,43 @@ export default async function AdminEmailsPage({
                       className={!email.isRead ? 'bg-muted/50' : ''}
                     >
                       <TableCell>
-                        {email.direction === 'inbound' ? (
-                          email.isRead ? (
-                            <MailOpen className="h-4 w-4 text-muted-foreground" />
+                        <Link href={`/admin/emails/${email.id}`} className="flex items-center justify-center">
+                          {email.direction === 'inbound' ? (
+                            email.isRead ? (
+                              <MailOpen className="h-4 w-4 text-muted-foreground" />
+                            ) : (
+                              <Mail className="h-4 w-4 text-blue-500" />
+                            )
                           ) : (
-                            <Mail className="h-4 w-4 text-blue-500" />
-                          )
-                        ) : (
-                          <Send className="h-4 w-4 text-green-500" />
-                        )}
+                            <Send className="h-4 w-4 text-green-500" />
+                          )}
+                        </Link>
                       </TableCell>
                       <TableCell>
-                        <div className="font-medium">
-                          {email.direction === 'inbound'
-                            ? email.fromName || email.fromEmail
-                            : email.toName || email.toEmail}
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          {email.direction === 'inbound'
-                            ? email.fromEmail
-                            : email.toEmail}
-                        </div>
+                        <Link href={`/admin/emails/${email.id}`} className="block hover:underline">
+                          <div className="font-medium">
+                            {email.direction === 'inbound'
+                              ? email.fromName || email.fromEmail
+                              : email.toName || email.toEmail}
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            {email.direction === 'inbound'
+                              ? email.fromEmail
+                              : email.toEmail}
+                          </div>
+                        </Link>
                       </TableCell>
                       <TableCell>
-                        <Link
-                          href={`/admin/emails/${email.id}`}
-                          className="hover:underline"
-                        >
+                        <Link href={`/admin/emails/${email.id}`} className="block hover:underline">
                           <span className={!email.isRead ? 'font-semibold' : ''}>
                             {email.subject}
                           </span>
+                          {email.textContent && (
+                            <p className="text-sm text-muted-foreground truncate max-w-[300px]">
+                              {email.textContent.substring(0, 100)}...
+                            </p>
+                          )}
                         </Link>
-                        {email.textContent && (
-                          <p className="text-sm text-muted-foreground truncate max-w-[300px]">
-                            {email.textContent.substring(0, 100)}...
-                          </p>
-                        )}
                       </TableCell>
                       <TableCell>
                         <Badge
