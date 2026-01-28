@@ -243,6 +243,50 @@ export const getUserRoles = cache(async (userId: string): Promise<Role[]> => {
 });
 
 /**
+ * Get roles for multiple users (batch query to avoid N+1)
+ */
+export async function getUserRolesBatch(
+  userIds: string[]
+): Promise<Map<string, Role[]>> {
+  if (userIds.length === 0) return new Map();
+
+  const now = new Date();
+  const result = await db()
+    .select({
+      userId: userRole.userId,
+      id: role.id,
+      name: role.name,
+      title: role.title,
+      description: role.description,
+      status: role.status,
+      createdAt: role.createdAt,
+      updatedAt: role.updatedAt,
+      sort: role.sort,
+    })
+    .from(userRole)
+    .innerJoin(role, eq(userRole.roleId, role.id))
+    .where(
+      and(
+        inArray(userRole.userId, userIds),
+        eq(role.status, RoleStatus.ACTIVE),
+        or(isNull(userRole.expiresAt), gt(userRole.expiresAt, now))
+      )
+    );
+
+  // Group by userId
+  const rolesMap = new Map<string, Role[]>();
+  for (const row of result) {
+    const { userId, ...roleData } = row;
+    if (!rolesMap.has(userId)) {
+      rolesMap.set(userId, []);
+    }
+    rolesMap.get(userId)!.push(roleData as Role);
+  }
+
+  return rolesMap;
+}
+
+/**
  * Get user's permissions (through roles)
  */
 export const getUserPermissions = cache(

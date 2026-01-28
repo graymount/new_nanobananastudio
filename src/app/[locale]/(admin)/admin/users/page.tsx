@@ -4,9 +4,9 @@ import { PERMISSIONS, requirePermission } from '@/core/rbac';
 import { Header, Main, MainHeader } from '@/shared/blocks/dashboard';
 import { TableCard } from '@/shared/blocks/table';
 import { Badge } from '@/shared/components/ui/badge';
-import { getRemainingCredits } from '@/shared/models/credit';
+import { getRemainingCreditsBatch } from '@/shared/models/credit';
 import { getUsers, getUsersCount, User } from '@/shared/models/user';
-import { getUserRoles } from '@/shared/services/rbac';
+import { getUserRolesBatch, Role } from '@/shared/services/rbac';
 import { Crumb, Search } from '@/shared/types/blocks/common';
 import { type Table } from '@/shared/types/blocks/table';
 
@@ -45,6 +45,13 @@ export default async function AdminUsersPage({
     limit,
   });
 
+  // Batch fetch roles and credits for all users (avoid N+1 queries)
+  const userIds = users.map((u) => u.id);
+  const [rolesMap, creditsMap] = await Promise.all([
+    getUserRolesBatch(userIds),
+    getRemainingCreditsBatch(userIds),
+  ]);
+
   const crumbs: Crumb[] = [
     { title: t('list.crumbs.admin'), url: '/admin' },
     { title: t('list.crumbs.users'), is_active: true },
@@ -71,8 +78,8 @@ export default async function AdminUsersPage({
       {
         name: 'roles',
         title: t('fields.roles'),
-        callback: async (item: User) => {
-          const roles = await getUserRoles(item.id);
+        callback: (item: User) => {
+          const roles = rolesMap.get(item.id) || [];
 
           return (
             <div className="flex flex-col gap-2">
@@ -94,8 +101,8 @@ export default async function AdminUsersPage({
       {
         name: 'remainingCredits',
         title: t('fields.remaining_credits'),
-        callback: async (item: User) => {
-          const credits = await getRemainingCredits(item.id);
+        callback: (item: User) => {
+          const credits = creditsMap.get(item.id) || 0;
 
           return <div className="text-green-500">{credits}</div>;
         },

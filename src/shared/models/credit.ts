@@ -1,4 +1,4 @@
-import { and, asc, count, desc, eq, gt, isNull, or, sum } from 'drizzle-orm';
+import { and, asc, count, desc, eq, gt, inArray, isNull, or, sum } from 'drizzle-orm';
 
 import { db } from '@/core/db';
 import { credit } from '@/config/db/schema';
@@ -318,6 +318,42 @@ export async function getRemainingCredits(userId: string): Promise<number> {
     );
 
   return parseInt(result?.total || '0');
+}
+
+// get remaining credits for multiple users (batch query to avoid N+1)
+export async function getRemainingCreditsBatch(
+  userIds: string[]
+): Promise<Map<string, number>> {
+  if (userIds.length === 0) return new Map();
+
+  const currentTime = new Date();
+
+  const result = await db()
+    .select({
+      userId: credit.userId,
+      total: sum(credit.remainingCredits),
+    })
+    .from(credit)
+    .where(
+      and(
+        inArray(credit.userId, userIds),
+        eq(credit.transactionType, CreditTransactionType.GRANT),
+        eq(credit.status, CreditStatus.ACTIVE),
+        gt(credit.remainingCredits, 0),
+        or(
+          isNull(credit.expiresAt),
+          gt(credit.expiresAt, currentTime)
+        )
+      )
+    )
+    .groupBy(credit.userId);
+
+  const creditsMap = new Map<string, number>();
+  for (const row of result) {
+    creditsMap.set(row.userId, parseInt(row.total || '0'));
+  }
+
+  return creditsMap;
 }
 
 // grant credits for new user
