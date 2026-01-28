@@ -50,6 +50,13 @@ Located at: `/Users/liuwnfng/dev/web100/classic.nanobananastudio.com`
 - **Plans:** Free (8 credits), Pro ($29.90/mo, 300 credits), Max ($99.90/mo, 1000 credits)
 - **Status:** ✅ Verified working
 
+### Authentication
+
+- **Method:** Google OAuth only (email/password registration disabled to prevent abuse)
+- **Provider:** Better Auth
+- **New User Benefits:** 8 free credits + welcome email
+- **Config:** `/admin/settings/auth` (Google OAuth enabled, Email Auth disabled)
+
 ### Email Integration
 
 - **Provider:** Resend
@@ -59,6 +66,8 @@ Located at: `/Users/liuwnfng/dev/web100/classic.nanobananastudio.com`
 - **Sender Email:** support@nanobananastudio.com
 - **DNS Records:** ✅ Verified (DKIM, SPF, MX, DMARC)
 - **Status:** ✅ Configured
+- **Welcome Email:** Sent automatically on new user registration (EN/ZH based on locale)
+- **Preview:** `/api/admin/emails/preview-welcome?locale=en` (requires admin login)
 
 ## Development Commands
 
@@ -366,6 +375,8 @@ Admin dashboard at `/admin` with role-based access control:
 | Subscriptions | `/admin/subscriptions` | Subscription management |
 | Credits | `/admin/credits` | Credit transactions |
 | Payments | `/admin/payments` | Payment records |
+| Emails | `/admin/emails` | Email inbox/outbox management |
+| Email Compose | `/admin/emails/compose` | Send new emails |
 
 **User Actions (dropdown):**
 - View Creations - See user's AI-generated content
@@ -382,6 +393,10 @@ Admin dashboard at `/admin` with role-based access control:
 | `/api/ai/generate` | POST | Generate AI image |
 | `/api/proxy/file` | GET | Proxy for downloading images |
 | `/api/payment/notify/creem` | POST | Creem.io payment webhook |
+| `/api/admin/emails/send` | POST | Send email (admin) |
+| `/api/admin/emails/reply` | POST | Reply to email (admin) |
+| `/api/admin/emails/preview-welcome` | GET | Preview welcome email template |
+| `/api/webhook/email` | POST | Receive inbound emails (Cloudflare) |
 
 ### Configuration Files
 
