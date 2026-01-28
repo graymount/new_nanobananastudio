@@ -91,6 +91,11 @@ export const EMAIL_SENDERS = {
     name: 'Nano Banana Studio Support',
     from: 'Nano Banana Studio <support@nanobananastudio.com>',
   },
+  ceo: {
+    email: 'ceo@nanobananastudio.com',
+    name: 'Alex King - CEO',
+    from: 'Alex King, CEO of Nano Banana Studio <ceo@nanobananastudio.com>',
+  },
 } as const;
 
 export type SenderType = keyof typeof EMAIL_SENDERS;
@@ -559,4 +564,170 @@ export async function getUnreadCount(): Promise<number> {
 export async function deleteEmail(id: string): Promise<boolean> {
   await db().delete(email).where(eq(email.id, id));
   return true;
+}
+
+// Broadcast email types
+export interface BroadcastEmailData {
+  subject: string;
+  textContent?: string;
+  htmlContent?: string;
+  fromEmail?: string;
+}
+
+export interface BroadcastResult {
+  success: boolean;
+  totalUsers: number;
+  sentCount: number;
+  failedCount: number;
+  errors: Array<{ email: string; error: string }>;
+}
+
+/**
+ * Send broadcast email to all users
+ * Note: This sends emails in batches to avoid rate limiting
+ */
+export async function sendBroadcastEmail(
+  data: BroadcastEmailData,
+  userEmails: Array<{ email: string; name: string | null }>
+): Promise<BroadcastResult> {
+  const sender = data.fromEmail
+    ? getSenderByEmail(data.fromEmail)
+    : EMAIL_SENDERS.ceo;
+
+  const result: BroadcastResult = {
+    success: true,
+    totalUsers: userEmails.length,
+    sentCount: 0,
+    failedCount: 0,
+    errors: [],
+  };
+
+  const emailService = await getEmailService();
+  const batchId = nanoid();
+  const BATCH_SIZE = 10; // Send 10 emails at a time
+  const DELAY_BETWEEN_BATCHES = 1000; // 1 second delay between batches
+
+  // Process in batches
+  for (let i = 0; i < userEmails.length; i += BATCH_SIZE) {
+    const batch = userEmails.slice(i, i + BATCH_SIZE);
+
+    // Process batch in parallel
+    const batchResults = await Promise.allSettled(
+      batch.map(async (recipient) => {
+        const id = nanoid();
+        const threadId = `broadcast-${batchId}`;
+
+        // Create email record
+        const [outboundEmail] = await db()
+          .insert(email)
+          .values({
+            id,
+            messageId: null,
+            threadId,
+            direction: 'outbound',
+            fromEmail: sender.email,
+            fromName: sender.name,
+            toEmail: recipient.email,
+            toName: recipient.name,
+            cc: null,
+            bcc: null,
+            subject: data.subject,
+            textContent: data.textContent || null,
+            htmlContent: data.htmlContent || null,
+            attachments: null,
+            status: 'pending',
+            parentId: null,
+            replyToMessageId: null,
+            isRead: true,
+            metadata: JSON.stringify({ broadcast: true, batchId }),
+          })
+          .returning();
+
+        try {
+          const emailContent: {
+            to: string;
+            from: string;
+            subject: string;
+            text?: string;
+            html?: string;
+            replyTo?: string;
+          } = {
+            to: recipient.email,
+            from: sender.from,
+            subject: data.subject,
+            replyTo: sender.email,
+          };
+
+          if (data.textContent) {
+            emailContent.text = data.textContent;
+          }
+
+          if (data.htmlContent) {
+            emailContent.html = data.htmlContent;
+          }
+
+          const sendResult = await emailService.sendEmail(emailContent);
+
+          if (sendResult.success) {
+            await db()
+              .update(email)
+              .set({
+                status: 'sent',
+                messageId: sendResult.messageId || null,
+              })
+              .where(eq(email.id, id));
+
+            return { success: true, email: recipient.email };
+          } else {
+            await db()
+              .update(email)
+              .set({
+                status: 'failed',
+                metadata: JSON.stringify({ broadcast: true, batchId, error: sendResult.error }),
+              })
+              .where(eq(email.id, id));
+
+            return { success: false, email: recipient.email, error: sendResult.error };
+          }
+        } catch (error) {
+          const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+          await db()
+            .update(email)
+            .set({
+              status: 'failed',
+              metadata: JSON.stringify({ broadcast: true, batchId, error: errorMessage }),
+            })
+            .where(eq(email.id, id));
+
+          return { success: false, email: recipient.email, error: errorMessage };
+        }
+      })
+    );
+
+    // Process batch results
+    for (const batchResult of batchResults) {
+      if (batchResult.status === 'fulfilled') {
+        if (batchResult.value.success) {
+          result.sentCount++;
+        } else {
+          result.failedCount++;
+          result.errors.push({
+            email: batchResult.value.email,
+            error: batchResult.value.error || 'Unknown error',
+          });
+        }
+      } else {
+        result.failedCount++;
+      }
+    }
+
+    // Delay between batches (except for the last batch)
+    if (i + BATCH_SIZE < userEmails.length) {
+      await new Promise((resolve) => setTimeout(resolve, DELAY_BETWEEN_BATCHES));
+    }
+  }
+
+  result.success = result.failedCount === 0;
+
+  return result;
 }

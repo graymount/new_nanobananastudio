@@ -110,3 +110,20 @@ export async function appendUserToResult(result: any) {
 
   return result;
 }
+
+/**
+ * Get all users with email addresses for broadcast
+ */
+export async function getAllUsersForBroadcast(): Promise<
+  Array<{ email: string; name: string | null }>
+> {
+  const result = await db()
+    .select({
+      email: user.email,
+      name: user.name,
+    })
+    .from(user)
+    .orderBy(desc(user.createdAt));
+
+  return result;
+}

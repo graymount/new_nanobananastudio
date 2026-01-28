@@ -19,6 +19,7 @@ import { Send, Loader2 } from 'lucide-react';
 // Available sender emails
 const SENDER_OPTIONS = [
   { value: 'support@nanobananastudio.com', label: 'Support <support@nanobananastudio.com>' },
+  { value: 'ceo@nanobananastudio.com', label: 'Alex King, CEO <ceo@nanobananastudio.com>' },
 ];
 
 export function ComposeForm() {

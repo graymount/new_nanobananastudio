@@ -28,7 +28,7 @@ import {
 } from '@/shared/services/admin-email';
 import { Crumb } from '@/shared/types/blocks/common';
 import { formatDistanceToNow } from 'date-fns';
-import { Mail, MailOpen, Send, Inbox, RefreshCw } from 'lucide-react';
+import { Mail, MailOpen, Send, Inbox, RefreshCw, Megaphone } from 'lucide-react';
 
 export default async function AdminEmailsPage({
   params,
@@ -105,11 +105,17 @@ export default async function AdminEmailsPage({
               <CardTitle className="text-sm font-medium">Actions</CardTitle>
               <Send className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-2">
               <Link href="/admin/emails/compose">
-                <Button size="sm" className="w-full">
+                <Button size="sm" className="w-full" variant="outline">
                   <Send className="mr-2 h-4 w-4" />
                   Compose Email
+                </Button>
+              </Link>
+              <Link href="/admin/emails/broadcast">
+                <Button size="sm" className="w-full">
+                  <Megaphone className="mr-2 h-4 w-4" />
+                  CEO Broadcast
                 </Button>
               </Link>
             </CardContent>
