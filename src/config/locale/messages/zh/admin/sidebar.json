@@ -79,6 +79,11 @@
       "title": "业务",
       "items": [
         {
+          "title": "邮件管理",
+          "url": "/admin/emails",
+          "icon": "Mail"
+        },
+        {
           "title": "AI任务",
           "url": "/admin/ai-tasks",
           "icon": "Brain"

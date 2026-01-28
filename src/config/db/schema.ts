@@ -555,3 +555,43 @@ export const chatMessage = table(
     index('idx_chat_message_user_id').on(table.userId, table.status),
   ]
 );
+
+// Admin Email Management
+export const email = table(
+  'email',
+  {
+    id: text('id').primaryKey(),
+    messageId: text('message_id'), // Email Message-ID header
+    threadId: text('thread_id'), // Thread ID for grouping conversations
+    direction: text('direction').notNull(), // 'inbound' | 'outbound'
+    fromEmail: text('from_email').notNull(),
+    fromName: text('from_name'),
+    toEmail: text('to_email').notNull(),
+    toName: text('to_name'),
+    cc: text('cc'),
+    bcc: text('bcc'),
+    subject: text('subject').notNull(),
+    textContent: text('text_content'),
+    htmlContent: text('html_content'),
+    attachments: text('attachments'), // JSON array of attachments
+    status: text('status').notNull(), // 'received' | 'pending' | 'sent' | 'failed'
+    parentId: text('parent_id'), // Reference to parent email for replies
+    replyToMessageId: text('reply_to_message_id'), // Message-ID being replied to
+    isRead: boolean('is_read').default(false).notNull(),
+    metadata: text('metadata'), // JSON metadata
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at')
+      .$onUpdate(() => new Date())
+      .notNull(),
+  },
+  (table) => [
+    // Query emails by direction and status
+    index('idx_email_direction_status').on(table.direction, table.status),
+    // Query emails by thread
+    index('idx_email_thread_id').on(table.threadId),
+    // Query unread emails
+    index('idx_email_is_read').on(table.isRead, table.direction),
+    // Order by creation time
+    index('idx_email_created_at').on(table.createdAt),
+  ]
+);

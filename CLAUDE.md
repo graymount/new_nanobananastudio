@@ -50,6 +50,16 @@ Located at: `/Users/liuwnfng/dev/web100/classic.nanobananastudio.com`
 - **Plans:** Free (8 credits), Pro ($29.90/mo, 300 credits), Max ($99.90/mo, 1000 credits)
 - **Status:** ✅ Verified working
 
+### Email Integration
+
+- **Provider:** Resend
+- **Account:** wnfng.liu+nanobananastudio@gmail.com
+- **API Key Name:** nanobananastudio-production
+- **Region:** Tokyo (ap-northeast-1)
+- **Sender Email:** support@nanobananastudio.com
+- **DNS Records:** ✅ Verified (DKIM, SPF, MX, DMARC)
+- **Status:** ✅ Configured
+
 ## Development Commands
 
 ```bash
