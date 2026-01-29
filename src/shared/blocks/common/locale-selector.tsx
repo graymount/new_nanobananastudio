@@ -5,7 +5,7 @@ import { Check, Globe } from 'lucide-react';
 import { useLocale } from 'next-intl';
 
 import { usePathname, useRouter } from '@/core/i18n/navigation';
-import { localeNames } from '@/config/locale';
+import { localeNames, locales } from '@/config/locale';
 import { Button } from '@/shared/components/ui/button';
 import {
   DropdownMenu,
@@ -15,6 +15,15 @@ import {
 } from '@/shared/components/ui/dropdown-menu';
 import { cacheSet } from '@/shared/lib/cache';
 
+// Helper to strip locale prefix from pathname
+function stripLocalePrefix(path: string): string {
+  const segments = path.split('/').filter(Boolean);
+  if (segments.length > 0 && locales.includes(segments[0])) {
+    return '/' + segments.slice(1).join('/') || '/';
+  }
+  return path;
+}
+
 export function LocaleSelector({
   type = 'icon',
 }: {
@@ -22,8 +31,11 @@ export function LocaleSelector({
 }) {
   const currentLocale = useLocale();
   const router = useRouter();
-  const pathname = usePathname();
+  const rawPathname = usePathname();
   const [mounted, setMounted] = useState(false);
+
+  // Ensure pathname doesn't contain locale prefix
+  const pathname = stripLocalePrefix(rawPathname);
 
   useEffect(() => {
     setMounted(true);

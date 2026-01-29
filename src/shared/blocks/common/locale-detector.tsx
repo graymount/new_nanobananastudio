@@ -15,6 +15,15 @@ const DISMISSED_KEY = 'locale-suggestion-dismissed';
 const DISMISSED_EXPIRY_DAYS = 1; // Expiry in days
 const PREFERRED_LOCALE_KEY = 'locale';
 
+// Helper to strip locale prefix from pathname
+function stripLocalePrefix(path: string): string {
+  const segments = path.split('/').filter(Boolean);
+  if (segments.length > 0 && locales.includes(segments[0])) {
+    return '/' + segments.slice(1).join('/') || '/';
+  }
+  return path;
+}
+
 export function LocaleDetector() {
   if (envConfigs.locale_detect_enabled !== 'true') {
     return null;
@@ -22,7 +31,8 @@ export function LocaleDetector() {
 
   const currentLocale = useLocale();
   const router = useRouter();
-  const pathname = usePathname();
+  const rawPathname = usePathname();
+  const pathname = stripLocalePrefix(rawPathname);
   const [showBanner, setShowBanner] = useState(false);
   const [browserLocale, setBrowserLocale] = useState<string | null>(null);
   const [bannerHeight, setBannerHeight] = useState(0);
