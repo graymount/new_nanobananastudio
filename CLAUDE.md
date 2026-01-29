@@ -14,7 +14,7 @@ This file provides guidance to Claude Code when working with code in this reposi
 - **Use Cases** - Showcase of different AI image use cases (e-commerce, social media, art, photo enhancement)
 - **Activity Dashboard** (`/activity`) - View AI task history
 - **Settings** (`/settings`) - Profile, billing, and credits management
-- **Bilingual Support** - Full EN/ZH localization
+- **Multilingual Support** - Full localization for EN, ZH, ES, JA, KO (5 languages)
 
 ### Migration Strategy
 
@@ -110,7 +110,7 @@ pnpm cf:deploy
 - **Styling**: Tailwind CSS v4
 - **Database**: Drizzle ORM + PostgreSQL
 - **Auth**: Better Auth
-- **i18n**: next-intl (en, zh)
+- **i18n**: next-intl (en, zh, es, ja, ko)
 - **Content**: Fumadocs + MDX
 - **UI**: shadcn/ui + Radix UI
 
@@ -136,7 +136,7 @@ src/
 │   ├── i18n/              # Internationalization
 │   └── theme/             # Theme provider
 ├── config/                 # Configuration
-│   ├── locale/messages/   # Translation files (en/, zh/)
+│   ├── locale/messages/   # Translation files (en/, zh/, es/, ja/, ko/)
 │   ├── style/             # Global styles
 │   └── db/schema.ts       # Database schema
 ├── shared/                 # Shared code
@@ -177,8 +177,8 @@ public/imgs/               # Static images
 | Robots.txt | `src/app/robots.ts` |
 | AI Image Generator | `src/shared/blocks/generator/image.tsx` |
 | Theme blocks index | `src/themes/default/blocks/index.tsx` |
-| Homepage config (EN) | `src/config/locale/messages/en/pages/index.json` |
-| Homepage config (ZH) | `src/config/locale/messages/zh/pages/index.json` |
+| Homepage config | `src/config/locale/messages/{locale}/pages/index.json` |
+| Locale config | `src/config/locale/index.ts` |
 
 ### Theme Block System
 
@@ -291,13 +291,13 @@ This is used by:
 ### Adding a New Page
 
 1. Create page in `src/app/[locale]/(landing)/your-page/page.tsx`
-2. Add translations in `src/config/locale/messages/{en,zh}/pages/your-page.json`
+2. Add translations in `src/config/locale/messages/{en,zh,es,ja,ko}/pages/your-page.json`
 3. Update navigation if needed
 
 ### Adding a Blog Post
 
 1. Create MDX file in `content/posts/your-post.mdx` (English)
-2. Create `content/posts/your-post.zh.mdx` (Chinese)
+2. Create localized versions: `your-post.zh.mdx`, `your-post.es.mdx`, `your-post.ja.mdx`, `your-post.ko.mdx`
 3. Include frontmatter: title, description, date, author
 
 ### Updating SEO Metadata
@@ -315,12 +315,19 @@ export const generateMetadata = getMetadata({
 ### Adding Translations
 
 1. Add JSON file in `src/config/locale/messages/en/your-namespace.json`
-2. Add Chinese version in `src/config/locale/messages/zh/your-namespace.json`
+2. Add translations for other languages in `zh/`, `es/`, `ja/`, `ko/` directories
 3. Register path in `src/config/locale/index.ts` if new namespace
+
+**Supported Languages:**
+- `en` - English (default)
+- `zh` - Chinese (中文)
+- `es` - Spanish (Español)
+- `ja` - Japanese (日本語)
+- `ko` - Korean (한국어)
 
 ### Modifying Homepage Sections
 
-Homepage sections are configured in `src/config/locale/messages/{en,zh}/pages/index.json`:
+Homepage sections are configured in `src/config/locale/messages/{en,zh,es,ja,ko}/pages/index.json`:
 
 ```json
 {
@@ -410,10 +417,12 @@ Admin dashboard at `/admin` with role-based access control:
 
 | Purpose | File |
 |---------|------|
-| Landing header/footer | `src/config/locale/messages/{en,zh}/landing.json` |
-| Settings sidebar | `src/config/locale/messages/{en,zh}/settings/sidebar.json` |
-| Activity sidebar | `src/config/locale/messages/{en,zh}/activity/sidebar.json` |
-| Pricing plans | `src/config/locale/messages/{en,zh}/pages/pricing.json` |
+| Landing header/footer | `src/config/locale/messages/{locale}/landing.json` |
+| Settings sidebar | `src/config/locale/messages/{locale}/settings/sidebar.json` |
+| Activity sidebar | `src/config/locale/messages/{locale}/activity/sidebar.json` |
+| Pricing plans | `src/config/locale/messages/{locale}/pages/pricing.json` |
+
+Note: `{locale}` refers to language directories: `en`, `zh`, `es`, `ja`, `ko`
 
 ### Data Migration
 
