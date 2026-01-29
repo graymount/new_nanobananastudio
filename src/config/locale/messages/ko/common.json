@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "title": "Nano Banana Studio - 무료 AI 이미지 생성기 및 편집기",
+    "description": "Nano Banana AI 이미지 생성기 및 편집기. 텍스트로 멋진 이미지를 만들거나 자연어로 사진을 편집하세요. 사이버펑크, 애니메이션, 수채화 등 다양한 스타일로 무료 사용 가능.",
+    "keywords": "Nano Banana, Nano Banana AI, 이미지 편집, 무료 AI 이미지 생성기, Nano Banana Pro, Nano Banana Studio, 텍스트 투 이미지, AI 사진 편집기, AI 아트 생성기"
+  },
+  "sign": {
+    "sign_in_title": "로그인",
+    "sign_in_description": "계정에 로그인",
+    "sign_up_title": "회원가입",
+    "sign_up_description": "계정 만들기",
+    "email_title": "이메일",
+    "email_placeholder": "이메일을 입력하세요",
+    "password_title": "비밀번호",
+    "password_placeholder": "비밀번호를 입력하세요",
+    "forgot_password": "비밀번호를 잊으셨나요?",
+    "or": "또는",
+    "continue": "계속",
+    "no_account": "계정이 없으신가요?",
+    "already_have_account": "이미 계정이 있으신가요?",
+    "email_sign_in": "이메일로 로그인",
+    "google_sign_in_title": "Google로 로그인",
+    "github_sign_in_title": "GitHub로 로그인",
+    "close_title": "닫기",
+    "cancel_title": "취소",
+    "sign_out_title": "로그아웃",
+    "billing_title": "결제",
+    "name_title": "이름",
+    "name_placeholder": "이름을 입력하세요",
+    "admin_title": "관리자 시스템",
+    "credits_title": "크레딧: {credits}"
+  },
+  "payment": {
+    "choose_payment_method": "결제 방법 선택",
+    "choose_payment_method_description": "",
+    "cancel_title": "취소"
+  },
+  "locale_detector": {
+    "title": "브라우저 언어가 {locale}로 감지되었습니다. 전환하시겠습니까?",
+    "switch_to": "{locale}로 전환"
+  }
+}

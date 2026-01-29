@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Nano Banana Studio - Free Nano Banana AI Image Generator & Editor",
-    "description": "Nano Banana AI image generator and editor. Create stunning images from text or edit photos with natural language. Free to try - no design skills needed!",
-    "keywords": "Nano Banana, Nano Banana AI, free AI image generator, Nano Banana image editing, Nano Banana Pro, Nano Banana Studio, text to image AI, how to use Nano Banana, AI art generator, is Nano Banana free"
+    "title": "Nano Banana Studio - Free AI Image Generator & Editor",
+    "description": "Create stunning AI images from text in seconds. Edit photos with natural language. 8 free generations per month - no design skills needed!",
+    "keywords": "AI image generator, free AI art generator, text to image AI, AI photo editor, AI image creation, online image generator, AI art maker"
   },
   "page": {
     "show_sections": [
@@ -17,15 +17,15 @@
       "hero": {
         "block": "hero-generator",
         "id": "hero",
-        "title": "AI Image Creation, Simpler Than Gemini",
-        "highlight_text": "Simpler Than Gemini",
-        "description": "Purpose-built for image generation. One-click prompt inspirations, style presets, and your personal gallery — no complex prompts needed.",
-        "tip": "Same powerful AI, better creative experience"
+        "title": "Nano Banana Studio - Create AI Images in Seconds",
+        "highlight_text": "in Seconds",
+        "description": "No design skills needed. Just describe what you want, pick a style, and watch your ideas come to life.",
+        "tip": "8 free generations to start • No credit card required"
       },
       "features": {
         "id": "features",
-        "title": "Why Better Than Gemini?",
-        "description": "Same AI power, purpose-built experience for image creation.",
+        "title": "Why Creators Love Us",
+        "description": "Everything you need to create amazing AI images, nothing you don't.",
         "items": [
           {
             "title": "Prompt Inspirations",
@@ -114,7 +114,7 @@
             "period": "/month",
             "description": "Perfect for trying out",
             "features": [
-              "5 images per month",
+              "8 images per month",
               "All styles included",
               "Standard quality"
             ],
@@ -130,7 +130,7 @@
             "period": "/month",
             "description": "For regular creators",
             "features": [
-              "200 images per month",
+              "300 images per month",
               "All styles included",
               "Priority processing"
             ],
@@ -177,11 +177,11 @@
           },
           {
             "question": "What AI model do you use?",
-            "answer": "Nano Banana Studio is powered by Google Gemini, the same AI behind Google's official tools. You get identical AI capabilities with a better creative experience."
+            "answer": "We use state-of-the-art AI models to generate high-quality images. Our technology is constantly updated to deliver the best results."
           },
           {
-            "question": "How is this different from Gemini's official website?",
-            "answer": "Gemini is a general-purpose AI assistant. We're purpose-built for image creation with prompt inspirations, style presets, personal gallery, and a streamlined image-to-image workflow. Same AI power, better creative experience."
+            "question": "What makes Nano Banana Studio different?",
+            "answer": "We're purpose-built for image creation. Prompt inspirations help you get started, style presets give you one-click creative options, and your personal gallery saves everything automatically. No digging through chat history."
           },
           {
             "question": "Do I need design skills?",
@@ -193,7 +193,7 @@
           },
           {
             "question": "How does the free tier work?",
-            "answer": "The free tier gives you 5 image generations per month. Usage resets monthly, and you can upgrade anytime for more generations."
+            "answer": "The free tier gives you 8 image generations per month. Usage resets monthly, and you can upgrade anytime for more generations."
           },
           {
             "question": "Can I use the images commercially?",

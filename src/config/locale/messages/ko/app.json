@@ -1,0 +1,82 @@
+{
+  "classic_banner": {
+    "text": "Looking for your old images?",
+    "link": "Visit Classic Version",
+    "dismiss": "Dismiss"
+  },
+  "metadata": {
+    "title": "AI Image Studio - Nano Banana Studio",
+    "description": "Full-featured AI image generator and editor. Create stunning images from text or transform existing photos with natural language."
+  },
+  "title": "AI Image Studio",
+  "description": "Create and edit images with the power of AI",
+  "tutorial": {
+    "title": "How to Use",
+    "subtitle": "Master AI image generation with these professional tips",
+    "quick_start": "Quick Start",
+    "workflow_alt": "AI Image Generation Workflow Diagram",
+    "steps": {
+      "step1": {
+        "title": "Choose Your Mode",
+        "description": "Select 'Text to Image' to create from scratch, or 'Edit & Merge' to transform existing photos or combine multiple images."
+      },
+      "step2": {
+        "title": "Write Your Prompt",
+        "description": "Describe what you want in natural language. Be specific about subject, style, lighting, and composition. No need for keyword spam like '4k, masterpiece'."
+      },
+      "step3": {
+        "title": "Generate & Iterate",
+        "description": "Click generate and review the result. If it's 80% correct, edit conversationally instead of starting over. Iteration is key to professional results."
+      }
+    },
+    "features_title": "Features",
+    "features": {
+      "text_to_image": {
+        "title": "Text to Image",
+        "description": "Create images from text descriptions. Nano Banana Pro uses 'Deep Think' reasoning to understand your intent, physics, and composition. Perfect for generating art, product mockups, and creative visuals."
+      },
+      "edit_merge": {
+        "title": "Edit & Merge",
+        "description": "Edit single images or merge up to 14 photos into one cohesive scene. Supports in-painting (add/remove objects), style swapping, colorization, and restoration. Great for brand consistency and character sheets."
+      }
+    },
+    "prompt_tips_title": "Professional Prompt Tips",
+    "prompt_tips_alt": "Prompt Writing Tips Diagram",
+    "prompt_tips": {
+      "tip1": {
+        "title": "Use the Framework",
+        "description": "Structure your prompt: [Subject + Adjectives] doing [Action] in [Location]. [Composition]. [Lighting]. [Style].",
+        "example": "A stoic robot barista with glowing blue optics serving coffee in a futuristic cafe. Wide shot. Warm morning light. Cinematic style."
+      },
+      "tip2": {
+        "title": "Specify Lighting & Time",
+        "description": "Lighting dictates mood. 'Candle light' feels intimate, 'hospital fluorescent' feels clinical. Always set the time of day.",
+        "example": "Portrait of a musician in a jazz club. Dramatic spotlight from above. Midnight atmosphere with smoky haze."
+      },
+      "tip3": {
+        "title": "Be Specific with Text",
+        "description": "Don't just say 'add text'. Specify the exact words, font style, color, and placement for accurate text rendering.",
+        "example": "A vintage poster with the text 'JAZZ NIGHT' in bold red serif font at the top center."
+      }
+    },
+    "faq_title": "Frequently Asked Questions",
+    "faq": {
+      "q1": {
+        "question": "What's the difference between Nano Banana and Nano Banana Pro?",
+        "answer": "Nano Banana is faster and supports single image editing. Nano Banana Pro has 'Deep Think' reasoning, supports up to 14 reference images, renders perfect text, and can generate factual diagrams."
+      },
+      "q2": {
+        "question": "How many images can I merge at once?",
+        "answer": "With Nano Banana Pro, you can upload up to 14 reference images and merge them into one cohesive scene while maintaining character consistency for up to 5 people."
+      },
+      "q3": {
+        "question": "How many credits does it cost?",
+        "answer": "Text-to-Image costs 2 credits per generation. Edit & Merge costs 4 credits per generation. Free tier includes 5 credits per month."
+      },
+      "q4": {
+        "question": "Can the AI render text accurately?",
+        "answer": "Yes! Nano Banana Pro excels at rendering legible, correctly spelled text. For best results, specify the exact text, font style, color, and placement in your prompt."
+      }
+    }
+  }
+}

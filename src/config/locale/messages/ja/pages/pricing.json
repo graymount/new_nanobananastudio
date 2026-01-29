@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "title": "Pricing - Nano Banana Studio",
+    "description": "Simple, transparent pricing for AI image generation. Start free, upgrade when you need more."
+  },
+  "page": {
+    "title": "Simple Pricing",
+    "sections": {
+      "pricing": {
+        "id": "pricing",
+        "title": "Choose Your Plan",
+        "description": "Start creating stunning AI images today. No hidden fees, cancel anytime.",
+        "groups": [
+          {
+            "name": "monthly",
+            "title": "Monthly",
+            "is_featured": true
+          }
+        ],
+        "items": [
+          {
+            "title": "Free",
+            "description": "Perfect for trying out AI image generation.",
+            "features_title": "Includes",
+            "features": [
+              "8 image generations per month",
+              "All artistic styles",
+              "Text-to-image generation",
+              "AI image editing",
+              "Standard processing speed",
+              "Download in PNG format"
+            ],
+            "interval": "month",
+            "amount": 0,
+            "currency": "USD",
+            "price": "$0",
+            "unit": "/ month",
+            "is_featured": false,
+            "tip": "No credit card required",
+            "button": {
+              "title": "Start Free",
+              "url": "https://nanobananastudio.com",
+              "target": "_blank",
+              "icon": "RiFlashlightFill"
+            },
+            "product_id": "free",
+            "product_name": "Nano Banana Free",
+            "credits": 8,
+            "valid_days": 30,
+            "group": "monthly"
+          },
+          {
+            "title": "Pro",
+            "description": "For regular creators who need more generations.",
+            "label": "Most Popular",
+            "features_title": "Everything in Free, plus",
+            "features": [
+              "300 image generations per month",
+              "Priority processing speed",
+              "Higher resolution outputs",
+              "Commercial usage rights",
+              "Email support"
+            ],
+            "interval": "month",
+            "amount": 2990,
+            "currency": "USD",
+            "price": "$29.9",
+            "unit": "/ month",
+            "is_featured": true,
+            "tip": "Best value for creators",
+            "button": {
+              "title": "Upgrade to Pro",
+              "url": "https://nanobananastudio.com",
+              "target": "_blank",
+              "icon": "RiFlashlightFill"
+            },
+            "product_id": "pro",
+            "product_name": "Nano Banana Pro",
+            "credits": 300,
+            "valid_days": 30,
+            "group": "monthly",
+            "plan_name": "Pro"
+          },
+          {
+            "title": "Max",
+            "description": "For power users and professionals.",
+            "features_title": "Everything in Pro, plus",
+            "features": [
+              "1000 image generations per month",
+              "Fastest processing speed",
+              "API access (coming soon)",
+              "Priority support",
+              "Early access to new features"
+            ],
+            "interval": "month",
+            "amount": 6990,
+            "currency": "USD",
+            "price": "$69.9",
+            "unit": "/ month",
+            "is_featured": false,
+            "tip": "Unlimited creativity",
+            "button": {
+              "title": "Upgrade to Max",
+              "url": "https://nanobananastudio.com",
+              "target": "_blank",
+              "icon": "RiFlashlightFill"
+            },
+            "product_id": "max",
+            "product_name": "Nano Banana Max",
+            "credits": 1000,
+            "valid_days": 30,
+            "group": "monthly",
+            "plan_name": "Max"
+          }
+        ]
+      },
+      "faq": {
+        "id": "faq",
+        "title": "Pricing FAQ",
+        "description": "Common questions about our plans.",
+        "items": [
+          {
+            "question": "What counts as one image generation?",
+            "answer": "Each time you create a new image or edit an existing image using AI, it counts as one generation. Failed generations are not counted."
+          },
+          {
+            "question": "Do unused generations roll over?",
+            "answer": "No, generations reset at the beginning of each billing cycle. We recommend choosing a plan that fits your typical monthly usage."
+          },
+          {
+            "question": "Can I upgrade or downgrade anytime?",
+            "answer": "Yes! You can change your plan at any time. When upgrading, you'll get immediate access to additional generations. When downgrading, the change takes effect at the start of your next billing cycle."
+          },
+          {
+            "question": "Is there a refund policy?",
+            "answer": "We offer a 7-day money-back guarantee for first-time subscribers. If you're not satisfied, contact us for a full refund."
+          },
+          {
+            "question": "What payment methods do you accept?",
+            "answer": "We accept all major credit cards (Visa, MasterCard, American Express) through our secure payment processor."
+          }
+        ]
+      }
+    }
+  },
+  "messages": {
+    "current_plan": "Current Plan",
+    "processing": "Processing"
+  }
+}

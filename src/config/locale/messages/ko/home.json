@@ -1,0 +1,22 @@
+{
+  "generator": {
+    "placeholder": "만들고 싶은 이미지를 설명하세요... 예: '밤에 빛나는 버섯이 있는 마법의 숲'",
+    "generate": "이미지 생성",
+    "generating": "이미지를 만드는 중...",
+    "loading": "로딩 중...",
+    "checking": "계정 확인 중...",
+    "success": "이미지가 성공적으로 생성되었습니다!",
+    "error": "이미지 생성에 실패했습니다. 다시 시도해주세요.",
+    "empty_prompt": "먼저 설명을 입력해주세요",
+    "prompt_too_long": "프롬프트가 너무 깁니다",
+    "insufficient_credits": "크레딧이 부족합니다. 플랜을 업그레이드해주세요.",
+    "credits_remaining": "남은 크레딧: {credits}",
+    "guest_remaining": "남은 무료 체험: {remaining}/{total}",
+    "sign_in_for_more": "로그인하여 계속하기",
+    "open_full_app": "전체 앱 열기",
+    "download": "다운로드",
+    "downloaded": "이미지가 다운로드되었습니다!",
+    "download_error": "이미지 다운로드에 실패했습니다",
+    "generating_message": "AI가 이미지를 만들고 있습니다..."
+  }
+}

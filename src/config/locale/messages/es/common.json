@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "title": "Nano Banana Studio - Generador y Editor de Imágenes IA Gratis",
+    "description": "Generador y editor de imágenes Nano Banana AI. Crea imágenes impresionantes desde texto o edita fotos con lenguaje natural. Gratis con estilos cyberpunk, anime, acuarela y más.",
+    "keywords": "Nano Banana, Nano Banana AI, edición de imágenes, generador de imágenes IA gratis, Nano Banana Pro, Nano Banana Studio, texto a imagen IA, editor de fotos IA, generador de arte IA"
+  },
+  "sign": {
+    "sign_in_title": "Iniciar Sesión",
+    "sign_in_description": "Inicia sesión en tu cuenta",
+    "sign_up_title": "Registrarse",
+    "sign_up_description": "Crear una cuenta",
+    "email_title": "Email",
+    "email_placeholder": "Ingresa tu email aquí",
+    "password_title": "Contraseña",
+    "password_placeholder": "Ingresa tu contraseña aquí",
+    "forgot_password": "¿Olvidaste tu contraseña?",
+    "or": "O",
+    "continue": "Continuar",
+    "no_account": "¿No tienes cuenta?",
+    "already_have_account": "¿Ya tienes cuenta?",
+    "email_sign_in": "Iniciar sesión con Email",
+    "google_sign_in_title": "Iniciar sesión con Google",
+    "github_sign_in_title": "Iniciar sesión con GitHub",
+    "close_title": "Cerrar",
+    "cancel_title": "Cancelar",
+    "sign_out_title": "Cerrar Sesión",
+    "billing_title": "Facturación",
+    "name_title": "Nombre",
+    "name_placeholder": "Ingresa tu nombre aquí",
+    "admin_title": "Sistema Admin",
+    "credits_title": "Créditos: {credits}"
+  },
+  "payment": {
+    "choose_payment_method": "Elegir Método de Pago",
+    "choose_payment_method_description": "",
+    "cancel_title": "Cancelar"
+  },
+  "locale_detector": {
+    "title": "Detectamos que tu idioma es {locale}. ¿Cambiar a él?",
+    "switch_to": "Cambiar a {locale}"
+  }
+}

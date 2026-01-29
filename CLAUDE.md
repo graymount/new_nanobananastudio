@@ -47,7 +47,7 @@ Located at: `/Users/liuwnfng/dev/web100/classic.nanobananastudio.com`
 
 - **Provider:** Creem.io
 - **Webhook:** `/api/payment/notify/creem`
-- **Plans:** Free (8 credits), Pro ($29.90/mo, 300 credits), Max ($99.90/mo, 1000 credits)
+- **Plans:** Free (8 credits), Pro ($29.90/mo, 300 credits), Max ($69.90/mo, 1000 credits)
 - **Status:** ✅ Verified working
 
 ### Authentication

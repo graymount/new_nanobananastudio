@@ -82,7 +82,7 @@ export function HeroGenerator({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Powered by Google Gemini AI
+            Powered by Advanced AI
           </div>
 
           {texts && texts.length > 0 ? (
@@ -161,20 +161,6 @@ export function HeroGenerator({
           </p>
         )}
 
-        {/* Scroll indicator */}
-        <div
-          className={cn(
-            'absolute bottom-8 left-1/2 -translate-x-1/2',
-            'hidden md:flex flex-col items-center gap-2',
-            'text-muted-foreground/50 text-xs',
-            mounted && 'animate-in-5'
-          )}
-        >
-          <span>Scroll to explore</span>
-          <div className="w-5 h-8 border-2 border-muted-foreground/30 rounded-full p-1">
-            <div className="w-1 h-2 bg-muted-foreground/50 rounded-full animate-bounce mx-auto" />
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "title": "Blog - AI Image Generation Tips & Tutorials",
+    "description": "Learn AI image generation techniques, prompt writing tips, and creative workflows. Discover how to create stunning visuals with Nano Banana Studio.",
+    "keywords": "AI art tutorial, prompt engineering, image generation tips, AI creative workflow"
+  },
+  "page": {
+    "title": "Nano Banana Blog",
+    "sections": {
+      "blog": {
+        "id": "blog",
+        "title": "Blog",
+        "description": "Tutorials, tips, and inspiration for AI image creation."
+      }
+    }
+  },
+  "messages": {
+    "all": "All",
+    "no_content": "No Content",
+    "crumb": "Blog",
+    "toc": "Table of Contents"
+  }
+}

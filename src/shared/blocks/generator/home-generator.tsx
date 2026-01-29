@@ -22,7 +22,7 @@ interface GeneratedImage {
   url: string;
 }
 
-const GUEST_LIMIT = 2;
+const GUEST_LIMIT = 8;
 const GUEST_STORAGE_KEY = 'nano_banana_guest_generations';
 const MAX_PROMPT_LENGTH = 1000;
 

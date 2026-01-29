@@ -1,0 +1,163 @@
+{
+  "header": {
+    "id": "header",
+    "brand": {
+      "title": "Nano Banana Studio",
+      "logo": {
+        "src": "/logo.png",
+        "alt": "Nano Banana Studio",
+        "width": 100,
+        "height": 100
+      },
+      "url": "/"
+    },
+    "nav": {
+      "items": [
+        {
+          "title": "기능",
+          "url": "/#features",
+          "icon": "Sparkles"
+        },
+        {
+          "title": "내 작품",
+          "url": "/mycase",
+          "icon": "Box"
+        },
+        {
+          "title": "가격",
+          "url": "/pricing",
+          "icon": "DollarSign"
+        },
+        {
+          "title": "블로그",
+          "url": "/blog",
+          "icon": "Newspaper"
+        }
+      ]
+    },
+    "buttons": [
+      {
+        "title": "앱 열기",
+        "url": "/app",
+        "target": "_self",
+        "variant": "default",
+        "icon": "Sparkles"
+      }
+    ],
+    "user_nav": {
+      "show_name": true,
+      "show_credits": true,
+      "show_sign_out": true,
+      "items": [
+        {
+          "title": "설정",
+          "url": "/settings",
+          "icon": "Settings"
+        }
+      ]
+    },
+    "show_sign": true,
+    "show_theme": true,
+    "show_locale": true,
+    "topbanner": {
+      "text": "🎉 <b>새 사이트 출시!</b> 데이터가 마이그레이션되었습니다. <b>Nano Banana Pro</b> 기능이 동일한 가격으로!",
+      "buttonText": "클래식 버전 방문",
+      "href": "https://classic.nanobananastudio.com",
+      "target": "_blank",
+      "dismissedExpiryDays": 7
+    }
+  },
+  "footer": {
+    "id": "footer",
+    "brand": {
+      "title": "Nano Banana Studio",
+      "description": "자연어를 사용한 AI 이미지 생성기 및 편집기. 말만으로 멋진 이미지를 만드세요.",
+      "logo": {
+        "src": "/logo.png",
+        "alt": "Nano Banana Studio",
+        "width": 100,
+        "height": 100
+      },
+      "url": "/"
+    },
+    "nav": {
+      "items": [
+        {
+          "title": "제품",
+          "children": [
+            {
+              "title": "기능",
+              "url": "/#features",
+              "target": "_self"
+            },
+            {
+              "title": "내 작품",
+              "url": "/mycase",
+              "target": "_self"
+            },
+            {
+              "title": "가격",
+              "url": "/pricing",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "리소스",
+          "children": [
+            {
+              "title": "블로그",
+              "url": "/blog",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "시작하기",
+          "children": [
+            {
+              "title": "앱 열기",
+              "url": "/app",
+              "target": "_self"
+            },
+            {
+              "title": "클래식 버전",
+              "url": "https://classic.nanobananastudio.com",
+              "target": "_blank"
+            }
+          ]
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "title": "X",
+          "icon": "RiTwitterXFill",
+          "url": "https://x.com/nanobananastudio",
+          "target": "_blank"
+        },
+        {
+          "title": "이메일",
+          "icon": "Mail",
+          "url": "mailto:support@nanobananastudio.com",
+          "target": "_self"
+        }
+      ]
+    },
+    "agreement": {
+      "items": [
+        {
+          "title": "개인정보처리방침",
+          "url": "/privacy-policy"
+        },
+        {
+          "title": "서비스 이용약관",
+          "url": "/terms-of-service"
+        }
+      ]
+    },
+    "show_theme": true,
+    "show_locale": true
+  }
+}

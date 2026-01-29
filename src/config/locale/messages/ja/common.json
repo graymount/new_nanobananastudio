@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "title": "Nano Banana Studio - 無料AI画像生成・編集ツール",
+    "description": "Nano Banana AI画像生成・編集ツール。テキストから画像を作成、または自然言語で写真を編集。サイバーパンク、アニメ、水彩など多彩なスタイルで無料利用可能。",
+    "keywords": "Nano Banana, Nano Banana AI, 画像編集, 無料AI画像生成, Nano Banana Pro, Nano Banana Studio, テキストから画像, AI写真編集, AIアート生成"
+  },
+  "sign": {
+    "sign_in_title": "ログイン",
+    "sign_in_description": "アカウントにログイン",
+    "sign_up_title": "新規登録",
+    "sign_up_description": "アカウントを作成",
+    "email_title": "メール",
+    "email_placeholder": "メールアドレスを入力",
+    "password_title": "パスワード",
+    "password_placeholder": "パスワードを入力",
+    "forgot_password": "パスワードを忘れた？",
+    "or": "または",
+    "continue": "続ける",
+    "no_account": "アカウントをお持ちでない？",
+    "already_have_account": "既にアカウントをお持ち？",
+    "email_sign_in": "メールでログイン",
+    "google_sign_in_title": "Googleでログイン",
+    "github_sign_in_title": "GitHubでログイン",
+    "close_title": "閉じる",
+    "cancel_title": "キャンセル",
+    "sign_out_title": "ログアウト",
+    "billing_title": "請求",
+    "name_title": "名前",
+    "name_placeholder": "名前を入力",
+    "admin_title": "管理システム",
+    "credits_title": "クレジット: {credits}"
+  },
+  "payment": {
+    "choose_payment_method": "支払い方法を選択",
+    "choose_payment_method_description": "",
+    "cancel_title": "キャンセル"
+  },
+  "locale_detector": {
+    "title": "ブラウザの言語が{locale}と検出されました。切り替えますか？",
+    "switch_to": "{locale}に切り替え"
+  }
+}

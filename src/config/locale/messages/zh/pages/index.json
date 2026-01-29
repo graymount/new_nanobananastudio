@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Nano Banana Studio - 免费 Nano Banana AI 图像生成器和编辑器",
-    "description": "Nano Banana AI 图像生成器和编辑器。通过文字描述创建图像，或用自然语言编辑照片。免费试用 - 无需设计技能！",
-    "keywords": "Nano Banana, Nano Banana AI, 免费AI图像生成器, Nano Banana 图像编辑, Nano Banana Pro, Nano Banana Studio, 文字生成图像, 如何使用Nano Banana, AI艺术生成器, Nano Banana免费"
+    "title": "Nano Banana Studio - 免费 AI 图像生成器和编辑器",
+    "description": "几秒内用文字创建精美 AI 图像。用自然语言编辑照片。每月 8 次免费生成 - 无需设计技能！",
+    "keywords": "AI图像生成器, 免费AI绘画, 文字生成图片, AI图片编辑, AI绘图工具, 在线图像生成, AI艺术创作"
   },
   "page": {
     "show_sections": [
@@ -17,15 +17,15 @@
       "hero": {
         "block": "hero-generator",
         "id": "hero",
-        "title": "比 Gemini 更简单的 AI 图像创作",
-        "highlight_text": "比 Gemini 更简单",
-        "description": "专为图像生成设计。一键灵感、风格预设、个人图库 — 无需复杂 prompt。",
-        "tip": "同样强大的 AI，更好的创作体验"
+        "title": "Nano Banana Studio - 几秒创作 AI 图像",
+        "highlight_text": "几秒",
+        "description": "无需设计技能。描述你的想法，选择风格，看创意变成现实。",
+        "tip": "8 次免费生成 • 无需信用卡"
       },
       "features": {
         "id": "features",
-        "title": "为什么比 Gemini 更好？",
-        "description": "同样的 AI 能力，专为图像创作打造的体验。",
+        "title": "创作者为什么选择我们",
+        "description": "创作 AI 图像所需的一切，简单高效。",
         "items": [
           {
             "title": "Prompt 灵感库",
@@ -114,7 +114,7 @@
             "period": "/月",
             "description": "适合体验试用",
             "features": [
-              "每月 5 张图像",
+              "每月 8 张图像",
               "包含所有风格",
               "标准质量"
             ],
@@ -130,7 +130,7 @@
             "period": "/月",
             "description": "适合常规创作者",
             "features": [
-              "每月 200 张图像",
+              "每月 300 张图像",
               "包含所有风格",
               "优先处理"
             ],
@@ -177,11 +177,11 @@
           },
           {
             "question": "你们使用什么 AI 模型？",
-            "answer": "Nano Banana Studio 由 Google Gemini 驱动，与 Google 官方工具使用相同的 AI。你获得同样的 AI 能力，但有更好的创作体验。"
+            "answer": "我们使用先进的 AI 模型生成高质量图像。技术持续更新，确保最佳效果。"
           },
           {
-            "question": "和 Gemini 官网有什么区别？",
-            "answer": "Gemini 是通用 AI 助手，而我们专为图像创作设计。提供 prompt 灵感库、风格预设、个人图库、流畅的图生图工作流。同样的 AI 能力，更好的创作体验。"
+            "question": "Nano Banana Studio 有什么特别之处？",
+            "answer": "我们专为图像创作设计。Prompt 灵感库帮你快速上手，风格预设一键切换创意风格，个人图库自动保存所有作品。不用在聊天记录里翻找。"
           },
           {
             "question": "我需要设计技能吗？",
@@ -193,7 +193,7 @@
           },
           {
             "question": "免费版如何运作？",
-            "answer": "免费版每月给你 5 次图像生成机会。使用量每月重置，你可以随时升级获得更多生成次数。"
+            "answer": "免费版每月给你 8 次图像生成机会。使用量每月重置，你可以随时升级获得更多生成次数。"
           },
           {
             "question": "我可以将图像用于商业用途吗？",

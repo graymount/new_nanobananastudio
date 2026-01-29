@@ -45,6 +45,7 @@
     ".next",
     "out",
     "dist",
-    "scripts"
+    "scripts",
+    "workers"
   ]
 }

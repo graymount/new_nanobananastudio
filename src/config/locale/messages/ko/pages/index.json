@@ -1,0 +1,220 @@
+{
+  "metadata": {
+    "title": "Nano Banana Studio - 무료 AI 이미지 생성기 및 편집기",
+    "description": "몇 초 만에 멋진 AI 이미지를 만드세요. 자연어로 사진을 편집하세요. 월 8회 무료 생성 - 디자인 기술 필요 없음!",
+    "keywords": "AI 이미지 생성기, 무료 AI 아트, 텍스트를 이미지로, AI 사진 편집기, AI 이미지 제작, 온라인 이미지 생성기, AI 아트 메이커"
+  },
+  "page": {
+    "show_sections": [
+      "hero",
+      "features",
+      "use_cases",
+      "pricing_preview",
+      "faq",
+      "cta"
+    ],
+    "sections": {
+      "hero": {
+        "block": "hero-generator",
+        "id": "hero",
+        "title": "Nano Banana Studio - 몇 초 만에 AI 이미지 생성",
+        "highlight_text": "몇 초 만에",
+        "description": "디자인 기술이 필요 없습니다. 원하는 것을 설명하고, 스타일을 선택하면 아이디어가 현실이 됩니다.",
+        "tip": "8회 무료 생성 • 신용카드 필요 없음"
+      },
+      "features": {
+        "id": "features",
+        "title": "크리에이터들이 선택하는 이유",
+        "description": "놀라운 AI 이미지를 만드는 데 필요한 모든 것.",
+        "items": [
+          {
+            "title": "프롬프트 영감",
+            "description": "프롬프트 엔지니어링을 배울 필요 없음. 영감 카드를 클릭하면 바로 시작할 수 있습니다.",
+            "icon": "RiLightbulbLine"
+          },
+          {
+            "title": "스타일 프리셋",
+            "description": "원클릭 스타일: 사이버펑크, 미야자키, 리얼리스틱 등. 복잡한 프롬프트 필요 없음.",
+            "icon": "RiPaletteLine"
+          },
+          {
+            "title": "개인 갤러리",
+            "description": "모든 작품이 자동 저장됩니다. 채팅 기록을 뒤질 필요가 없습니다.",
+            "icon": "RiGalleryLine"
+          },
+          {
+            "title": "이미지 투 이미지",
+            "description": "참조 이미지를 업로드하고 변경 사항을 설명하세요. 간소화된 워크플로우.",
+            "icon": "RiImageEditLine"
+          },
+          {
+            "title": "전후 비교",
+            "description": "내장된 슬라이더 도구로 편집을 비교하세요. 변화를 한눈에 확인.",
+            "icon": "RiSplitCellsHorizontal"
+          },
+          {
+            "title": "다국어 지원",
+            "description": "완전한 다국어 인터페이스. 모국어로 프롬프트를 작성하세요.",
+            "icon": "RiTranslate2"
+          }
+        ]
+      },
+      "usage": {
+        "block": "features-step",
+        "id": "usage",
+        "title": "사용 방법",
+        "description": "세 가지 간단한 단계로 놀라운 AI 이미지를 만드세요:",
+        "image_position": "left",
+        "text_align": "center",
+        "items": [
+          {
+            "title": "1. 모드 선택",
+            "description": "처음부터 만들려면 텍스트-이미지를, 기존 사진을 변환하려면 이미지 편집을 선택하세요."
+          },
+          {
+            "title": "2. 비전 설명",
+            "description": "자연어로 원하는 것을 입력하세요. 사이버펑크, 애니메이션, 리얼리스틱 같은 스타일을 선택하세요."
+          },
+          {
+            "title": "3. 생성 및 다운로드",
+            "description": "생성을 클릭하면 몇 초 안에 AI가 만든 이미지를 얻습니다. 다운로드하여 어디서든 사용하세요."
+          }
+        ],
+        "className": "bg-muted"
+      },
+      "prompt_inspirations": {
+        "block": "prompt-inspirations",
+        "id": "inspirations",
+        "label": "영감",
+        "title": "프롬프트 영감",
+        "description": "클릭 한 번으로 영감을 얻고 창작을 시작하세요. 인기 프롬프트를 시도하거나 직접 만드세요.",
+        "buttons": [
+          {
+            "title": "더 많은 영감 보기",
+            "url": "/app",
+            "variant": "outline"
+          }
+        ]
+      },
+      "use_cases": {
+        "block": "use-cases",
+        "id": "use-cases",
+        "title": "무엇을 만들 수 있나요",
+        "description": "Nano Banana Studio가 어떻게 창의적인 프로젝트를 실현하는지 확인하세요."
+      },
+      "pricing_preview": {
+        "block": "pricing-preview",
+        "id": "pricing",
+        "title": "간단하고 투명한 가격",
+        "description": "무료로 시작하고, 필요할 때 업그레이드하세요.",
+        "items": [
+          {
+            "title": "무료",
+            "price": "$0",
+            "period": "/월",
+            "description": "체험에 적합",
+            "features": [
+              "월 8장 이미지",
+              "모든 스타일 포함",
+              "표준 품질"
+            ],
+            "button": {
+              "title": "시작하기",
+              "url": "/app",
+              "target": "_blank"
+            }
+          },
+          {
+            "title": "Pro",
+            "price": "$29.9",
+            "period": "/월",
+            "description": "정기 크리에이터용",
+            "features": [
+              "월 300장 이미지",
+              "모든 스타일 포함",
+              "우선 처리"
+            ],
+            "button": {
+              "title": "Pro로 업그레이드",
+              "url": "/app",
+              "target": "_blank"
+            },
+            "featured": true
+          },
+          {
+            "title": "Max",
+            "price": "$69.9",
+            "period": "/월",
+            "description": "파워 유저용",
+            "features": [
+              "월 1000장 이미지",
+              "모든 스타일 포함",
+              "우선 처리"
+            ],
+            "button": {
+              "title": "Max로 업그레이드",
+              "url": "/app",
+              "target": "_blank"
+            }
+          }
+        ],
+        "buttons": [
+          {
+            "title": "전체 가격 보기",
+            "url": "/pricing",
+            "variant": "outline"
+          }
+        ]
+      },
+      "faq": {
+        "id": "faq",
+        "title": "자주 묻는 질문",
+        "description": "더 궁금한 점이 있으신가요? 언제든지 문의하세요.",
+        "items": [
+          {
+            "question": "Nano Banana Studio란?",
+            "answer": "Nano Banana Studio는 자연어를 사용하는 AI 기반 이미지 생성기 및 편집기입니다. 원하는 것을 설명하기만 하면 AI가 이미지를 만들거나 변환합니다."
+          },
+          {
+            "question": "어떤 AI 모델을 사용하나요?",
+            "answer": "최첨단 AI 모델을 사용하여 고품질 이미지를 생성합니다. 최고의 결과를 제공하기 위해 기술은 지속적으로 업데이트됩니다."
+          },
+          {
+            "question": "Nano Banana Studio의 차별점은?",
+            "answer": "이미지 제작에 특화되어 설계되었습니다. 프롬프트 영감으로 쉽게 시작하고, 스타일 프리셋으로 원클릭 창작 옵션을 얻으며, 개인 갤러리가 모든 것을 자동 저장합니다."
+          },
+          {
+            "question": "디자인 기술이 필요한가요?",
+            "answer": "전혀 필요 없습니다! 원하는 것을 한국어로 설명하기만 하면 됩니다. AI가 자연어를 이해하고 말을 멋진 비주얼로 변환합니다."
+          },
+          {
+            "question": "어떤 스타일을 사용할 수 있나요?",
+            "answer": "사이버펑크, 미야자키/애니메이션, 리얼리스틱 등 다양한 예술 스타일을 제공합니다. 커스텀 프롬프트로 독특한 스타일도 만들 수 있습니다."
+          },
+          {
+            "question": "무료 플랜은 어떻게 작동하나요?",
+            "answer": "무료 플랜은 월 8회 이미지 생성을 제공합니다. 사용량은 매월 초기화되며, 언제든지 업그레이드하여 더 많은 생성 횟수를 얻을 수 있습니다."
+          },
+          {
+            "question": "이미지를 상업적으로 사용할 수 있나요?",
+            "answer": "네, Nano Banana Studio로 만든 이미지는 개인 또는 상업 프로젝트에 자유롭게 사용할 수 있습니다."
+          }
+        ]
+      },
+      "cta": {
+        "id": "cta",
+        "title": "멋진 이미지를 만들 준비가 되셨나요?",
+        "description": "무료로 AI 이미지 생성을 시작하세요. 신용카드 필요 없음.",
+        "buttons": [
+          {
+            "title": "지금 시작하기",
+            "url": "/app",
+            "target": "_blank",
+            "icon": "Zap"
+          }
+        ],
+        "className": "bg-muted"
+      }
+    }
+  }
+}

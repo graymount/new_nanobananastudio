@@ -1,0 +1,22 @@
+{
+  "generator": {
+    "placeholder": "Describe la imagen que quieres crear... ej., 'Un bosque mágico con hongos brillantes de noche'",
+    "generate": "Generar Imagen",
+    "generating": "Creando tu imagen...",
+    "loading": "Cargando...",
+    "checking": "Verificando cuenta...",
+    "success": "¡Imagen generada exitosamente!",
+    "error": "Error al generar imagen. Por favor intenta de nuevo.",
+    "empty_prompt": "Por favor ingresa una descripción primero",
+    "prompt_too_long": "El prompt es muy largo",
+    "insufficient_credits": "Créditos insuficientes. Por favor actualiza tu plan.",
+    "credits_remaining": "{credits} créditos restantes",
+    "guest_remaining": "{remaining}/{total} pruebas gratis restantes",
+    "sign_in_for_more": "Inicia sesión para más",
+    "open_full_app": "Abrir App Completa",
+    "download": "Descargar",
+    "downloaded": "¡Imagen descargada!",
+    "download_error": "Error al descargar imagen",
+    "generating_message": "La IA está creando tu imagen..."
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "metadata": {
+    "title": "Nano Banana Studio - Generador de Imágenes IA Gratis",
+    "description": "Crea impresionantes imágenes con IA en segundos. Edita fotos con lenguaje natural. 8 generaciones gratis al mes - ¡sin habilidades de diseño!",
+    "keywords": "generador de imágenes IA, arte IA gratis, texto a imagen IA, editor de fotos IA, creación de imágenes IA, generador de imágenes online"
+  },
+  "page": {
+    "show_sections": [
+      "hero",
+      "features",
+      "use_cases",
+      "pricing_preview",
+      "faq",
+      "cta"
+    ],
+    "sections": {
+      "hero": {
+        "block": "hero-generator",
+        "id": "hero",
+        "title": "Nano Banana Studio - Crea Imágenes IA en Segundos",
+        "highlight_text": "en Segundos",
+        "description": "Sin habilidades de diseño. Solo describe lo que quieres, elige un estilo y mira tus ideas cobrar vida.",
+        "tip": "8 generaciones gratis para empezar • Sin tarjeta de crédito"
+      },
+      "features": {
+        "id": "features",
+        "title": "Por Qué los Creadores Nos Eligen",
+        "description": "Todo lo que necesitas para crear imágenes IA increíbles, nada más.",
+        "items": [
+          {
+            "title": "Inspiración de Prompts",
+            "description": "No necesitas aprender ingeniería de prompts. Haz clic en cualquier tarjeta de inspiración y comienza a crear.",
+            "icon": "RiLightbulbLine"
+          },
+          {
+            "title": "Estilos Preestablecidos",
+            "description": "Estilos con un clic: cyberpunk, Miyazaki, realista y más. Sin prompts complejos.",
+            "icon": "RiPaletteLine"
+          },
+          {
+            "title": "Galería Personal",
+            "description": "Todas tus creaciones guardadas automáticamente. No más buscar en el historial de chat.",
+            "icon": "RiGalleryLine"
+          },
+          {
+            "title": "Imagen a Imagen",
+            "description": "Sube una imagen de referencia y describe los cambios. Flujo de trabajo simplificado.",
+            "icon": "RiImageEditLine"
+          },
+          {
+            "title": "Comparación Antes/Después",
+            "description": "Herramienta de deslizador integrada para comparar ediciones. Ve tu transformación de un vistazo.",
+            "icon": "RiSplitCellsHorizontal"
+          },
+          {
+            "title": "Soporte Multilingüe",
+            "description": "Interfaz completa en varios idiomas. Crea con prompts en tu idioma nativo.",
+            "icon": "RiTranslate2"
+          }
+        ]
+      },
+      "usage": {
+        "block": "features-step",
+        "id": "usage",
+        "title": "Cómo Funciona",
+        "description": "Crea imágenes IA increíbles en tres simples pasos:",
+        "image_position": "left",
+        "text_align": "center",
+        "items": [
+          {
+            "title": "1. Elige Tu Modo",
+            "description": "Selecciona texto a imagen para crear desde cero, o edición de imagen para transformar una foto existente."
+          },
+          {
+            "title": "2. Describe Tu Visión",
+            "description": "Escribe lo que quieres en lenguaje natural. Elige un estilo como cyberpunk, anime o realista."
+          },
+          {
+            "title": "3. Genera y Descarga",
+            "description": "Haz clic en generar y obtén tu imagen creada por IA en segundos. Descarga y usa donde quieras."
+          }
+        ],
+        "className": "bg-muted"
+      },
+      "prompt_inspirations": {
+        "block": "prompt-inspirations",
+        "id": "inspirations",
+        "label": "Inspiración",
+        "title": "Inspiración de Prompts",
+        "description": "Inspírate y comienza a crear con un clic. Prueba estos prompts populares o crea los tuyos.",
+        "buttons": [
+          {
+            "title": "Ver Más Inspiración",
+            "url": "/app",
+            "variant": "outline"
+          }
+        ]
+      },
+      "use_cases": {
+        "block": "use-cases",
+        "id": "use-cases",
+        "title": "Qué Puedes Crear",
+        "description": "Descubre cómo Nano Banana Studio puede dar vida a tus proyectos creativos."
+      },
+      "pricing_preview": {
+        "block": "pricing-preview",
+        "id": "pricing",
+        "title": "Precios Simples y Transparentes",
+        "description": "Comienza gratis, actualiza cuando necesites más.",
+        "items": [
+          {
+            "title": "Gratis",
+            "price": "$0",
+            "period": "/mes",
+            "description": "Perfecto para probar",
+            "features": [
+              "8 imágenes al mes",
+              "Todos los estilos incluidos",
+              "Calidad estándar"
+            ],
+            "button": {
+              "title": "Comenzar",
+              "url": "/app",
+              "target": "_blank"
+            }
+          },
+          {
+            "title": "Pro",
+            "price": "$29.9",
+            "period": "/mes",
+            "description": "Para creadores regulares",
+            "features": [
+              "300 imágenes al mes",
+              "Todos los estilos incluidos",
+              "Procesamiento prioritario"
+            ],
+            "button": {
+              "title": "Actualizar a Pro",
+              "url": "/app",
+              "target": "_blank"
+            },
+            "featured": true
+          },
+          {
+            "title": "Max",
+            "price": "$69.9",
+            "period": "/mes",
+            "description": "Para usuarios avanzados",
+            "features": [
+              "1000 imágenes al mes",
+              "Todos los estilos incluidos",
+              "Procesamiento prioritario"
+            ],
+            "button": {
+              "title": "Actualizar a Max",
+              "url": "/app",
+              "target": "_blank"
+            }
+          }
+        ],
+        "buttons": [
+          {
+            "title": "Ver Precios Completos",
+            "url": "/pricing",
+            "variant": "outline"
+          }
+        ]
+      },
+      "faq": {
+        "id": "faq",
+        "title": "Preguntas Frecuentes",
+        "description": "¿Tienes más preguntas? Contáctanos en cualquier momento.",
+        "items": [
+          {
+            "question": "¿Qué es Nano Banana Studio?",
+            "answer": "Nano Banana Studio es un generador y editor de imágenes impulsado por IA que usa lenguaje natural. Simplemente describe lo que quieres y nuestra IA crea o transforma imágenes para ti."
+          },
+          {
+            "question": "¿Qué modelo de IA usan?",
+            "answer": "Usamos modelos de IA de última generación para generar imágenes de alta calidad. Nuestra tecnología se actualiza constantemente para ofrecer los mejores resultados."
+          },
+          {
+            "question": "¿Qué hace diferente a Nano Banana Studio?",
+            "answer": "Estamos diseñados específicamente para la creación de imágenes. Las inspiraciones de prompts te ayudan a comenzar, los estilos preestablecidos te dan opciones creativas con un clic, y tu galería personal guarda todo automáticamente."
+          },
+          {
+            "question": "¿Necesito habilidades de diseño?",
+            "answer": "¡Para nada! Solo describe lo que quieres en español simple. Nuestra IA entiende el lenguaje natural y convierte tus palabras en visuales impresionantes."
+          },
+          {
+            "question": "¿Qué estilos están disponibles?",
+            "answer": "Ofrecemos múltiples estilos artísticos incluyendo cyberpunk, Miyazaki/anime, realista y más. También puedes usar prompts personalizados para estilos únicos."
+          },
+          {
+            "question": "¿Cómo funciona el plan gratuito?",
+            "answer": "El plan gratuito te da 8 generaciones de imágenes al mes. El uso se reinicia mensualmente y puedes actualizar en cualquier momento para más generaciones."
+          },
+          {
+            "question": "¿Puedo usar las imágenes comercialmente?",
+            "answer": "Sí, las imágenes que creas con Nano Banana Studio son tuyas para usar en proyectos personales o comerciales."
+          }
+        ]
+      },
+      "cta": {
+        "id": "cta",
+        "title": "¿Listo para Crear Imágenes Increíbles?",
+        "description": "Comienza a generar imágenes IA gratis. Sin tarjeta de crédito.",
+        "buttons": [
+          {
+            "title": "Comenzar a Crear",
+            "url": "/app",
+            "target": "_blank",
+            "icon": "Zap"
+          }
+        ],
+        "className": "bg-muted"
+      }
+    }
+  }
+}

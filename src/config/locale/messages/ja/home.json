@@ -1,0 +1,22 @@
+{
+  "generator": {
+    "placeholder": "作成したい画像を説明してください... 例: '夜の光るキノコがある魔法の森'",
+    "generate": "画像を生成",
+    "generating": "画像を作成中...",
+    "loading": "読み込み中...",
+    "checking": "アカウント確認中...",
+    "success": "画像が正常に生成されました！",
+    "error": "画像の生成に失敗しました。もう一度お試しください。",
+    "empty_prompt": "まず説明を入力してください",
+    "prompt_too_long": "プロンプトが長すぎます",
+    "insufficient_credits": "クレジットが不足しています。プランをアップグレードしてください。",
+    "credits_remaining": "残り{credits}クレジット",
+    "guest_remaining": "残り{remaining}/{total}回の無料体験",
+    "sign_in_for_more": "ログインして続ける",
+    "open_full_app": "フルアプリを開く",
+    "download": "ダウンロード",
+    "downloaded": "画像をダウンロードしました！",
+    "download_error": "画像のダウンロードに失敗しました",
+    "generating_message": "AIが画像を作成中..."
+  }
+}

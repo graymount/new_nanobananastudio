@@ -1,0 +1,220 @@
+{
+  "metadata": {
+    "title": "Nano Banana Studio - 無料AI画像生成・編集ツール",
+    "description": "数秒で美しいAI画像を作成。自然言語で写真を編集。月8回無料生成 - デザインスキル不要！",
+    "keywords": "AI画像生成, 無料AIアート, テキストから画像, AI写真編集, AI画像作成, オンライン画像生成, AIアートメーカー"
+  },
+  "page": {
+    "show_sections": [
+      "hero",
+      "features",
+      "use_cases",
+      "pricing_preview",
+      "faq",
+      "cta"
+    ],
+    "sections": {
+      "hero": {
+        "block": "hero-generator",
+        "id": "hero",
+        "title": "Nano Banana Studio - 数秒でAI画像を作成",
+        "highlight_text": "数秒で",
+        "description": "デザインスキル不要。欲しいものを説明して、スタイルを選ぶだけで、アイデアが形になります。",
+        "tip": "8回無料生成 • クレジットカード不要"
+      },
+      "features": {
+        "id": "features",
+        "title": "クリエイターに選ばれる理由",
+        "description": "素晴らしいAI画像を作成するために必要なすべてが揃っています。",
+        "items": [
+          {
+            "title": "プロンプトインスピレーション",
+            "description": "プロンプトエンジニアリングを学ぶ必要なし。インスピレーションカードをクリックするだけで即座に作成開始。",
+            "icon": "RiLightbulbLine"
+          },
+          {
+            "title": "スタイルプリセット",
+            "description": "ワンクリックでスタイル切替：サイバーパンク、宮崎駿風、リアル系など。複雑なプロンプト不要。",
+            "icon": "RiPaletteLine"
+          },
+          {
+            "title": "パーソナルギャラリー",
+            "description": "すべての作品が自動保存。チャット履歴を探す必要なし。",
+            "icon": "RiGalleryLine"
+          },
+          {
+            "title": "画像から画像",
+            "description": "参照画像をアップロードして変更を説明。シンプルなワークフロー。",
+            "icon": "RiImageEditLine"
+          },
+          {
+            "title": "ビフォー・アフター比較",
+            "description": "内蔵スライダーツールで編集を比較。変化が一目でわかります。",
+            "icon": "RiSplitCellsHorizontal"
+          },
+          {
+            "title": "多言語サポート",
+            "description": "完全な多言語インターフェース。母国語のプロンプトで作成可能。",
+            "icon": "RiTranslate2"
+          }
+        ]
+      },
+      "usage": {
+        "block": "features-step",
+        "id": "usage",
+        "title": "使い方",
+        "description": "3つの簡単なステップで素晴らしいAI画像を作成：",
+        "image_position": "left",
+        "text_align": "center",
+        "items": [
+          {
+            "title": "1. モードを選択",
+            "description": "ゼロから作成するにはテキストから画像を、既存の写真を変換するには画像編集を選択。"
+          },
+          {
+            "title": "2. ビジョンを説明",
+            "description": "自然言語で欲しいものを入力。サイバーパンク、アニメ、リアルなどのスタイルを選択。"
+          },
+          {
+            "title": "3. 生成してダウンロード",
+            "description": "生成をクリックすると数秒でAI作成画像が完成。ダウンロードしてどこでも使用可能。"
+          }
+        ],
+        "className": "bg-muted"
+      },
+      "prompt_inspirations": {
+        "block": "prompt-inspirations",
+        "id": "inspirations",
+        "label": "インスピレーション",
+        "title": "プロンプトインスピレーション",
+        "description": "ワンクリックでインスピレーションを得て作成開始。人気のプロンプトを試すか、オリジナルを作成。",
+        "buttons": [
+          {
+            "title": "もっと見る",
+            "url": "/app",
+            "variant": "outline"
+          }
+        ]
+      },
+      "use_cases": {
+        "block": "use-cases",
+        "id": "use-cases",
+        "title": "作れるもの",
+        "description": "Nano Banana Studioがあなたのクリエイティブプロジェクトをどう実現するかご覧ください。"
+      },
+      "pricing_preview": {
+        "block": "pricing-preview",
+        "id": "pricing",
+        "title": "シンプルで透明な料金",
+        "description": "無料で始めて、必要に応じてアップグレード。",
+        "items": [
+          {
+            "title": "無料",
+            "price": "$0",
+            "period": "/月",
+            "description": "お試しに最適",
+            "features": [
+              "月8枚の画像",
+              "全スタイル利用可能",
+              "標準品質"
+            ],
+            "button": {
+              "title": "始める",
+              "url": "/app",
+              "target": "_blank"
+            }
+          },
+          {
+            "title": "Pro",
+            "price": "$29.9",
+            "period": "/月",
+            "description": "定期的なクリエイター向け",
+            "features": [
+              "月300枚の画像",
+              "全スタイル利用可能",
+              "優先処理"
+            ],
+            "button": {
+              "title": "Proにアップグレード",
+              "url": "/app",
+              "target": "_blank"
+            },
+            "featured": true
+          },
+          {
+            "title": "Max",
+            "price": "$69.9",
+            "period": "/月",
+            "description": "ヘビーユーザー向け",
+            "features": [
+              "月1000枚の画像",
+              "全スタイル利用可能",
+              "優先処理"
+            ],
+            "button": {
+              "title": "Maxにアップグレード",
+              "url": "/app",
+              "target": "_blank"
+            }
+          }
+        ],
+        "buttons": [
+          {
+            "title": "料金詳細を見る",
+            "url": "/pricing",
+            "variant": "outline"
+          }
+        ]
+      },
+      "faq": {
+        "id": "faq",
+        "title": "よくある質問",
+        "description": "他にご質問がありますか？いつでもお問い合わせください。",
+        "items": [
+          {
+            "question": "Nano Banana Studioとは？",
+            "answer": "Nano Banana Studioは自然言語を使用するAI搭載の画像生成・編集ツールです。欲しいものを説明するだけで、AIが画像を作成または変換します。"
+          },
+          {
+            "question": "どのAIモデルを使用していますか？",
+            "answer": "最先端のAIモデルを使用して高品質な画像を生成しています。最高の結果を提供するため、技術は常に更新されています。"
+          },
+          {
+            "question": "Nano Banana Studioの特徴は？",
+            "answer": "画像作成に特化して設計されています。プロンプトインスピレーションで簡単に始められ、スタイルプリセットでワンクリックの創作オプションが得られ、パーソナルギャラリーがすべてを自動保存します。"
+          },
+          {
+            "question": "デザインスキルは必要ですか？",
+            "answer": "全く必要ありません！欲しいものを日本語で説明するだけ。AIが自然言語を理解し、言葉を素晴らしいビジュアルに変換します。"
+          },
+          {
+            "question": "どんなスタイルが利用可能ですか？",
+            "answer": "サイバーパンク、宮崎駿/アニメ、リアルなど、複数のアートスタイルを提供しています。カスタムプロンプトでユニークなスタイルも作成できます。"
+          },
+          {
+            "question": "無料プランはどう機能しますか？",
+            "answer": "無料プランでは月8回の画像生成が可能です。使用量は毎月リセットされ、いつでもアップグレードして生成回数を増やせます。"
+          },
+          {
+            "question": "画像を商用利用できますか？",
+            "answer": "はい、Nano Banana Studioで作成した画像は個人または商用プロジェクトに自由に使用できます。"
+          }
+        ]
+      },
+      "cta": {
+        "id": "cta",
+        "title": "素晴らしい画像を作成する準備はできましたか？",
+        "description": "無料でAI画像生成を始めましょう。クレジットカード不要。",
+        "buttons": [
+          {
+            "title": "今すぐ作成開始",
+            "url": "/app",
+            "target": "_blank",
+            "icon": "Zap"
+          }
+        ],
+        "className": "bg-muted"
+      }
+    }
+  }
+}
