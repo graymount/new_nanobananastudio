@@ -59,6 +59,7 @@ Located at: `/Users/liuwnfng/dev/web100/classic.nanobananastudio.com`
 
 ### Email Integration
 
+**Outbound (Sending):**
 - **Provider:** Resend
 - **Account:** wnfng.liu+nanobananastudio@gmail.com
 - **API Key Name:** nanobananastudio-production
@@ -68,6 +69,13 @@ Located at: `/Users/liuwnfng/dev/web100/classic.nanobananastudio.com`
 - **Status:** ✅ Configured
 - **Welcome Email:** Sent automatically on new user registration (EN/ZH based on locale)
 - **Preview:** `/api/admin/emails/preview-welcome?locale=en` (requires admin login)
+
+**Inbound (Receiving):**
+- **Provider:** Cloudflare Email Routing + Worker
+- **Worker:** `workers/email-receiver/` - forwards emails to webhook
+- **Webhook:** `/api/webhook/email`
+- **Setup:** See `workers/email-receiver/README.md`
+- **Status:** ⚠️ Requires deployment (run `cd workers/email-receiver && pnpm deploy`)
 
 ## Development Commands
 

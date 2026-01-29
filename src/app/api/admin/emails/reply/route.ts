@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json();
-    const { parentId, textContent, htmlContent } = body;
+    const { parentId, textContent, htmlContent, fromEmail } = body;
 
     if (!parentId) {
       return NextResponse.json(
@@ -46,6 +46,7 @@ export async function POST(req: Request) {
       parentId,
       textContent,
       htmlContent,
+      fromEmail,
     });
 
     if (result.success) {

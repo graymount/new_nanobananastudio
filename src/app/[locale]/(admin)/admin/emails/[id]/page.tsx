@@ -268,7 +268,7 @@ export default async function AdminEmailDetailPage({
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <ReplyForm emailId={email.id} />
+              <ReplyForm emailId={email.id} defaultFromEmail={email.toEmail} />
             </CardContent>
           </Card>
         )}
