@@ -39,7 +39,7 @@ export const config: MigrationConfig = {
   oldSite: {
     supabaseUrl: process.env.OLD_SUPABASE_URL || '',
     supabaseServiceKey: process.env.OLD_SUPABASE_SERVICE_KEY || '',
-    r2Domain: process.env.OLD_R2_DOMAIN || 'https://images.nanobananastudio.com',
+    r2Domain: process.env.OLD_R2_DOMAIN || 'https://cdn.nanobananastudio.com',
   },
 
   newSite: {
