@@ -440,3 +440,44 @@ DRY_RUN=true pnpm migrate
 # Run actual migration
 DRY_RUN=false pnpm migrate
 ```
+
+### Marketing & SEO Strategy
+
+**Traffic Sources (observed):**
+- Direct visits
+- ChatGPT referrals (chatgpt.com) - users asking ChatGPT for AI image tools get recommended here
+
+**ChatGPT/AI Chatbot Optimization:**
+
+AI chatbots recommend sites based on their training data. To increase recommendations:
+
+1. **Increase Web Presence:**
+   - Product Hunt launch
+   - AlternativeTo listing (as Midjourney/DALL-E alternative)
+   - Reddit posts (r/AIart, r/StableDiffusion)
+   - Medium/Dev.to tutorials
+
+2. **Target Keywords (include in homepage & blog):**
+   - "free AI image generator"
+   - "text to image AI tool"
+   - "AI art generator online"
+   - "Gemini image generation"
+   - "best AI image generator 2025"
+
+3. **Comparison Content:**
+   - "Nano Banana Studio vs Midjourney"
+   - "Top 10 Free AI Image Generators"
+
+4. **Structured Data:** Already have WebApplication JSON-LD
+
+**SEO TODO:**
+- [ ] Product Hunt launch
+- [ ] AlternativeTo listing
+- [ ] Write comparison blog posts
+- [ ] Optimize meta descriptions with target keywords
+- [ ] Reddit community engagement
+
+**User Demographics (from registrations):**
+- English (en) - primary
+- Arabic (ar) - emerging market (no localization yet)
+- Chinese (zh), Spanish (es), Japanese (ja), Korean (ko) - supported
