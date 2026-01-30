@@ -272,6 +272,15 @@ AUTH_SECRET=your-secret
 - [x] Configure 301 redirects from classic site
 - [x] Domain switch completed (2025-01)
 
+### Phase 9: SEO & Performance Optimization ✅
+- [x] Product Hunt launch
+- [x] AlternativeTo listing (as Midjourney/DALL-E alternative)
+- [x] Comparison blog posts (vs Midjourney, vs DALL-E) in EN/ZH/ES/JA/KO
+- [x] Meta descriptions optimized with target keywords
+- [x] Performance optimization: removed moment.js (232KB), added `optimizePackageImports` in next.config.mjs
+- [x] PageSpeed score improved: 53 → 71 (+18 points)
+- [x] Cloudflare managed robots.txt disabled (was causing duplicate `User-agent: *` entries)
+
 ## Common Tasks
 
 ### AI Image Generator URL Parameters
@@ -370,6 +379,7 @@ pnpm cf:deploy
 - Classic site remains available at `classic.nanobananastudio.com` for reference
 - Production URL: `https://nanobananastudio.com`
 - Sitemap URL: `https://nanobananastudio.com/sitemap.xml`
+- Cloudflare "AI Crawl Control > Robots.txt > Cloudflare managed" is **OFF** to prevent duplicate User-agent entries
 
 ### Image Assets
 
@@ -471,10 +481,10 @@ AI chatbots recommend sites based on their training data. To increase recommenda
 4. **Structured Data:** Already have WebApplication JSON-LD
 
 **SEO TODO:**
-- [ ] Product Hunt launch
-- [ ] AlternativeTo listing
-- [ ] Write comparison blog posts
-- [ ] Optimize meta descriptions with target keywords
+- [x] Product Hunt launch
+- [x] AlternativeTo listing
+- [x] Write comparison blog posts (vs Midjourney, vs DALL-E in 5 languages)
+- [x] Optimize meta descriptions with target keywords
 - [ ] Reddit community engagement
 
 **User Demographics (from registrations):**
