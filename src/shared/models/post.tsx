@@ -1,7 +1,8 @@
 import { getMDXComponents } from '@/mdx-components';
 import { and, count, desc, eq, like } from 'drizzle-orm';
+import { format, type Locale } from 'date-fns';
+import { enUS, zhCN, es, ja, ko } from 'date-fns/locale';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import moment from 'moment';
 
 import { db } from '@/core/db';
 import { logsSource, pagesSource, postsSource } from '@/core/docs/source';
@@ -548,6 +549,14 @@ export function getPostSlug({
   return url;
 }
 
+const postDateLocaleMap: Record<string, Locale> = {
+  en: enUS,
+  zh: zhCN,
+  es: es,
+  ja: ja,
+  ko: ko,
+};
+
 export function getPostDate({
   created_at,
   locale,
@@ -555,9 +564,9 @@ export function getPostDate({
   created_at: string;
   locale?: string;
 }) {
-  return moment(created_at)
-    .locale(locale || 'en')
-    .format(locale === 'zh' ? 'YYYY/MM/DD' : 'MMM D, YYYY');
+  const dateLocale = postDateLocaleMap[locale || 'en'] || enUS;
+  const formatStr = locale === 'zh' ? 'yyyy/MM/dd' : 'MMM d, yyyy';
+  return format(new Date(created_at), formatStr, { locale: dateLocale });
 }
 
 // Helper function to remove frontmatter from markdown content

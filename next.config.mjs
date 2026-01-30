@@ -76,6 +76,22 @@ const nextConfig = {
     turbopackFileSystemCacheForDev: true,
     // Disable mdxRs for Vercel deployment compatibility with fumadocs-mdx
     ...(process.env.VERCEL ? {} : { mdxRs: true }),
+    // Optimize package imports for better tree-shaking
+    optimizePackageImports: [
+      'lucide-react',
+      '@radix-ui/react-icons',
+      '@tabler/icons-react',
+      'react-icons',
+      'framer-motion',
+      'motion',
+      'date-fns',
+      '@radix-ui/react-accordion',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-tabs',
+      '@radix-ui/react-tooltip',
+      'fumadocs-ui',
+    ],
   },
   reactCompiler: true,
 };

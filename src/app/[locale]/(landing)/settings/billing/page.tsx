@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { format } from 'date-fns';
 import { getTranslations } from 'next-intl/server';
 
 import { Empty } from '@/shared/blocks/common';
@@ -99,22 +99,23 @@ export default async function BillingPage({
       {
         title: t('fields.current_period'),
         callback: function (item) {
-          let period = (
+          if (!item.currentPeriodStart || !item.currentPeriodEnd) {
+            return '-';
+          }
+          return (
             <div>
-              {`${moment(item.currentPeriodStart).format('YYYY-MM-DD')}`} ~
+              {`${format(new Date(item.currentPeriodStart), 'yyyy-MM-dd')}`} ~
               <br />
-              {`${moment(item.currentPeriodEnd).format('YYYY-MM-DD')}`}
+              {`${format(new Date(item.currentPeriodEnd), 'yyyy-MM-dd')}`}
             </div>
           );
-
-          return period;
         },
       },
       {
         title: t('fields.end_time'),
         callback: function (item) {
           if (item.canceledEndAt) {
-            return <div>{moment(item.canceledEndAt).format('YYYY-MM-DD')}</div>;
+            return <div>{format(new Date(item.canceledEndAt), 'yyyy-MM-dd')}</div>;
           }
           return '-';
         },
@@ -211,21 +212,21 @@ export default async function BillingPage({
           <>
             {currentSubscription?.status === SubscriptionStatus.ACTIVE ||
             currentSubscription?.status === SubscriptionStatus.TRIALING ? (
-              <div className="text-muted-foreground mt-4 text-sm font-normal">
-                {t('view.tip', {
-                  date: moment(currentSubscription?.currentPeriodEnd).format(
-                    'YYYY-MM-DD'
-                  ),
-                })}
-              </div>
+              currentSubscription?.currentPeriodEnd && (
+                <div className="text-muted-foreground mt-4 text-sm font-normal">
+                  {t('view.tip', {
+                    date: format(new Date(currentSubscription.currentPeriodEnd), 'yyyy-MM-dd'),
+                  })}
+                </div>
+              )
             ) : (
-              <div className="text-destructive mt-4 text-sm font-normal">
-                {t('view.end_tip', {
-                  date: moment(currentSubscription?.canceledEndAt).format(
-                    'YYYY-MM-DD'
-                  ),
-                })}
-              </div>
+              currentSubscription?.canceledEndAt && (
+                <div className="text-destructive mt-4 text-sm font-normal">
+                  {t('view.end_tip', {
+                    date: format(new Date(currentSubscription.canceledEndAt), 'yyyy-MM-dd'),
+                  })}
+                </div>
+              )
             )}
           </>
         ) : null}
