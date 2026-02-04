@@ -3,7 +3,11 @@ import { AIMediaType } from '@/extensions/ai';
 import { getUuid } from '@/shared/lib/hash';
 import { respData, respErr } from '@/shared/lib/resp';
 import { createAITask, NewAITask } from '@/shared/models/ai_task';
-import { getRemainingCredits } from '@/shared/models/credit';
+import {
+  getRemainingCredits,
+  getTodayConsumedCredits,
+} from '@/shared/models/credit';
+import { getCurrentSubscription } from '@/shared/models/subscription';
 import { getUserInfo } from '@/shared/models/user';
 import { getAIService } from '@/shared/services/ai';
 
@@ -78,6 +82,18 @@ export async function POST(request: Request) {
     const remainingCredits = await getRemainingCredits(user.id);
     if (remainingCredits < costCredits) {
       throw new Error('insufficient credits');
+    }
+
+    // check daily limit for free users (2 credits/day)
+    const DAILY_LIMIT_FREE_USER = 2;
+    const currentSubscription = await getCurrentSubscription(user.id);
+    if (!currentSubscription) {
+      const todayConsumed = await getTodayConsumedCredits(user.id);
+      if (todayConsumed + costCredits > DAILY_LIMIT_FREE_USER) {
+        throw new Error(
+          'daily_limit_exceeded'
+        );
+      }
     }
 
     const callbackUrl = `${envConfigs.app_url}/api/ai/notify/${provider}`;

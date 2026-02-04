@@ -79,6 +79,10 @@
       "hint": "Drag the slider to compare before and after"
     },
     "reference_preview": "Image to Edit",
-    "reference_preview_hint": "Enter your editing instructions and click Generate"
+    "reference_preview_hint": "Enter your editing instructions and click Generate",
+    "errors": {
+      "daily_limit_exceeded": "Límite diario gratuito alcanzado. ¡Actualiza para seguir creando!",
+      "upgrade_now": "Actualizar Ahora"
+    }
   }
 }

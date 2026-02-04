@@ -363,16 +363,13 @@ Homepage sections are configured in `src/config/locale/messages/{en,zh,es,ja,ko}
 
 ## Deployment
 
-### Vercel (Recommended)
+**Method:** Git push to main → Vercel auto-deploy
+
 ```bash
-# Automatic via git push, or:
-vercel deploy
+git add . && git commit -m "message" && git push
 ```
 
-### Cloudflare
-```bash
-pnpm cf:deploy
-```
+Note: Do NOT use Cloudflare CLI (`pnpm cf:deploy`), it's not configured.
 
 ## Notes
 

@@ -79,6 +79,10 @@
       "hint": "Drag the slider to compare before and after"
     },
     "reference_preview": "Image to Edit",
-    "reference_preview_hint": "Enter your editing instructions and click Generate"
+    "reference_preview_hint": "Enter your editing instructions and click Generate",
+    "errors": {
+      "daily_limit_exceeded": "오늘 무료 한도에 도달했습니다. 업그레이드하여 계속 만들어보세요!",
+      "upgrade_now": "지금 업그레이드"
+    }
   }
 }

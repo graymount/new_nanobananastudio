@@ -15,7 +15,7 @@ import {
   ArrowLeftRight,
   X,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 
 import { Link } from '@/core/i18n/navigation';
@@ -181,6 +181,7 @@ export function ImageGenerator({
   initialPrompt,
 }: ImageGeneratorProps) {
   const t = useTranslations('ai.image.generator');
+  const locale = useLocale();
 
   const [activeTab, setActiveTab] = useState<ImageGeneratorTab>(
     initialRefImage ? 'image-to-image' : 'text-to-image'
@@ -645,7 +646,17 @@ export function ImageGenerator({
       await fetchUserCredits();
     } catch (error: any) {
       console.error('Failed to generate image:', error);
-      toast.error(`Failed to generate image: ${error.message}`);
+      if (error.message === 'daily_limit_exceeded') {
+        toast.error(t('errors.daily_limit_exceeded'), {
+          action: {
+            label: t('errors.upgrade_now'),
+            onClick: () => (window.location.href = `/${locale}/pricing`),
+          },
+          duration: 8000,
+        });
+      } else {
+        toast.error(`Failed to generate image: ${error.message}`);
+      }
       resetTaskState();
     }
   };

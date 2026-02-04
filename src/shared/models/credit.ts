@@ -356,6 +356,28 @@ export async function getRemainingCreditsBatch(
   return creditsMap;
 }
 
+// get today's consumed credits for a user
+export async function getTodayConsumedCredits(userId: string): Promise<number> {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const [result] = await db()
+    .select({
+      total: sum(credit.credits),
+    })
+    .from(credit)
+    .where(
+      and(
+        eq(credit.userId, userId),
+        eq(credit.transactionType, CreditTransactionType.CONSUME),
+        gt(credit.createdAt, today)
+      )
+    );
+
+  // credits field is negative for consumption, so we negate it
+  return Math.abs(parseInt(result?.total || '0'));
+}
+
 // grant credits for new user
 export async function grantCreditsForNewUser(user: User) {
   // get configs from db

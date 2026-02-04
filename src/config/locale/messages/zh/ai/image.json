@@ -79,6 +79,10 @@
       "hint": "拖动滑块对比编辑前后效果"
     },
     "reference_preview": "待编辑图片",
-    "reference_preview_hint": "输入编辑指令，然后点击生成"
+    "reference_preview_hint": "输入编辑指令，然后点击生成",
+    "errors": {
+      "daily_limit_exceeded": "今日免费额度已用完，升级后继续创作！",
+      "upgrade_now": "立即升级"
+    }
   }
 }
