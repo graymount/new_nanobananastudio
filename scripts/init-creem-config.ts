@@ -25,6 +25,7 @@ async function initCreemConfig() {
     // Product ID mapping: local product_id -> Creem product_id
     // Format: JSON object { "local_id": "creem_product_id" }
     creem_product_ids: JSON.stringify({
+      starter: 'prod_pJlQghJX8oTw0OAHOUDfM',
       pro: 'prod_1Hy0FSUxG6AI22FAXEkScn',
       max: 'prod_4bHtNuUGiDat7I2DdOmEbZ',
     }),

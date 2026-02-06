@@ -50,21 +50,51 @@
             "group": "monthly"
           },
           {
+            "title": "Starter",
+            "description": "Great for hobbyists who create regularly.",
+            "features_title": "Everything in Free, plus",
+            "features": [
+              "50 image generations per month",
+              "No daily limit",
+              "All artistic styles",
+              "Commercial usage rights"
+            ],
+            "interval": "month",
+            "amount": 990,
+            "currency": "USD",
+            "price": "$9.9",
+            "unit": "/ month",
+            "is_featured": false,
+            "tip": "Best way to get started",
+            "button": {
+              "title": "Get Starter",
+              "url": "https://nanobananastudio.com",
+              "target": "_blank",
+              "icon": "RiFlashlightFill"
+            },
+            "product_id": "starter",
+            "product_name": "Nano Banana Starter",
+            "credits": 50,
+            "valid_days": 30,
+            "group": "monthly",
+            "plan_name": "Starter",
+            "payment_providers": ["creem"]
+          },
+          {
             "title": "Pro",
             "description": "For regular creators who need more generations.",
             "label": "Most Popular",
-            "features_title": "Everything in Free, plus",
+            "features_title": "Everything in Starter, plus",
             "features": [
               "300 image generations per month",
               "Priority processing speed",
               "Higher resolution outputs",
-              "Commercial usage rights",
               "Email support"
             ],
             "interval": "month",
-            "amount": 2990,
+            "amount": 1990,
             "currency": "USD",
-            "price": "$29.9",
+            "price": "$19.9",
             "unit": "/ month",
             "is_featured": true,
             "tip": "Best value for creators",
@@ -79,7 +109,8 @@
             "credits": 300,
             "valid_days": 30,
             "group": "monthly",
-            "plan_name": "Pro"
+            "plan_name": "Pro",
+            "payment_providers": ["creem"]
           },
           {
             "title": "Max",

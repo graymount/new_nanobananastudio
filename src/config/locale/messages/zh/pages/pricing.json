@@ -50,21 +50,51 @@
             "group": "monthly"
           },
           {
+            "title": "入门版",
+            "description": "适合经常创作的爱好者。",
+            "features_title": "包含免费版所有功能，此外",
+            "features": [
+              "每月 50 次图像生成",
+              "无每日限制",
+              "所有艺术风格",
+              "商业使用权"
+            ],
+            "interval": "month",
+            "amount": 990,
+            "currency": "USD",
+            "price": "$9.9",
+            "unit": "/ 月",
+            "is_featured": false,
+            "tip": "最佳入门选择",
+            "button": {
+              "title": "获取入门版",
+              "url": "https://nanobananastudio.com",
+              "target": "_blank",
+              "icon": "RiFlashlightFill"
+            },
+            "product_id": "starter",
+            "product_name": "Nano Banana 入门版",
+            "credits": 50,
+            "valid_days": 30,
+            "group": "monthly",
+            "plan_name": "入门版",
+            "payment_providers": ["creem"]
+          },
+          {
             "title": "专业版",
             "description": "适合需要更多生成次数的创作者。",
             "label": "最受欢迎",
-            "features_title": "包含免费版所有功能，此外",
+            "features_title": "包含入门版所有功能，此外",
             "features": [
               "每月 300 次图像生成",
               "优先处理速度",
               "更高分辨率输出",
-              "商业使用权",
               "邮件支持"
             ],
             "interval": "month",
-            "amount": 2990,
+            "amount": 1990,
             "currency": "USD",
-            "price": "$29.9",
+            "price": "$19.9",
             "unit": "/ 月",
             "is_featured": true,
             "tip": "创作者最佳选择",
@@ -79,7 +109,8 @@
             "credits": 300,
             "valid_days": 30,
             "group": "monthly",
-            "plan_name": "专业版"
+            "plan_name": "专业版",
+            "payment_providers": ["creem"]
           },
           {
             "title": "旗舰版",
