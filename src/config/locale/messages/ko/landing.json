@@ -113,11 +113,6 @@
               "title": "앱 열기",
               "url": "/app",
               "target": "_self"
-            },
-            {
-              "title": "클래식 버전",
-              "url": "https://classic.nanobananastudio.com",
-              "target": "_blank"
             }
           ]
         }

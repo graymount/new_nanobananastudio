@@ -113,11 +113,6 @@
               "title": "Open App",
               "url": "/app",
               "target": "_self"
-            },
-            {
-              "title": "Classic Version",
-              "url": "https://classic.nanobananastudio.com",
-              "target": "_blank"
             }
           ]
         }
