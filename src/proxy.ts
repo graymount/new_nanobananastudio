@@ -69,6 +69,14 @@ export async function proxy(request: NextRequest) {
     intlResponse.headers.set('Cloudflare-CDN-Cache-Control', cacheControl);
   }
 
+  // Device ID cookie for anti-abuse tracking (set after Set-Cookie deletion for public pages)
+  if (!request.cookies.get('_nb_did')) {
+    intlResponse.headers.append(
+      'Set-Cookie',
+      `_nb_did=${crypto.randomUUID()}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${365 * 24 * 60 * 60}`
+    );
+  }
+
   // For all other routes (including /, /sign-in, /sign-up, /sign-out), just return the intl response
   return intlResponse;
 }

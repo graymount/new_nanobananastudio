@@ -36,6 +36,7 @@ export const user = table(
     utmSource: text('utm_source').notNull().default(''),
     ip: text('ip').notNull().default(''),
     locale: text('locale').notNull().default(''),
+    deviceId: text('device_id').notNull().default(''),
   },
   (table) => [
     // Search users by name in admin dashboard

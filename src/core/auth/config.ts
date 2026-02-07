@@ -114,6 +114,12 @@ export async function getAuthOptions(configs: Record<string, string>) {
               if (sanitized) {
                 user.utmSource = sanitized;
               }
+
+              // Device ID for anti-abuse tracking
+              const deviceId = getCookieFromCtx(ctx, '_nb_did');
+              if (deviceId && typeof deviceId === 'string') {
+                user.deviceId = deviceId.slice(0, 50);
+              }
             } catch {
               // best-effort only
             }

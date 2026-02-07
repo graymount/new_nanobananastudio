@@ -1,7 +1,7 @@
-import { and, asc, count, desc, eq, gt, inArray, isNull, or, sum } from 'drizzle-orm';
+import { and, asc, count, desc, eq, gt, gte, inArray, isNull, ne, or, sum } from 'drizzle-orm';
 
 import { db } from '@/core/db';
-import { credit } from '@/config/db/schema';
+import { credit, user as userTable } from '@/config/db/schema';
 import { getSnowId, getUuid } from '@/shared/lib/hash';
 
 import { getAllConfigs } from './config';
@@ -378,6 +378,54 @@ export async function getTodayConsumedCredits(userId: string): Promise<number> {
   return Math.abs(parseInt(result?.total || '0'));
 }
 
+const IP_ABUSE_THRESHOLD = 3; // max new users from same IP in 24h before skipping credits
+const IP_ABUSE_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+async function checkRegistrationAbuse(userRecord: User): Promise<boolean> {
+  try {
+    // Check 1: IP rate limit — too many registrations from same IP in 24h
+    if (userRecord.ip) {
+      const since = new Date(Date.now() - IP_ABUSE_WINDOW_MS);
+      const [ipResult] = await db()
+        .select({ count: count() })
+        .from(userTable)
+        .where(
+          and(
+            eq(userTable.ip, userRecord.ip),
+            ne(userTable.id, userRecord.id),
+            gte(userTable.createdAt, since)
+          )
+        );
+      if ((ipResult?.count ?? 0) >= IP_ABUSE_THRESHOLD) {
+        return true;
+      }
+    }
+
+    // Check 2: Device ID — another user with same device already received credits
+    if (userRecord.deviceId) {
+      const [deviceResult] = await db()
+        .select({ count: count() })
+        .from(userTable)
+        .innerJoin(credit, eq(credit.userId, userTable.id))
+        .where(
+          and(
+            eq(userTable.deviceId, userRecord.deviceId),
+            ne(userTable.id, userRecord.id),
+            eq(credit.transactionType, CreditTransactionType.GRANT)
+          )
+        );
+      if ((deviceResult?.count ?? 0) > 0) {
+        return true;
+      }
+    }
+
+    return false;
+  } catch (e) {
+    console.error('[anti-abuse] check failed, allowing credits:', e);
+    return false; // fail open — don't block legitimate users on errors
+  }
+}
+
 // grant credits for new user
 export async function grantCreditsForNewUser(user: User) {
   // get configs from db
@@ -391,6 +439,13 @@ export async function grantCreditsForNewUser(user: User) {
   // get initial credits amount and valid days
   const credits = parseInt(configs.initial_credits_amount as string) || 0;
   if (credits <= 0) {
+    return;
+  }
+
+  // Anti-abuse: skip credits for suspicious registrations
+  const isAbuse = await checkRegistrationAbuse(user);
+  if (isAbuse) {
+    console.log(`[anti-abuse] skipping credits for user ${user.id} (ip: ${user.ip}, deviceId: ${user.deviceId})`);
     return;
   }
 
