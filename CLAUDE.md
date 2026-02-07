@@ -47,14 +47,21 @@ Located at: `/Users/liuwnfng/dev/web100/classic.nanobananastudio.com`
 
 - **Provider:** Creem.io
 - **Webhook:** `/api/payment/notify/creem`
-- **Plans:** Free (8 credits), Pro ($29.90/mo, 300 credits), Max ($69.90/mo, 1000 credits)
+- **Plans:**
+  - Free Trial (5 credits, one-time)
+  - Starter ($9.90/mo, 50 credits) — first month 50% off ($4.95)
+  - Pro ($19.90/mo, 300 credits)
+  - Max ($69.90/mo, 1000 credits)
+- **Promotion System:** `getPromotionCode()` in `src/app/api/payment/checkout/route.ts` supports both Stripe and Creem discount codes. Configured via admin settings (`creem_promotion_codes` / `stripe_promotion_codes`).
+- **Creem Discount Code:** `STARTERINTRO50` (50% off, first payment only)
+- **Anti-abuse:** Daily credit limit for free users (2 credits/day), device fingerprint + IP rate limiting on registration
 - **Status:** ✅ Verified working
 
 ### Authentication
 
 - **Method:** Google OAuth only (email/password registration disabled to prevent abuse)
 - **Provider:** Better Auth
-- **New User Benefits:** 8 free credits + welcome email
+- **New User Benefits:** 5 free credits + welcome email (2 credits/day limit)
 - **Config:** `/admin/settings/auth` (Google OAuth enabled, Email Auth disabled)
 
 ### Email Integration
@@ -179,6 +186,9 @@ public/imgs/               # Static images
 | Theme blocks index | `src/themes/default/blocks/index.tsx` |
 | Homepage config | `src/config/locale/messages/{locale}/pages/index.json` |
 | Locale config | `src/config/locale/index.ts` |
+| Creem payment provider | `src/extensions/payment/creem.ts` |
+| Payment checkout | `src/app/api/payment/checkout/route.ts` |
+| Admin settings fields | `src/shared/services/settings.ts` |
 
 ### Theme Block System
 
@@ -281,6 +291,17 @@ AUTH_SECRET=your-secret
 - [x] PageSpeed score improved: 53 → 71 (+18 points)
 - [x] Cloudflare managed robots.txt disabled (was causing duplicate `User-agent: *` entries)
 
+### Phase 10: Pricing & Conversion Optimization ✅
+- [x] Added Starter plan ($9.90/mo, 50 credits) between Free and Pro
+- [x] Starter first-month 50% off promotion ($4.95 via Creem discount code)
+- [x] Extended `getPromotionCode()` to support Creem discount codes
+- [x] Added `creem_promotion_codes` admin settings field
+- [x] Daily credit limit for free users (2 credits/day)
+- [x] Device fingerprint + IP rate limiting on registration (anti-abuse)
+- [x] Reduced Pro price from $29.90 to $19.90/mo
+- [x] Fixed price formatting ($19.90/$69.90 instead of $19.9/$69.9)
+- [x] Removed Classic Version footer link from all locales
+
 ## Common Tasks
 
 ### AI Image Generator URL Parameters
@@ -373,7 +394,6 @@ Note: Do NOT use Cloudflare CLI (`pnpm cf:deploy`), it's not configured.
 
 ## Notes
 
-- Classic site remains available at `classic.nanobananastudio.com` for reference
 - Production URL: `https://nanobananastudio.com`
 - Sitemap URL: `https://nanobananastudio.com/sitemap.xml`
 - Cloudflare "AI Crawl Control > Robots.txt > Cloudflare managed" is **OFF** to prevent duplicate User-agent entries
@@ -469,7 +489,7 @@ AI chatbots recommend sites based on their training data. To increase recommenda
    - "text to image AI tool"
    - "AI art generator online"
    - "Gemini image generation"
-   - "best AI image generator 2025"
+   - "best AI image generator 2026"
 
 3. **Comparison Content:**
    - "Nano Banana Studio vs Midjourney"
