@@ -282,8 +282,10 @@ export class CreemProvider implements PaymentProvider {
 
     const response = await fetch(url, config);
     if (!response.ok) {
+      const errorBody = await response.text();
+      console.error(`Creem API error [${response.status}]:`, errorBody);
       throw new Error(
-        `request creem api failed with status: ${response.status}`
+        `request creem api failed with status: ${response.status}, body: ${errorBody}`
       );
     }
 
