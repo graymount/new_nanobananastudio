@@ -591,6 +591,21 @@ export async function getSettings() {
       tip: 'Map the product_id in pricing table to <a href="https://www.creem.io/dashboard/products" class="text-primary" target="_blank">payment_product_id</a> created in Creem. Must be a valid JSON object.',
     },
     {
+      name: 'creem_promotion_codes',
+      title: 'Creem Promotion Codes',
+      type: 'textarea',
+      attributes: {
+        rows: 6,
+      },
+      placeholder: `{
+  "starter": "DISCOUNTCODE",
+  "pro": "DISCOUNTCODE"
+}`,
+      group: 'creem',
+      tab: 'payment',
+      tip: 'Map the product_id in pricing table to <a href="https://www.creem.io/dashboard/discounts" class="text-primary" target="_blank">discount_code</a> created in Creem. Must be a valid JSON object.',
+    },
+    {
       name: 'paypal_enabled',
       title: 'Paypal Enabled',
       type: 'switch',

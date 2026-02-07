@@ -337,19 +337,22 @@ async function getPromotionCode(
   provider: string,
   checkoutCurrency: string
 ) {
-  if (provider !== 'stripe') {
-    // currently only stripe supports promotion code mapping
-    return;
-  }
+  const configKey =
+    provider === 'stripe'
+      ? 'stripe_promotion_codes'
+      : provider === 'creem'
+        ? 'creem_promotion_codes'
+        : '';
+
+  if (!configKey) return;
 
   try {
     const configs = await getAllConfigs();
-    const stripePromotionCodes = configs.stripe_promotion_codes;
-    if (stripePromotionCodes) {
-      const promotionCodes = JSON.parse(stripePromotionCodes);
+    const promotionCodes = configs[configKey];
+    if (promotionCodes) {
+      const parsed = JSON.parse(promotionCodes);
       return (
-        promotionCodes[`${productId}_${checkoutCurrency}`] ||
-        promotionCodes[productId]
+        parsed[`${productId}_${checkoutCurrency}`] || parsed[productId]
       );
     }
   } catch (e: any) {
