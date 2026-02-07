@@ -19,33 +19,33 @@
         ],
         "items": [
           {
-            "title": "Free",
-            "description": "Perfect for trying out AI image generation.",
-            "features_title": "Includes",
+            "title": "Prueba Gratis",
+            "description": "Prueba la generación de imágenes con IA — sin compromiso.",
+            "features_title": "Incluye",
             "features": [
-              "8 image generations per month",
-              "All artistic styles",
-              "Text-to-image generation",
-              "AI image editing",
-              "Standard processing speed",
-              "Download in PNG format"
+              "5 generaciones de imágenes gratis",
+              "Todos los estilos artísticos",
+              "Generación de texto a imagen",
+              "Edición de imágenes con IA",
+              "Velocidad de procesamiento estándar",
+              "Descarga en formato PNG"
             ],
-            "interval": "month",
+            "interval": "one_time",
             "amount": 0,
             "currency": "USD",
             "price": "$0",
-            "unit": "/ month",
+            "unit": "",
             "is_featured": false,
-            "tip": "No credit card required",
+            "tip": "Prueba única · No se requiere tarjeta de crédito",
             "button": {
-              "title": "Start Free",
+              "title": "Empezar Gratis",
               "url": "https://nanobananastudio.com",
               "target": "_blank",
               "icon": "RiFlashlightFill"
             },
             "product_id": "free",
-            "product_name": "Nano Banana Free",
-            "credits": 8,
+            "product_name": "Nano Banana Free Trial",
+            "credits": 5,
             "valid_days": 30,
             "group": "monthly"
           },

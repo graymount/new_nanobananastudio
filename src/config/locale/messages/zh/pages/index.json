@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Nano Banana Studio - 免费 AI 图像生成器和编辑器",
-    "description": "免费AI绘画工具，Midjourney和DALL-E最佳替代品。几秒内用文字创建精美图像，每月8次免费生成，无需设计技能！",
+    "description": "免费AI绘画工具，Midjourney和DALL-E最佳替代品。几秒内用文字创建精美图像，5次免费生成，无需设计技能！",
     "keywords": "免费AI图像生成器, AI绘画工具2026, 文字生成图片, Midjourney替代品, DALL-E替代, 免费AI绘图, 在线AI图像生成, 最佳AI艺术创作"
   },
   "page": {
@@ -20,7 +20,7 @@
         "title": "Nano Banana Studio - 几秒创作 AI 图像",
         "highlight_text": "几秒",
         "description": "无需设计技能。描述你的想法，选择风格，看创意变成现实。",
-        "tip": "8 次免费生成 • 无需信用卡"
+        "tip": "5 次免费生成 • 无需信用卡"
       },
       "features": {
         "id": "features",
@@ -193,7 +193,7 @@
           },
           {
             "question": "免费版如何运作？",
-            "answer": "免费版每月给你 8 次图像生成机会。使用量每月重置，你可以随时升级获得更多生成次数。"
+            "answer": "新用户可免费生成 5 张图片。用完后可升级付费套餐，解锁无限创作。"
           },
           {
             "question": "我可以将图像用于商业用途吗？",

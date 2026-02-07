@@ -59,13 +59,7 @@
     "show_sign": true,
     "show_theme": true,
     "show_locale": true,
-    "topbanner": {
-      "text": "🎉 <b>新サイト公開！</b>データは移行済みです。<b>Nano Banana Pro</b>機能が同価格で利用可能！",
-      "buttonText": "クラシック版を見る",
-      "href": "https://classic.nanobananastudio.com",
-      "target": "_blank",
-      "dismissedExpiryDays": 7
-    }
+    "topbanner": null
   },
   "footer": {
     "id": "footer",

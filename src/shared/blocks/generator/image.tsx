@@ -228,7 +228,7 @@ export function ImageGenerator({
   }>>([]);
   const [isLoadingGallery, setIsLoadingGallery] = useState(false);
 
-  const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
+  const { user, isCheckSign, setIsShowSignModal, setIsShowCreditsExhaustedModal, fetchUserCredits } =
     useAppContext();
 
   useEffect(() => {
@@ -551,7 +551,7 @@ export function ImageGenerator({
     }
 
     if (remainingCredits < costCredits) {
-      toast.error('Insufficient credits. Please top up to keep creating.');
+      setIsShowCreditsExhaustedModal(true);
       return;
     }
 
@@ -646,14 +646,8 @@ export function ImageGenerator({
       await fetchUserCredits();
     } catch (error: any) {
       console.error('Failed to generate image:', error);
-      if (error.message === 'daily_limit_exceeded') {
-        toast.error(t('errors.daily_limit_exceeded'), {
-          action: {
-            label: t('errors.upgrade_now'),
-            onClick: () => (window.location.href = `/${locale}/pricing`),
-          },
-          duration: 8000,
-        });
+      if (error.message === 'insufficient credits') {
+        setIsShowCreditsExhaustedModal(true);
       } else {
         toast.error(`Failed to generate image: ${error.message}`);
       }

@@ -35,6 +35,14 @@
     "choose_payment_method_description": "",
     "cancel_title": "取消"
   },
+  "credits_exhausted": {
+    "title": "免费额度已用完！",
+    "description": "你已经创建了一些精彩的图片。升级后继续创作。",
+    "your_creations": "你最近的作品",
+    "upgrade_button": "查看方案",
+    "maybe_later": "稍后再说",
+    "starter_hint": "方案低至 $9.90/月"
+  },
   "locale_detector": {
     "title": "检测到浏览器语言是: {locale}，是否切换？",
     "switch_to": "切换到{locale}"

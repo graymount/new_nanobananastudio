@@ -35,6 +35,14 @@
     "choose_payment_method_description": "",
     "cancel_title": "취소"
   },
+  "credits_exhausted": {
+    "title": "무료 크레딧을 모두 사용했습니다!",
+    "description": "멋진 이미지를 만들었습니다. 업그레이드하여 계속 창작하세요.",
+    "your_creations": "최근 작품",
+    "upgrade_button": "플랜 보기",
+    "maybe_later": "나중에",
+    "starter_hint": "월 $9.90부터"
+  },
   "locale_detector": {
     "title": "브라우저 언어가 {locale}로 감지되었습니다. 전환하시겠습니까?",
     "switch_to": "{locale}로 전환"

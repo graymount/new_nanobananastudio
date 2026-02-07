@@ -76,7 +76,7 @@ interface SongGeneratorProps {
 
 export function MusicGenerator({ className, srOnlyTitle }: SongGeneratorProps) {
   const t = useTranslations('ai.music');
-  const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
+  const { user, isCheckSign, setIsShowSignModal, setIsShowCreditsExhaustedModal, fetchUserCredits } =
     useAppContext();
 
   // Form state
@@ -251,7 +251,7 @@ export function MusicGenerator({ className, srOnlyTitle }: SongGeneratorProps) {
     }
 
     if (!user.credits || user.credits.remainingCredits < costCredits) {
-      toast.error('Insufficient credits');
+      setIsShowCreditsExhaustedModal(true);
       return;
     }
 

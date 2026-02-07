@@ -353,7 +353,7 @@ ${name} 你好，
 
 我是 Alex，这个产品的创始人。做这个工具是因为我觉得其他 AI 图片生成器太复杂了，我想做一个简单好用的。
 
-你现在有 8 个免费额度，可以试试：
+你现在有 5 个免费额度，可以试试：
 • 输入「赛博朋克风格的可爱猫咪」
 • 上传一张照片，把它变成艺术画
 • 尝试不同的风格
@@ -376,7 +376,7 @@ I saw you just signed up for Nano Banana Studio - welcome!
 
 I'm Alex, the founder. I built this tool because I was frustrated with how complicated other AI image generators are. I wanted something simple that just works.
 
-You've got 8 free credits to play with. Here are some ideas to get started:
+You've got 5 free credits to play with. Here are some ideas to get started:
 • Try "a cute cat in cyberpunk style"
 • Upload a photo and transform it into artwork
 • Experiment with different styles

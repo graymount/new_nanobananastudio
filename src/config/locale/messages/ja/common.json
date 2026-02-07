@@ -35,6 +35,14 @@
     "choose_payment_method_description": "",
     "cancel_title": "キャンセル"
   },
+  "credits_exhausted": {
+    "title": "無料クレジットを使い切りました！",
+    "description": "素晴らしい画像を作成しました。アップグレードして創作を続けましょう。",
+    "your_creations": "最近の作品",
+    "upgrade_button": "プランを見る",
+    "maybe_later": "あとで",
+    "starter_hint": "月額$9.90から"
+  },
   "locale_detector": {
     "title": "ブラウザの言語が{locale}と検出されました。切り替えますか？",
     "switch_to": "{locale}に切り替え"

@@ -34,6 +34,24 @@ import {
   Pricing as PricingType,
 } from '@/shared/types/blocks/pricing';
 
+// Map item count to static Tailwind grid classes (dynamic interpolation breaks JIT)
+function getGridCols(count: number): string {
+  switch (count) {
+    case 1:
+      return 'md:grid-cols-1';
+    case 2:
+      return 'md:grid-cols-2';
+    case 3:
+      return 'md:grid-cols-3';
+    case 4:
+      return 'sm:grid-cols-2 lg:grid-cols-4';
+    case 5:
+      return 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5';
+    default:
+      return 'sm:grid-cols-2 lg:grid-cols-3';
+  }
+}
+
 // Helper function to get all available currencies from a pricing item
 function getCurrenciesFromItem(item: PricingItem | null): PricingCurrency[] {
   if (!item) return [];
@@ -362,10 +380,14 @@ export function Pricing({
         )}
 
         <div
-          className={`mx-auto mt-0 grid w-full gap-6 md:grid-cols-${
-            section.items?.filter((item) => !item.group || item.group === group)
-              ?.length
-          }`}
+          className={cn(
+            'mx-auto mt-0 grid w-full max-w-6xl gap-6',
+            getGridCols(
+              section.items?.filter(
+                (item) => !item.group || item.group === group
+              )?.length || 1
+            )
+          )}
         >
           {section.items?.map((item: PricingItem, idx) => {
             if (item.group && item.group !== group) {
@@ -388,7 +410,14 @@ export function Pricing({
             const currencies = getCurrenciesFromItem(item);
 
             return (
-              <Card key={idx} className="relative">
+              <Card
+                key={idx}
+                className={cn(
+                  'relative',
+                  item.is_featured &&
+                    'ring-primary/50 shadow-primary/10 ring-2 shadow-lg lg:scale-105'
+                )}
+              >
                 {item.label && (
                   <span className="absolute inset-x-0 -top-3 mx-auto flex h-6 w-fit items-center rounded-full bg-linear-to-br/increasing from-purple-400 to-amber-300 px-3 py-1 text-xs font-medium text-amber-950 ring-1 ring-white/20 ring-offset-1 ring-offset-gray-950/5 ring-inset">
                     {item.label}

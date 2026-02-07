@@ -24,6 +24,8 @@ export interface ContextValue {
   setIsShowSignModal: (show: boolean) => void;
   isShowPaymentModal: boolean;
   setIsShowPaymentModal: (show: boolean) => void;
+  isShowCreditsExhaustedModal: boolean;
+  setIsShowCreditsExhaustedModal: (show: boolean) => void;
   configs: Record<string, string>;
   fetchConfigs: () => Promise<void>;
   fetchUserCredits: () => Promise<void>;
@@ -50,6 +52,9 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
 
   // show payment modal
   const [isShowPaymentModal, setIsShowPaymentModal] = useState(false);
+
+  // show credits exhausted upsell modal
+  const [isShowCreditsExhaustedModal, setIsShowCreditsExhaustedModal] = useState(false);
 
   const fetchConfigs = useCallback(async () => {
     try {
@@ -157,6 +162,8 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
       setIsShowSignModal,
       isShowPaymentModal,
       setIsShowPaymentModal,
+      isShowCreditsExhaustedModal,
+      setIsShowCreditsExhaustedModal,
       configs,
       fetchConfigs,
       fetchUserCredits,
@@ -168,6 +175,7 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
       isCheckSign,
       isShowSignModal,
       isShowPaymentModal,
+      isShowCreditsExhaustedModal,
       configs,
       fetchConfigs,
       fetchUserCredits,

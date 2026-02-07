@@ -136,7 +136,7 @@ export async function getAuthOptions(configs: Record<string, string>) {
                 email: user.email,
                 name: user.name,
                 locale: user.locale,
-                creditsAmount: 8, // matches initial credits
+                creditsAmount: 5, // matches initial credits
               }).catch((e) => {
                 console.log('send welcome email failed', e);
               });

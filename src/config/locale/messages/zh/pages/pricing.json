@@ -19,24 +19,24 @@
         ],
         "items": [
           {
-            "title": "免费版",
-            "description": "适合体验 AI 图像生成。",
+            "title": "免费试用",
+            "description": "免费体验 AI 图像生成，无任何限制。",
             "features_title": "包含",
             "features": [
-              "每月 8 次图像生成",
+              "5 次免费图像生成",
               "所有艺术风格",
               "文字生成图像",
               "AI 图像编辑",
               "标准处理速度",
               "PNG 格式下载"
             ],
-            "interval": "month",
+            "interval": "one_time",
             "amount": 0,
             "currency": "USD",
             "price": "$0",
-            "unit": "/ 月",
+            "unit": "",
             "is_featured": false,
-            "tip": "无需信用卡",
+            "tip": "一次性试用 · 无需信用卡",
             "button": {
               "title": "免费开始",
               "url": "https://nanobananastudio.com",
@@ -44,8 +44,8 @@
               "icon": "RiFlashlightFill"
             },
             "product_id": "free",
-            "product_name": "Nano Banana 免费版",
-            "credits": 8,
+            "product_name": "Nano Banana 免费试用",
+            "credits": 5,
             "valid_days": 30,
             "group": "monthly"
           },

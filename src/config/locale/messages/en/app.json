@@ -1,9 +1,4 @@
 {
-  "classic_banner": {
-    "text": "Looking for your old images?",
-    "link": "Visit Classic Version",
-    "dismiss": "Dismiss"
-  },
   "metadata": {
     "title": "AI Image Studio - Nano Banana Studio",
     "description": "Full-featured AI image generator and editor. Create stunning images from text or transform existing photos with natural language."
@@ -71,7 +66,7 @@
       },
       "q3": {
         "question": "How many credits does it cost?",
-        "answer": "Text-to-Image costs 2 credits per generation. Edit & Merge costs 4 credits per generation. Free tier includes 5 credits per month."
+        "answer": "Each image generation costs 1 credit. New users get 5 free credits to try."
       },
       "q4": {
         "question": "Can the AI render text accurately?",

@@ -35,6 +35,14 @@
     "choose_payment_method_description": "",
     "cancel_title": "Cancelar"
   },
+  "credits_exhausted": {
+    "title": "¡Has usado todos tus créditos gratis!",
+    "description": "Has creado imágenes increíbles. Actualiza ahora para seguir creando.",
+    "your_creations": "Tus creaciones recientes",
+    "upgrade_button": "Ver Planes",
+    "maybe_later": "Quizás Luego",
+    "starter_hint": "Planes desde solo $9.90/mes"
+  },
   "locale_detector": {
     "title": "Detectamos que tu idioma es {locale}. ¿Cambiar a él?",
     "switch_to": "Cambiar a {locale}"

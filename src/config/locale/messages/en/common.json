@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Nano Banana Studio - Free AI Image Generator & Editor | Nano Banana AI",
-    "description": "Free AI image generator - create art from text in seconds. Best Midjourney & DALL-E alternative with cyberpunk, anime, realistic styles. 8 free generations monthly!",
+    "description": "Free AI image generator - create art from text in seconds. Best Midjourney & DALL-E alternative with cyberpunk, anime, realistic styles. 5 free generations to start!",
     "keywords": "free AI image generator, best AI art generator 2026, text to image AI, Midjourney alternative free, DALL-E alternative, Nano Banana Studio, AI photo editor online, how to generate AI images"
   },
   "sign": {
@@ -34,6 +34,14 @@
     "choose_payment_method": "Choose Payment Method",
     "choose_payment_method_description": "",
     "cancel_title": "Cancel"
+  },
+  "credits_exhausted": {
+    "title": "You've used all your free credits!",
+    "description": "You've created some amazing images. Upgrade now to keep creating.",
+    "your_creations": "Your recent creations",
+    "upgrade_button": "View Plans",
+    "maybe_later": "Maybe Later",
+    "starter_hint": "Plans start at just $9.90/month"
   },
   "locale_detector": {
     "title": "We detected your browser language is {locale}. Switch to it?",

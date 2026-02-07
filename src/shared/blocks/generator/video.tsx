@@ -234,7 +234,7 @@ export function VideoGenerator({
   );
   const [isMounted, setIsMounted] = useState(false);
 
-  const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
+  const { user, isCheckSign, setIsShowSignModal, setIsShowCreditsExhaustedModal, fetchUserCredits } =
     useAppContext();
 
   useEffect(() => {
@@ -482,7 +482,7 @@ export function VideoGenerator({
     }
 
     if (remainingCredits < costCredits) {
-      toast.error('Insufficient credits. Please top up to keep creating.');
+      setIsShowCreditsExhaustedModal(true);
       return;
     }
 

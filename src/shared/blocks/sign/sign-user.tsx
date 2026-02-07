@@ -25,6 +25,7 @@ import { cn } from '@/shared/lib/utils';
 import { User as UserType } from '@/shared/models/user';
 import { NavItem, UserNav } from '@/shared/types/blocks/common';
 
+import { CreditsExhaustedModal } from '../payment/credits-exhausted-modal';
 import { SmartIcon } from '../common/smart-icon';
 import { SignModal } from './sign-modal';
 
@@ -222,6 +223,7 @@ export function SignUser({
           <SignModal />
         </div>
       )}
+      <CreditsExhaustedModal />
     </>
   );
 }

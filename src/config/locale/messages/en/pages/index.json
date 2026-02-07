@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Nano Banana Studio - Free AI Image Generator & Editor",
-    "description": "Create stunning AI images from text in seconds. Free Midjourney & DALL-E alternative with 8 free generations monthly. No design skills needed - try it now!",
+    "description": "Create stunning AI images from text in seconds. Free Midjourney & DALL-E alternative with 5 free generations. No design skills needed - try it now!",
     "keywords": "free AI image generator, best AI art generator 2026, text to image AI, Midjourney alternative free, DALL-E alternative, AI photo editor online, AI image creation tool, online AI art maker"
   },
   "page": {
@@ -20,7 +20,7 @@
         "title": "Nano Banana Studio - Create AI Images in Seconds",
         "highlight_text": "in Seconds",
         "description": "No design skills needed. Just describe what you want, pick a style, and watch your ideas come to life.",
-        "tip": "8 free generations to start • No credit card required"
+        "tip": "5 free generations to start • No credit card required"
       },
       "features": {
         "id": "features",
@@ -193,7 +193,7 @@
           },
           {
             "question": "How does the free tier work?",
-            "answer": "The free tier gives you 8 image generations per month. Usage resets monthly, and you can upgrade anytime for more generations."
+            "answer": "New users get 5 free image generations to try the service. After that, you can upgrade to a paid plan for unlimited creativity."
           },
           {
             "question": "Can I use the images commercially?",

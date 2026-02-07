@@ -55,7 +55,7 @@ export function HomeGenerator({ className }: HomeGeneratorProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [guestGenerations, setGuestGenerations] = useState(0);
 
-  const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } = useAppContext();
+  const { user, isCheckSign, setIsShowSignModal, setIsShowCreditsExhaustedModal, fetchUserCredits } = useAppContext();
 
   useEffect(() => {
     setIsMounted(true);
@@ -79,7 +79,7 @@ export function HomeGenerator({ className }: HomeGeneratorProps) {
     }
 
     if (user && remainingCredits < 1) {
-      toast.error(t('insufficient_credits'));
+      setIsShowCreditsExhaustedModal(true);
       return;
     }
 

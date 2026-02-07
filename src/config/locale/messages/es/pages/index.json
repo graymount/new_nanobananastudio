@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Nano Banana Studio - Generador de Imágenes IA Gratis",
-    "description": "Generador de imágenes IA gratis - alternativa a Midjourney y DALL-E. Crea arte con texto en segundos. 8 generaciones gratis al mes, ¡sin habilidades de diseño!",
+    "description": "Generador de imágenes IA gratis - alternativa a Midjourney y DALL-E. Crea arte con texto en segundos. 5 generaciones gratis, ¡sin habilidades de diseño!",
     "keywords": "generador de imágenes IA gratis, mejor IA arte 2026, texto a imagen IA, alternativa Midjourney gratis, alternativa DALL-E, editor de fotos IA online, crear imágenes con IA"
   },
   "page": {
@@ -20,7 +20,7 @@
         "title": "Nano Banana Studio - Crea Imágenes IA en Segundos",
         "highlight_text": "en Segundos",
         "description": "Sin habilidades de diseño. Solo describe lo que quieres, elige un estilo y mira tus ideas cobrar vida.",
-        "tip": "8 generaciones gratis para empezar • Sin tarjeta de crédito"
+        "tip": "5 generaciones gratis para empezar • Sin tarjeta de crédito"
       },
       "features": {
         "id": "features",
@@ -193,7 +193,7 @@
           },
           {
             "question": "¿Cómo funciona el plan gratuito?",
-            "answer": "El plan gratuito te da 8 generaciones de imágenes al mes. El uso se reinicia mensualmente y puedes actualizar en cualquier momento para más generaciones."
+            "answer": "Los nuevos usuarios obtienen 5 generaciones gratuitas. Después, puedes actualizar a un plan de pago para creatividad ilimitada."
           },
           {
             "question": "¿Puedo usar las imágenes comercialmente?",
