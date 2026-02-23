@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getThemePage } from '@/core/theme';
 import { envConfigs } from '@/config';
+import { locales, defaultLocale } from '@/config/locale';
 import { getLocalPage } from '@/shared/models/post';
 
 export const revalidate = 86400; // 24 hours
@@ -38,6 +39,16 @@ export async function generateMetadata({
       ? `${envConfigs.app_url}/${locale}/${staticPageSlug}`
       : `${envConfigs.app_url}/${staticPageSlug}`;
 
+  // build hreflang alternates
+  const languages: Record<string, string> = {};
+  for (const loc of locales) {
+    languages[loc] =
+      loc === defaultLocale
+        ? `${envConfigs.app_url}/${staticPageSlug}`
+        : `${envConfigs.app_url}/${loc}/${staticPageSlug}`;
+  }
+  languages['x-default'] = `${envConfigs.app_url}/${staticPageSlug}`;
+
   // get static page content
   const staticPage = await getLocalPage({ slug: staticPageSlug, locale });
 
@@ -51,6 +62,7 @@ export async function generateMetadata({
       description,
       alternates: {
         canonical: canonicalUrl,
+        languages,
       },
     };
   }
@@ -75,6 +87,7 @@ export async function generateMetadata({
       description,
       alternates: {
         canonical: canonicalUrl,
+        languages,
       },
     };
   }

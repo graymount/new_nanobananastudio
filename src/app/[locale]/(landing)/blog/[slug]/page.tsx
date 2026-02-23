@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getThemePage } from '@/core/theme';
 import { envConfigs } from '@/config';
+import { locales, defaultLocale } from '@/config/locale';
 import { Empty } from '@/shared/blocks/common';
 import { getPost } from '@/shared/models/post';
 import { DynamicPage } from '@/shared/types/blocks/landing';
@@ -21,6 +22,16 @@ export async function generateMetadata({
       ? `${envConfigs.app_url}/${locale}/blog/${slug}`
       : `${envConfigs.app_url}/blog/${slug}`;
 
+  // build hreflang alternates for all locales
+  const languages: Record<string, string> = {};
+  for (const loc of locales) {
+    languages[loc] =
+      loc === defaultLocale
+        ? `${envConfigs.app_url}/blog/${slug}`
+        : `${envConfigs.app_url}/${loc}/blog/${slug}`;
+  }
+  languages['x-default'] = `${envConfigs.app_url}/blog/${slug}`;
+
   const post = await getPost({ slug, locale });
   if (!post) {
     return {
@@ -28,6 +39,7 @@ export async function generateMetadata({
       description: t('description'),
       alternates: {
         canonical: canonicalUrl,
+        languages,
       },
     };
   }
@@ -37,6 +49,7 @@ export async function generateMetadata({
     description: post.description,
     alternates: {
       canonical: canonicalUrl,
+      languages,
     },
   };
 }

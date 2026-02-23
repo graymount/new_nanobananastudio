@@ -5,7 +5,6 @@ import { getLocale, setRequestLocale } from 'next-intl/server';
 import NextTopLoader from 'nextjs-toploader';
 
 import { envConfigs } from '@/config';
-import { locales } from '@/config/locale';
 import { UtmCapture } from '@/shared/blocks/common/utm-capture';
 import { getAllConfigs } from '@/shared/models/config';
 import { getAdsService } from '@/shared/services/ads';
@@ -114,20 +113,6 @@ export default async function RootLayout({
         <link rel="icon" href={envConfigs.app_favicon} />
         <link rel="alternate icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        {/* inject locales */}
-        {locales ? (
-          <>
-            {locales.map((loc) => (
-              <link
-                key={loc}
-                rel="alternate"
-                hrefLang={loc}
-                href={`${appUrl}${loc === 'en' ? '' : `/${loc}`}`}
-              />
-            ))}
-          </>
-        ) : null}
 
         {/* inject ads meta tags */}
         {adsMetaTags}

@@ -19,12 +19,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries: MetadataRoute.Sitemap = [];
 
   for (const page of staticPages) {
+    // Build language alternates for this page
+    const languages: Record<string, string> = {};
+    for (const loc of locales) {
+      languages[loc] =
+        loc === defaultLocale
+          ? `${appUrl}${page || '/'}`
+          : `${appUrl}/${loc}${page}`;
+    }
+
     // Default locale (no prefix)
     staticEntries.push({
-      url: `${appUrl}${page}`,
+      url: `${appUrl}${page || '/'}`,
       lastModified: new Date(),
       changeFrequency: page === '' ? 'daily' : 'weekly',
       priority: page === '' ? 1.0 : 0.8,
+      alternates: { languages },
     });
 
     // Other locales
@@ -35,6 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           lastModified: new Date(),
           changeFrequency: page === '' ? 'daily' : 'weekly',
           priority: page === '' ? 1.0 : 0.8,
+          alternates: { languages },
         });
       }
     }
@@ -57,11 +68,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           ? `/blog/${post.slug}`
           : `/${locale}/blog/${post.slug}`;
 
+        // Build language alternates for this blog post
+        const languages: Record<string, string> = {};
+        for (const loc of locales) {
+          languages[loc] =
+            loc === defaultLocale
+              ? `${appUrl}/blog/${post.slug}`
+              : `${appUrl}/${loc}/blog/${post.slug}`;
+        }
+
         blogEntries.push({
           url: `${appUrl}${urlPath}`,
           lastModified: post.created_at ? new Date(post.created_at) : new Date(),
           changeFrequency: 'monthly',
           priority: 0.6,
+          alternates: { languages },
         });
       }
     }

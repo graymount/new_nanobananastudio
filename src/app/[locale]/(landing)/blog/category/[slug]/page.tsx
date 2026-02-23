@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getThemePage } from '@/core/theme';
 import { envConfigs } from '@/config';
+import { locales, defaultLocale } from '@/config/locale';
 import { Empty } from '@/shared/blocks/common';
 import {
   PostType as DBPostType,
@@ -31,14 +32,26 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const t = await getTranslations('pages.blog.metadata');
 
+  const canonicalUrl =
+    locale !== envConfigs.locale
+      ? `${envConfigs.app_url}/${locale}/blog/category/${slug}`
+      : `${envConfigs.app_url}/blog/category/${slug}`;
+
+  const languages: Record<string, string> = {};
+  for (const loc of locales) {
+    languages[loc] =
+      loc === defaultLocale
+        ? `${envConfigs.app_url}/blog/category/${slug}`
+        : `${envConfigs.app_url}/${loc}/blog/category/${slug}`;
+  }
+  languages['x-default'] = `${envConfigs.app_url}/blog/category/${slug}`;
+
   return {
     title: `${slug} | ${t('title')}`,
     description: t('description'),
     alternates: {
-      canonical:
-        locale !== envConfigs.locale
-          ? `${envConfigs.app_url}/${locale}/blog/category/${slug}`
-          : `${envConfigs.app_url}/blog/category/${slug}`,
+      canonical: canonicalUrl,
+      languages,
     },
   };
 }
