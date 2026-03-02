@@ -44,12 +44,31 @@ export async function generateMetadata({
     };
   }
 
+  const imageUrl = post.image
+    ? `${envConfigs.app_url}${post.image}`
+    : `${envConfigs.app_url}${envConfigs.app_preview_image}`;
+
   return {
-    title: `${post.title} | ${t('title')}`,
+    title: post.title,
     description: post.description,
     alternates: {
       canonical: canonicalUrl,
       languages,
+    },
+    openGraph: {
+      type: 'article',
+      locale,
+      url: canonicalUrl,
+      title: post.title,
+      description: post.description,
+      siteName: envConfigs.app_name || '',
+      images: [imageUrl],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [imageUrl],
     },
   };
 }
