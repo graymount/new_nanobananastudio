@@ -30,7 +30,7 @@ export function Features({
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              Features
+              {section.label || 'Features'}
             </div>
 
             <h2 className="text-foreground mb-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
@@ -44,7 +44,10 @@ export function Features({
 
         <div className="relative">
           {/* Feature cards grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className={cn(
+            'grid gap-6 sm:grid-cols-2',
+            (section as any).columns === 2 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'
+          )}>
             {section.items?.map((item, idx) => (
               <ScrollAnimation key={idx} delay={0.1 * idx}>
                 <div
@@ -85,6 +88,17 @@ export function Features({
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {item.description}
                     </p>
+                    {/* Optional tags list */}
+                    {item.tags && Array.isArray(item.tags) && item.tags.length > 0 && (
+                      <ul className="mt-3 space-y-1.5 pt-2 border-t border-border/30">
+                        {(item.tags as string[]).map((tag: string, tagIdx: number) => (
+                          <li key={tagIdx} className="text-muted-foreground text-xs flex items-center gap-1.5">
+                            <span className="w-1 h-1 rounded-full bg-primary/60 flex-shrink-0" />
+                            {tag}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
 
                   {/* Corner accent */}

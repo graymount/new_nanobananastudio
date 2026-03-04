@@ -18,6 +18,8 @@ export * from './showcases-preview';
 export * from './mycase-gallery';
 export * from './prompt-inspirations';
 export * from './use-cases';
+export * from './content-section';
+export * from './capability-showcase';
 
 export * from './logos';
 export * from './stats';

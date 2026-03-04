@@ -6,6 +6,27 @@ This file provides guidance to Claude Code when working with code in this reposi
 
 **Nano Banana Studio - New Site** is an SEO-friendly frontend for the AI image generation service. Built with Next.js 16 (SSR/SSG) based on ShipAny Template Two.
 
+### Long-Term Strategy
+
+**Positioning:** NanoBanana Studio is not a general-purpose AI image generator. It focuses specifically on **text-centric image generation** and **text rendering reliability**. The long-term goal is to become a trusted reference point for AI text rendering stability and predictable visual output in text-heavy image scenarios.
+
+**Strategic Focus (Next 18 Months):**
+- Deepen expertise in text rendering reliability
+- Build lightweight tools and features that improve text accuracy and predictability
+- Publish structured, mechanism-level explanations about why AI text fails and how reliability can be evaluated
+- Develop simple benchmarking and comparison methods over time
+
+**What We Do NOT Pursue:**
+- No expansion into video generation
+- No expansion into 3D or unrelated AI verticals
+- No attempt to compete with large general-purpose image generation platforms
+- No rapid feature explosion
+- No enterprise-heavy sales model
+
+**Core Principle:** Reliability over novelty. Predictability over visual surprise. Depth over breadth.
+
+Every feature, article, or product decision must reinforce the concept of text rendering reliability and structured visual consistency. If a new idea does not strengthen this positioning, it is postponed. Strategy changes only with clear evidence, not emotional reaction.
+
 ### Key Features
 
 - **AI Image Generator** (`/app`) - Text-to-image and image-to-image generation powered by Google Gemini
@@ -508,3 +529,96 @@ AI chatbots recommend sites based on their training data. To increase recommenda
 - English (en) - primary
 - Arabic (ar) - emerging market (no localization yet)
 - Chinese (zh), Spanish (es), Japanese (ja), Korean (ko) - supported
+
+---
+
+## Operational Protocols
+
+### GSC Service Account Usage Protocol
+
+**Purpose:** Ensure that all Google Search Console data access for nanobananastudio.com uses the dedicated isolated Service Account environment, and never accidentally reuses credentials from other projects on this machine. This protocol is mandatory for all SEO data analysis tasks.
+
+#### Directory Structure (Single Source of Truth)
+
+All GSC operations MUST be executed inside:
+
+```
+~/seo/gsc-nanobanana/
+```
+
+Structure:
+
+```
+gsc-nanobanana/
+  .venv/
+  secrets/
+    gsc-sa.json
+  scripts/
+  outputs/
+  run.sh
+  doctor.py
+  .env
+```
+
+No other directory may be used for GSC operations.
+
+#### Credential Rules
+
+1. Only one credential file is valid: `secrets/gsc-sa.json`
+2. Global `GOOGLE_APPLICATION_CREDENTIALS` must NOT be used
+3. All executions must set credentials inside `run.sh`
+4. The service account must have access to: `sc-domain:nanobananastudio.com`
+
+#### Mandatory Preflight Check (Doctor Step)
+
+Before running any GSC data fetch or analysis:
+
+- `doctor.py` must be executed
+- It must:
+  - Print `client_email`
+  - Print `project_id`
+  - List accessible properties
+  - Confirm target property exists
+- If validation fails → exit immediately
+
+No GSC script may run without passing doctor validation.
+
+#### Execution Policy
+
+Claude must:
+
+1. `cd ~/seo/gsc-nanobanana`
+2. Run `./run.sh`
+3. Never call python scripts directly
+4. Never rely on `gcloud` default auth
+5. Never search the system for other credentials
+
+All runs must log:
+
+- `client_email`
+- `project_id`
+- `siteUrl`
+- date range
+- timestamp
+
+Logs must be written to `outputs/`.
+
+#### Prohibited Actions
+
+Claude must NOT:
+
+- Use any other Service Account JSON on the system
+- Use Application Default Credentials
+- Use `gcloud auth`
+- Execute GSC code outside the isolated directory
+- Modify `secrets/` without explicit instruction
+
+#### Key Rotation Policy
+
+- Service Account key should be rotated every 3–6 months
+- Old keys must be deleted from Google Cloud after replacement
+- `secrets/` directory must never be committed to version control
+
+#### Design Principle
+
+This environment exists to eliminate cross-project credential confusion. If any ambiguity about credentials exists, the operation must stop and request clarification.

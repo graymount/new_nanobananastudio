@@ -7,9 +7,12 @@
   "page": {
     "show_sections": [
       "hero",
-      "features",
-      "use_cases",
-      "pricing_preview",
+      "problem",
+      "capability_showcase",
+      "capabilities",
+      "image_editing",
+      "technology",
+      "workflow",
       "faq",
       "cta"
     ],
@@ -17,201 +20,240 @@
       "hero": {
         "block": "hero-generator",
         "id": "hero",
-        "title": "Nano Banana Studio - 几秒创作 AI 图像",
-        "highlight_text": "几秒",
-        "description": "无需设计技能。描述你的想法，选择风格，看创意变成现实。",
+        "title": "创作 AI 图像，文字真正清晰可读",
+        "highlight_text": "真正清晰可读",
+        "description": "大多数 AI 图像生成器在处理文字时表现不佳。Nano Banana Studio 专注于生成文字清晰、可读的图像 — 适用于海报、Logo、社交媒体视觉和产品图。基于先进的 Gemini 模型。",
         "tip": "5 次免费生成 • 无需信用卡"
       },
-      "features": {
-        "id": "features",
-        "title": "创作者为什么选择我们",
-        "description": "创作 AI 图像所需的一切，简单高效。",
+      "problem": {
+        "block": "content-section",
+        "id": "problem",
+        "badge": "核心问题",
+        "title": "为什么 AI 图像生成器在文字渲染上表现不佳",
+        "description": "在图像中生成可读的文字其实非常困难。大多数扩散模型将字母当作随机形状处理，常常导致：",
         "items": [
           {
-            "title": "Prompt 灵感库",
-            "description": "无需学习 prompt 工程。点击灵感卡片，立即开始创作。",
-            "icon": "RiLightbulbLine"
+            "title": "字符变形",
+            "description": "字母被替换、镜像或变成相似但错误的字符。"
           },
           {
-            "title": "风格预设",
-            "description": "一键切换风格：赛博朋克、宫崎骏、写实等。无需复杂提示词。",
-            "icon": "RiPaletteLine"
+            "title": "文字模糊不清",
+            "description": "文字渲染成模糊、混乱的形状，而不是清晰可读的字母。"
           },
           {
-            "title": "个人图库",
-            "description": "作品自动保存。告别在聊天记录里翻找的烦恼。",
-            "icon": "RiGalleryLine"
+            "title": "间距不一致",
+            "description": "字符拥挤、重叠或不可预测地分散。"
           },
           {
-            "title": "图生图",
-            "description": "上传参考图，描述想要的变化。流畅的工作流，不用在菜单里找功能。",
-            "icon": "RiImageEditLine"
+            "title": "拼写错误",
+            "description": "同一个提示词每次生成都会产生不同的拼写错误。"
+          }
+        ],
+        "tip": "Nano Banana Studio 专注于解决这个问题。"
+      },
+      "capability_showcase": {
+        "block": "capability-showcase",
+        "id": "showcase",
+        "title": "真实文字渲染效果展示",
+        "description": "以下图像由 Nano Banana Studio 生成。看看文字在不同场景中的渲染效果。",
+        "items": [
+          {
+            "title": "霓虹海报",
+            "prompt": "带有霓虹文字 'Tokyo 2077' 的未来主义海报",
+            "image": "/imgs/showcases/cyberpunk-city.png",
+            "observations": [
+              "文字保持可读",
+              "字符间距一致",
+              "海报布局连贯"
+            ]
           },
           {
-            "title": "前后对比",
-            "description": "内置滑块对比工具。一眼看清编辑效果。",
-            "icon": "RiSplitCellsHorizontal"
+            "title": "品牌 Logo",
+            "prompt": "带有 'Aurora Coffee' 字样的极简 Logo",
+            "image": "/imgs/showcases/cute-cat.png",
+            "observations": [
+              "字体结构完整",
+              "Logo 构图干净",
+              "适合品牌使用"
+            ]
           },
           {
-            "title": "多语言支持",
-            "description": "完整中英双语界面，用母语写 prompt 创作。",
-            "icon": "RiTranslate2"
+            "title": "产品广告",
+            "prompt": "标题为 'Timeless Precision' 的奢侈手表产品广告",
+            "image": "/imgs/showcases/fantasy-landscape.png",
+            "observations": [
+              "文字与产品图自然融合",
+              "专业营销美感"
+            ]
           }
         ]
       },
-      "usage": {
-        "block": "features-step",
-        "id": "usage",
-        "title": "使用方法",
-        "description": "三个简单步骤创建精彩 AI 图像：",
-        "image_position": "left",
-        "text_align": "center",
+      "capabilities": {
+        "id": "capabilities",
+        "label": "核心能力",
+        "title": "你能创作什么",
+        "description": "专为文字准确性至关重要的使用场景设计。",
+        "columns": 2,
         "items": [
           {
-            "title": "1. 选择模式",
-            "description": "选择文字生成图像从零创作，或图像编辑来转换现有照片。"
+            "title": "Logo 与品牌图形",
+            "description": "生成带有清晰可读字体的 Logo 概念。",
+            "icon": "RiPaletteLine",
+            "tags": ["初创公司", "品牌实验", "产品包装"]
           },
           {
-            "title": "2. 描述你的想法",
-            "description": "用自然语言输入你想要的内容。选择赛博朋克、动漫或写实等风格。"
+            "title": "海报与营销视觉",
+            "description": "创建带有嵌入文字的推广视觉。",
+            "icon": "RiImageEditLine",
+            "tags": ["活动海报", "产品广告", "YouTube 缩略图"]
           },
           {
-            "title": "3. 生成并下载",
-            "description": "点击生成，几秒内获得 AI 创建的图像。下载后随处使用。"
+            "title": "社交媒体图形",
+            "description": "为社交媒体生成吸引眼球的视觉内容。",
+            "icon": "RiShareLine",
+            "tags": ["Instagram", "Twitter", "营销素材"]
+          },
+          {
+            "title": "艺术与插画",
+            "description": "跨风格创作原创艺术作品。",
+            "icon": "RiMagicLine",
+            "tags": ["动漫", "奇幻", "概念艺术", "写实"]
+          }
+        ]
+      },
+      "image_editing": {
+        "block": "content-section",
+        "id": "image-editing",
+        "badge": "图像编辑",
+        "title": "用简单提示词编辑现有图像",
+        "description": "上传图像，描述你想要的变化。",
+        "items": [
+          {
+            "title": "替换背景",
+            "description": "更换背景的同时保留前景元素和文字。"
+          },
+          {
+            "title": "更改艺术风格",
+            "description": "将艺术风格应用到图像，同时不破坏可读文字。"
+          },
+          {
+            "title": "增强光线",
+            "description": "用自然语言调整光线、对比度和色彩平衡。"
+          },
+          {
+            "title": "修改对象",
+            "description": "在图像中添加、删除或变换对象。"
+          }
+        ],
+        "tip": "无需复杂的编辑工具。"
+      },
+      "technology": {
+        "block": "content-section",
+        "id": "technology",
+        "badge": "技术",
+        "title": "基于先进的 Gemini 模型",
+        "description": "Nano Banana Studio 使用 Google 的 Gemini 图像生成技术。",
+        "items": [
+          {
+            "title": "更好的提示理解",
+            "description": "Gemini 模型将文字作为语义内容处理，而非简单的视觉模式。"
+          },
+          {
+            "title": "改进的文字渲染",
+            "description": "生成图像中文字的准确度显著提升。"
+          },
+          {
+            "title": "更强的视觉一致性",
+            "description": "整个图像的构图和风格保持一致。"
+          },
+          {
+            "title": "更快的生成速度",
+            "description": "几秒内出结果，无需排队等待。"
+          }
+        ],
+        "tip": "让创作者以最少的提示工程产出可用图像。"
+      },
+      "workflow": {
+        "block": "features-step",
+        "id": "workflow",
+        "label": "使用方法",
+        "title": "几秒创建图像",
+        "description": "无需设计技能。",
+        "items": [
+          {
+            "title": "描述你的想法",
+            "description": "用自然语言输入你想要的内容。包含需要渲染的任何文字。",
+            "icon": "MessageSquare"
+          },
+          {
+            "title": "选择风格",
+            "description": "从赛博朋克、动漫、写实、水彩等风格中选择，或使用自定义提示词。",
+            "icon": "Sparkles"
+          },
+          {
+            "title": "立即生成",
+            "description": "几秒内获得 AI 创建的图像。下载后随处使用。",
+            "icon": "Download"
           }
         ],
         "className": "bg-muted"
       },
-      "prompt_inspirations": {
-        "block": "prompt-inspirations",
-        "id": "inspirations",
-        "label": "灵感",
-        "title": "Prompt 灵感库",
-        "description": "一键获取灵感，立即开始创作。试试这些热门提示词，或创建你自己的。",
-        "buttons": [
-          {
-            "title": "查看更多灵感",
-            "url": "/app",
-            "variant": "outline"
-          }
-        ]
-      },
-      "use_cases": {
-        "block": "use-cases",
-        "id": "use-cases",
-        "title": "你能创作什么",
-        "description": "看看 Nano Banana Studio 如何帮助实现你的创意项目。"
-      },
-      "pricing_preview": {
-        "block": "pricing-preview",
-        "id": "pricing",
-        "title": "简单透明的定价",
-        "description": "免费开始，按需升级。",
-        "items": [
-          {
-            "title": "免费版",
-            "price": "$0",
-            "period": "/月",
-            "description": "适合体验试用",
-            "features": [
-              "每月 8 张图像",
-              "包含所有风格",
-              "标准质量"
-            ],
-            "button": {
-              "title": "开始使用",
-              "url": "/app",
-              "target": "_blank"
-            }
-          },
-          {
-            "title": "专业版",
-            "price": "$29.9",
-            "period": "/月",
-            "description": "适合常规创作者",
-            "features": [
-              "每月 300 张图像",
-              "包含所有风格",
-              "优先处理"
-            ],
-            "button": {
-              "title": "升级到专业版",
-              "url": "/app",
-              "target": "_blank"
-            },
-            "featured": true
-          },
-          {
-            "title": "旗舰版",
-            "price": "$69.9",
-            "period": "/月",
-            "description": "适合重度用户",
-            "features": [
-              "每月 1000 张图像",
-              "包含所有风格",
-              "优先处理"
-            ],
-            "button": {
-              "title": "升级到旗舰版",
-              "url": "/app",
-              "target": "_blank"
-            }
-          }
-        ],
-        "buttons": [
-          {
-            "title": "查看完整定价",
-            "url": "/pricing",
-            "variant": "outline"
-          }
-        ]
-      },
       "faq": {
         "id": "faq",
         "title": "常见问题",
-        "description": "还有其他问题？随时联系我们。",
+        "description": "关于 Nano Banana Studio 的常见问题。",
         "items": [
           {
             "question": "什么是 Nano Banana Studio？",
-            "answer": "Nano Banana Studio 是一个 AI 驱动的图像生成器和编辑器，使用自然语言。只需描述你想要的，我们的 AI 就会为你创建或转换图像。"
+            "answer": "Nano Banana Studio 是一个 AI 图像生成器，专为需要可读文字和干净视觉构图的创作者设计。"
           },
           {
-            "question": "你们使用什么 AI 模型？",
-            "answer": "我们使用先进的 AI 模型生成高质量图像。技术持续更新，确保最佳效果。"
+            "question": "使用什么 AI 模型？",
+            "answer": "系统使用先进的 Gemini 模型，针对自然语言图像生成和文字渲染准确性进行了优化。"
           },
           {
-            "question": "Nano Banana Studio 有什么特别之处？",
-            "answer": "我们专为图像创作设计。Prompt 灵感库帮你快速上手，风格预设一键切换创意风格，个人图库自动保存所有作品。不用在聊天记录里翻找。"
+            "question": "需要学习提示词工程吗？",
+            "answer": "不需要。系统支持自然语言描述。只需用简单的语言描述你想要的内容即可。"
           },
           {
-            "question": "我需要设计技能吗？",
-            "answer": "完全不需要！只需用简单的语言描述你想要的。我们的 AI 理解自然语言，并将你的文字转换为令人惊艳的视觉效果。"
+            "question": "文字渲染有多准确？",
+            "answer": "对于短文字（1-5 个单词，如名称、标题和标识），准确度非常高。较长的文字有时可能需要重新生成。"
           },
           {
-            "question": "有哪些风格可用？",
-            "answer": "我们提供多种艺术风格，包括赛博朋克、宫崎骏/动漫、写实等。你也可以使用自定义提示词来创建独特风格。"
+            "question": "图像中的文字支持哪些语言？",
+            "answer": "Gemini 模型支持英语、中文、日语、韩语、西班牙语等多种语言的文字渲染。"
           },
           {
             "question": "免费版如何运作？",
-            "answer": "新用户可免费生成 5 张图片。用完后可升级付费套餐，解锁无限创作。"
+            "answer": "新用户可免费生成 5 张图片，无需信用卡。之后可选择付费套餐，月费 $9.90 起。"
           },
           {
-            "question": "我可以将图像用于商业用途吗？",
-            "answer": "可以，你用 Nano Banana Studio 创建的图像归你所有，可用于个人或商业项目。"
+            "question": "可以将图像用于商业用途吗？",
+            "answer": "可以。图像可用于营销材料、社交媒体和创意项目。"
           }
         ]
       },
       "cta": {
         "id": "cta",
-        "title": "准备好创建精彩图像了吗？",
-        "description": "免费开始生成 AI 图像。无需信用卡。",
+        "title": "准备好创建文字清晰的图像了吗？",
+        "description": "立即开始生成 AI 图像。无需信用卡。",
         "buttons": [
           {
             "title": "立即开始创作",
             "url": "/app",
             "target": "_blank",
             "icon": "Zap"
+          },
+          {
+            "title": "查看价格",
+            "url": "/pricing",
+            "variant": "outline"
           }
+        ],
+        "trust_indicators": [
+          "无需信用卡",
+          "5 次免费生成",
+          "文字渲染优化"
         ],
         "className": "bg-muted"
       }

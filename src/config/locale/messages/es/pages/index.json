@@ -7,9 +7,12 @@
   "page": {
     "show_sections": [
       "hero",
-      "features",
-      "use_cases",
-      "pricing_preview",
+      "problem",
+      "capability_showcase",
+      "capabilities",
+      "image_editing",
+      "technology",
+      "workflow",
       "faq",
       "cta"
     ],
@@ -17,201 +20,240 @@
       "hero": {
         "block": "hero-generator",
         "id": "hero",
-        "title": "Nano Banana Studio - Crea Imágenes IA en Segundos",
-        "highlight_text": "en Segundos",
-        "description": "Sin habilidades de diseño. Solo describe lo que quieres, elige un estilo y mira tus ideas cobrar vida.",
-        "tip": "5 generaciones gratis para empezar • Sin tarjeta de crédito"
+        "title": "Create AI Images With Text That Actually Renders Correctly",
+        "highlight_text": "Actually Renders Correctly",
+        "description": "Most AI image generators struggle with typography. Nano Banana Studio focuses on generating images with clear, readable text — perfect for posters, logos, social media visuals, and product graphics. Powered by advanced Gemini models.",
+        "tip": "5 free generations to start • No credit card required"
       },
-      "features": {
-        "id": "features",
-        "title": "Por Qué los Creadores Nos Eligen",
-        "description": "Todo lo que necesitas para crear imágenes IA increíbles, nada más.",
+      "problem": {
+        "block": "content-section",
+        "id": "problem",
+        "badge": "The Problem",
+        "title": "Why AI Image Generators Struggle With Text",
+        "description": "Generating readable text inside images is surprisingly difficult. Most diffusion models treat letters like random shapes, which often leads to:",
         "items": [
           {
-            "title": "Inspiración de Prompts",
-            "description": "No necesitas aprender ingeniería de prompts. Haz clic en cualquier tarjeta de inspiración y comienza a crear.",
-            "icon": "RiLightbulbLine"
+            "title": "Broken characters",
+            "description": "Letters get swapped, mirrored, or replaced with similar-looking but incorrect characters."
           },
           {
-            "title": "Estilos Preestablecidos",
-            "description": "Estilos con un clic: cyberpunk, Miyazaki, realista y más. Sin prompts complejos.",
-            "icon": "RiPaletteLine"
+            "title": "Unreadable typography",
+            "description": "Text renders as blurry, garbled shapes instead of clean, legible letters."
           },
           {
-            "title": "Galería Personal",
-            "description": "Todas tus creaciones guardadas automáticamente. No más buscar en el historial de chat.",
-            "icon": "RiGalleryLine"
+            "title": "Inconsistent spacing",
+            "description": "Characters crowd together, overlap, or spread apart unpredictably."
           },
           {
-            "title": "Imagen a Imagen",
-            "description": "Sube una imagen de referencia y describe los cambios. Flujo de trabajo simplificado.",
-            "icon": "RiImageEditLine"
+            "title": "Misspelled words",
+            "description": "The same prompt produces different spelling errors every time you generate."
+          }
+        ],
+        "tip": "Nano Banana Studio focuses on solving this problem."
+      },
+      "capability_showcase": {
+        "block": "capability-showcase",
+        "id": "showcase",
+        "title": "Real Text Rendering Examples",
+        "description": "These images were generated in Nano Banana Studio. See how text renders in different contexts.",
+        "items": [
+          {
+            "title": "Neon Poster",
+            "prompt": "Futuristic poster with neon text 'Tokyo 2077'",
+            "image": "/imgs/showcases/cyberpunk-city.png",
+            "observations": [
+              "Letters remain readable",
+              "Character spacing preserved",
+              "Poster layout coherent"
+            ]
           },
           {
-            "title": "Comparación Antes/Después",
-            "description": "Herramienta de deslizador integrada para comparar ediciones. Ve tu transformación de un vistazo.",
-            "icon": "RiSplitCellsHorizontal"
+            "title": "Brand Logo",
+            "prompt": "Minimalist logo with the word 'Aurora Coffee'",
+            "image": "/imgs/showcases/cute-cat.png",
+            "observations": [
+              "Typography structure maintained",
+              "Logo composition clean",
+              "Suitable for branding use"
+            ]
           },
           {
-            "title": "Soporte Multilingüe",
-            "description": "Interfaz completa en varios idiomas. Crea con prompts en tu idioma nativo.",
-            "icon": "RiTranslate2"
+            "title": "Product Ad",
+            "prompt": "Product ad for luxury watch with headline 'Timeless Precision'",
+            "image": "/imgs/showcases/fantasy-landscape.png",
+            "observations": [
+              "Text integrates naturally with product shot",
+              "Professional marketing aesthetic"
+            ]
           }
         ]
       },
-      "usage": {
-        "block": "features-step",
-        "id": "usage",
-        "title": "Cómo Funciona",
-        "description": "Crea imágenes IA increíbles en tres simples pasos:",
-        "image_position": "left",
-        "text_align": "center",
+      "capabilities": {
+        "id": "capabilities",
+        "label": "Capabilities",
+        "title": "What You Can Create",
+        "description": "Designed for use cases where text accuracy matters most.",
+        "columns": 2,
         "items": [
           {
-            "title": "1. Elige Tu Modo",
-            "description": "Selecciona texto a imagen para crear desde cero, o edición de imagen para transformar una foto existente."
+            "title": "Logos & Brand Graphics",
+            "description": "Generate clean logo concepts with readable typography.",
+            "icon": "RiPaletteLine",
+            "tags": ["Startups", "Branding experiments", "Product packaging"]
           },
           {
-            "title": "2. Describe Tu Visión",
-            "description": "Escribe lo que quieres en lenguaje natural. Elige un estilo como cyberpunk, anime o realista."
+            "title": "Posters & Marketing Visuals",
+            "description": "Create promotional visuals with embedded text.",
+            "icon": "RiImageEditLine",
+            "tags": ["Event posters", "Product ads", "YouTube thumbnails"]
           },
           {
-            "title": "3. Genera y Descarga",
-            "description": "Haz clic en generar y obtén tu imagen creada por IA en segundos. Descarga y usa donde quieras."
+            "title": "Social Media Graphics",
+            "description": "Generate scroll-stopping visuals for social media.",
+            "icon": "RiShareLine",
+            "tags": ["Instagram", "Twitter", "Marketing creatives"]
+          },
+          {
+            "title": "Art & Illustration",
+            "description": "Create original artworks across styles.",
+            "icon": "RiMagicLine",
+            "tags": ["Anime", "Fantasy", "Concept art", "Photorealistic"]
+          }
+        ]
+      },
+      "image_editing": {
+        "block": "content-section",
+        "id": "image-editing",
+        "badge": "Image Editing",
+        "title": "Transform Existing Images With Simple Prompts",
+        "description": "Upload an image and describe what you want to change.",
+        "items": [
+          {
+            "title": "Replace background",
+            "description": "Swap backgrounds while preserving foreground elements and any text."
+          },
+          {
+            "title": "Change art style",
+            "description": "Apply artistic styles to images without distorting readable text."
+          },
+          {
+            "title": "Enhance lighting",
+            "description": "Adjust lighting, contrast, and color balance with natural language."
+          },
+          {
+            "title": "Modify objects",
+            "description": "Add, remove, or transform objects in your images."
+          }
+        ],
+        "tip": "All without complex editing tools."
+      },
+      "technology": {
+        "block": "content-section",
+        "id": "technology",
+        "badge": "Technology",
+        "title": "Powered by Advanced Gemini Models",
+        "description": "Nano Banana Studio uses Google's Gemini-based image generation technology.",
+        "items": [
+          {
+            "title": "Better prompt understanding",
+            "description": "Gemini models process text as semantic content, not just visual patterns."
+          },
+          {
+            "title": "Improved text rendering",
+            "description": "Significantly higher accuracy for text in generated images."
+          },
+          {
+            "title": "Stronger visual coherence",
+            "description": "Consistent composition and style across the entire image."
+          },
+          {
+            "title": "Faster generation speed",
+            "description": "Results in seconds, no waiting in queues."
+          }
+        ],
+        "tip": "This allows creators to produce usable images with minimal prompt engineering."
+      },
+      "workflow": {
+        "block": "features-step",
+        "id": "workflow",
+        "label": "How It Works",
+        "title": "Create Images in Seconds",
+        "description": "No design skills required.",
+        "items": [
+          {
+            "title": "Describe Your Idea",
+            "description": "Type what you want in natural language. Include any text you need rendered.",
+            "icon": "MessageSquare"
+          },
+          {
+            "title": "Choose a Style",
+            "description": "Pick from cyberpunk, anime, realistic, watercolor, and more. Or use your own prompt.",
+            "icon": "Sparkles"
+          },
+          {
+            "title": "Generate Instantly",
+            "description": "Get your AI-created image in seconds. Download and use anywhere.",
+            "icon": "Download"
           }
         ],
         "className": "bg-muted"
       },
-      "prompt_inspirations": {
-        "block": "prompt-inspirations",
-        "id": "inspirations",
-        "label": "Inspiración",
-        "title": "Inspiración de Prompts",
-        "description": "Inspírate y comienza a crear con un clic. Prueba estos prompts populares o crea los tuyos.",
-        "buttons": [
-          {
-            "title": "Ver Más Inspiración",
-            "url": "/app",
-            "variant": "outline"
-          }
-        ]
-      },
-      "use_cases": {
-        "block": "use-cases",
-        "id": "use-cases",
-        "title": "Qué Puedes Crear",
-        "description": "Descubre cómo Nano Banana Studio puede dar vida a tus proyectos creativos."
-      },
-      "pricing_preview": {
-        "block": "pricing-preview",
-        "id": "pricing",
-        "title": "Precios Simples y Transparentes",
-        "description": "Comienza gratis, actualiza cuando necesites más.",
-        "items": [
-          {
-            "title": "Gratis",
-            "price": "$0",
-            "period": "/mes",
-            "description": "Perfecto para probar",
-            "features": [
-              "8 imágenes al mes",
-              "Todos los estilos incluidos",
-              "Calidad estándar"
-            ],
-            "button": {
-              "title": "Comenzar",
-              "url": "/app",
-              "target": "_blank"
-            }
-          },
-          {
-            "title": "Pro",
-            "price": "$29.9",
-            "period": "/mes",
-            "description": "Para creadores regulares",
-            "features": [
-              "300 imágenes al mes",
-              "Todos los estilos incluidos",
-              "Procesamiento prioritario"
-            ],
-            "button": {
-              "title": "Actualizar a Pro",
-              "url": "/app",
-              "target": "_blank"
-            },
-            "featured": true
-          },
-          {
-            "title": "Max",
-            "price": "$69.9",
-            "period": "/mes",
-            "description": "Para usuarios avanzados",
-            "features": [
-              "1000 imágenes al mes",
-              "Todos los estilos incluidos",
-              "Procesamiento prioritario"
-            ],
-            "button": {
-              "title": "Actualizar a Max",
-              "url": "/app",
-              "target": "_blank"
-            }
-          }
-        ],
-        "buttons": [
-          {
-            "title": "Ver Precios Completos",
-            "url": "/pricing",
-            "variant": "outline"
-          }
-        ]
-      },
       "faq": {
         "id": "faq",
-        "title": "Preguntas Frecuentes",
-        "description": "¿Tienes más preguntas? Contáctanos en cualquier momento.",
+        "title": "Frequently Asked Questions",
+        "description": "Common questions about Nano Banana Studio.",
         "items": [
           {
-            "question": "¿Qué es Nano Banana Studio?",
-            "answer": "Nano Banana Studio es un generador y editor de imágenes impulsado por IA que usa lenguaje natural. Simplemente describe lo que quieres y nuestra IA crea o transforma imágenes para ti."
+            "question": "What is Nano Banana Studio?",
+            "answer": "Nano Banana Studio is an AI image generator designed for creators who need images with readable text and clean visual composition."
           },
           {
-            "question": "¿Qué modelo de IA usan?",
-            "answer": "Usamos modelos de IA de última generación para generar imágenes de alta calidad. Nuestra tecnología se actualiza constantemente para ofrecer los mejores resultados."
+            "question": "What AI model powers the generator?",
+            "answer": "The system uses advanced Gemini-based models optimized for natural language image generation and text rendering accuracy."
           },
           {
-            "question": "¿Qué hace diferente a Nano Banana Studio?",
-            "answer": "Estamos diseñados específicamente para la creación de imágenes. Las inspiraciones de prompts te ayudan a comenzar, los estilos preestablecidos te dan opciones creativas con un clic, y tu galería personal guarda todo automáticamente."
+            "question": "Do I need prompt engineering skills?",
+            "answer": "No. The system is designed to work with natural language descriptions. Just describe what you want in plain English."
           },
           {
-            "question": "¿Necesito habilidades de diseño?",
-            "answer": "¡Para nada! Solo describe lo que quieres en español simple. Nuestra IA entiende el lenguaje natural y convierte tus palabras en visuales impresionantes."
+            "question": "How accurate is the text rendering?",
+            "answer": "For short text (1-5 words like names, titles, and signs), accuracy is very high. Longer text blocks may occasionally require regeneration."
           },
           {
-            "question": "¿Qué estilos están disponibles?",
-            "answer": "Ofrecemos múltiples estilos artísticos incluyendo cyberpunk, Miyazaki/anime, realista y más. También puedes usar prompts personalizados para estilos únicos."
+            "question": "What languages are supported for text in images?",
+            "answer": "The Gemini models support text rendering in English, Chinese, Japanese, Korean, Spanish, and many other languages."
           },
           {
-            "question": "¿Cómo funciona el plan gratuito?",
-            "answer": "Los nuevos usuarios obtienen 5 generaciones gratuitas. Después, puedes actualizar a un plan de pago para creatividad ilimitada."
+            "question": "How does the free tier work?",
+            "answer": "New users get 5 free image generations. No credit card required. After that, affordable plans start at $9.90/month."
           },
           {
-            "question": "¿Puedo usar las imágenes comercialmente?",
-            "answer": "Sí, las imágenes que creas con Nano Banana Studio son tuyas para usar en proyectos personales o comerciales."
+            "question": "Can I use generated images commercially?",
+            "answer": "Yes. Images can be used in marketing materials, social media, and creative projects."
           }
         ]
       },
       "cta": {
         "id": "cta",
-        "title": "¿Listo para Crear Imágenes Increíbles?",
-        "description": "Comienza a generar imágenes IA gratis. Sin tarjeta de crédito.",
+        "title": "Ready to Create Images With Real Text?",
+        "description": "Start generating AI images instantly. No credit card required.",
         "buttons": [
           {
-            "title": "Comenzar a Crear",
+            "title": "Start Creating Now",
             "url": "/app",
             "target": "_blank",
             "icon": "Zap"
+          },
+          {
+            "title": "See Pricing",
+            "url": "/pricing",
+            "variant": "outline"
           }
+        ],
+        "trust_indicators": [
+          "No credit card required",
+          "5 free generations to start",
+          "Text rendering optimized"
         ],
         "className": "bg-muted"
       }

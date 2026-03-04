@@ -26,12 +26,12 @@ const GUEST_LIMIT = 8;
 const GUEST_STORAGE_KEY = 'nano_banana_guest_generations';
 const MAX_PROMPT_LENGTH = 1000;
 
-// Example prompts for quick start
+// Example prompts for quick start - focused on text rendering capability
 const EXAMPLE_PROMPTS = [
-  { label: '🌃 Cyberpunk City', prompt: 'A futuristic cyberpunk city at night with neon lights and flying cars' },
-  { label: '🐱 Cute Cat', prompt: 'A cute orange cat wearing sunglasses relaxing on a beach' },
-  { label: '🎨 Abstract Art', prompt: 'Abstract colorful fluid art with vibrant gradients and flowing shapes' },
-  { label: '🏔️ Fantasy Landscape', prompt: 'A magical fantasy landscape with floating islands and waterfalls' },
+  { label: '🌃 Neon Poster', prompt: 'Cyberpunk poster with neon text "Tokyo Nights"' },
+  { label: '☕ Brand Logo', prompt: 'Minimalist coffee brand logo with bold typography' },
+  { label: '🐱 Illustration', prompt: 'Cute orange cat illustration for children\'s book' },
+  { label: '💎 Product Photo', prompt: 'Luxury perfume product photo with elegant text' },
 ];
 
 function getGuestGenerations(): number {

@@ -1,0 +1,6 @@
+output/
+*.json
+!package.json
+.env
+.venv/
+__pycache__/

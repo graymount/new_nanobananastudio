@@ -7,9 +7,12 @@
   "page": {
     "show_sections": [
       "hero",
-      "features",
-      "use_cases",
-      "pricing_preview",
+      "problem",
+      "capability_showcase",
+      "capabilities",
+      "image_editing",
+      "technology",
+      "workflow",
       "faq",
       "cta"
     ],
@@ -17,201 +20,240 @@
       "hero": {
         "block": "hero-generator",
         "id": "hero",
-        "title": "Nano Banana Studio - 몇 초 만에 AI 이미지 생성",
-        "highlight_text": "몇 초 만에",
-        "description": "디자인 기술이 필요 없습니다. 원하는 것을 설명하고, 스타일을 선택하면 아이디어가 현실이 됩니다.",
-        "tip": "5회 무료 생성 • 신용카드 필요 없음"
+        "title": "Create AI Images With Text That Actually Renders Correctly",
+        "highlight_text": "Actually Renders Correctly",
+        "description": "Most AI image generators struggle with typography. Nano Banana Studio focuses on generating images with clear, readable text — perfect for posters, logos, social media visuals, and product graphics. Powered by advanced Gemini models.",
+        "tip": "5 free generations to start • No credit card required"
       },
-      "features": {
-        "id": "features",
-        "title": "크리에이터들이 선택하는 이유",
-        "description": "놀라운 AI 이미지를 만드는 데 필요한 모든 것.",
+      "problem": {
+        "block": "content-section",
+        "id": "problem",
+        "badge": "The Problem",
+        "title": "Why AI Image Generators Struggle With Text",
+        "description": "Generating readable text inside images is surprisingly difficult. Most diffusion models treat letters like random shapes, which often leads to:",
         "items": [
           {
-            "title": "프롬프트 영감",
-            "description": "프롬프트 엔지니어링을 배울 필요 없음. 영감 카드를 클릭하면 바로 시작할 수 있습니다.",
-            "icon": "RiLightbulbLine"
+            "title": "Broken characters",
+            "description": "Letters get swapped, mirrored, or replaced with similar-looking but incorrect characters."
           },
           {
-            "title": "스타일 프리셋",
-            "description": "원클릭 스타일: 사이버펑크, 미야자키, 리얼리스틱 등. 복잡한 프롬프트 필요 없음.",
-            "icon": "RiPaletteLine"
+            "title": "Unreadable typography",
+            "description": "Text renders as blurry, garbled shapes instead of clean, legible letters."
           },
           {
-            "title": "개인 갤러리",
-            "description": "모든 작품이 자동 저장됩니다. 채팅 기록을 뒤질 필요가 없습니다.",
-            "icon": "RiGalleryLine"
+            "title": "Inconsistent spacing",
+            "description": "Characters crowd together, overlap, or spread apart unpredictably."
           },
           {
-            "title": "이미지 투 이미지",
-            "description": "참조 이미지를 업로드하고 변경 사항을 설명하세요. 간소화된 워크플로우.",
-            "icon": "RiImageEditLine"
+            "title": "Misspelled words",
+            "description": "The same prompt produces different spelling errors every time you generate."
+          }
+        ],
+        "tip": "Nano Banana Studio focuses on solving this problem."
+      },
+      "capability_showcase": {
+        "block": "capability-showcase",
+        "id": "showcase",
+        "title": "Real Text Rendering Examples",
+        "description": "These images were generated in Nano Banana Studio. See how text renders in different contexts.",
+        "items": [
+          {
+            "title": "Neon Poster",
+            "prompt": "Futuristic poster with neon text 'Tokyo 2077'",
+            "image": "/imgs/showcases/cyberpunk-city.png",
+            "observations": [
+              "Letters remain readable",
+              "Character spacing preserved",
+              "Poster layout coherent"
+            ]
           },
           {
-            "title": "전후 비교",
-            "description": "내장된 슬라이더 도구로 편집을 비교하세요. 변화를 한눈에 확인.",
-            "icon": "RiSplitCellsHorizontal"
+            "title": "Brand Logo",
+            "prompt": "Minimalist logo with the word 'Aurora Coffee'",
+            "image": "/imgs/showcases/cute-cat.png",
+            "observations": [
+              "Typography structure maintained",
+              "Logo composition clean",
+              "Suitable for branding use"
+            ]
           },
           {
-            "title": "다국어 지원",
-            "description": "완전한 다국어 인터페이스. 모국어로 프롬프트를 작성하세요.",
-            "icon": "RiTranslate2"
+            "title": "Product Ad",
+            "prompt": "Product ad for luxury watch with headline 'Timeless Precision'",
+            "image": "/imgs/showcases/fantasy-landscape.png",
+            "observations": [
+              "Text integrates naturally with product shot",
+              "Professional marketing aesthetic"
+            ]
           }
         ]
       },
-      "usage": {
-        "block": "features-step",
-        "id": "usage",
-        "title": "사용 방법",
-        "description": "세 가지 간단한 단계로 놀라운 AI 이미지를 만드세요:",
-        "image_position": "left",
-        "text_align": "center",
+      "capabilities": {
+        "id": "capabilities",
+        "label": "Capabilities",
+        "title": "What You Can Create",
+        "description": "Designed for use cases where text accuracy matters most.",
+        "columns": 2,
         "items": [
           {
-            "title": "1. 모드 선택",
-            "description": "처음부터 만들려면 텍스트-이미지를, 기존 사진을 변환하려면 이미지 편집을 선택하세요."
+            "title": "Logos & Brand Graphics",
+            "description": "Generate clean logo concepts with readable typography.",
+            "icon": "RiPaletteLine",
+            "tags": ["Startups", "Branding experiments", "Product packaging"]
           },
           {
-            "title": "2. 비전 설명",
-            "description": "자연어로 원하는 것을 입력하세요. 사이버펑크, 애니메이션, 리얼리스틱 같은 스타일을 선택하세요."
+            "title": "Posters & Marketing Visuals",
+            "description": "Create promotional visuals with embedded text.",
+            "icon": "RiImageEditLine",
+            "tags": ["Event posters", "Product ads", "YouTube thumbnails"]
           },
           {
-            "title": "3. 생성 및 다운로드",
-            "description": "생성을 클릭하면 몇 초 안에 AI가 만든 이미지를 얻습니다. 다운로드하여 어디서든 사용하세요."
+            "title": "Social Media Graphics",
+            "description": "Generate scroll-stopping visuals for social media.",
+            "icon": "RiShareLine",
+            "tags": ["Instagram", "Twitter", "Marketing creatives"]
+          },
+          {
+            "title": "Art & Illustration",
+            "description": "Create original artworks across styles.",
+            "icon": "RiMagicLine",
+            "tags": ["Anime", "Fantasy", "Concept art", "Photorealistic"]
+          }
+        ]
+      },
+      "image_editing": {
+        "block": "content-section",
+        "id": "image-editing",
+        "badge": "Image Editing",
+        "title": "Transform Existing Images With Simple Prompts",
+        "description": "Upload an image and describe what you want to change.",
+        "items": [
+          {
+            "title": "Replace background",
+            "description": "Swap backgrounds while preserving foreground elements and any text."
+          },
+          {
+            "title": "Change art style",
+            "description": "Apply artistic styles to images without distorting readable text."
+          },
+          {
+            "title": "Enhance lighting",
+            "description": "Adjust lighting, contrast, and color balance with natural language."
+          },
+          {
+            "title": "Modify objects",
+            "description": "Add, remove, or transform objects in your images."
+          }
+        ],
+        "tip": "All without complex editing tools."
+      },
+      "technology": {
+        "block": "content-section",
+        "id": "technology",
+        "badge": "Technology",
+        "title": "Powered by Advanced Gemini Models",
+        "description": "Nano Banana Studio uses Google's Gemini-based image generation technology.",
+        "items": [
+          {
+            "title": "Better prompt understanding",
+            "description": "Gemini models process text as semantic content, not just visual patterns."
+          },
+          {
+            "title": "Improved text rendering",
+            "description": "Significantly higher accuracy for text in generated images."
+          },
+          {
+            "title": "Stronger visual coherence",
+            "description": "Consistent composition and style across the entire image."
+          },
+          {
+            "title": "Faster generation speed",
+            "description": "Results in seconds, no waiting in queues."
+          }
+        ],
+        "tip": "This allows creators to produce usable images with minimal prompt engineering."
+      },
+      "workflow": {
+        "block": "features-step",
+        "id": "workflow",
+        "label": "How It Works",
+        "title": "Create Images in Seconds",
+        "description": "No design skills required.",
+        "items": [
+          {
+            "title": "Describe Your Idea",
+            "description": "Type what you want in natural language. Include any text you need rendered.",
+            "icon": "MessageSquare"
+          },
+          {
+            "title": "Choose a Style",
+            "description": "Pick from cyberpunk, anime, realistic, watercolor, and more. Or use your own prompt.",
+            "icon": "Sparkles"
+          },
+          {
+            "title": "Generate Instantly",
+            "description": "Get your AI-created image in seconds. Download and use anywhere.",
+            "icon": "Download"
           }
         ],
         "className": "bg-muted"
       },
-      "prompt_inspirations": {
-        "block": "prompt-inspirations",
-        "id": "inspirations",
-        "label": "영감",
-        "title": "프롬프트 영감",
-        "description": "클릭 한 번으로 영감을 얻고 창작을 시작하세요. 인기 프롬프트를 시도하거나 직접 만드세요.",
-        "buttons": [
-          {
-            "title": "더 많은 영감 보기",
-            "url": "/app",
-            "variant": "outline"
-          }
-        ]
-      },
-      "use_cases": {
-        "block": "use-cases",
-        "id": "use-cases",
-        "title": "무엇을 만들 수 있나요",
-        "description": "Nano Banana Studio가 어떻게 창의적인 프로젝트를 실현하는지 확인하세요."
-      },
-      "pricing_preview": {
-        "block": "pricing-preview",
-        "id": "pricing",
-        "title": "간단하고 투명한 가격",
-        "description": "무료로 시작하고, 필요할 때 업그레이드하세요.",
-        "items": [
-          {
-            "title": "무료",
-            "price": "$0",
-            "period": "/월",
-            "description": "체험에 적합",
-            "features": [
-              "월 8장 이미지",
-              "모든 스타일 포함",
-              "표준 품질"
-            ],
-            "button": {
-              "title": "시작하기",
-              "url": "/app",
-              "target": "_blank"
-            }
-          },
-          {
-            "title": "Pro",
-            "price": "$29.9",
-            "period": "/월",
-            "description": "정기 크리에이터용",
-            "features": [
-              "월 300장 이미지",
-              "모든 스타일 포함",
-              "우선 처리"
-            ],
-            "button": {
-              "title": "Pro로 업그레이드",
-              "url": "/app",
-              "target": "_blank"
-            },
-            "featured": true
-          },
-          {
-            "title": "Max",
-            "price": "$69.9",
-            "period": "/월",
-            "description": "파워 유저용",
-            "features": [
-              "월 1000장 이미지",
-              "모든 스타일 포함",
-              "우선 처리"
-            ],
-            "button": {
-              "title": "Max로 업그레이드",
-              "url": "/app",
-              "target": "_blank"
-            }
-          }
-        ],
-        "buttons": [
-          {
-            "title": "전체 가격 보기",
-            "url": "/pricing",
-            "variant": "outline"
-          }
-        ]
-      },
       "faq": {
         "id": "faq",
-        "title": "자주 묻는 질문",
-        "description": "더 궁금한 점이 있으신가요? 언제든지 문의하세요.",
+        "title": "Frequently Asked Questions",
+        "description": "Common questions about Nano Banana Studio.",
         "items": [
           {
-            "question": "Nano Banana Studio란?",
-            "answer": "Nano Banana Studio는 자연어를 사용하는 AI 기반 이미지 생성기 및 편집기입니다. 원하는 것을 설명하기만 하면 AI가 이미지를 만들거나 변환합니다."
+            "question": "What is Nano Banana Studio?",
+            "answer": "Nano Banana Studio is an AI image generator designed for creators who need images with readable text and clean visual composition."
           },
           {
-            "question": "어떤 AI 모델을 사용하나요?",
-            "answer": "최첨단 AI 모델을 사용하여 고품질 이미지를 생성합니다. 최고의 결과를 제공하기 위해 기술은 지속적으로 업데이트됩니다."
+            "question": "What AI model powers the generator?",
+            "answer": "The system uses advanced Gemini-based models optimized for natural language image generation and text rendering accuracy."
           },
           {
-            "question": "Nano Banana Studio의 차별점은?",
-            "answer": "이미지 제작에 특화되어 설계되었습니다. 프롬프트 영감으로 쉽게 시작하고, 스타일 프리셋으로 원클릭 창작 옵션을 얻으며, 개인 갤러리가 모든 것을 자동 저장합니다."
+            "question": "Do I need prompt engineering skills?",
+            "answer": "No. The system is designed to work with natural language descriptions. Just describe what you want in plain English."
           },
           {
-            "question": "디자인 기술이 필요한가요?",
-            "answer": "전혀 필요 없습니다! 원하는 것을 한국어로 설명하기만 하면 됩니다. AI가 자연어를 이해하고 말을 멋진 비주얼로 변환합니다."
+            "question": "How accurate is the text rendering?",
+            "answer": "For short text (1-5 words like names, titles, and signs), accuracy is very high. Longer text blocks may occasionally require regeneration."
           },
           {
-            "question": "어떤 스타일을 사용할 수 있나요?",
-            "answer": "사이버펑크, 미야자키/애니메이션, 리얼리스틱 등 다양한 예술 스타일을 제공합니다. 커스텀 프롬프트로 독특한 스타일도 만들 수 있습니다."
+            "question": "What languages are supported for text in images?",
+            "answer": "The Gemini models support text rendering in English, Chinese, Japanese, Korean, Spanish, and many other languages."
           },
           {
-            "question": "무료 플랜은 어떻게 작동하나요?",
-            "answer": "신규 사용자는 5회 무료 이미지 생성을 받습니다. 사용 후 유료 플랜으로 업그레이드하여 무제한 창작을 즐기세요."
+            "question": "How does the free tier work?",
+            "answer": "New users get 5 free image generations. No credit card required. After that, affordable plans start at $9.90/month."
           },
           {
-            "question": "이미지를 상업적으로 사용할 수 있나요?",
-            "answer": "네, Nano Banana Studio로 만든 이미지는 개인 또는 상업 프로젝트에 자유롭게 사용할 수 있습니다."
+            "question": "Can I use generated images commercially?",
+            "answer": "Yes. Images can be used in marketing materials, social media, and creative projects."
           }
         ]
       },
       "cta": {
         "id": "cta",
-        "title": "멋진 이미지를 만들 준비가 되셨나요?",
-        "description": "무료로 AI 이미지 생성을 시작하세요. 신용카드 필요 없음.",
+        "title": "Ready to Create Images With Real Text?",
+        "description": "Start generating AI images instantly. No credit card required.",
         "buttons": [
           {
-            "title": "지금 시작하기",
+            "title": "Start Creating Now",
             "url": "/app",
             "target": "_blank",
             "icon": "Zap"
+          },
+          {
+            "title": "See Pricing",
+            "url": "/pricing",
+            "variant": "outline"
           }
+        ],
+        "trust_indicators": [
+          "No credit card required",
+          "5 free generations to start",
+          "Text rendering optimized"
         ],
         "className": "bg-muted"
       }
