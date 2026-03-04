@@ -18,6 +18,8 @@ export interface Post {
   slug?: string;
   title?: string;
   description?: string;
+  seo_title?: string;
+  seo_description?: string;
   image?: string;
   content?: string;
   created_at?: string;

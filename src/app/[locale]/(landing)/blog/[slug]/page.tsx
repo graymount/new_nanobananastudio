@@ -48,9 +48,12 @@ export async function generateMetadata({
     ? `${envConfigs.app_url}${post.image}`
     : `${envConfigs.app_url}${envConfigs.app_preview_image}`;
 
+  const seoTitle = post.seo_title || post.title;
+  const seoDescription = post.seo_description || post.description;
+
   return {
-    title: post.title,
-    description: post.description,
+    title: seoTitle,
+    description: seoDescription,
     alternates: {
       canonical: canonicalUrl,
       languages,
@@ -59,15 +62,15 @@ export async function generateMetadata({
       type: 'article',
       locale,
       url: canonicalUrl,
-      title: post.title,
-      description: post.description,
+      title: seoTitle,
+      description: seoDescription,
       siteName: envConfigs.app_name || '',
       images: [imageUrl],
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.description,
+      title: seoTitle,
+      description: seoDescription,
       images: [imageUrl],
     },
   };
