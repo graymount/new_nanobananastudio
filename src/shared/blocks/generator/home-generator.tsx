@@ -28,10 +28,10 @@ const MAX_PROMPT_LENGTH = 1000;
 
 // Example prompts for quick start - focused on text rendering capability
 const EXAMPLE_PROMPTS = [
-  { label: '🌃 Neon Poster', prompt: 'Cyberpunk poster with neon text "Tokyo Nights"' },
-  { label: '☕ Brand Logo', prompt: 'Minimalist coffee brand logo with bold typography' },
-  { label: '🐱 Illustration', prompt: 'Cute orange cat illustration for children\'s book' },
-  { label: '💎 Product Photo', prompt: 'Luxury perfume product photo with elegant text' },
+  { label: '🌃 Neon Poster', prompt: 'Futuristic poster with neon text "Tokyo 2077"' },
+  { label: '☕ Brand Logo', prompt: 'Minimalist logo with the word "Aurora Coffee"' },
+  { label: '⌚ Product Ad', prompt: 'Product ad for luxury watch with headline "Timeless Precision"' },
+  { label: '📱 Social Media', prompt: 'Instagram post with bold text "Summer Sale 50% Off"' },
 ];
 
 function getGuestGenerations(): number {

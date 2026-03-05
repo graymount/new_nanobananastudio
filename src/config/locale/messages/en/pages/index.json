@@ -60,7 +60,7 @@
           {
             "title": "Neon Poster",
             "prompt": "Futuristic poster with neon text 'Tokyo 2077'",
-            "image": "/imgs/showcases/cyberpunk-city.png",
+            "image": "/imgs/showcases/neon-poster.jpg",
             "observations": [
               "Letters remain readable",
               "Character spacing preserved",
@@ -70,7 +70,7 @@
           {
             "title": "Brand Logo",
             "prompt": "Minimalist logo with the word 'Aurora Coffee'",
-            "image": "/imgs/showcases/cute-cat.png",
+            "image": "/imgs/showcases/brand-logo.jpg",
             "observations": [
               "Typography structure maintained",
               "Logo composition clean",
@@ -80,7 +80,7 @@
           {
             "title": "Product Ad",
             "prompt": "Product ad for luxury watch with headline 'Timeless Precision'",
-            "image": "/imgs/showcases/fantasy-landscape.png",
+            "image": "/imgs/showcases/product-ad.jpg",
             "observations": [
               "Text integrates naturally with product shot",
               "Professional marketing aesthetic"

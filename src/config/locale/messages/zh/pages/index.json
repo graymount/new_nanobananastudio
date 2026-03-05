@@ -60,7 +60,7 @@
           {
             "title": "霓虹海报",
             "prompt": "带有霓虹文字 'Tokyo 2077' 的未来主义海报",
-            "image": "/imgs/showcases/cyberpunk-city.png",
+            "image": "/imgs/showcases/neon-poster.jpg",
             "observations": [
               "文字保持可读",
               "字符间距一致",
@@ -70,7 +70,7 @@
           {
             "title": "品牌 Logo",
             "prompt": "带有 'Aurora Coffee' 字样的极简 Logo",
-            "image": "/imgs/showcases/cute-cat.png",
+            "image": "/imgs/showcases/brand-logo.jpg",
             "observations": [
               "字体结构完整",
               "Logo 构图干净",
@@ -80,7 +80,7 @@
           {
             "title": "产品广告",
             "prompt": "标题为 'Timeless Precision' 的奢侈手表产品广告",
-            "image": "/imgs/showcases/fantasy-landscape.png",
+            "image": "/imgs/showcases/product-ad.jpg",
             "observations": [
               "文字与产品图自然融合",
               "专业营销美感"
