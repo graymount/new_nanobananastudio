@@ -34,7 +34,7 @@ export function FeaturesStep({
           </ScrollAnimation>
 
           <ScrollAnimation delay={0.2}>
-            <div className="mt-20 grid gap-12 @3xl:grid-cols-4">
+            <div className="mt-20 grid gap-12 @3xl:grid-cols-3">
               {section.items?.map((item, idx) => (
                 <div className="space-y-6" key={idx}>
                   <div className="text-center">
