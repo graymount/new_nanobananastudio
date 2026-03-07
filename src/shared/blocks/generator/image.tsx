@@ -59,6 +59,10 @@ interface ImageGeneratorProps {
   className?: string;
   initialRefImage?: string;
   initialPrompt?: string;
+  /** SEO tool param — used for analytics attribution */
+  initialTool?: string;
+  /** SEO source param — used for analytics attribution */
+  initialSource?: string;
 }
 
 interface GeneratedImage {
@@ -179,6 +183,8 @@ export function ImageGenerator({
   className,
   initialRefImage,
   initialPrompt,
+  initialTool: _initialTool,
+  initialSource: _initialSource,
 }: ImageGeneratorProps) {
   const t = useTranslations('ai.image.generator');
   const locale = useLocale();

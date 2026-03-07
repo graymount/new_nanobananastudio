@@ -1,8 +1,10 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
+import { SeoEntryTracker } from '@/shared/blocks/common/seo-entry-tracker';
 import { ImageGenerator } from '@/shared/blocks/generator/image';
 import { Tutorial } from '@/shared/blocks/generator/tutorial';
 import { getMetadata } from '@/shared/lib/seo';
+import { parseSeoParams } from '@/shared/lib/seo-params';
 
 export const generateMetadata = getMetadata({
   metadataKey: 'app.metadata',
@@ -14,16 +16,23 @@ export default async function AppPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ ref_image?: string; prompt?: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { locale } = await params;
-  const { ref_image, prompt } = await searchParams;
+  const rawParams = await searchParams;
   setRequestLocale(locale);
+
+  const seoParams = parseSeoParams(rawParams);
+
+  // Backward compat: also read ref_image directly (used by gallery "Create with this image")
+  const refImageRaw = rawParams.ref_image;
+  const ref_image = typeof refImageRaw === 'string' ? refImageRaw : undefined;
 
   const t = await getTranslations('app');
 
   return (
     <div className="min-h-screen relative overflow-hidden">
+      <SeoEntryTracker params={seoParams} />
       {/* Ambient Background */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
@@ -58,7 +67,9 @@ export default async function AppPage({
         srOnlyTitle={t('title')}
         className="py-4 md:py-8"
         initialRefImage={ref_image}
-        initialPrompt={prompt}
+        initialPrompt={seoParams.prompt}
+        initialTool={seoParams.tool}
+        initialSource={seoParams.source}
       />
 
       {/* Tutorial Section */}
