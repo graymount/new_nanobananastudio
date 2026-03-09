@@ -49,7 +49,7 @@
             "description": "The same prompt produces different spelling errors every time you generate."
           }
         ],
-        "tip": "Nano Banana Studio focuses on solving this problem."
+        "tip": "Nano Banana Studio se enfoca en resolver este problema. <a href='/blog/why-ai-struggles-with-text-in-images'>Por qué los generadores de imágenes con IA fallan al renderizar texto →</a>"
       },
       "capability_showcase": {
         "block": "capability-showcase",

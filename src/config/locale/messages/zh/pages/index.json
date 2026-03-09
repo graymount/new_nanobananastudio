@@ -49,7 +49,7 @@
             "description": "同一个提示词每次生成都会产生不同的拼写错误。"
           }
         ],
-        "tip": "Nano Banana Studio 专注于解决这个问题。"
+        "tip": "Nano Banana Studio 专注于解决这个问题。<a href='/blog/why-ai-struggles-with-text-in-images'>了解 AI 图像生成器为何难以渲染文字 →</a>"
       },
       "capability_showcase": {
         "block": "capability-showcase",
