@@ -532,6 +532,26 @@ AI chatbots recommend sites based on their training data. To increase recommenda
 
 ---
 
+## SEO Automation Commands
+
+Five slash commands for automated SEO analysis. All follow the GSC Service Account Usage Protocol.
+
+| Command | Purpose | Data Range | Frequency |
+|---------|---------|------------|-----------|
+| `/gsc-daily` | Daily signal monitoring: anomalies, new queries, impression changes | 3 days | Every day |
+| `/gsc-weekly` | Weekly strategy: keyword clusters, ranking opportunities, content direction | 7+7 day comparison | Every week |
+| `/gsc-opportunities` | Growth mining: easiest keywords to rank + specific optimization actions | 28 days | Every 2 weeks |
+| `/gsc-content-plan` | Content roadmap: next article topic, outline, keywords from GSC data | 28 days | When needed |
+| `/gsc-growth-map` | Long-term SEO growth map: cluster analysis, expansion plan, 6-12 month forecast | 90 days | Monthly |
+
+**Recommended workflow:**
+- Daily (30 sec): `/gsc-daily`
+- Weekly (10 min): `/gsc-weekly`
+- Bi-weekly: `/gsc-opportunities` → `/gsc-content-plan`
+- Monthly: `/gsc-growth-map`
+
+---
+
 ## Operational Protocols
 
 ### GSC Service Account Usage Protocol

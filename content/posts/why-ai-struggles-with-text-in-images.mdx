@@ -68,7 +68,7 @@ These three structural challenges do not produce a single type of failure. They 
 
 Each failure mode traces back to the mechanisms described above. Misspelled words and random characters typically originate from the token-to-pixel bridge -- the model received a semantic signal about what to write but failed to translate it into the correct spatial arrangement. Blurry and merged letters are usually resolution and density failures. Inconsistent typography and warped characters reflect the tension between probabilistic pixel generation and the deterministic requirements of symbolic text.
 
-These are not bugs. They are predictable consequences of the architecture.
+These are not bugs. They are predictable consequences of the architecture. For a focused explanation of [why AI misspells text in images](/blog/why-ai-misspells-text-in-images), including why the same prompt produces different errors each time, see our companion article.
 
 This framework also answers several questions that come up repeatedly. Why does AI sometimes add extra letters? Because the token-to-pixel bridge introduces noise in the character sequence, and the diffusion process fills in plausible-looking but incorrect shapes. Why is small text blurrier than large headlines? Because small text has fewer pixels to work with, and the denoising process cannot resolve fine details at that scale. Why does the same prompt produce different spelling errors each time? Because the generation process starts from random noise, and the path from noise to final image is stochastic -- slight differences in the starting point cascade into different text outcomes.
 
