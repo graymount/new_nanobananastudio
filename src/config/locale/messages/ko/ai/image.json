@@ -82,7 +82,13 @@
     "reference_preview_hint": "Enter your editing instructions and click Generate",
     "errors": {
       "daily_limit_exceeded": "오늘 무료 한도에 도달했습니다. 업그레이드하여 계속 만들어보세요!",
-      "upgrade_now": "지금 업그레이드"
+      "upgrade_now": "지금 업그레이드",
+      "generate_failed": "이미지 생성에 실패했습니다. 다시 시도해 주세요.",
+      "content_blocked": "이 프롬프트를 처리할 수 없습니다. 설명을 수정해 보세요.",
+      "server_error": "서버가 일시적으로 바쁩니다. 잠시 후 다시 시도해 주세요.",
+      "timeout": "이미지 생성 시간이 초과되었습니다. 다시 시도해 주세요.",
+      "query_failed": "결과를 가져올 수 없습니다. 다시 시도해 주세요.",
+      "upload_failed": "이미지가 생성되었지만 저장에 실패했습니다. 다시 시도해 주세요."
     }
   }
 }

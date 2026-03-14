@@ -89,6 +89,27 @@ const POLL_INTERVAL = 5000;
 const GENERATION_TIMEOUT = 180000;
 const MAX_PROMPT_LENGTH = 2000;
 
+// Map raw backend error messages to i18n error keys
+function getErrorKey(message: string): string {
+  const msg = message.toLowerCase();
+  if (msg.includes('no candidates') || msg.includes('no parts') || msg.includes('no image part') || msg.includes('blocked')) {
+    return 'errors.content_blocked';
+  }
+  if (msg.includes('status: 5') || msg.includes('status: 429') || msg.includes('rate') || msg.includes('overloaded')) {
+    return 'errors.server_error';
+  }
+  if (msg.includes('timed out') || msg.includes('timeout') || msg.includes('aborted')) {
+    return 'errors.timeout';
+  }
+  if (msg.includes('upload') && msg.includes('failed')) {
+    return 'errors.upload_failed';
+  }
+  if (msg.includes('query') && msg.includes('failed')) {
+    return 'errors.query_failed';
+  }
+  return 'errors.generate_failed';
+}
+
 const MODEL_OPTIONS = [
   {
     value: 'gemini-2.5-flash-image',
@@ -411,7 +432,7 @@ export function ImageGenerator({
           Date.now() - generationStartTime > GENERATION_TIMEOUT
         ) {
           resetTaskState();
-          toast.error('Image generation timed out. Please try again.');
+          toast.error(t('errors.timeout'));
           return true;
         }
 
@@ -489,9 +510,8 @@ export function ImageGenerator({
         }
 
         if (currentStatus === AITaskStatus.FAILED) {
-          const errorMessage =
-            parsedResult?.errorMessage || 'Generate image failed';
-          toast.error(errorMessage);
+          const rawError = parsedResult?.errorMessage || '';
+          toast.error(t(getErrorKey(rawError)));
           resetTaskState();
 
           fetchUserCredits();
@@ -503,7 +523,7 @@ export function ImageGenerator({
         return false;
       } catch (error: any) {
         console.error('Error polling image task:', error);
-        toast.error(`Query task failed: ${error.message}`);
+        toast.error(t('errors.query_failed'));
         resetTaskState();
 
         fetchUserCredits();
@@ -655,7 +675,7 @@ export function ImageGenerator({
       if (error.message === 'insufficient credits') {
         setIsShowCreditsExhaustedModal(true);
       } else {
-        toast.error(`Failed to generate image: ${error.message}`);
+        toast.error(t(getErrorKey(error.message || '')));
       }
       resetTaskState();
     }

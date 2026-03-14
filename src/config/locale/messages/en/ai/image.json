@@ -82,7 +82,13 @@
     "reference_preview_hint": "Enter your editing instructions and click Generate",
     "errors": {
       "daily_limit_exceeded": "Daily free limit reached. Upgrade to keep creating!",
-      "upgrade_now": "Upgrade Now"
+      "upgrade_now": "Upgrade Now",
+      "generate_failed": "Image generation failed. Please try again.",
+      "content_blocked": "This prompt could not be processed. Try rephrasing your description.",
+      "server_error": "Server is temporarily busy. Please try again in a moment.",
+      "timeout": "Image generation timed out. Please try again.",
+      "query_failed": "Could not retrieve the result. Please try again.",
+      "upload_failed": "Image was generated but failed to save. Please try again."
     }
   }
 }

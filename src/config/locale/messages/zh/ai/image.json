@@ -82,7 +82,13 @@
     "reference_preview_hint": "输入编辑指令，然后点击生成",
     "errors": {
       "daily_limit_exceeded": "今日免费额度已用完，升级后继续创作！",
-      "upgrade_now": "立即升级"
+      "upgrade_now": "立即升级",
+      "generate_failed": "图片生成失败，请重试。",
+      "content_blocked": "该提示词无法处理，请尝试修改描述内容。",
+      "server_error": "服务器暂时繁忙，请稍后再试。",
+      "timeout": "图片生成超时，请重试。",
+      "query_failed": "无法获取结果，请重试。",
+      "upload_failed": "图片已生成但保存失败，请重试。"
     }
   }
 }

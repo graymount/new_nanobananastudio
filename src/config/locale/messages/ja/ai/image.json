@@ -82,7 +82,13 @@
     "reference_preview_hint": "Enter your editing instructions and click Generate",
     "errors": {
       "daily_limit_exceeded": "本日の無料枠を使い切りました。アップグレードして作成を続けましょう！",
-      "upgrade_now": "今すぐアップグレード"
+      "upgrade_now": "今すぐアップグレード",
+      "generate_failed": "画像の生成に失敗しました。もう一度お試しください。",
+      "content_blocked": "このプロンプトは処理できませんでした。説明を変更してみてください。",
+      "server_error": "サーバーが一時的に混雑しています。しばらくしてからお試しください。",
+      "timeout": "画像生成がタイムアウトしました。もう一度お試しください。",
+      "query_failed": "結果を取得できませんでした。もう一度お試しください。",
+      "upload_failed": "画像は生成されましたが保存に失敗しました。もう一度お試しください。"
     }
   }
 }

@@ -82,7 +82,13 @@
     "reference_preview_hint": "Enter your editing instructions and click Generate",
     "errors": {
       "daily_limit_exceeded": "Límite diario gratuito alcanzado. ¡Actualiza para seguir creando!",
-      "upgrade_now": "Actualizar Ahora"
+      "upgrade_now": "Actualizar Ahora",
+      "generate_failed": "La generación de imagen falló. Por favor, inténtalo de nuevo.",
+      "content_blocked": "No se pudo procesar esta descripción. Intenta reformular tu texto.",
+      "server_error": "El servidor está temporalmente ocupado. Inténtalo de nuevo en un momento.",
+      "timeout": "La generación de imagen tardó demasiado. Por favor, inténtalo de nuevo.",
+      "query_failed": "No se pudo obtener el resultado. Por favor, inténtalo de nuevo.",
+      "upload_failed": "La imagen se generó pero no se pudo guardar. Por favor, inténtalo de nuevo."
     }
   }
 }
