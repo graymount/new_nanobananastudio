@@ -243,6 +243,7 @@ export async function getLocalPost({
     author_name: frontmatter.author_name || '',
     author_image: frontmatter.author_image || '',
     author_role: '',
+    image: frontmatter.image || '',
     url: `${postPrefix}${slug}`,
   };
 
@@ -576,4 +577,175 @@ export function removePostFrontmatter(content: string): string {
   // Match frontmatter pattern: ---\n...content...\n---
   const frontmatterRegex = /^---\r?\n[\s\S]*?\r?\n---\r?\n/;
   return content.replace(frontmatterRegex, '').trim();
+}
+
+// Get raw frontmatter fields for JSON-LD (ISO date, keywords, image)
+export async function getPostRawMeta({
+  slug,
+  locale,
+}: {
+  slug: string;
+  locale: string;
+}): Promise<{
+  datePublished: string;
+  dateModified?: string;
+  image?: string;
+  keywords?: string;
+  authorName?: string;
+} | null> {
+  // Try database post first
+  try {
+    const dbPost = await findPost({ slug, status: PostStatus.PUBLISHED });
+    if (dbPost) {
+      return {
+        datePublished: dbPost.createdAt.toISOString(),
+        dateModified: dbPost.updatedAt?.toISOString(),
+        image: dbPost.image || undefined,
+        authorName: dbPost.authorName || undefined,
+      };
+    }
+  } catch {
+    // fall through to local
+  }
+
+  // Try local post
+  const localPost = await postsSource.getPage([slug], locale);
+  if (!localPost) return null;
+
+  const fm = localPost.data as any;
+  const createdAt = fm.created_at
+    ? new Date(fm.created_at).toISOString()
+    : new Date().toISOString();
+  const updatedAt = fm.updated_at
+    ? new Date(fm.updated_at).toISOString()
+    : undefined;
+
+  return {
+    datePublished: createdAt,
+    dateModified: updatedAt,
+    image: fm.image || undefined,
+    keywords: fm.keywords || undefined,
+    authorName: fm.author_name || undefined,
+  };
+}
+
+// Parse FAQ items from raw MDX file content
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export async function getPostFAQItems({
+  slug,
+  locale,
+}: {
+  slug: string;
+  locale: string;
+}): Promise<FAQItem[]> {
+  const fs = await import('fs/promises');
+  const path = await import('path');
+
+  // Determine file path based on locale
+  const basePath = path.join(process.cwd(), 'content/posts');
+  const fileName =
+    locale === 'en' ? `${slug}.mdx` : `${slug}.${locale}.mdx`;
+  let content: string;
+  try {
+    content = await fs.readFile(path.join(basePath, fileName), 'utf-8');
+  } catch {
+    // Try without locale suffix
+    try {
+      content = await fs.readFile(
+        path.join(basePath, `${slug}.mdx`),
+        'utf-8'
+      );
+    } catch {
+      return [];
+    }
+  }
+
+  // Find FAQ section: starts with ## FAQ or ## Frequently Asked Questions
+  const faqMatch = content.match(
+    /^##\s+(?:FAQ|Frequently Asked Questions)\s*$/im
+  );
+  if (!faqMatch || faqMatch.index === undefined) return [];
+
+  const faqContent = content.slice(faqMatch.index + faqMatch[0].length);
+
+  // Extract ### question blocks until next ## or end of file
+  const items: FAQItem[] = [];
+  const questionRegex = /^###\s+(.+)$/gm;
+  let match;
+
+  while ((match = questionRegex.exec(faqContent)) !== null) {
+    const question = match[1].trim();
+    const answerStart = match.index + match[0].length;
+
+    // Find the end of the answer (next ###, next ##, or --- separator)
+    const remaining = faqContent.slice(answerStart);
+    const nextHeading = remaining.match(/^#{2,3}\s/m);
+    const nextSeparator = remaining.match(/^---\s*$/m);
+
+    let endIndex: number;
+    if (nextHeading && nextSeparator) {
+      endIndex = Math.min(
+        nextHeading.index ?? Infinity,
+        nextSeparator.index ?? Infinity
+      );
+    } else {
+      endIndex =
+        nextHeading?.index ?? nextSeparator?.index ?? remaining.length;
+    }
+
+    const answer = remaining.slice(0, endIndex).trim();
+    if (question && answer) {
+      items.push({ question, answer });
+    }
+  }
+
+  return items;
+}
+
+// Get related posts (excluding current slug, preferring keyword overlap)
+export async function getRelatedPosts({
+  slug,
+  locale,
+  keywords,
+  limit = 3,
+}: {
+  slug: string;
+  locale: string;
+  keywords?: string;
+  limit?: number;
+}): Promise<BlogPostType[]> {
+  const { posts: allPosts } = await getLocalPostsAndCategories({
+    locale,
+    postPrefix: '/blog/',
+    categoryPrefix: '/blog/category/',
+  });
+
+  // Filter out current post
+  const otherPosts = allPosts.filter((p) => p.slug !== slug);
+
+  if (!keywords || otherPosts.length <= limit) {
+    return otherPosts.slice(0, limit);
+  }
+
+  // Score by keyword overlap
+  const currentKeywords = keywords
+    .toLowerCase()
+    .split(',')
+    .map((k) => k.trim())
+    .filter(Boolean);
+
+  const scored = otherPosts.map((p) => {
+    const postText = `${p.title} ${p.description}`.toLowerCase();
+    const score = currentKeywords.filter((kw) =>
+      postText.includes(kw)
+    ).length;
+    return { post: p, score };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit).map((s) => s.post);
 }

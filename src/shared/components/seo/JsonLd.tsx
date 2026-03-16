@@ -141,6 +141,10 @@ export function BlogPostJsonLd({
         url: `${envConfigs.app_url}/logo.png`,
       },
     },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
   };
 
   return (

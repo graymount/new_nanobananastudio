@@ -4,6 +4,7 @@ import { TOCItems, TOCProvider } from 'fumadocs-ui/components/layout/toc';
 import { CalendarIcon, ListIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
+import { Link } from '@/core/i18n/navigation';
 import { MarkdownPreview } from '@/shared/blocks/common';
 import { Crumb } from '@/shared/blocks/common/crumb';
 import { type Post as PostType } from '@/shared/types/blocks/blog';
@@ -11,7 +12,13 @@ import { NavItem } from '@/shared/types/blocks/common';
 
 import '@/config/style/docs.css';
 
-export function BlogDetail({ post }: { post: PostType }) {
+export function BlogDetail({
+  post,
+  relatedPosts,
+}: {
+  post: PostType;
+  relatedPosts?: PostType[];
+}) {
   const t = useTranslations('pages.blog.messages');
 
   const crumbItems: NavItem[] = [
@@ -126,6 +133,44 @@ export function BlogDetail({ post }: { post: PostType }) {
                 </div>
               )}
             </div>
+
+            {/* Related Articles */}
+            {relatedPosts && relatedPosts.length > 0 && (
+              <div className="mt-16 border-t pt-12">
+                <h2 className="text-foreground mb-8 text-2xl font-bold">
+                  {t('related_articles')}
+                </h2>
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {relatedPosts.map((relatedPost) => (
+                    <Link
+                      key={relatedPost.slug}
+                      href={relatedPost.url || `/blog/${relatedPost.slug}`}
+                      className="bg-muted/30 hover:bg-muted/50 group block overflow-hidden rounded-lg transition-colors"
+                    >
+                      {relatedPost.image && (
+                        <div className="aspect-video overflow-hidden">
+                          <img
+                            src={relatedPost.image}
+                            alt={relatedPost.title || ''}
+                            className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                          />
+                        </div>
+                      )}
+                      <div className="p-4">
+                        <h3 className="text-foreground mb-2 line-clamp-2 font-semibold">
+                          {relatedPost.title}
+                        </h3>
+                        {relatedPost.description && (
+                          <p className="text-muted-foreground line-clamp-2 text-sm">
+                            {relatedPost.description}
+                          </p>
+                        )}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
