@@ -68,6 +68,9 @@ export async function POST(
     } else if (eventType === PaymentEventType.PAYMENT_SUCCESS) {
       // only handle subscription payment
       if (session.subscriptionId && session.subscriptionInfo) {
+        console.log(
+          `[payment] subscription.paid received: subscriptionId=${session.subscriptionId}, cycleType=${session.paymentInfo?.subscriptionCycleType}, transactionId=${session.paymentInfo?.transactionId}`
+        );
         if (
           session.paymentInfo?.subscriptionCycleType ===
           SubscriptionCycleType.RENEWAL
@@ -87,11 +90,16 @@ export async function POST(
             subscription: existingSubscription,
             session,
           });
+          console.log(
+            `[payment] subscription renewal processed: subscriptionId=${session.subscriptionId}`
+          );
         } else {
-          console.log('not handle subscription first payment');
+          console.log(
+            `[payment] skipping subscription first payment: subscriptionId=${session.subscriptionId}`
+          );
         }
       } else {
-        console.log('not handle one-time payment');
+        console.log('[payment] skipping: not a subscription payment');
       }
     } else if (eventType === PaymentEventType.SUBSCRIBE_UPDATED) {
       // only handle subscription update

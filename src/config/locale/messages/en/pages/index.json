@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Nano Banana Studio: Free AI Image Generator (No Signup)",
-    "description": "Turn text into stunning images in seconds with Nano Banana. Powered by Google Gemini — 5 free generations, 10+ art styles, image-to-image editing. The free Midjourney & DALL-E alternative creators love.",
+    "title": "AI Image Generator That Actually Renders Text Correctly",
+    "description": "Most AI image generators still struggle with text — misspelling words and producing blurry results. Nano Banana Studio generates images with clear, readable text.",
     "keywords": "free AI image generator, best AI art generator 2026, text to image AI, Midjourney alternative free, DALL-E alternative, AI photo editor online, AI image creation tool, Nano Banana Studio, Gemini image generator"
   },
   "page": {
@@ -22,7 +22,7 @@
         "id": "hero",
         "title": "Create AI Images With Text That Actually Renders Correctly",
         "highlight_text": "Actually Renders Correctly",
-        "description": "Most AI image generators struggle with typography. Nano Banana Studio focuses on generating images with clear, readable text — perfect for posters, logos, social media visuals, and product graphics. Powered by advanced Gemini models.",
+        "description": "Most AI image generators struggle with text — misspelling words or producing unreadable results. Nano Banana Studio generates images with clear, accurate text for posters, logos, and marketing graphics.",
         "tip": "5 free generations to start • No credit card required"
       },
       "problem": {

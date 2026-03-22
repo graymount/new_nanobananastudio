@@ -317,16 +317,20 @@ export class CreemProvider implements PaymentProvider {
   }
 
   private mapCreemStatus(session: any): PaymentStatus {
-    const status = session.status;
     const order = session.order || session.last_transaction;
     const orderStatus = order?.status;
 
     if (orderStatus === 'paid') {
       return PaymentStatus.SUCCESS;
-    } else {
-      // todo: handle other status
-      throw new Error(`Unknown Creem session status: ${status}`);
     }
+
+    // For subscription.paid events, the object is the subscription itself
+    // which has status 'active' instead of a nested order with status 'paid'
+    if (session.status === 'active') {
+      return PaymentStatus.SUCCESS;
+    }
+
+    throw new Error(`Unknown Creem session status: ${session.status}`);
   }
 
   // build payment session from checkout session
@@ -377,7 +381,7 @@ export class CreemProvider implements PaymentProvider {
     return result;
   }
 
-  // build payment session from subscription session
+  // build payment session from subscription session (subscription.paid event)
   private async buildPaymentSessionFromInvoice(
     invoice: any
   ): Promise<PaymentSession> {
@@ -397,24 +401,36 @@ export class CreemProvider implements PaymentProvider {
         ? SubscriptionCycleType.CREATE
         : SubscriptionCycleType.RENEWAL;
 
+    // For subscription.paid events, Creem sends the subscription object directly
+    // without a nested order/last_transaction object. Fall back to subscription-level fields.
+    const product = subscription.product;
+
     const result: PaymentSession = {
       provider: this.name,
       paymentStatus: this.mapCreemStatus(invoice),
       paymentInfo: {
-        description: order?.description,
-        amount: order?.amount || 0,
-        currency: order?.currency || '',
-        transactionId: order?.transaction || order?.id,
+        description: order?.description || product?.description || '',
+        amount: order?.amount || product?.price || 0,
+        currency: order?.currency || product?.currency || '',
+        transactionId:
+          order?.transaction ||
+          order?.id ||
+          subscription.last_transaction_id ||
+          '',
         discountCode: '',
         discountAmount: order?.discount_amount || 0,
-        discountCurrency: order?.currency || '',
-        paymentAmount: order?.amount_paid || 0,
-        paymentCurrency: order?.currency || '',
+        discountCurrency: order?.currency || product?.currency || '',
+        paymentAmount: order?.amount_paid || product?.price || 0,
+        paymentCurrency: order?.currency || product?.currency || '',
         paymentEmail: invoice.customer?.email,
         paymentUserName: invoice.customer?.name,
         paymentUserId: invoice.customer?.id,
-        paidAt: order?.created_at ? new Date(order.created_at) : undefined,
-        invoiceId: '', // todo: invoice id
+        paidAt: order?.created_at
+          ? new Date(order.created_at)
+          : subscription.last_transaction_date
+            ? new Date(subscription.last_transaction_date)
+            : undefined,
+        invoiceId: '',
         invoiceUrl: '',
         subscriptionCycleType: cycleType,
       },
