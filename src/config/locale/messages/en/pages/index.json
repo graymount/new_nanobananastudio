@@ -7,6 +7,7 @@
   "page": {
     "show_sections": [
       "hero",
+      "text_rendering_test",
       "problem",
       "capability_showcase",
       "capabilities",
@@ -24,6 +25,22 @@
         "highlight_text": "Actually Renders Correctly",
         "description": "Most AI image generators struggle with text — misspelling words or producing unreadable results. Nano Banana Studio generates images with clear, accurate text for posters, logos, and marketing graphics.",
         "tip": "5 free generations to start • No credit card required"
+      },
+      "text_rendering_test": {
+        "block": "text-rendering-test",
+        "id": "text-test",
+        "title": "Test Text Rendering",
+        "description": "See how accurately Nano Banana Studio renders text in AI-generated images. Try it with your own text.",
+        "placeholder": "Type the text you want to generate (e.g. 'Grand Opening Sale')",
+        "examples": [
+          "Grand Opening Sale",
+          "Handcrafted Artisan Coffee",
+          "Authentic Mediterranean Restaurant"
+        ],
+        "comparisonExamples": {
+          "incorrect": ["RESTRAUNT", "WELLCOME", "BUISNESS"],
+          "correct": ["RESTAURANT", "WELCOME", "BUSINESS"]
+        }
       },
       "problem": {
         "block": "content-section",

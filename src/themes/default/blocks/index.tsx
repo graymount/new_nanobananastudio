@@ -32,3 +32,5 @@ export * from './pricing';
 export * from './blog';
 export * from './blog-detail';
 export * from './page-detail';
+
+export * from './text-rendering-test';

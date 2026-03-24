@@ -7,6 +7,7 @@
   "page": {
     "show_sections": [
       "hero",
+      "text_rendering_test",
       "problem",
       "capability_showcase",
       "capabilities",
@@ -24,6 +25,22 @@
         "highlight_text": "真正清晰可读",
         "description": "大多数 AI 图像生成器在处理文字时表现不佳。Nano Banana Studio 专注于生成文字清晰、可读的图像 — 适用于海报、Logo、社交媒体视觉和产品图。基于先进的 Gemini 模型。",
         "tip": "5 次免费生成 • 无需信用卡"
+      },
+      "text_rendering_test": {
+        "block": "text-rendering-test",
+        "id": "text-test",
+        "title": "测试文字渲染效果",
+        "description": "看看 Nano Banana Studio 如何准确渲染 AI 生成图像中的文字。用你自己的文字试试。",
+        "placeholder": "输入想生成的文字（例如 '盛大开业'）",
+        "examples": [
+          "盛大开业",
+          "今日五折",
+          "欢迎光临"
+        ],
+        "comparisonExamples": {
+          "incorrect": ["RESTRAUNT", "WELLCOME", "BUISNESS"],
+          "correct": ["RESTAURANT", "WELCOME", "BUSINESS"]
+        }
       },
       "problem": {
         "block": "content-section",
