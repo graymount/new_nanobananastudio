@@ -52,6 +52,10 @@ This happens because the diffusion process does not render all parts of an image
 
 Font consistency is another common failure. The model may generate the letter "H" in one style and the letter "E" in a slightly different weight or angle, because each letter is being reconstructed independently from pixel patterns rather than drawn from a single coherent font. This is why AI text rendering remains one of the hardest problems in generative image models — the model has no concept of typographic consistency across a word.
 
+This explains why the same prompt produces different garbled text each time.
+
+But if you actually want to fix these issues in your images, there are practical workarounds: **[How to Fix Text in AI Images — 5 Ways That Actually Work](/blog/how-to-fix-text-in-ai-images)**
+
 ## Why Small Text Fails More Often
 
 If you have ever generated a poster with AI, you may have noticed that the headline renders correctly but the subtitle is garbled. This is not a coincidence.
@@ -116,7 +120,7 @@ AI understands spelling at the language level but cannot translate that understa
 
 ### How do you fix text in AI-generated images?
 
-The most reliable approach is to generate the image without text and add text afterward using a design tool like Canva or Photoshop. If you need text in the generated image, use short phrases (1–3 words), specify the text in quotation marks, request large and centered placement, and regenerate multiple times to get a correct result. See our [prompt engineering guide](/blog/gemini-prompt-engineering-guide) for more techniques.
+Use short phrases (1–3 words), put text in quotation marks, request large centered placement, and regenerate multiple times. For a full step-by-step walkthrough, see: **[How to Fix Text in AI Images](/blog/how-to-fix-text-in-ai-images)**. For prompt-specific techniques, see our [prompt engineering guide](/blog/gemini-prompt-engineering-guide).
 
 ---
 

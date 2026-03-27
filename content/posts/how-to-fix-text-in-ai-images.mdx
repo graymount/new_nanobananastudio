@@ -42,7 +42,7 @@ Before we fix the problem, it helps to understand why it happens.
 
 AI image generators don't "write" text. They generate pixel patterns that look like text. A diffusion model has no concept of individual letters — it predicts what text should look like based on patterns in its training data. The result is statistically plausible but often incorrect: "COFFE SHPO" instead of "Coffee Shop."
 
-Three things make this worse: the model has no built-in spellchecker, small text gets lost in low pixel density, and the bridge between language understanding and pixel placement is fundamentally lossy.
+Three things make this worse: the model has no built-in spellchecker, small text gets lost in low pixel density, and the bridge between language understanding and pixel placement is fundamentally lossy. This is also [why AI misspells text in images](/blog/why-ai-misspells-text-in-images) differently every time — each generation starts from different random noise, so the same prompt produces different errors on each run.
 
 This is not a bug. It's a structural limitation. For a deep dive into the mechanics, read our [full explanation of why AI struggles with text in images](/blog/why-ai-struggles-with-text-in-images).
 
