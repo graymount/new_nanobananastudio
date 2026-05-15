@@ -362,7 +362,7 @@ export function TextRenderingTest({ section }: TextRenderingTestProps) {
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <RiCheckLine className="size-6 text-green-500" />
-                  <h4 className="font-semibold text-green-500">Nano Banana Studio</h4>
+                  <h4 className="font-semibold text-green-500">TextRender Studio</h4>
                 </div>
                 <div className="bg-green-50 dark:bg-green-950/20 space-y-2 rounded-lg border-2 border-green-200 p-4 dark:border-green-900">
                   {comparisonExamples.correct.map((text, index) => (

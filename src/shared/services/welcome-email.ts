@@ -26,7 +26,7 @@ const WELCOME_CONTENT = {
     preheader: 'Start creating amazing AI images today with your free credits',
   },
   zh: {
-    subject: '🍌 欢迎来到 Nano Banana Studio - 开启你的 AI 创作之旅！',
+    subject: '🍌 欢迎来到 TextRender Studio - 开启你的 AI 创作之旅！',
     preheader: '使用免费积分开始创作精美的 AI 图像',
   },
 };
@@ -307,7 +307,7 @@ export async function sendWelcomeEmail(data: WelcomeEmailData): Promise<boolean>
 
     const result = await emailService.sendEmail({
       to: data.email,
-      from: 'Nano Banana Studio <support@nanobananastudio.com>',
+      from: 'TextRender Studio <support@nanobananastudio.com>',
       subject,
       text: generateWelcomeEmailText(data),
       html: generateWelcomeEmailHtml(data),
@@ -349,7 +349,7 @@ function generateFounderEmailText(data: WelcomeEmailData): string {
     return `
 ${name} 你好，
 
-看到你刚注册了 Nano Banana Studio，欢迎！
+看到你刚注册了 TextRender Studio，欢迎！
 
 我是 Alex，这个产品的创始人。做这个工具是因为我觉得其他 AI 图片生成器太复杂了，我想做一个简单好用的。
 
@@ -365,14 +365,14 @@ ${name} 你好，
 祝创作愉快！
 
 Alex King
-Founder, Nano Banana Studio
+Founder, TextRender Studio
     `.trim();
   }
 
   return `
 Hi ${name},
 
-I saw you just signed up for Nano Banana Studio - welcome!
+I saw you just signed up for TextRender Studio - welcome!
 
 I'm Alex, the founder. I built this tool because I was frustrated with how complicated other AI image generators are. I wanted something simple that just works.
 
@@ -388,7 +388,7 @@ If you run into any issues or have feedback, just reply to this email. I read ev
 Happy creating!
 
 Alex King
-Founder, Nano Banana Studio
+Founder, TextRender Studio
   `.trim();
 }
 
