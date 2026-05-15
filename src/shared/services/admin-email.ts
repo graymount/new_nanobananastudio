@@ -88,13 +88,13 @@ export interface NewEmailData {
 export const EMAIL_SENDERS = {
   support: {
     email: 'support@nanobananastudio.com',
-    name: 'Nano Banana Studio Support',
-    from: 'Nano Banana Studio <support@nanobananastudio.com>',
+    name: 'TextRender Studio Support',
+    from: 'TextRender Studio <support@nanobananastudio.com>',
   },
   ceo: {
     email: 'alex.king@nanobananastudio.com',
     name: 'Alex King - CEO',
-    from: 'Alex King, CEO of Nano Banana Studio <alex.king@nanobananastudio.com>',
+    from: 'Alex King, CEO of TextRender Studio <alex.king@nanobananastudio.com>',
   },
 } as const;
 

@@ -280,7 +280,7 @@ export async function getSettings() {
     {
       name: 'app_name',
       title: 'App Name',
-      placeholder: 'Nano Banana Studio',
+      placeholder: 'TextRender Studio',
       type: 'text',
       group: 'appinfo',
       tab: 'general',
@@ -289,7 +289,7 @@ export async function getSettings() {
       name: 'app_description',
       title: 'App Description',
       placeholder:
-        'Nano Banana Studio - AI Image Generator & Editor',
+        'TextRender Studio - AI Image Generator for Readable Text',
       type: 'textarea',
       group: 'appinfo',
       tab: 'general',

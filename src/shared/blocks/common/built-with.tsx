@@ -6,7 +6,7 @@ export function BuiltWith() {
   return (
     <Button asChild variant="outline" size="sm" className="hover:bg-primary/10">
       <Link href="https://nanobananastudio.com" target="_blank">
-        Nano Banana Studio
+        TextRender Studio
       </Link>
     </Button>
   );

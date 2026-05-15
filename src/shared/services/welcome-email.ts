@@ -22,7 +22,7 @@ interface WelcomeEmailData {
 // Email content for different locales
 const WELCOME_CONTENT = {
   en: {
-    subject: '🍌 Welcome to Nano Banana Studio - Your AI Creative Journey Begins!',
+    subject: '🍌 Welcome to TextRender Studio - Your AI Creative Journey Begins!',
     preheader: 'Start creating amazing AI images today with your free credits',
   },
   zh: {
@@ -41,7 +41,7 @@ function generateWelcomeEmailHtml(data: WelcomeEmailData): string {
 
   const content = locale === 'zh' ? {
     greeting: `你好，${name}！`,
-    welcome: '欢迎加入 Nano Banana Studio！',
+    welcome: '欢迎加入 TextRender Studio！',
     intro: '我们很高兴你选择了我们的 AI 图像生成平台。现在，你可以轻松地将你的创意想法变成令人惊叹的视觉作品。',
     creditsTitle: '🎁 你的免费积分',
     creditsText: `我们已经为你准备了 <strong>${credits} 个免费积分</strong>，让你可以立即开始探索 AI 图像生成的无限可能！`,
@@ -56,11 +56,11 @@ function generateWelcomeEmailHtml(data: WelcomeEmailData): string {
     tip2: '浏览首页的灵感提示词，快速获取创作灵感',
     tip3: '保存你喜欢的作品到个人图库',
     supportText: '有任何问题？随时回复这封邮件，我们很乐意帮助你！',
-    signature: 'Nano Banana Studio 团队',
-    unsubscribe: '此邮件发送至 {{email}}，因为你注册了 Nano Banana Studio 账户。',
+    signature: 'TextRender Studio 团队',
+    unsubscribe: '此邮件发送至 {{email}}，因为你注册了 TextRender Studio 账户。',
   } : {
     greeting: `Hi ${name}!`,
-    welcome: 'Welcome to Nano Banana Studio!',
+    welcome: 'Welcome to TextRender Studio!',
     intro: "We're thrilled to have you join our AI image generation platform. Now you can easily transform your creative ideas into stunning visual artworks.",
     creditsTitle: '🎁 Your Free Credits',
     creditsText: `We've added <strong>${credits} free credits</strong> to your account so you can start exploring the amazing possibilities of AI image generation right away!`,
@@ -75,8 +75,8 @@ function generateWelcomeEmailHtml(data: WelcomeEmailData): string {
     tip2: 'Browse inspiration prompts on our homepage for creative ideas',
     tip3: 'Save your favorite creations to your personal gallery',
     supportText: 'Have questions? Just reply to this email - we\'re happy to help!',
-    signature: 'The Nano Banana Studio Team',
-    unsubscribe: 'This email was sent to {{email}} because you signed up for Nano Banana Studio.',
+    signature: 'The TextRender Studio Team',
+    unsubscribe: 'This email was sent to {{email}} because you signed up for TextRender Studio.',
   };
 
   return `
@@ -106,7 +106,7 @@ function generateWelcomeEmailHtml(data: WelcomeEmailData): string {
           <!-- Header with gradient -->
           <tr>
             <td style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); padding: 40px 40px 30px; text-align: center;">
-              <img src="https://nanobananastudio.com/logo.png" alt="Nano Banana Studio" width="60" height="60" style="width: 60px; height: 60px; border-radius: 12px; margin-bottom: 16px;">
+              <img src="https://nanobananastudio.com/logo.png" alt="TextRender Studio" width="60" height="60" style="width: 60px; height: 60px; border-radius: 12px; margin-bottom: 16px;">
               <h1 style="margin: 0; color: #1f2937; font-size: 28px; font-weight: 700;">${content.welcome}</h1>
             </td>
           </tr>
@@ -200,7 +200,7 @@ function generateWelcomeEmailHtml(data: WelcomeEmailData): string {
                 ${content.unsubscribe.replace('{{email}}', data.email)}
               </p>
               <p style="margin: 0; color: #9ca3af; font-size: 12px;">
-                © ${new Date().getFullYear()} Nano Banana Studio. All rights reserved.
+                © ${new Date().getFullYear()} TextRender Studio. All rights reserved.
               </p>
             </td>
           </tr>
@@ -226,7 +226,7 @@ function generateWelcomeEmailText(data: WelcomeEmailData): string {
     return `
 你好，${name}！
 
-欢迎加入 Nano Banana Studio！
+欢迎加入 TextRender Studio！
 
 我们很高兴你选择了我们的 AI 图像生成平台。现在，你可以轻松地将你的创意想法变成令人惊叹的视觉作品。
 
@@ -247,18 +247,18 @@ function generateWelcomeEmailText(data: WelcomeEmailData): string {
 
 有任何问题？随时回复这封邮件，我们很乐意帮助你！
 
-Nano Banana Studio 团队 🍌
+TextRender Studio 团队 🍌
 
 ---
-此邮件发送至 ${data.email}，因为你注册了 Nano Banana Studio 账户。
-© ${new Date().getFullYear()} Nano Banana Studio. All rights reserved.
+此邮件发送至 ${data.email}，因为你注册了 TextRender Studio 账户。
+© ${new Date().getFullYear()} TextRender Studio. All rights reserved.
     `.trim();
   }
 
   return `
 Hi ${name}!
 
-Welcome to Nano Banana Studio!
+Welcome to TextRender Studio!
 
 We're thrilled to have you join our AI image generation platform. Now you can easily transform your creative ideas into stunning visual artworks.
 
@@ -279,11 +279,11 @@ We've added ${credits} free credits to your account so you can start exploring t
 
 Have questions? Just reply to this email - we're happy to help!
 
-The Nano Banana Studio Team 🍌
+The TextRender Studio Team 🍌
 
 ---
-This email was sent to ${data.email} because you signed up for Nano Banana Studio.
-© ${new Date().getFullYear()} Nano Banana Studio. All rights reserved.
+This email was sent to ${data.email} because you signed up for TextRender Studio.
+© ${new Date().getFullYear()} TextRender Studio. All rights reserved.
   `.trim();
 }
 

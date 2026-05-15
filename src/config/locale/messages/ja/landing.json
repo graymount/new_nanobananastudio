@@ -2,10 +2,10 @@
   "header": {
     "id": "header",
     "brand": {
-      "title": "Nano Banana Studio",
+      "title": "TextRender Studio",
       "logo": {
         "src": "/logo.png",
-        "alt": "Nano Banana Studio",
+        "alt": "TextRender Studio",
         "width": 100,
         "height": 100
       },
@@ -64,11 +64,11 @@
   "footer": {
     "id": "footer",
     "brand": {
-      "title": "Nano Banana Studio",
+      "title": "TextRender Studio",
       "description": "自然言語を使用したAI画像生成・編集ツール。言葉だけで素晴らしい画像を作成。",
       "logo": {
         "src": "/logo.png",
-        "alt": "Nano Banana Studio",
+        "alt": "TextRender Studio",
         "width": 100,
         "height": 100
       },

@@ -125,7 +125,7 @@ export function BroadcastForm({ totalUsers }: BroadcastFormProps) {
         <Input
           id="subject"
           type="text"
-          placeholder="e.g., Exciting News from Nano Banana Studio!"
+          placeholder="e.g., Exciting News from TextRender Studio!"
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
           disabled={isLoading}
@@ -143,7 +143,7 @@ I'm excited to share some news with you...
 
 Best regards,
 Alex King
-CEO, Nano Banana Studio`}
+CEO, TextRender Studio`}
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={12}

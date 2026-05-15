@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Pricing - Nano Banana Studio",
+    "title": "Pricing - TextRender Studio",
     "description": "Simple, transparent pricing for AI image generation. Start free, upgrade when you need more."
   },
   "page": {
@@ -44,7 +44,7 @@
               "icon": "RiFlashlightFill"
             },
             "product_id": "free",
-            "product_name": "Nano Banana Free Trial",
+            "product_name": "TextRender Free Trial",
             "credits": 5,
             "valid_days": 30,
             "group": "monthly"
@@ -75,12 +75,14 @@
               "icon": "RiFlashlightFill"
             },
             "product_id": "starter",
-            "product_name": "Nano Banana Starter",
+            "product_name": "TextRender Starter",
             "credits": 50,
             "valid_days": 30,
             "group": "monthly",
             "plan_name": "Starter",
-            "payment_providers": ["creem"]
+            "payment_providers": [
+              "creem"
+            ]
           },
           {
             "title": "Pro",
@@ -107,12 +109,14 @@
               "icon": "RiFlashlightFill"
             },
             "product_id": "pro",
-            "product_name": "Nano Banana Pro",
+            "product_name": "TextRender Pro",
             "credits": 300,
             "valid_days": 30,
             "group": "monthly",
             "plan_name": "Pro",
-            "payment_providers": ["creem"]
+            "payment_providers": [
+              "creem"
+            ]
           },
           {
             "title": "Max",
@@ -139,7 +143,7 @@
               "icon": "RiFlashlightFill"
             },
             "product_id": "max",
-            "product_name": "Nano Banana Max",
+            "product_name": "TextRender Max",
             "credits": 1000,
             "valid_days": 30,
             "group": "monthly",

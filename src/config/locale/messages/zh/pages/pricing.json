@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "价格方案 - Nano Banana Studio",
+    "title": "价格方案 - TextRender Studio",
     "description": "简单透明的 AI 图像生成定价。免费开始，按需升级。"
   },
   "page": {
@@ -80,7 +80,9 @@
             "valid_days": 30,
             "group": "monthly",
             "plan_name": "入门版",
-            "payment_providers": ["creem"]
+            "payment_providers": [
+              "creem"
+            ]
           },
           {
             "title": "专业版",
@@ -112,7 +114,9 @@
             "valid_days": 30,
             "group": "monthly",
             "plan_name": "专业版",
-            "payment_providers": ["creem"]
+            "payment_providers": [
+              "creem"
+            ]
           },
           {
             "title": "旗舰版",

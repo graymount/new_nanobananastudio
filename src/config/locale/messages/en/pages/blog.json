@@ -1,11 +1,11 @@
 {
   "metadata": {
     "title": "Blog - AI Image Generation Tips & Tutorials",
-    "description": "Learn AI image generation techniques, prompt writing tips, and creative workflows. Discover how to create stunning visuals with Nano Banana Studio.",
+    "description": "Learn AI image generation techniques, prompt writing tips, and creative workflows. Discover how to create stunning visuals with TextRender Studio.",
     "keywords": "AI art tutorial, prompt engineering, image generation tips, AI creative workflow"
   },
   "page": {
-    "title": "Nano Banana Blog",
+    "title": "TextRender Blog",
     "sections": {
       "blog": {
         "id": "blog",

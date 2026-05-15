@@ -1,10 +1,10 @@
 {
   "header": {
     "brand": {
-      "title": "Nano Banana Studio",
+      "title": "TextRender Studio",
       "logo": {
         "src": "/logo.png",
-        "alt": "Nano Banana Studio"
+        "alt": "TextRender Studio"
       },
       "url": "/admin"
     },

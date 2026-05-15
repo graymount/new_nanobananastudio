@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Nano Banana Studio: 無料AI画像生成ツール（登録不要）",
-    "description": "テキストから数秒で美しいAI画像を生成。Google Gemini搭載 — 5回無料、10+アートスタイル、画像編集対応。MidjourneyとDALL-Eの無料代替ツール。",
-    "keywords": "Nano Banana, Nano Banana AI, 無料AI画像生成, Nano Banana Pro, Nano Banana Studio, テキストから画像, AI写真編集, Gemini画像生成, AIアート生成"
+    "title": "TextRender Studio（旧 Nano Banana）：読める文字に強い AI 画像生成ツール",
+    "description": "TextRender Studio（旧 Nano Banana）は、読める文字レンダリングに特化した AI 画像生成ツール — 看板、ロゴ、ラベル、タイポグラフィが崩れません。Google Gemini 搭載。5 回無料、10+ アートスタイル、画像編集対応。Midjourney・DALL-E の無料代替、文字入り画像に最適。",
+    "keywords": "TextRender Studio, 旧 Nano Banana, AI 文字レンダリング, AI タイポグラフィ, 文字入り AI 画像, 無料 AI 画像生成, Midjourney 代替, DALL-E 代替, Gemini 画像生成, AI 看板 ロゴ"
   },
   "sign": {
     "sign_in_title": "ログイン",

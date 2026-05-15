@@ -16,7 +16,8 @@ export function OrganizationJsonLd() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: envConfigs.app_name || 'Nano Banana Studio',
+    name: envConfigs.app_name || 'TextRender Studio',
+    alternateName: ['Nano Banana Studio', 'Nano Banana'],
     url: envConfigs.app_url,
     logo: `${envConfigs.app_url}/logo.png`,
     sameAs: [],
@@ -40,9 +41,10 @@ export function WebApplicationJsonLd() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: envConfigs.app_name || 'Nano Banana Studio',
+    name: envConfigs.app_name || 'TextRender Studio',
+    alternateName: ['Nano Banana Studio', 'Nano Banana'],
     url: envConfigs.app_url,
-    description: 'AI-powered image generator and editor using natural language. Create stunning visuals from text descriptions or transform existing photos.',
+    description: 'TextRender Studio (formerly Nano Banana) — AI image generator focused on readable text rendering. Create stunning visuals from text descriptions with reliable typography, signs, logos, and labels.',
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Web Browser',
     offers: {
@@ -118,7 +120,7 @@ export function BlogPostJsonLd({
   image,
   datePublished,
   dateModified,
-  authorName = 'Nano Banana Team',
+  authorName = 'TextRender Studio Team',
 }: BlogPostJsonLdProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -135,7 +137,7 @@ export function BlogPostJsonLd({
     },
     publisher: {
       '@type': 'Organization',
-      name: envConfigs.app_name || 'Nano Banana Studio',
+      name: envConfigs.app_name || 'TextRender Studio',
       logo: {
         '@type': 'ImageObject',
         url: `${envConfigs.app_url}/logo.png`,
@@ -167,11 +169,12 @@ export function ProductJsonLd({ plans }: { plans: PricingPlan[] }) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: envConfigs.app_name || 'Nano Banana Studio',
-    description: 'AI-powered image generator and editor',
+    name: envConfigs.app_name || 'TextRender Studio',
+    alternateName: ['Nano Banana Studio', 'Nano Banana'],
+    description: 'AI image generator focused on readable text rendering',
     brand: {
       '@type': 'Brand',
-      name: 'Nano Banana Studio',
+      name: 'TextRender Studio',
     },
     offers: plans.map((plan) => ({
       '@type': 'Offer',

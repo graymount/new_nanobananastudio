@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Nano Banana Studio: 免费AI绘画生成器（无需注册）",
-    "description": "用文字秒生成精美AI图像。基于Google Gemini — 5次免费生成、10+艺术风格、图生图编辑。Midjourney和DALL-E最佳免费替代，创作者首选。",
-    "keywords": "Nano Banana, Nano Banana AI, 免费AI图像生成, Nano Banana Pro, Nano Banana Studio, 文字生成图像, AI照片编辑器, Gemini图像生成, AI艺术生成器"
+    "title": "TextRender Studio（原 Nano Banana）：专注可读文字的 AI 图像生成器",
+    "description": "TextRender Studio（原 Nano Banana）是专注于可读文字渲染的 AI 图像生成器 —— 招牌、Logo、标签和排版不再乱码。基于 Google Gemini。5 次免费生成、10+ 艺术风格、图生图编辑。Midjourney 和 DALL-E 的免费替代，特别适合含文字的视觉内容。",
+    "keywords": "TextRender Studio, 原 Nano Banana, 文字渲染 AI, AI 图像可读文字, AI 排版, 含文字的 AI 图像, 免费 AI 图像生成, Midjourney 替代, DALL-E 替代, Gemini 图像生成, AI 招牌 Logo"
   },
   "sign": {
     "sign_in_title": "登录",

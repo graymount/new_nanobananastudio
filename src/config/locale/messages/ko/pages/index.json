@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Nano Banana Studio: 무료 AI 이미지 생성기 (가입 불필요)",
+    "title": "TextRender Studio: 무료 AI 이미지 생성기 (가입 불필요)",
     "description": "텍스트로 몇 초 만에 멋진 AI 이미지를 생성하세요. Google Gemini 기반 — 5회 무료 생성, 10+ 아트 스타일, 이미지 편집 지원. Midjourney와 DALL-E의 무료 대안.",
     "keywords": "무료 AI 이미지 생성기, 최고 AI 아트 2026, 텍스트를 이미지로 AI, Midjourney 대안 무료, DALL-E 대안, AI 사진 편집기 온라인, AI 이미지 제작 도구, Gemini 이미지 생성"
   },
@@ -22,7 +22,7 @@
         "id": "hero",
         "title": "Create AI Images With Text That Actually Renders Correctly",
         "highlight_text": "Actually Renders Correctly",
-        "description": "Most AI image generators struggle with typography. Nano Banana Studio focuses on generating images with clear, readable text — perfect for posters, logos, social media visuals, and product graphics. Powered by advanced Gemini models.",
+        "description": "Most AI image generators struggle with typography. TextRender Studio focuses on generating images with clear, readable text — perfect for posters, logos, social media visuals, and product graphics. Powered by advanced Gemini models.",
         "tip": "5 free generations to start • No credit card required"
       },
       "problem": {
@@ -49,13 +49,13 @@
             "description": "The same prompt produces different spelling errors every time you generate."
           }
         ],
-        "tip": "Nano Banana Studio는 이 문제를 해결하는 데 집중합니다. <a href='/blog/why-ai-struggles-with-text-in-images'>AI 이미지 생성기가 텍스트 렌더링에 실패하는 이유 →</a>"
+        "tip": "TextRender Studio는 이 문제를 해결하는 데 집중합니다. <a href='/blog/why-ai-struggles-with-text-in-images'>AI 이미지 생성기가 텍스트 렌더링에 실패하는 이유 →</a>"
       },
       "capability_showcase": {
         "block": "capability-showcase",
         "id": "showcase",
         "title": "Real Text Rendering Examples",
-        "description": "These images were generated in Nano Banana Studio. See how text renders in different contexts.",
+        "description": "These images were generated in TextRender Studio. See how text renders in different contexts.",
         "items": [
           {
             "title": "Neon Poster",
@@ -152,7 +152,7 @@
         "id": "technology",
         "badge": "Technology",
         "title": "Powered by Advanced Gemini Models",
-        "description": "Nano Banana Studio uses Google's Gemini-based image generation technology.",
+        "description": "TextRender Studio uses Google's Gemini-based image generation technology.",
         "items": [
           {
             "title": "Better prompt understanding",
@@ -201,11 +201,11 @@
       "faq": {
         "id": "faq",
         "title": "Frequently Asked Questions",
-        "description": "Common questions about Nano Banana Studio.",
+        "description": "Common questions about TextRender Studio.",
         "items": [
           {
-            "question": "What is Nano Banana Studio?",
-            "answer": "Nano Banana Studio is an AI image generator designed for creators who need images with readable text and clean visual composition."
+            "question": "What is TextRender Studio?",
+            "answer": "TextRender Studio is an AI image generator designed for creators who need images with readable text and clean visual composition."
           },
           {
             "question": "What AI model powers the generator?",

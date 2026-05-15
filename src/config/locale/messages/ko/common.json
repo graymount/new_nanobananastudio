@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Nano Banana Studio: 무료 AI 이미지 생성기 (가입 불필요)",
-    "description": "텍스트로 몇 초 만에 멋진 AI 이미지를 생성하세요. Google Gemini 기반 — 5회 무료 생성, 10+ 아트 스타일, 이미지 편집 지원. Midjourney와 DALL-E의 무료 대안.",
-    "keywords": "Nano Banana, Nano Banana AI, 무료 AI 이미지 생성기, Nano Banana Pro, Nano Banana Studio, 텍스트 투 이미지, AI 사진 편집기, Gemini 이미지 생성, AI 아트 생성기"
+    "title": "TextRender Studio (구 Nano Banana): 읽기 쉬운 텍스트를 위한 AI 이미지 생성기",
+    "description": "TextRender Studio (구 Nano Banana)는 읽기 쉬운 텍스트 렌더링에 특화된 AI 이미지 생성기 — 간판, 로고, 라벨, 타이포그래피가 깨지지 않습니다. Google Gemini 기반. 5회 무료 생성, 10+ 아트 스타일, 이미지 편집 지원. Midjourney와 DALL-E의 무료 대안, 텍스트가 있는 시각 콘텐츠에 최적.",
+    "keywords": "TextRender Studio, 구 Nano Banana, AI 텍스트 렌더링, AI 타이포그래피, 텍스트 포함 AI 이미지, 무료 AI 이미지 생성기, Midjourney 대안, DALL-E 대안, Gemini 이미지 생성, AI 간판 로고"
   },
   "sign": {
     "sign_in_title": "로그인",

@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Nano Banana Studio: 免费AI绘画生成器（无需注册）",
+    "title": "TextRender Studio: 免费AI绘画生成器（无需注册）",
     "description": "用文字秒生成精美AI图像。基于Google Gemini — 5次免费生成、10+艺术风格、图生图编辑。Midjourney和DALL-E最佳免费替代，创作者首选。",
-    "keywords": "免费AI图像生成器, AI绘画工具2026, 文字生成图片, Midjourney替代品, DALL-E替代, 免费AI绘图, 在线AI图像生成, Gemini图像生成, Nano Banana Studio"
+    "keywords": "免费AI图像生成器, AI绘画工具2026, 文字生成图片, Midjourney替代品, DALL-E替代, 免费AI绘图, 在线AI图像生成, Gemini图像生成, TextRender Studio"
   },
   "page": {
     "show_sections": [
@@ -21,16 +21,17 @@
       "hero": {
         "block": "hero-generator",
         "id": "hero",
+        "eyebrow": "原 Nano Banana —— 现在聚焦更清晰",
         "title": "创作 AI 图像，文字真正清晰可读",
         "highlight_text": "真正清晰可读",
-        "description": "大多数 AI 图像生成器在处理文字时表现不佳。Nano Banana Studio 专注于生成文字清晰、可读的图像 — 适用于海报、Logo、社交媒体视觉和产品图。基于先进的 Gemini 模型。",
+        "description": "大多数 AI 图像生成器在处理文字时表现不佳。TextRender Studio（原 Nano Banana）专注于生成文字清晰、可读的图像 — 适用于海报、Logo、招牌、社交媒体视觉和产品图。基于先进的 Gemini 模型。",
         "tip": "5 次免费生成 • 无需信用卡"
       },
       "text_rendering_test": {
         "block": "text-rendering-test",
         "id": "text-test",
         "title": "测试文字渲染效果",
-        "description": "看看 Nano Banana Studio 如何准确渲染 AI 生成图像中的文字。用你自己的文字试试。",
+        "description": "看看 TextRender Studio 如何准确渲染 AI 生成图像中的文字。用你自己的文字试试。",
         "placeholder": "输入想生成的文字（例如 '盛大开业'）",
         "examples": [
           "盛大开业",
@@ -66,13 +67,13 @@
             "description": "同一个提示词每次生成都会产生不同的拼写错误。"
           }
         ],
-        "tip": "Nano Banana Studio 专注于解决这个问题。<a href='/blog/why-ai-struggles-with-text-in-images'>了解 AI 图像生成器为何难以渲染文字 →</a>"
+        "tip": "TextRender Studio 专注于解决这个问题。<a href='/blog/why-ai-struggles-with-text-in-images'>了解 AI 图像生成器为何难以渲染文字 →</a>"
       },
       "capability_showcase": {
         "block": "capability-showcase",
         "id": "showcase",
         "title": "真实文字渲染效果展示",
-        "description": "以下图像由 Nano Banana Studio 生成。看看文字在不同场景中的渲染效果。",
+        "description": "以下图像由 TextRender Studio 生成。看看文字在不同场景中的渲染效果。",
         "items": [
           {
             "title": "霓虹海报",
@@ -169,7 +170,7 @@
         "id": "technology",
         "badge": "技术",
         "title": "基于先进的 Gemini 模型",
-        "description": "Nano Banana Studio 使用 Google 的 Gemini 图像生成技术。",
+        "description": "TextRender Studio 使用 Google 的 Gemini 图像生成技术。",
         "items": [
           {
             "title": "更好的提示理解",
@@ -218,11 +219,11 @@
       "faq": {
         "id": "faq",
         "title": "常见问题",
-        "description": "关于 Nano Banana Studio 的常见问题。",
+        "description": "关于 TextRender Studio 的常见问题。",
         "items": [
           {
-            "question": "什么是 Nano Banana Studio？",
-            "answer": "Nano Banana Studio 是一个 AI 图像生成器，专为需要可读文字和干净视觉构图的创作者设计。"
+            "question": "什么是 TextRender Studio？",
+            "answer": "TextRender Studio 是一个 AI 图像生成器，专为需要可读文字和干净视觉构图的创作者设计。"
           },
           {
             "question": "使用什么 AI 模型？",

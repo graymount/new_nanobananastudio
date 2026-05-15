@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "AI Image Generator That Actually Renders Text Correctly",
-    "description": "Most AI image generators still struggle with text — misspelling words and producing blurry results. Nano Banana Studio generates images with clear, readable text.",
-    "keywords": "free AI image generator, best AI art generator 2026, text to image AI, Midjourney alternative free, DALL-E alternative, AI photo editor online, AI image creation tool, Nano Banana Studio, Gemini image generator"
+    "description": "Most AI image generators still struggle with text — misspelling words and producing blurry results. TextRender Studio generates images with clear, readable text.",
+    "keywords": "free AI image generator, best AI art generator 2026, text to image AI, Midjourney alternative free, DALL-E alternative, AI photo editor online, AI image creation tool, TextRender Studio, Gemini image generator"
   },
   "page": {
     "show_sections": [
@@ -21,16 +21,17 @@
       "hero": {
         "block": "hero-generator",
         "id": "hero",
+        "eyebrow": "Formerly Nano Banana — now sharper-focused",
         "title": "Create AI Images With Text That Actually Renders Correctly",
         "highlight_text": "Actually Renders Correctly",
-        "description": "Most AI image generators struggle with text — misspelling words or producing unreadable results. Nano Banana Studio generates images with clear, accurate text for posters, logos, and marketing graphics.",
+        "description": "Most AI image generators struggle with text — misspelling words or producing unreadable results. TextRender Studio (formerly Nano Banana) generates images with clear, accurate text for posters, logos, signs, and marketing graphics.",
         "tip": "5 free generations to start • No credit card required"
       },
       "text_rendering_test": {
         "block": "text-rendering-test",
         "id": "text-test",
         "title": "Test Text Rendering",
-        "description": "See how accurately Nano Banana Studio renders text in AI-generated images. Try it with your own text.",
+        "description": "See how accurately TextRender Studio renders text in AI-generated images. Try it with your own text.",
         "placeholder": "Type the text you want to generate (e.g. 'Grand Opening Sale')",
         "examples": [
           "Grand Opening Sale",
@@ -66,13 +67,13 @@
             "description": "The same prompt produces different spelling errors every time you generate."
           }
         ],
-        "tip": "Nano Banana Studio focuses on solving this problem. <a href='/blog/why-ai-struggles-with-text-in-images'>Why AI image generators struggle with text rendering →</a>"
+        "tip": "TextRender Studio focuses on solving this problem. <a href='/blog/why-ai-struggles-with-text-in-images'>Why AI image generators struggle with text rendering →</a>"
       },
       "capability_showcase": {
         "block": "capability-showcase",
         "id": "showcase",
         "title": "Real Text Rendering Examples",
-        "description": "These images were generated in Nano Banana Studio. See how text renders in different contexts.",
+        "description": "These images were generated in TextRender Studio. See how text renders in different contexts.",
         "items": [
           {
             "title": "Neon Poster",
@@ -169,7 +170,7 @@
         "id": "technology",
         "badge": "Technology",
         "title": "Powered by Advanced Gemini Models",
-        "description": "Nano Banana Studio uses Google's Gemini-based image generation technology.",
+        "description": "TextRender Studio uses Google's Gemini-based image generation technology.",
         "items": [
           {
             "title": "Better prompt understanding",
@@ -218,11 +219,11 @@
       "faq": {
         "id": "faq",
         "title": "Frequently Asked Questions",
-        "description": "Common questions about Nano Banana Studio.",
+        "description": "Common questions about TextRender Studio.",
         "items": [
           {
-            "question": "What is Nano Banana Studio?",
-            "answer": "Nano Banana Studio is an AI image generator designed for creators who need images with readable text and clean visual composition."
+            "question": "What is TextRender Studio?",
+            "answer": "TextRender Studio is an AI image generator designed for creators who need images with readable text and clean visual composition."
           },
           {
             "question": "What AI model powers the generator?",
