@@ -6,6 +6,7 @@ import { createAITask, NewAITask } from '@/shared/models/ai_task';
 import { getRemainingCredits } from '@/shared/models/credit';
 import { getUserInfo } from '@/shared/models/user';
 import { getAIService } from '@/shared/services/ai';
+import { moderatePrompt, ModerationError } from '@/shared/services/moderation';
 
 // Increase timeout for AI generation (supports multi-image merge operations)
 // Vercel Pro allows up to 300 seconds, Hobby plan allows 60 seconds
@@ -80,6 +81,30 @@ export async function POST(request: Request) {
       throw new Error('insufficient credits');
     }
 
+    // Required by CREEM Merchant of Record compliance — moderate the user
+    // prompt before invoking the model or charging credits. Fails closed:
+    // a moderation outage blocks generation rather than allowing it through.
+    if (typeof prompt === 'string' && prompt.trim().length > 0) {
+      try {
+        const moderation = await moderatePrompt({
+          prompt,
+          externalId: `user_${user.id}`,
+        });
+        if (!moderation.allowed) {
+          return respErr(
+            'Your prompt violates our content policy. Please revise it and try again.'
+          );
+        }
+      } catch (e: any) {
+        if (e instanceof ModerationError) {
+          console.error('[moderation]', e.cause, e.message);
+          return respErr(
+            'Content moderation is temporarily unavailable. Please try again in a moment.'
+          );
+        }
+        throw e;
+      }
+    }
 
     const callbackUrl = `${envConfigs.app_url}/api/ai/notify/${provider}`;
 
