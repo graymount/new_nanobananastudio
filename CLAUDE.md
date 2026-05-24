@@ -99,11 +99,10 @@ Located at: `/Users/liuwnfng/dev/web100/classic.nanobananastudio.com`
 - **Preview:** `/api/admin/emails/preview-welcome?locale=en` (requires admin login)
 
 **Inbound (Receiving):**
-- **Provider:** Cloudflare Email Routing + Worker
-- **Worker:** `workers/email-receiver/` - forwards emails to webhook
-- **Webhook:** `/api/webhook/email`
-- **Setup:** See `workers/email-receiver/README.md`
-- **Status:** ⚠️ Requires deployment (run `cd workers/email-receiver && pnpm deploy`)
+- **Provider:** Cloudflare Email Routing → Freshdesk (synpix instance)
+- **Routing:** `support@nanobananastudio.com` → `nanobananastudiocomsupport@synpix.freshdesk.com` (managed in Cloudflare dashboard, NOT in code)
+- **Workflow:** Tickets created in Freshdesk; Freshdesk notifies `wnfng.liu@gmail.com`. Reply inside Freshdesk to preserve ticket threading.
+- **Unused alternative:** `workers/email-receiver/` (Cloudflare Worker → `/api/webhook/email` → DB) is kept in repo for future use but NOT deployed and NOT in the active path.
 
 ## Development Commands
 
